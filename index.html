@@ -7,7 +7,7 @@
 <meta name="theme-color" content="#0D0B08">
 <link rel="icon" href="data:,">
 <title>LUCIA — Modern Afro-Caribbean Restaurant in Los Angeles, CA</title>
-<meta name="description" content="LUCIA is a modern Afro-Caribbean restaurant on Fairfax Ave in Los Angeles. Dinner Wed–Sun, 6PM–12AM, 21+. Reserve your table on Resy.">
+<meta name="description" content="LUCIA is a modern Afro-Caribbean restaurant on Fairfax Ave in Los Angeles. Dinner Wed–Sun, 6PM–12AM, 21+. Reserve your table.">
 <link rel="canonical" href="https://www.luciala.com/">
 <meta property="og:type" content="restaurant">
 <meta property="og:title" content="LUCIA — Modern Afro-Caribbean Restaurant in Los Angeles">
@@ -261,10 +261,6 @@ body.menu-open .site-head{background:transparent;border-bottom-color:transparent
 .visit-rows .big{font-family:var(--font-display);font-size:24px;font-weight:400;line-height:1.25}
 /* Visit actions: large, separated, thumb-friendly controls */
 .visit-cta{display:grid;gap:14px}
-.resy-panel{background:var(--noir);color:var(--ivory);border-radius:12px;padding:30px 24px;display:flex;flex-direction:column;gap:14px}
-.resy-panel .label{color:var(--ivory-70)}
-.resy-panel .btn{width:100%;min-height:58px}
-.resy-panel .fine{font-size:13px;color:var(--ivory-70);line-height:1.6;max-width:var(--measure)}
 .visit-actions{display:grid;gap:12px}
 .visit-actions .btn{width:100%;min-height:56px}
 
@@ -323,7 +319,6 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
 @media (max-width:767px){
   .mobile-menu .btn-red,  /* mobile menu "Reserve a table" */
   .room-note .btn-red,    /* The Room "Reserve a table" */
-  .resy-panel .btn-red,   /* Visit panel "Reserve a table" */
   footer a[href*="resy.com"] /* footer "Reserve on Resy" */
   {display:none!important}
 }
@@ -417,8 +412,6 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
   .visit-addr{margin-bottom:clamp(44px,5vw,72px)}
   .visit-rows{grid-template-columns:repeat(3,1fr);gap:36px;margin-bottom:clamp(44px,5vw,72px)}
   .visit-cta{display:flex;gap:clamp(28px,4vw,56px);align-items:stretch;flex-wrap:wrap}
-  .resy-panel{min-width:min(100%,380px);flex:1;padding:34px 32px}
-  .resy-panel .btn{width:auto}
   .visit-actions{display:flex;flex-direction:column;gap:14px;align-items:flex-start;justify-content:center}
   .visit-actions .btn{width:auto}
 
@@ -489,7 +482,6 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
       <li>351 N Fairfax Ave</li>
       <li>Wed–Sun · 6PM–12AM</li>
       <li>21+</li>
-      <li>Reservations via Resy</li>
     </ul>
     <div class="hero-ctas">
       <!-- PLACEHOLDER: swap href for LUCIA's official Resy page when confirmed -->
@@ -514,7 +506,7 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
     <div class="about-grid">
       <h2 class="about-title rv" id="about-h">About Us</h2>
       <div class="rv" data-d="1">
-        <p class="about-lead">Modern Afro-Caribbean food, a Spirited Awards cocktail program, and a room the city talks about.</p>
+        <p class="about-lead">Modern Afro-Caribbean food, celebrated cocktails, and a room the city talks about.</p>
         <div class="about-body">
           <p>LUCIA is modern Afro-Caribbean fine dining in Los Angeles—a seasonally evolving menu, a celebrated cocktail program, and a dining room designed for the full evening.</p>
           <p>The menu draws on the food traditions of the African and Caribbean diaspora, translated into a refined, contemporary dining experience. Come for dinner; stay for the music, the bar, and the room.</p>
@@ -575,7 +567,7 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
           <h3 class="chef-name">Chef <em>Ophus</em></h3>
           <p class="chef-lead">Chef Cleophus &ldquo;Ophus&rdquo; Hethington brings deep diasporic food traditions to LUCIA&rsquo;s fine-dining table&mdash;cooking with precision, warmth, and a point of view.</p>
           <details class="disclosure">
-            <summary><span>Read more about Chef Ophus</span><span class="plus" aria-hidden="true">+</span></summary>
+            <summary><span>Read Chef Ophus&rsquo;s story</span><span class="plus" aria-hidden="true">+</span></summary>
             <div class="disclosure-body">
               <p>Cleophus “Ophus” Hethington runs the pass at LUCIA, turning deep diasporic tradition into the restaurant's fine-dining vernacular. His Jerk Lamb Shank — whipped sweet potato, goat cheese, <span lang="es">salsa criolla</span> — is the centerpiece of the menu. The supporting cast runs deeper: a highly-refined Oil Down with coconut dashi, Scotch bonnet, green seasoning, and tamarind, plus the Dendê Octopus and Haitian Wagyu Tasso.</p>
             </div>
@@ -617,7 +609,7 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
   <div class="wrap pad">
     <div class="kicker rv"><span class="label">03 — The room</span></div>
     <div class="room-head">
-      <h2 class="room-title rv" id="room-h">Designed to be <em>experienced.</em></h2>
+      <h2 class="room-title rv" id="room-h">A room designed to be <em>experienced.</em></h2>
       <div class="room-note rv" data-d="1">
         <span class="label">Sculptural arches, red banquettes, and a glowing bar after dark—a Los Angeles dining room designed to be experienced.</span>
         <!-- PLACEHOLDER: swap href for LUCIA's official Resy page when confirmed -->
@@ -703,20 +695,12 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
   <div class="wrap pad">
     <div class="kicker rv"><span class="label">05 — Visit</span></div>
     <h2 class="sr-only" id="visit-h">Visit</h2>
-    <p class="visit-addr rv" aria-hidden="true">351 N <em>Fairfax</em> Ave</p>
+    <p class="visit-addr rv">351 N <em>Fairfax</em> Ave</p>
     <div class="visit-rows">
-      <div class="rv"><span class="label">Find us</span><span class="big">351 N Fairfax Ave, Los Angeles, CA</span></div>
       <div class="rv" data-d="1"><span class="label">Hours</span><span class="big">Wednesday–Sunday, 6 PM–12 AM</span></div>
       <div class="rv" data-d="2"><span class="label">Good to know</span><span class="big">21+</span></div>
-      <div><span class="label">Reservations</span><span class="big">Book through Resy</span></div>
     </div>
     <div class="visit-cta">
-      <div class="resy-panel rv">
-        <span class="label">Book a table</span>
-        <!-- PLACEHOLDER: swap href for LUCIA's official Resy page when confirmed -->
-        <a class="btn btn-red" href="https://resy.com/cities/los-angeles-ca/venues/lucia-ca" target="_blank" rel="noopener noreferrer">Reserve a table</a>
-        <p class="fine">Reservations are managed through Resy and open two weeks in advance. Friday and Saturday seatings book quickly.</p>
-      </div>
       <div class="visit-actions rv" data-d="1">
         <a class="btn btn-ghost-d" href="https://www.google.com/maps/search/?api=1&amp;query=351+N+Fairfax+Ave+Los+Angeles+CA+90036" target="_blank" rel="noopener noreferrer">Get directions <span aria-hidden="true">→</span></a>
         <a class="btn btn-ghost-d" href="tel:+12138000048">Call +1 213 800 0048</a>
@@ -735,7 +719,7 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
         <figcaption><span class="cap-k">Featured past private event</span>Ms. Lauryn Hill's BET Awards afterparty — live at LUCIA.</figcaption>
       </figure>
       <div class="rv" data-d="1">
-        <h2 class="private-h" id="private-h">Take <em>the room.</em></h2>
+        <h2 class="private-h" id="private-h">Take <em>the room</em> for a night that deserves it.</h2>
         <p class="private-lede">Host a private dinner, celebration, or full-venue buyout in one of Los Angeles&rsquo; most distinctive dining rooms. Our events team will help shape the evening.</p>
         <div class="private-cta">
           <!-- PLACEHOLDER: swap href for LUCIA's official Tripleseat inquiry form when confirmed -->
@@ -848,20 +832,14 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
     revealEls.forEach(function(el){ el.classList.add('in'); });
   }
 
-  /* Sticky bar: appears after the hero; hides while the Visit booking panel
-     or the footer is on screen, and while the menu is open.
+  /* Sticky bar: appears after the hero and stays visible while scrolling;
+     hidden only while the mobile menu is open.
      body.has-bar reserves space so the bar never covers content. */
-  var visit = document.getElementById('visit'),
-      visitVisible = false, footerVisible = false;
   function toggleBar(){
     var menuOpen = toggle.getAttribute('aria-expanded') === 'true';
-    var show = mobileMQ.matches && !menuOpen && !visitVisible && !footerVisible && window.scrollY > window.innerHeight * .7;
+    var show = mobileMQ.matches && !menuOpen && window.scrollY > window.innerHeight * .7;
     bar.classList.toggle('show', show);
     document.body.classList.toggle('has-bar', show);
-  }
-  if ('IntersectionObserver' in window){
-    new IntersectionObserver(function(es){ visitVisible = es[0].isIntersecting; toggleBar(); }, {threshold:.12}).observe(visit);
-    new IntersectionObserver(function(es){ footerVisible = es[0].isIntersecting; toggleBar(); }, {threshold:.05}).observe(footer);
   }
   window.addEventListener('scroll', toggleBar, {passive:true});
   window.addEventListener('resize', toggleBar);
