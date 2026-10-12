@@ -226,7 +226,7 @@ body.menu-open .site-head{background:transparent;border-bottom-color:transparent
 .car-arrow:hover{border-color:var(--gold)}
 .car-arrow:disabled{opacity:.3;cursor:default}
 .car-dots{display:flex;justify-content:center;gap:2px}
-.car-dots button{width:32px;height:44px;border:0;background:transparent;cursor:pointer;position:relative}
+.car-dots button{width:44px;height:44px;border:0;background:transparent;cursor:pointer;position:relative}
 .car-dots button::before{content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:8px;height:8px;border-radius:50%;background:var(--ivory-30)}
 .car-dots button[aria-current="true"]::before{background:var(--gold)}
 .carousel-status{margin-top:14px;color:var(--ivory-50);font-size:13px}
@@ -357,7 +357,7 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
   .site-head.scrolled{padding-top:12px;padding-bottom:12px}
   .wordmark{font-size:20px}
   .site-nav{display:flex;gap:32px}
-  .site-nav a{position:relative;text-decoration:none;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;opacity:.72;padding:8px 2px;transition:opacity var(--dur-s)}
+  .site-nav a{position:relative;text-decoration:none;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;opacity:.72;padding:14px 2px;transition:opacity var(--dur-s)}
   .site-nav a::after{content:"";position:absolute;left:0;bottom:2px;height:1px;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform var(--dur-s) var(--ease)}
   .site-nav a:hover,.site-nav a:focus-visible{opacity:1}
   .site-nav a:hover::after,.site-nav a:focus-visible::after{transform:scaleX(1)}
@@ -474,7 +474,7 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
   <a class="btn btn-red" href="https://resy.com/cities/los-angeles-ca/venues/lucia-ca" target="_blank" rel="noopener noreferrer">Reserve a table</a>
 </div>
 
-<main id="maincontent">
+<main id="maincontent" tabindex="-1">
 <!-- ============ HERO ============ -->
 <header class="hero" id="top">
   <div class="hero-media">
@@ -494,7 +494,7 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
     <div class="hero-ctas">
       <!-- PLACEHOLDER: swap href for LUCIA's official Resy page when confirmed -->
       <a class="btn btn-red" href="https://resy.com/cities/los-angeles-ca/venues/lucia-ca" target="_blank" rel="noopener noreferrer">Reserve a table</a>
-      <a class="btn btn-ghost" href="#taste">View menu</a>
+      <a class="btn btn-ghost" href="#taste">View menus</a>
     </div>
   </div>
   <p class="hero-scroll label" aria-hidden="true">Scroll</p>
@@ -503,7 +503,7 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
 <!-- ============ CONCEPT ============ -->
 <section class="concept noir" aria-label="The concept">
   <div class="wrap pad">
-    <p class="concept-lead rv">At 351 N Fairfax Ave, LUCIA brings dinner and the night around it into <em>one story</em> — Afro-Caribbean food, a Spirited Awards cocktail program, and a room built for the evening.</p>
+    <p class="concept-lead rv">Modern Afro-Caribbean dining, standout cocktails, and a room made for <em>long Los Angeles nights.</em></p>
   </div>
 </section>
 
@@ -516,8 +516,9 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
       <div class="rv" data-d="1">
         <p class="about-lead">Modern Afro-Caribbean food, a Spirited Awards cocktail program, and a room the city talks about.</p>
         <div class="about-body">
-          <p>At 351 N Fairfax Ave, LUCIA brings dinner and the night around it into one story — Caribbean fine dining in an upscale, see-and-be-seen Los Angeles dining room, with a seasonally turning menu rooted in the foodways of the African and Caribbean diaspora.</p>
-          <p>Featured by the LA Times, Eater, Vogue, and Condé Nast — and named No. 19 on Yelp's Best New Restaurants of 2026.</p>
+          <p>LUCIA is modern Afro-Caribbean fine dining in Los Angeles—a seasonally evolving menu, a celebrated cocktail program, and a dining room designed for the full evening.</p>
+          <p>The menu draws on the food traditions of the African and Caribbean diaspora, translated into a refined, contemporary dining experience. Come for dinner; stay for the music, the bar, and the room.</p>
+          <p>Recognized by the LA Times, Eater, Vogue, Condé Nast, Robb Report, and Yelp's Best New Restaurants 2026.</p>
         </div>
       </div>
     </div>
@@ -544,7 +545,7 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
         <div class="proof-card" role="listitem">
           <p class="big">21 Most Beautiful</p>
           <p class="sub">Robb Report · Restaurants in America</p>
-          <p class="note">A room that needs no introduction — officially.</p>
+          <p class="note">A dining room officially recognized for its design.</p>
         </div>
         <div class="proof-card" role="listitem">
           <p class="big">In the press</p>
@@ -572,11 +573,11 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
         </figure>
         <div class="rv" data-d="1">
           <h3 class="chef-name">Chef <em>Ophus</em></h3>
-          <p class="chef-lead">A former Navy veteran and civilian healthcare specialist who traded it all for the kitchen — and cooks the rich foodways of the African and Caribbean diaspora like few others.</p>
+          <p class="chef-lead">Chef Cleophus &ldquo;Ophus&rdquo; Hethington brings deep diasporic food traditions to LUCIA&rsquo;s fine-dining table&mdash;cooking with precision, warmth, and a point of view.</p>
           <details class="disclosure">
             <summary><span>Read more about Chef Ophus</span><span class="plus" aria-hidden="true">+</span></summary>
             <div class="disclosure-body">
-              <p>Cleophus “Ophus” Hethington runs the pass at LUCIA, turning deep diasporic tradition into the restaurant's fine-dining vernacular. His Jerk Lamb Shank — whipped sweet potato, goat cheese, salsa criolla — is the centerpiece of the menu. The supporting cast runs deeper: a highly-refined Oil Down with coconut dashi, Scotch bonnet, green seasoning, and tamarind, plus the Dendê Octopus and Haitian Wagyu Tasso.</p>
+              <p>Cleophus “Ophus” Hethington runs the pass at LUCIA, turning deep diasporic tradition into the restaurant's fine-dining vernacular. His Jerk Lamb Shank — whipped sweet potato, goat cheese, <span lang="es">salsa criolla</span> — is the centerpiece of the menu. The supporting cast runs deeper: a highly-refined Oil Down with coconut dashi, Scotch bonnet, green seasoning, and tamarind, plus the Dendê Octopus and Haitian Wagyu Tasso.</p>
             </div>
           </details>
           <ul class="chef-facts" aria-label="Chef Ophus accolades">
@@ -599,13 +600,13 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
       <div class="taste-copy">
         <div class="kicker rv"><span class="label">02 — Taste</span></div>
         <h2 class="taste-h rv" id="taste-h">The menu <em>turns.</em> The craving stays.</h2>
-        <p class="taste-desc rv" data-d="1">Afro-Caribbean fine dining in L.A. — deep diasporic tradition translated into the restaurant's own vernacular, and a Spirited Awards cocktail program to match the room.</p>
+        <p class="taste-desc rv" data-d="1">Afro-Caribbean flavors, seasonal ingredients, and cocktails built for the room. The menu changes; the standards do not.</p>
         <ul class="dish-list rv" data-d="2" aria-label="Signature dishes">
           <li><span class="dish">Tamarind Pepper Wings</span><span class="num">Nº 01</span><span class="desc">Glazed, heat-forward, finished with lime. The menu turns; this one stays.</span></li>
-          <li><span class="dish">Jerk Lamb Shank</span><span class="num">Nº 02</span><span class="desc">Whipped sweet potato, goat cheese, salsa criolla — the centerpiece of the menu.</span></li>
+          <li><span class="dish">Jerk Lamb Shank</span><span class="num">Nº 02</span><span class="desc">Whipped sweet potato, goat cheese, <span lang="es">salsa criolla</span> — the centerpiece of the menu.</span></li>
           <li><span class="dish">Oil Down</span><span class="num">Nº 03</span><span class="desc">Coconut dashi, Scotch bonnet, green seasoning, tamarind — highly refined.</span></li>
         </ul>
-        <a class="textlink btn-block rv" data-d="2" href="#taste">View current menus <span aria-hidden="true">→</span></a>
+        <a class="textlink btn-block rv" data-d="2" href="#taste">View menus <span aria-hidden="true">→</span></a>
       </div>
     </div>
   </div>
@@ -616,9 +617,9 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
   <div class="wrap pad">
     <div class="kicker rv"><span class="label">03 — The room</span></div>
     <div class="room-head">
-      <h2 class="room-title rv" id="room-h">A room that needs <em>no introduction.</em></h2>
+      <h2 class="room-title rv" id="room-h">Designed to be <em>experienced.</em></h2>
       <div class="room-note rv" data-d="1">
-        <span class="label">Robb Report · 21 Most Beautiful Restaurants in America — sculptural arches, red banquettes, and a bar that glows after dark.</span>
+        <span class="label">Sculptural arches, red banquettes, and a glowing bar after dark—a Los Angeles dining room designed to be experienced.</span>
         <!-- PLACEHOLDER: swap href for LUCIA's official Resy page when confirmed -->
         <a class="btn btn-red" href="https://resy.com/cities/los-angeles-ca/venues/lucia-ca" target="_blank" rel="noopener noreferrer">Reserve a table</a>
       </div>
@@ -671,7 +672,7 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
       <article class="event-card rv" data-d="1">
         <p class="when">Every Thursday · 8 PM–12 AM</p>
         <h4>Sobremesa</h4>
-        <p>&ldquo;Sabores y ritmos.&rdquo; Dinner and music with rotating DJs.</p>
+        <p><span lang="es">&ldquo;Sabores y ritmos.&rdquo;</span> Dinner and music with rotating DJs.</p>
       </article>
     </div>
     <!-- This week: featured current programming, no booking buttons -->
@@ -704,16 +705,17 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
     <h2 class="sr-only" id="visit-h">Visit</h2>
     <p class="visit-addr rv" aria-hidden="true">351 N <em>Fairfax</em> Ave</p>
     <div class="visit-rows">
-      <div class="rv"><span class="label">Hours</span><span class="big">Wed–Sun · 6PM–12AM</span></div>
-      <div class="rv" data-d="1"><span class="label">Good to know</span><span class="big">21+ · Los Angeles, CA</span></div>
-      <div class="rv" data-d="2"><span class="label">Reservations</span><span class="big">Always on Resy</span></div>
+      <div class="rv"><span class="label">Find us</span><span class="big">351 N Fairfax Ave, Los Angeles, CA</span></div>
+      <div class="rv" data-d="1"><span class="label">Hours</span><span class="big">Wednesday–Sunday, 6 PM–12 AM</span></div>
+      <div class="rv" data-d="2"><span class="label">Good to know</span><span class="big">21+</span></div>
+      <div><span class="label">Reservations</span><span class="big">Book through Resy</span></div>
     </div>
     <div class="visit-cta">
       <div class="resy-panel rv">
         <span class="label">Book a table</span>
         <!-- PLACEHOLDER: swap href for LUCIA's official Resy page when confirmed -->
         <a class="btn btn-red" href="https://resy.com/cities/los-angeles-ca/venues/lucia-ca" target="_blank" rel="noopener noreferrer">Reserve a table</a>
-        <p class="fine">Availability and booking are handled directly by Resy. Reservations open two weeks ahead — prime Friday and Saturday seatings go first.</p>
+        <p class="fine">Reservations are managed through Resy and open two weeks in advance. Friday and Saturday seatings book quickly.</p>
       </div>
       <div class="visit-actions rv" data-d="1">
         <a class="btn btn-ghost-d" href="https://www.google.com/maps/search/?api=1&amp;query=351+N+Fairfax+Ave+Los+Angeles+CA+90036" target="_blank" rel="noopener noreferrer">Get directions <span aria-hidden="true">→</span></a>
@@ -734,7 +736,7 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
       </figure>
       <div class="rv" data-d="1">
         <h2 class="private-h" id="private-h">Take <em>the room.</em></h2>
-        <p class="private-lede">Buyouts, birthdays, and nights that deserve a room like this. One team, one table, no compromises.</p>
+        <p class="private-lede">Host a private dinner, celebration, or full-venue buyout in one of Los Angeles&rsquo; most distinctive dining rooms. Our events team will help shape the evening.</p>
         <div class="private-cta">
           <!-- PLACEHOLDER: swap href for LUCIA's official Tripleseat inquiry form when confirmed -->
           <a class="btn btn-gold" href="https://349351nfairfaxllc.tripleseat.com/party_request/42802" target="_blank" rel="noopener noreferrer">Inquire about private events</a>
@@ -771,7 +773,7 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
       <div>
         <h2>Book</h2>
         <!-- PLACEHOLDER: swap href for LUCIA's official Resy page when confirmed -->
-        <a href="https://resy.com/cities/los-angeles-ca/venues/lucia-ca" target="_blank" rel="noopener noreferrer">Reserve on Resy</a>
+        <a href="https://resy.com/cities/los-angeles-ca/venues/lucia-ca" target="_blank" rel="noopener noreferrer">Reserve a table</a>
         <a href="tel:+12138000048">+1 213 800 0048</a>
         <a href="mailto:reservations@luciala.com">reservations@luciala.com</a>
       </div>
