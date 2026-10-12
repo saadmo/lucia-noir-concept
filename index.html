@@ -30,7 +30,7 @@
 :root{
   --noir:#0D0B08; --noir-2:#161210; --noir-3:#080604;
   --ivory:#F5EFE3; --ivory-70:rgba(245,239,227,.7); --ivory-50:rgba(245,239,227,.5); --ivory-30:rgba(245,239,227,.3);
-  --gold:#C9A961; --gold-deep:#A8853F; --gold-soft:rgba(201,169,97,.13);
+  --gold:#C9A961; --gold-deep:#A8853F; --gold-soft:rgba(201,169,97,.13); --red:#C8401F; --red-deep:#9E2F13; --red-hi:#E06538;
   --bronze:#7C5F24; /* gold darkened for AA text on ivory */
   --line-d:rgba(245,239,227,.14); --line-l:rgba(13,11,8,.15);
   --font-display:'Fraunces',Didot,'Bodoni MT',Georgia,'Times New Roman',serif;
@@ -77,6 +77,8 @@ a{color:inherit}
 .btn:hover{transform:translateY(-2px)}
 .btn-gold{background:var(--gold);color:var(--noir)}
 .btn-gold:hover{background:#D8B96F;box-shadow:0 12px 32px rgba(201,169,97,.32)}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:var(--red-deep);box-shadow:0 12px 32px rgba(200,64,31,.32)}
 .btn-ghost{border-color:var(--ivory-30);color:var(--ivory)}
 .btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
 .btn-ghost-d{border-color:rgba(13,11,8,.32);color:var(--noir)}
@@ -319,9 +321,9 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
    action), and the sticky bar remains the persistent path while scrolling.
    Desktop (768px+) is untouched. */
 @media (max-width:767px){
-  .mobile-menu .btn-gold,  /* mobile menu "Reserve a table" */
-  .room-note .btn-gold,    /* The Room "Reserve a table" */
-  .resy-panel .btn-gold,   /* Visit panel "Reserve a table" */
+  .mobile-menu .btn-red,  /* mobile menu "Reserve a table" */
+  .room-note .btn-red,    /* The Room "Reserve a table" */
+  .resy-panel .btn-red,   /* Visit panel "Reserve a table" */
   footer a[href*="resy.com"] /* footer "Reserve on Resy" */
   {display:none!important}
 }
@@ -453,7 +455,7 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
     <a href="#private-events">Private Events</a>
   </nav>
   <!-- PLACEHOLDER: swap href for LUCIA's official Resy page when confirmed -->
-  <a class="btn btn-gold btn-sm head-cta" href="https://resy.com/cities/los-angeles-ca/venues/lucia-ca" target="_blank" rel="noopener noreferrer">Reserve a table</a>
+  <a class="btn btn-red btn-sm head-cta" href="https://resy.com/cities/los-angeles-ca/venues/lucia-ca" target="_blank" rel="noopener noreferrer">Reserve a table</a>
   <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation menu">
     <span class="menu-toggle-lines" aria-hidden="true"></span>
   </button>
@@ -469,7 +471,7 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
     <li><a href="#private-events"><span class="num">06</span><span class="name">Private Events</span><span class="arr" aria-hidden="true">→</span></a></li>
   </ol>
   <!-- PLACEHOLDER: swap href for LUCIA's official Resy page when confirmed -->
-  <a class="btn btn-gold" href="https://resy.com/cities/los-angeles-ca/venues/lucia-ca" target="_blank" rel="noopener noreferrer">Reserve a table</a>
+  <a class="btn btn-red" href="https://resy.com/cities/los-angeles-ca/venues/lucia-ca" target="_blank" rel="noopener noreferrer">Reserve a table</a>
 </div>
 
 <main id="maincontent">
@@ -491,7 +493,7 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
     </ul>
     <div class="hero-ctas">
       <!-- PLACEHOLDER: swap href for LUCIA's official Resy page when confirmed -->
-      <a class="btn btn-gold" href="https://resy.com/cities/los-angeles-ca/venues/lucia-ca" target="_blank" rel="noopener noreferrer">Reserve a table</a>
+      <a class="btn btn-red" href="https://resy.com/cities/los-angeles-ca/venues/lucia-ca" target="_blank" rel="noopener noreferrer">Reserve a table</a>
       <a class="btn btn-ghost" href="#taste">View menu</a>
     </div>
   </div>
@@ -618,7 +620,7 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
       <div class="room-note rv" data-d="1">
         <span class="label">Robb Report · 21 Most Beautiful Restaurants in America — sculptural arches, red banquettes, and a bar that glows after dark.</span>
         <!-- PLACEHOLDER: swap href for LUCIA's official Resy page when confirmed -->
-        <a class="btn btn-gold" href="https://resy.com/cities/los-angeles-ca/venues/lucia-ca" target="_blank" rel="noopener noreferrer">Reserve a table</a>
+        <a class="btn btn-red" href="https://resy.com/cities/los-angeles-ca/venues/lucia-ca" target="_blank" rel="noopener noreferrer">Reserve a table</a>
       </div>
     </div>
     <div class="carousel rv" data-d="1">
@@ -710,7 +712,7 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
       <div class="resy-panel rv">
         <span class="label">Book a table</span>
         <!-- PLACEHOLDER: swap href for LUCIA's official Resy page when confirmed -->
-        <a class="btn btn-gold" href="https://resy.com/cities/los-angeles-ca/venues/lucia-ca" target="_blank" rel="noopener noreferrer">Reserve a table</a>
+        <a class="btn btn-red" href="https://resy.com/cities/los-angeles-ca/venues/lucia-ca" target="_blank" rel="noopener noreferrer">Reserve a table</a>
         <p class="fine">Availability and booking are handled directly by Resy. Reservations open two weeks ahead — prime Friday and Saturday seatings go first.</p>
       </div>
       <div class="visit-actions rv" data-d="1">
@@ -782,12 +784,10 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
   </div>
 </footer>
 
-<!-- Persistent mobile conversion bar: the ONLY reservation CTA on mobile.
-     Primary "Reserve" (gold) + secondary "View menu" (ghost). -->
-<div class="stickybar" id="stickybar" role="region" aria-label="Quick actions">
+<!-- Persistent mobile conversion bar: "Reserve a table" (red) is the ONLY sticky CTA on scroll. -->
+<div class="stickybar" id="stickybar" role="region" aria-label="Reserve a table">
   <!-- PLACEHOLDER: swap href for LUCIA's official Resy page when confirmed -->
-  <a class="btn btn-gold" href="https://resy.com/cities/los-angeles-ca/venues/lucia-ca" target="_blank" rel="noopener noreferrer">Reserve</a>
-  <a class="btn btn-ghost" href="#taste">View menu</a>
+  <a class="btn btn-red" href="https://resy.com/cities/los-angeles-ca/venues/lucia-ca" target="_blank" rel="noopener noreferrer">Reserve a table</a>
 </div>
 
 <script>
