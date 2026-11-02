@@ -276,7 +276,7 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
 .foot-base{display:flex;flex-direction:column;gap:8px;padding:22px 20px calc(22px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line-d);position:relative;background:#080604}
 .foot-base .label{opacity:.55}
 
-/* ============ STICKY MOBILE BAR (only reservation CTA on mobile) ============ */
+/* ============ STICKY MOBILE BAR (Reserve + View menus, on mobile) ============ */
 /* Translucent + blurred so it feels part of the brand.
    body.has-bar reserves space so the bar never covers content. */
 .stickybar{display:none}
@@ -727,10 +727,11 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
   </div>
 </footer>
 
-<!-- Persistent mobile conversion bar: "Reserve a table" (red) is the ONLY sticky CTA on scroll. -->
-<div class="stickybar" id="stickybar" role="region" aria-label="Reserve a table">
+<!-- Persistent mobile conversion bar: "Reserve a table" (red, primary) + "View menus" (ghost), stationary on scroll. -->
+<div class="stickybar" id="stickybar" role="region" aria-label="Quick actions">
   <!-- PLACEHOLDER: swap href for LUCIA's official Resy page when confirmed -->
   <a class="btn btn-red" href="https://resy.com/cities/los-angeles-ca/venues/lucia-ca" target="_blank" rel="noopener noreferrer">Reserve a table<span class="sr-only"> (opens in new tab)</span></a>
+  <a class="btn btn-ghost" href="#taste">View menus</a>
 </div>
 
 <script>
