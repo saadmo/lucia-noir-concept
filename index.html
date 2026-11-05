@@ -239,6 +239,9 @@ body.menu-open .site-head{background:transparent;border-bottom-color:transparent
 .events-intro{max-width:var(--measure);color:var(--ivory-70);margin:0 0 32px}
 /* Full-width stacked cards on mobile — strong hierarchy, easy to tap */
 .event-cards{display:grid;gap:16px}
+.events-layout{display:grid;gap:24px}
+.events-figure{overflow:hidden;border-radius:8px;margin:0}
+.events-figure img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
 .event-card{border:1px solid var(--line-d);border-radius:12px;padding:28px 24px;background:var(--noir-2);display:flex;flex-direction:column;gap:12px}
 .event-card .when{font-family:var(--font-label);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);line-height:1.7}
 .event-card h4{font-family:var(--font-display);font-size:clamp(26px,7vw,40px);font-weight:400;line-height:1.05;text-wrap:balance}
@@ -395,8 +398,10 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
   .carousel .slide{border-radius:8px}
   .carousel .slide img{aspect-ratio:16/9;max-height:78vh}
 
-  /* Events: three-column cards */
-  .event-cards{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+  /* Events: photo left, cards stacked right */
+  .events-layout{grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(32px,4vw,56px);align-items:stretch}
+  .events-figure img{aspect-ratio:auto;height:100%}
+  .event-cards{grid-template-columns:1fr;gap:16px}
   .event-card{transition:transform var(--dur-s) var(--ease),border-color var(--dur-s),box-shadow var(--dur-s)}
   .event-card:hover{transform:translateY(-6px);border-color:rgba(201,169,97,.5);box-shadow:0 24px 60px rgba(0,0,0,.45)}
   .event-card .btn{align-self:flex-start}
@@ -587,7 +592,11 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
     <h2 class="taste-h rv" id="events-h" style="margin-bottom:18px">This week at LUCIA</h2>
     <p class="events-intro rv">Live R&amp;B, DJs, and late nights — the programming is part of the reservation. Full dinner service runs through every event.</p>
     <!-- No booking buttons on event cards — booking lives in the header and sticky bar -->
-    <div class="event-cards">
+    <div class="events-layout">
+      <figure class="events-figure rv">
+        <img src="assets/events-live.webp" alt="A DJ plays to a packed, red-lit room at LUCIA" loading="lazy" decoding="async" width="1200" height="800">
+      </figure>
+      <div class="event-cards">
       <article class="event-card rv">
         <p class="when">Every Wednesday · 6:30–10 PM</p>
         <h4>Live at LUCIA</h4>
@@ -602,6 +611,7 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
         <p class="when">This week</p>
         <p>Sounds by Jae Murphy, Tomi Tribe &amp; Major League.</p>
       </article>
+      </div>
     </div>
   </div>
 </section>
