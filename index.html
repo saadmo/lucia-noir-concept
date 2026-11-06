@@ -27,6 +27,9 @@
    Base styles target 320px and up; the layout scales through
    min-width breakpoints (1024px desktop, 1440px wide).
    ================================================================ */
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:100 900;font-display:swap;src:url(assets/fonts/fraunces.woff2) format('woff2')}
+@font-face{font-family:'Fraunces';font-style:italic;font-weight:100 900;font-display:swap;src:url(assets/fonts/fraunces-italic.woff2) format('woff2')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;src:url(assets/fonts/inter.woff2) format('woff2')}
 :root{
   --noir:#0D0B08; --noir-2:#161210; --noir-3:#080604;
   --ivory:#F5EFE3; --ivory-70:rgba(245,239,227,.7); --ivory-50:rgba(245,239,227,.5); --ivory-30:rgba(245,239,227,.3);
@@ -71,6 +74,8 @@ a{color:inherit}
 .pad{padding-top:var(--pad-sec);padding-bottom:var(--pad-sec)}
 .ivory{background:var(--ivory);color:var(--noir)}
 .noir{background:var(--noir);color:var(--ivory)}
+.sec-h{font-family:var(--font-display);font-weight:300;font-size:var(--t-h2);line-height:1.05;text-wrap:balance}
+.sec-h em{font-style:italic;color:var(--gold)}
 
 /* Buttons: one conversion style, one quiet style. 48px+ targets. */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;padding:16px 30px;border-radius:100px;min-height:52px;min-width:48px;border:1px solid transparent;cursor:pointer;transition:transform var(--dur-s) var(--ease),background var(--dur-s),border-color var(--dur-s),box-shadow var(--dur-s)}
@@ -155,38 +160,19 @@ body.menu-open .site-head{background:transparent;border-bottom-color:transparent
 .about-body{margin-top:22px;max-width:var(--measure);color:rgba(13,11,8,.74)}
 .about-body p+p{margin-top:16px}
 
-/* Proof: vertically stacked cards on mobile (nothing hidden, no swipe needed) */
-.proof{margin-top:48px}
-/* Recognized ends on a thin collapsed disclosure row: tighten the section's
-   bottom padding so the handoff to Visit doesn't read as a void. */
-#recognized .wrap{padding-bottom:clamp(36px,4vw,60px)}
-.proof-track{display:grid;gap:14px}
-.proof-card{border:1px solid var(--line-l);border-radius:10px;padding:26px 22px;background:#FBF8F0;display:flex;flex-direction:column;gap:10px}
-.proof-card .big{font-family:var(--font-display);font-size:28px;line-height:1.1;font-weight:400}
-.proof-card .sub{font-family:var(--font-label);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:rgba(13,11,8,.6);line-height:1.7}
-.proof-card .note{font-size:14px;color:rgba(13,11,8,.66);line-height:1.6}
-.proof-card.featured{border-color:rgba(201,169,97,.55)}
-.proof-card.featured .big{font-size:36px}
-.proof-card.featured img{width:120px;height:auto}
-.yelp-head{display:flex;flex-direction:column;gap:10px}
-
-/* Native disclosures styled as editorial "read more" */
-.disclosure{margin-top:28px;border-top:1px solid var(--line-l)}
-.disclosure summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:16px;cursor:pointer;padding:18px 0;font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;min-height:52px}
-.disclosure summary::-webkit-details-marker{display:none}
-.disclosure summary .plus{font-size:22px;font-weight:300;color:var(--bronze);transition:transform var(--dur-s) var(--ease);flex-shrink:0}
-.disclosure[open] summary .plus{transform:rotate(45deg)}
-.disclosure .disclosure-body{padding:4px 0 26px;max-width:var(--measure);color:rgba(13,11,8,.76)}
-.disclosure .disclosure-body p+p{margin-top:14px}
-/* Yelp quote inside its card: no divider, no extra bottom padding */
-.proof-card .yelp-quote{margin-top:4px;border-top:0}
-.proof-card .yelp-quote summary{padding:12px 0}
-.proof-card .yelp-quote .disclosure-body{padding:0}
-/* Yelp quote: always visible on desktop (no toggle), collapsible "View more" on mobile */
-@media (min-width:1024px){
-  .yelp-quote summary{display:none}
-  .yelp-quote > .disclosure-body{display:block}
-}
+/* ============ RECOGNITION (quiet close, noir) ============ */
+.recog-feature{border-top:1px solid var(--line-d);padding-top:32px;max-width:860px}
+.recog-head{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.recog-head img{width:96px;height:auto}
+.recog-head .big{font-family:var(--font-display);font-size:clamp(36px,9vw,56px);font-weight:400;line-height:1}
+.recog-sub{margin-top:14px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ivory-70);font-weight:600}
+.recog-quote{margin-top:18px;font-family:var(--font-display);font-style:italic;font-weight:300;font-size:clamp(18px,4.6vw,24px);line-height:1.5;color:var(--ivory);max-width:56ch}
+.recog-quote cite{display:block;margin-top:12px;font-family:var(--font-label);font-style:normal;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ivory-50)}
+.recog-list{list-style:none;margin-top:40px;border-top:1px solid var(--line-d);max-width:860px}
+.recog-list li{display:grid;gap:4px;padding:18px 0;border-bottom:1px solid var(--line-d)}
+.recog-list .r-label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.recog-list .r-name{font-family:var(--font-display);font-size:22px;font-weight:400;line-height:1.2}
+.recog-list .r-note{color:var(--ivory-70);font-size:14px;line-height:1.6}
 .pullquote{margin:22px 0;padding-left:20px;border-left:2px solid var(--gold);font-family:var(--font-display);font-style:italic;font-size:19px;line-height:1.5;font-weight:300}
 .pullquote cite{display:block;margin-top:10px;font-family:var(--font-label);font-style:normal;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:rgba(13,11,8,.6)}
 
@@ -372,15 +358,8 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
   /* About: editorial two-column */
   .about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(48px,7vw,120px);align-items:start}
   .about-title{margin-bottom:0}
-  /* Proof row: horizontal scroll-snap carousel on desktop */
-  .proof{margin-top:clamp(48px,6vw,84px)}
-  .proof-track{grid-template-columns:1.2fr 1fr 1fr}
-  .proof-card{scroll-snap-align:start;min-height:220px;transition:transform var(--dur-s) var(--ease),box-shadow var(--dur-s)}
-  .proof-card:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(13,11,8,.1)}
-  .proof-card .big{font-size:30px}
-  .proof-card.featured{grid-row:span 2}
-  .proof-card.featured .big{font-size:44px}
-  .proof-card.featured .yelp-head{flex-direction:row;align-items:center;gap:20px}
+  /* Recognition: featured + list */
+  .recog-list li{grid-template-columns:220px 1fr;gap:20px;align-items:baseline}
 
 
   /* Taste: alternating editorial grid */
@@ -636,48 +615,26 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
   </div>
 </section>
 <!-- ============ 06 RECOGNIZED ============ -->
-<section class="ivory" id="recognized" aria-labelledby="recognized-h">
+<section class="noir" id="recognized" aria-labelledby="recognized-h">
   <div class="wrap pad">
-    <h2 class="sr-only" id="recognized-h">Recognized among the best</h2>
-    <div class="proof rv">
-      <div class="kicker"><span class="label">06 — Recognized among the best</span></div>
-      <div class="proof-track" role="list" aria-label="Awards and press">
-        <div class="proof-card featured" role="listitem">
-          <div class="yelp-head">
-            <img src="assets/yelp-badge.webp" alt="Yelp Best New Restaurants 2026 badge" loading="lazy" decoding="async" width="96">
-            <h3 class="big">No. 19</h3>
-          </div>
-          <p class="sub">Yelp · Best New Restaurants 2026 · National</p>
-          <details class="disclosure yelp-quote" id="yelp-quote">
-            <summary><span>View more</span><span class="plus" aria-hidden="true">+</span></summary>
-            <div class="disclosure-body">
-              <p>Yelp's editors wrote: “Diners are treated to Caribbean fine dining in this upscale, see-and-be-seen L.A. spot, which has received both national and international recognition for its stunning interior design and has already drawn celebrities like Usher and Saweetie.”</p>
-            </div>
-          </details>
-        </div>
-        <div class="proof-card" role="listitem">
-          <h3 class="big">Gold Key Award</h3>
-          <p class="sub">2025 · Hospitality design</p>
-          <p class="note">Design and hospitality, recognized on the national stage.</p>
-        </div>
-        <div class="proof-card" role="listitem">
-          <h3 class="big">LA Times 101</h3>
-          <p class="sub">LA Times · Best restaurants</p>
-          <p class="note">Counted among the city's essential dining rooms.</p>
-        </div>
-        <div class="proof-card" role="listitem">
-          <h3 class="big">21 Most Beautiful</h3>
-          <p class="sub">Robb Report · Restaurants in America</p>
-          <p class="note">A dining room officially recognized for its design.</p>
-        </div>
-        <div class="proof-card" role="listitem">
-          <h3 class="big">In the press</h3>
-          <p class="sub">LA Times · Eater · Vogue · Condé Nast</p>
-          <p class="note">Food, culture, and travel desks all found the room.</p>
-        </div>
+    <h2 class="sec-h" id="recognized-h">Recognition</h2>
+    <div class="recog-feature">
+      <div class="recog-head">
+        <img src="assets/yelp-badge.webp" alt="Yelp Best New Restaurants 2026 badge" loading="lazy" decoding="async" width="480" height="480">
+        <span class="big">No. 19</span>
       </div>
+      <p class="recog-sub">Yelp &middot; Best New Restaurants 2026 &middot; National</p>
+      <blockquote class="recog-quote">
+        <p>&ldquo;Diners are treated to Caribbean fine dining in this upscale, see-and-be-seen L.A. spot, which has received both national and international recognition for its stunning interior design and has already drawn celebrities like Usher and Saweetie.&rdquo;</p>
+        <cite>Yelp&rsquo;s editors</cite>
+      </blockquote>
     </div>
-
+    <ul class="recog-list">
+      <li><span class="r-label">Dining</span><div><div class="r-name">LA Times 101</div><div class="r-note">Counted among the city&rsquo;s essential dining rooms.</div></div></li>
+      <li><span class="r-label">Design</span><div><div class="r-name">Gold Key Award 2025</div><div class="r-note">Design and hospitality, recognized on the national stage.</div></div></li>
+      <li><span class="r-label">Design</span><div><div class="r-name">Robb Report &mdash; 21 Most Beautiful Restaurants in America</div><div class="r-note">A dining room officially recognized for its design.</div></div></li>
+      <li><span class="r-label">In the press</span><div><div class="r-name">Eater &middot; Vogue &middot; Cond&eacute; Nast</div><div class="r-note">Food, culture, and travel desks all found the room.</div></div></li>
+    </ul>
   </div>
 </section>
 
@@ -813,9 +770,6 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
   }
   window.addEventListener('scroll', toggleBar, {passive:true});
 
-  /* Yelp quote: open on desktop (always visible), closed on mobile (View more toggle) */
-  var yelpQuote = document.getElementById('yelp-quote');
-  if (yelpQuote && !mobileMQ.matches) yelpQuote.open = true;
   window.addEventListener('resize', toggleBar);
   if (mobileMQ.addEventListener) mobileMQ.addEventListener('change', toggleBar);
 
