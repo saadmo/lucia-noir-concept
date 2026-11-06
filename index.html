@@ -14,11 +14,11 @@
 <meta property="og:title" content="LUCIA — Modern Afro-Caribbean Restaurant in Los Angeles">
 <meta property="og:description" content="Dinner is the excuse. The night is the point. Reserve your table on Fairfax Ave.">
 <meta property="og:url" content="https://www.luciala.com/">
-<meta property="og:image" content="https://lucia-noir-concept-saadmos-projects.vercel.app/assets/hero-room.webp">
+<meta property="og:image" content="https://lucia-noir-concept-saadmos-projects.vercel.app/assets/hero.webp">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="LUCIA — Modern Afro-Caribbean Restaurant in Los Angeles">
 <meta name="twitter:description" content="Dinner is the excuse. The night is the point. Reserve your table on Fairfax Ave.">
-<meta name="twitter:image" content="https://lucia-noir-concept-saadmos-projects.vercel.app/assets/hero-room.webp">
+<meta name="twitter:image" content="https://lucia-noir-concept-saadmos-projects.vercel.app/assets/hero.webp">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Restaurant","name":"LUCIA","servesCuisine":"Afro-Caribbean","priceRange":"$$$","url":"https://www.luciala.com/","telephone":"+1-213-800-0048","address":{"@type":"PostalAddress","streetAddress":"351 N Fairfax Ave","addressLocality":"Los Angeles","addressRegion":"CA","postalCode":"90036","addressCountry":"US"},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"18:00","closes":"24:00"},"acceptsReservations":"True"}
 </script>
@@ -43,7 +43,7 @@
   --font-label:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
   --ease:cubic-bezier(.22,1,.36,1);
   --dur-s:.22s; --dur-m:.5s;
-  --t-hero:clamp(56px,17vw,150px);
+  --t-hero:clamp(64px,19vw,176px);
   --t-display:clamp(34px,8vw,76px);
   --t-h2:clamp(28px,7vw,56px);
   --t-lead:clamp(20px,5vw,30px);
@@ -122,28 +122,29 @@ a{color:inherit}
 body.menu-open{overflow:hidden}
 body.menu-open .site-head{background:transparent;border-bottom-color:transparent;-webkit-backdrop-filter:none;backdrop-filter:none;z-index:1600}
 
-/* ============ HERO — image-led, flexible height ============
-   Content defines the height on phones (no forced near-full-screen);
-   the desktop composition stays cinematic. Hero photo is the dining
-   room itself (green banquettes, mustard chairs, glowing arches):
-   the scrim stays clear through the middle so the arches read, and
-   weights to the bottom where the text sits over the dark floor.
-   Text is bottom-anchored on all widths. */
-.hero{position:relative;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;background:var(--noir-3)}
+/* ============ HERO — recomposed for the phone ============
+   One dominant visual, content flows naturally (no forced 100vh),
+   CTA sits in the thumb-friendly lower zone. */
+.hero{position:relative;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;background:var(--noir-3);min-height:92svh}
 .hero-media{position:absolute;inset:0}
-.hero-media img{width:100%;height:100%;object-fit:cover;object-position:center 42%}
-.hero-scrim{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,8,6,.34) 0%,rgba(10,8,6,.08) 20%,rgba(10,8,6,.10) 42%,rgba(10,8,6,.30) 64%,rgba(10,8,6,.66) 100%)}
-.hero-inner{position:relative;z-index:2;text-align:center;padding:112px 20px 56px;width:100%;max-width:1000px}
+.hero-media img{width:100%;height:100%;object-fit:cover;object-position:center 32%}
+.hero-scrim{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,transparent 20%,rgba(10,8,6,.5) 100%),linear-gradient(to bottom,rgba(10,8,6,.62) 0%,rgba(10,8,6,.18) 38%,rgba(10,8,6,.34) 62%,rgba(10,8,6,.86) 100%)}
+.hero-inner{position:relative;z-index:2;text-align:center;padding:128px 20px 48px;width:100%;max-width:1000px}
 .hero .kicker{justify-content:center;color:var(--ivory)}
-.hero h1{font-family:var(--font-display);font-weight:400;font-size:var(--t-hero);line-height:.92;letter-spacing:.08em;padding-left:.08em;color:var(--ivory);text-wrap:balance;text-shadow:0 2px 22px rgba(0,0,0,.45)}
-.hero-line{font-family:var(--font-display);font-style:italic;font-weight:300;font-size:clamp(19px,5.2vw,32px);line-height:1.35;margin-top:20px;color:var(--ivory);text-wrap:balance;text-shadow:0 1px 14px rgba(0,0,0,.5)}
+.hero .kicker::before{content:"";width:44px;height:1px;background:var(--gold);opacity:.7}
+.hero .kicker::after{flex:none;width:44px}
+.hero h1{font-family:var(--font-display);font-weight:400;font-size:var(--t-hero);line-height:.92;letter-spacing:.08em;padding-left:.08em;color:var(--ivory);text-wrap:balance}
+.hero-line{font-family:var(--font-display);font-style:italic;font-weight:300;font-size:clamp(19px,5.2vw,32px);line-height:1.35;margin-top:20px;color:var(--ivory);text-wrap:balance}
 .hero-line em{font-style:italic;color:var(--gold)}
+/* Operational facts sit directly under the hero line — no scrolling to find them */
 .hero-facts{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:8px 18px;margin-top:22px;color:var(--ivory-70);font-size:11px;letter-spacing:.12em;text-transform:uppercase;line-height:1.8}
 .hero-facts{text-shadow:0 1px 10px rgba(0,0,0,.5)}
 .hero-facts li{display:flex;align-items:center;gap:12px}
 .hero-facts li+li::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--gold);opacity:.8;flex-shrink:0}
 .hero-ctas{display:flex;flex-direction:column;gap:12px;margin-top:30px;align-items:stretch}
 .hero-ctas .btn{min-height:58px;width:100%}
+.hero-scroll{position:absolute;z-index:2;left:50%;bottom:18px;transform:translateX(-50%);display:grid;justify-items:center;gap:8px;color:var(--ivory-70)}
+.hero-scroll::after{content:"";width:1px;height:28px;background:linear-gradient(var(--gold),transparent)}
 
 /* ============ ABOUT ============ */
 .about-title{font-family:var(--font-display);font-weight:300;font-size:var(--t-display);line-height:.95;letter-spacing:-.015em;text-wrap:balance;margin-bottom:26px}
@@ -295,9 +296,11 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
   *,*::before,*::after{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important}
 }
 
-/* Short landscape phones: keep the hero compact */
+/* Short landscape phones: keep the hero compact, hide the scroll cue */
 @media (max-height:520px) and (orientation:landscape){
+  .hero{min-height:0}
   .hero-inner{padding:104px 20px 40px}
+  .hero-scroll{display:none}
 }
 
 /* ================================================================
@@ -321,10 +324,10 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
   .head-ctas{display:inline-flex;gap:12px;flex-shrink:0}
   .menu-toggle{display:none}
 
-  /* Hero: bottom-anchored composition — text over the dark floor, arches above */
-  .hero{min-height:100svh;align-items:flex-end}
-  .hero-media img{object-position:center 35%}
+  /* Hero: centered cinematic composition */
+  .hero{min-height:100svh;align-items:center}
   .hero-inner{padding:120px 24px 110px}
+  .hero .kicker::before,.hero .kicker::after{width:56px}
   .hero-ctas{flex-direction:row;justify-content:center;flex-wrap:wrap;margin-top:38px}
   .hero-ctas .btn{width:auto;min-height:52px}
 
@@ -425,16 +428,16 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
 <!-- ============ HERO ============ -->
 <header class="hero" id="top">
   <div class="hero-media">
-    <img loading="eager" src="assets/hero-room.webp" alt="LUCIA dining room — green banquettes, mustard chairs, and sculptural arches glowing after dark" fetchpriority="high" decoding="async" width="1170" height="717">
+    <img loading="eager" src="assets/hero.webp" alt="LUCIA dining room with sculptural white arches and red banquettes" fetchpriority="high" decoding="async">
   </div>
   <div class="hero-scrim" aria-hidden="true"></div>
   <div class="hero-inner">
-    <p class="kicker"><span class="label">Modern Afro-Caribbean &middot; Los Angeles</span></p>
+    <p class="kicker"><span class="label">Modern Afro-Caribbean · Los Angeles</span></p>
     <h1>LUCIA</h1>
     <p class="hero-line">Dinner is the excuse. <em>The night is the point.</em></p>
     <ul class="hero-facts" aria-label="Essential information">
       <li>351 N Fairfax Ave</li>
-      <li>Wed&ndash;Sun &middot; 6PM&ndash;12AM</li>
+      <li>Wed–Sun · 6PM–12AM</li>
       <li>21+</li>
     </ul>
     <div class="hero-ctas">
@@ -443,6 +446,7 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
       <a class="btn btn-ghost" href="menus/">View menus</a>
     </div>
   </div>
+  <p class="hero-scroll label" aria-hidden="true">Scroll</p>
 </header>
 
 <!-- ============ ABOUT ============ -->
@@ -498,7 +502,7 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
     <div class="carousel" id="room-carousel">
       <div class="carousel-track" id="room-track" tabindex="0" role="region" aria-roledescription="carousel" aria-label="The room">
         <figure class="slide">
-          <img src="assets/hero.webp" alt="Dining room with sculptural white arches, red banquettes, and set tables" loading="lazy" decoding="async" width="1080" height="810">
+          <img src="assets/room-doors.webp" alt="LUCIA's open wooden entrance door revealing the illuminated curved bar at night" loading="lazy" decoding="async" width="1200" height="900">
           <figcaption><span class="n">01</span><span class="t">The dining room</span></figcaption>
         </figure>
         <figure class="slide">
