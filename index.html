@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#0D0B08">
-<link rel="icon" href="data:,">
+<link rel="icon" href="assets/favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" type="image/png" href="assets/favicon.png">
 <title>LUCIA — Modern Afro-Caribbean Restaurant in Los Angeles, CA</title>
 <meta name="description" content="LUCIA is a modern Afro-Caribbean restaurant on Fairfax Ave in Los Angeles. Dinner Wed–Sun, 6PM–12AM, 21+. Reserve your table.">
 <link rel="canonical" href="https://www.luciala.com/">
@@ -13,38 +14,41 @@
 <meta property="og:title" content="LUCIA — Modern Afro-Caribbean Restaurant in Los Angeles">
 <meta property="og:description" content="Dinner is the excuse. The night is the point. Reserve your table on Fairfax Ave.">
 <meta property="og:url" content="https://www.luciala.com/">
-<!-- TODO: point og:image at a real absolute hosted image URL before launch -->
-<meta property="og:image" content="https://www.luciala.com/og-image.jpg">
+<meta property="og:image" content="https://lucia-noir-concept-saadmos-projects.vercel.app/assets/hero-room.webp">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="LUCIA — Modern Afro-Caribbean Restaurant in Los Angeles">
 <meta name="twitter:description" content="Dinner is the excuse. The night is the point. Reserve your table on Fairfax Ave.">
+<meta name="twitter:image" content="https://lucia-noir-concept-saadmos-projects.vercel.app/assets/hero-room.webp">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Restaurant","name":"LUCIA","servesCuisine":"Afro-Caribbean","priceRange":"$$$","url":"https://www.luciala.com/","telephone":"+1-213-800-0048","address":{"@type":"PostalAddress","streetAddress":"351 N Fairfax Ave","addressLocality":"Los Angeles","addressRegion":"CA","postalCode":"90036","addressCountry":"US"},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"18:00","closes":"24:00"},"acceptsReservations":"True"}
 </script>
 <style>
 /* ================================================================
-   LUCIA — mobile-first design system.
-   Base styles target 320px and up; the layout scales through
-   min-width breakpoints (1024px desktop, 1440px wide).
+   LUCIA — refined preview. Self-hosted fonts, consolidated CSS.
+   Mobile-first: base styles target 320px and up; wide compositions
+   arrive in the min-width:1024px block. No scroll-reveal system:
+   content is always visible, with or without JavaScript.
    ================================================================ */
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:100 900;font-display:swap;src:url(assets/fonts/fraunces.woff2) format('woff2')}
+@font-face{font-family:'Fraunces';font-style:italic;font-weight:100 900;font-display:swap;src:url(assets/fonts/fraunces-italic.woff2) format('woff2')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;src:url(assets/fonts/inter.woff2) format('woff2')}
 :root{
   --noir:#0D0B08; --noir-2:#161210; --noir-3:#080604;
   --ivory:#F5EFE3; --ivory-70:rgba(245,239,227,.7); --ivory-50:rgba(245,239,227,.5); --ivory-30:rgba(245,239,227,.3);
-  --gold:#C9A961; --gold-deep:#A8853F; --gold-soft:rgba(201,169,97,.13); --red:#C8401F; --red-deep:#9E2F13; --red-hi:#E06538;
+  --gold:#C9A961; --gold-deep:#A8853F; --red:#C8401F; --red-deep:#9E2F13; --red-hi:#E06538;
   --bronze:#7C5F24; /* gold darkened for AA text on ivory */
   --line-d:rgba(245,239,227,.14); --line-l:rgba(13,11,8,.15);
   --font-display:'Fraunces',Didot,'Bodoni MT',Georgia,'Times New Roman',serif;
   --font-body:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
-  --font-label:ui-monospace,'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;
+  --font-label:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
   --ease:cubic-bezier(.22,1,.36,1);
   --dur-s:.22s; --dur-m:.5s;
-  /* Mobile-first type scale: compact on phones, fluid upward */
-  --t-hero:clamp(64px,19vw,176px);
-  --t-display:clamp(38px,9vw,100px);
-  --t-h2:clamp(30px,8vw,68px);
-  --t-lead:clamp(20px,5.4vw,32px);
-  --pad-sec:clamp(64px,15vw,150px); /* generous mobile vertical rhythm */
-  --measure:42ch; /* mobile reading measure; widened on desktop */
+  --t-hero:clamp(56px,17vw,150px);
+  --t-display:clamp(34px,8vw,76px);
+  --t-h2:clamp(28px,7vw,56px);
+  --t-lead:clamp(20px,5vw,30px);
+  --pad-sec:clamp(64px,12vw,132px);
+  --measure:44ch;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:84px}
@@ -54,45 +58,38 @@ img{display:block;max-width:100%;height:auto}
 a{color:inherit}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 
-/* Skip link: part of the design system, visible on focus */
-.skip-link{position:fixed;top:-80px;left:16px;z-index:3000;background:var(--gold);color:var(--noir);text-decoration:none;font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;padding:14px 22px;border-radius:10px;transition:top var(--dur-s) var(--ease)}
+/* Skip link: visible on focus */
+.skip-link{position:fixed;top:-80px;left:16px;z-index:3000;background:var(--gold);color:var(--noir);text-decoration:none;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:14px 22px;border-radius:10px;transition:top var(--dur-s) var(--ease)}
 .skip-link:focus{top:14px}
 
-/* Elegant focus states, tuned per surface — never invisible */
+/* Visible focus everywhere */
 :focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:2px}
 .ivory :focus-visible{outline-color:var(--bronze)}
 
 /* ============ TYPE UTILITIES ============ */
-.label{font-family:var(--font-label);font-size:11px;letter-spacing:.3em;text-transform:uppercase;font-weight:500;line-height:1.7}
-.kicker{display:flex;align-items:center;gap:16px;margin-bottom:28px}
-.kicker::after{content:"";flex:1;height:1px;background:currentColor;opacity:.22}
-.kicker .label{opacity:.66}
+.label{font-family:var(--font-label);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;line-height:1.7}
 .wrap{max-width:100%;margin:0 auto;padding-left:20px;padding-right:20px}
 .pad{padding-top:var(--pad-sec);padding-bottom:var(--pad-sec)}
 .ivory{background:var(--ivory);color:var(--noir)}
 .noir{background:var(--noir);color:var(--ivory)}
+.sec-h{font-family:var(--font-display);font-weight:300;font-size:var(--t-h2);line-height:1.05;text-wrap:balance}
+.sec-h em{font-style:italic;color:var(--gold)}
+.sec-lede{margin-top:18px;max-width:var(--measure);color:var(--ivory-70)}
+.ivory .sec-lede{color:rgba(13,11,8,.74)}
 
-/* Buttons: one conversion style, one quiet style. 48px+ targets. */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;padding:16px 30px;border-radius:100px;min-height:52px;min-width:48px;border:1px solid transparent;cursor:pointer;transition:transform var(--dur-s) var(--ease),background var(--dur-s),border-color var(--dur-s),box-shadow var(--dur-s)}
-.btn:hover{transform:translateY(-2px)}
+/* Buttons: color/border feedback only — no lifts, no shadows. 48px+ targets. */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:16px 30px;border-radius:100px;min-height:52px;min-width:48px;border:1px solid transparent;cursor:pointer;transition:background var(--dur-s),border-color var(--dur-s),color var(--dur-s)}
 .btn-gold{background:var(--gold);color:var(--noir)}
-.btn-gold:hover{background:#D8B96F;box-shadow:0 12px 32px rgba(201,169,97,.32)}
+.btn-gold:hover{background:#D8B96F}
 .btn-red{background:var(--red);color:#fff}
-.btn-red:hover{background:var(--red-deep);box-shadow:0 12px 32px rgba(200,64,31,.32)}
+.btn-red:hover{background:var(--red-deep)}
 .btn-ghost{border-color:var(--ivory-30);color:var(--ivory)}
 .btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
 .btn-ghost-d{border-color:rgba(13,11,8,.32);color:var(--noir)}
 .btn-ghost-d:hover{border-color:var(--bronze);color:var(--bronze)}
 .btn-sm{padding:12px 26px;min-height:48px}
 .btn-block{width:100%}
-.textlink{display:inline-flex;align-items:center;gap:10px;margin-top:30px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:8px;min-height:44px;transition:gap var(--dur-s) var(--ease)}
-.textlink:hover{gap:18px}
-
-/* ============ SCROLL REVEALS (progressive enhancement) ============ */
-/* Content is fully visible without JS; .rv hides only when JS runs. */
-.js .rv{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
-.js .rv.in{opacity:1;transform:none}
-.js .rv[data-d="1"]{transition-delay:.08s}.js .rv[data-d="2"]{transition-delay:.16s}
+.textlink{display:inline-flex;align-items:center;gap:10px;margin-top:30px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:8px;min-height:44px}
 
 /* ============ HEADER (compact mobile first) ============ */
 .site-head{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 16px;border-bottom:1px solid transparent;transition:background .4s,padding .4s,border-color .4s}
@@ -107,47 +104,46 @@ a{color:inherit}
 .menu-toggle[aria-expanded="true"] .menu-toggle-lines::before{top:7px;transform:rotate(45deg)}
 .menu-toggle[aria-expanded="true"] .menu-toggle-lines::after{top:7px;transform:rotate(-45deg)}
 
-/* Mobile menu: modal dialog — Escape closes, focus returns, background inert,
-   never taller than the viewport, internally scrollable. */
-.mobile-menu{position:fixed;inset:0;z-index:1500;height:100vh;height:100dvh;background:#080604;color:var(--ivory);padding:92px 20px calc(20px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;overflow-y:auto;overscroll-behavior:contain;opacity:0;visibility:hidden;transition:opacity .3s var(--ease),visibility .3s}
-.mobile-menu.open{opacity:1;visibility:visible}
+/* Mobile menu: modal dialog — focus moves in, Escape closes, focus returns,
+   background inert, never taller than the viewport, internally scrollable.
+   Reserve stays visible inside the open menu. */
+.mobile-menu{position:fixed;inset:0;z-index:1500;height:100vh;height:100dvh;background:#080604;color:var(--ivory);padding:96px 20px calc(20px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;overflow-y:auto;overscroll-behavior:contain;opacity:0;visibility:hidden;transition:opacity .3s var(--ease),visibility 0s linear .3s}
+.mobile-menu.open{opacity:1;visibility:visible;transition:opacity .3s var(--ease),visibility 0s}
+.menu-close{position:absolute;top:18px;right:16px;width:48px;height:48px;border:1px solid var(--line-d);border-radius:50%;background:transparent;color:var(--ivory);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:26px;line-height:1}
+.menu-close:hover{border-color:var(--gold);color:var(--gold)}
 .mobile-menu ol{list-style:none;border-top:1px solid var(--line-d)}
-.mobile-menu li a{display:grid;grid-template-columns:40px 1fr auto;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--line-d);text-decoration:none;min-height:56px}
-.mobile-menu .num{color:var(--gold);font-family:var(--font-label);font-size:11px;letter-spacing:.2em}
+.mobile-menu li a{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:1px solid var(--line-d);text-decoration:none;min-height:56px}
 .mobile-menu .name{font-family:var(--font-display);font-size:clamp(24px,7.5vw,36px);font-weight:300;line-height:1.1}
 .mobile-menu .arr{color:var(--ivory-50)}
 .mobile-menu .btn{margin-top:24px;width:100%;min-height:60px;font-size:13px}
+.mobile-menu .menu-secondary{margin-top:28px;display:flex;gap:24px}
+.mobile-menu .menu-secondary a{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--ivory-70);text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
+.mobile-menu .menu-secondary a:hover{color:var(--ivory)}
 body.menu-open{overflow:hidden}
 body.menu-open .site-head{background:transparent;border-bottom-color:transparent;-webkit-backdrop-filter:none;backdrop-filter:none;z-index:1600}
 
-/* ============ HERO — recomposed for the phone ============
-   One dominant visual, content flows naturally (no forced 100vh),
-   CTA sits in the thumb-friendly lower zone. */
-.hero{position:relative;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;background:var(--noir-3);min-height:92svh}
+/* ============ HERO — image-led, flexible height ============
+   Content defines the height on phones (no forced near-full-screen);
+   the desktop composition stays cinematic. Hero photo is the dining
+   room itself (green banquettes, mustard chairs, glowing arches):
+   the scrim stays clear through the middle so the arches read, and
+   weights to the bottom where the text sits over the dark floor.
+   Text is bottom-anchored on all widths. */
+.hero{position:relative;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;background:var(--noir-3)}
 .hero-media{position:absolute;inset:0}
-.hero-media img{width:100%;height:100%;object-fit:cover;object-position:center 32%}
-.hero-scrim{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,transparent 20%,rgba(10,8,6,.5) 100%),linear-gradient(to bottom,rgba(10,8,6,.62) 0%,rgba(10,8,6,.18) 38%,rgba(10,8,6,.34) 62%,rgba(10,8,6,.86) 100%)}
-.hero-inner{position:relative;z-index:2;text-align:center;padding:128px 20px 48px;width:100%;max-width:1000px}
+.hero-media img{width:100%;height:100%;object-fit:cover;object-position:center 42%}
+.hero-scrim{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,8,6,.34) 0%,rgba(10,8,6,.08) 20%,rgba(10,8,6,.10) 42%,rgba(10,8,6,.30) 64%,rgba(10,8,6,.66) 100%)}
+.hero-inner{position:relative;z-index:2;text-align:center;padding:112px 20px 56px;width:100%;max-width:1000px}
 .hero .kicker{justify-content:center;color:var(--ivory)}
-.hero .kicker::before{content:"";width:44px;height:1px;background:var(--gold);opacity:.7}
-.hero .kicker::after{flex:none;width:44px}
-.hero h1{font-family:var(--font-display);font-weight:400;font-size:var(--t-hero);line-height:.92;letter-spacing:.08em;padding-left:.08em;color:var(--ivory);text-wrap:balance}
-.hero-line{font-family:var(--font-display);font-style:italic;font-weight:300;font-size:clamp(19px,5.2vw,32px);line-height:1.35;margin-top:20px;color:var(--ivory);text-wrap:balance}
+.hero h1{font-family:var(--font-display);font-weight:400;font-size:var(--t-hero);line-height:.92;letter-spacing:.08em;padding-left:.08em;color:var(--ivory);text-wrap:balance;text-shadow:0 2px 22px rgba(0,0,0,.45)}
+.hero-line{font-family:var(--font-display);font-style:italic;font-weight:300;font-size:clamp(19px,5.2vw,32px);line-height:1.35;margin-top:20px;color:var(--ivory);text-wrap:balance;text-shadow:0 1px 14px rgba(0,0,0,.5)}
 .hero-line em{font-style:italic;color:var(--gold)}
-/* Operational facts sit directly under the hero line — no scrolling to find them */
 .hero-facts{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:8px 18px;margin-top:22px;color:var(--ivory-70);font-size:11px;letter-spacing:.12em;text-transform:uppercase;line-height:1.8}
 .hero-facts{text-shadow:0 1px 10px rgba(0,0,0,.5)}
 .hero-facts li{display:flex;align-items:center;gap:12px}
 .hero-facts li+li::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--gold);opacity:.8;flex-shrink:0}
 .hero-ctas{display:flex;flex-direction:column;gap:12px;margin-top:30px;align-items:stretch}
 .hero-ctas .btn{min-height:58px;width:100%}
-.hero-scroll{position:absolute;z-index:2;left:50%;bottom:18px;transform:translateX(-50%);display:grid;justify-items:center;gap:8px;color:var(--ivory-70)}
-.hero-scroll::after{content:"";width:1px;height:28px;background:linear-gradient(var(--gold),transparent)}
-
-/* ============ CONCEPT STATEMENT ============ */
-.concept{border-top:1px solid var(--line-d)}
-.concept-lead{font-family:var(--font-display);font-weight:300;font-size:var(--t-lead);line-height:1.45;max-width:34ch}
-.concept-lead em{font-style:italic;color:var(--gold)}
 
 /* ============ ABOUT ============ */
 .about-title{font-family:var(--font-display);font-weight:300;font-size:var(--t-display);line-height:.95;letter-spacing:-.015em;text-wrap:balance;margin-bottom:26px}
@@ -155,62 +151,49 @@ body.menu-open .site-head{background:transparent;border-bottom-color:transparent
 .about-body{margin-top:22px;max-width:var(--measure);color:rgba(13,11,8,.74)}
 .about-body p+p{margin-top:16px}
 
-/* Proof: vertically stacked cards on mobile (nothing hidden, no swipe needed) */
-.proof{margin-top:48px}
-/* Recognized ends on a thin collapsed disclosure row: tighten the section's
-   bottom padding so the handoff to Visit doesn't read as a void. */
-#recognized .wrap{padding-bottom:clamp(36px,4vw,60px)}
-.proof-track{display:grid;gap:14px}
-.proof-card{border:1px solid var(--line-l);border-radius:10px;padding:26px 22px;background:#FBF8F0;display:flex;flex-direction:column;gap:10px}
-.proof-card .big{font-family:var(--font-display);font-size:28px;line-height:1.1;font-weight:400}
-.proof-card .sub{font-family:var(--font-label);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:rgba(13,11,8,.6);line-height:1.7}
-.proof-card .note{font-size:14px;color:rgba(13,11,8,.66);line-height:1.6}
-.proof-card.featured{border-color:rgba(201,169,97,.55)}
-.proof-card.featured .big{font-size:36px}
-.proof-card.featured img{width:120px;height:auto}
-.yelp-head{display:flex;flex-direction:column;gap:10px}
-
-/* Native disclosures styled as editorial "read more" */
-.disclosure{margin-top:28px;border-top:1px solid var(--line-l)}
-.disclosure summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:16px;cursor:pointer;padding:18px 0;font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;min-height:52px}
-.disclosure summary::-webkit-details-marker{display:none}
-.disclosure summary .plus{font-size:22px;font-weight:300;color:var(--bronze);transition:transform var(--dur-s) var(--ease);flex-shrink:0}
-.disclosure[open] summary .plus{transform:rotate(45deg)}
-.disclosure .disclosure-body{padding:4px 0 26px;max-width:var(--measure);color:rgba(13,11,8,.76)}
-.disclosure .disclosure-body p+p{margin-top:14px}
-/* Yelp quote inside its card: no divider, no extra bottom padding */
-.proof-card .yelp-quote{margin-top:4px;border-top:0}
-.proof-card .yelp-quote summary{padding:12px 0}
-.proof-card .yelp-quote .disclosure-body{padding:0}
-/* Yelp quote: always visible on desktop (no toggle), collapsible "View more" on mobile */
-@media (min-width:1024px){
-  .yelp-quote summary{display:none}
-  .yelp-quote > .disclosure-body{display:block}
-}
-.pullquote{margin:22px 0;padding-left:20px;border-left:2px solid var(--gold);font-family:var(--font-display);font-style:italic;font-size:19px;line-height:1.5;font-weight:300}
-.pullquote cite{display:block;margin-top:10px;font-family:var(--font-label);font-style:normal;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:rgba(13,11,8,.6)}
-
-
-/* ============ TASTE (menu preview, noir) ============ */
+/* ============ TASTE (editorial food section, noir) ============ */
 .dish-figure{position:relative;overflow:hidden;border-radius:8px;margin:0 0 30px}
 .dish-figure img{width:100%;aspect-ratio:4/3.4;object-fit:cover}
 .dish-figure figcaption{position:absolute;left:0;right:0;bottom:0;padding:40px 20px 18px;background:linear-gradient(transparent,rgba(8,6,4,.88));font-size:14px;line-height:1.55;color:var(--ivory)}
-.dish-figure figcaption .cap-k{font-family:var(--font-label);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:6px}
-.taste-copy .kicker{color:var(--ivory)}
+.dish-figure figcaption .cap-k{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:6px;font-weight:600}
 .taste-h{font-family:var(--font-display);font-weight:300;font-size:var(--t-h2);line-height:1.02;text-wrap:balance}
 .taste-h em{font-style:italic;color:var(--gold)}
 .taste-desc{margin-top:20px;max-width:var(--measure);color:var(--ivory-70)}
-/* Signature dishes: vertically stacked cards on mobile — no horizontal swipe for essentials */
-.dish-list{list-style:none;margin-top:30px;border-top:1px solid var(--line-d)}
-.dish-list li{padding:22px 0;border-bottom:1px solid var(--line-d);display:grid;grid-template-columns:1fr auto;gap:8px 16px;align-items:baseline}
-.dish-list .dish{font-family:var(--font-display);font-size:clamp(22px,6vw,36px);font-weight:400;line-height:1.15}
-.dish-list .num{font-family:var(--font-label);font-size:11px;letter-spacing:.18em;color:var(--gold)}
-.dish-list .desc{grid-column:1/-1;color:var(--ivory-70);font-size:15px;line-height:1.6;max-width:var(--measure)}
+.sig-list{list-style:none;margin-top:30px;border-top:1px solid var(--line-d)}
+.sig-list li{padding:22px 0;border-bottom:1px solid var(--line-d)}
+.sig-list .dish{font-family:var(--font-display);font-size:clamp(22px,6vw,36px);font-weight:400;line-height:1.15}
+.sig-list .desc{margin-top:6px;color:var(--ivory-70);font-size:15px;line-height:1.6;max-width:var(--measure)}
 .taste-copy .textlink{color:var(--ivory)}
 .taste-copy .textlink.btn-block{border:1px solid var(--ivory-30);border-radius:100px;justify-content:center;padding:16px 20px;min-height:56px}
 
+/* ============ MENUS (full text menu, ivory — readable, no images) ============ */
+.menu-intro{margin-top:18px;max-width:var(--measure);color:rgba(13,11,8,.74)}
+.menu-intro a{color:var(--bronze)}
+.menu-nav{display:flex;gap:8px;overflow-x:auto;flex-wrap:nowrap;padding:6px 0 4px;margin:32px 0 8px;scrollbar-width:none}
+.menu-nav::-webkit-scrollbar{display:none}
+.menu-nav a{flex:0 0 auto;text-decoration:none;font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:rgba(13,11,8,.72);border:1px solid var(--line-l);border-radius:100px;padding:12px 18px;min-height:44px;display:inline-flex;align-items:center}
+.menu-nav a:hover{border-color:var(--bronze);color:var(--bronze)}
+.menu-cats{max-width:860px}
+.menu-cat{padding:36px 0 8px;border-top:1px solid var(--line-l)}
+.menu-cat:first-of-type{border-top:0}
+.menu-cat h3{font-family:var(--font-display);font-weight:400;font-size:clamp(24px,6vw,34px);line-height:1.1;margin-bottom:6px}
+.menu-cat .cat-note{font-size:14px;color:rgba(13,11,8,.6);margin-bottom:18px}
+.menu-list{list-style:none}
+.menu-list li{padding:18px 0;border-top:1px solid var(--line-l)}
+.menu-list li:first-child{border-top:0}
+.menu-item{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+.menu-name{font-family:var(--font-display);font-size:20px;font-weight:400;line-height:1.25}
+.menu-price{font-family:var(--font-label);font-size:13px;font-weight:600;color:var(--bronze);white-space:nowrap}
+.menu-desc{margin-top:4px;font-size:15px;line-height:1.6;color:rgba(13,11,8,.66);max-width:56ch}
+.menu-sub{margin-top:2px;font-size:14px;line-height:1.6;color:rgba(13,11,8,.6)}
+.menu-notes{margin-top:36px;border-top:1px solid var(--line-l);padding-top:24px;max-width:var(--measure)}
+.menu-notes p{font-size:13px;line-height:1.7;letter-spacing:.06em;text-transform:uppercase;color:rgba(13,11,8,.62)}
+.menu-notes p+p{margin-top:10px}
+.menu-reserve{margin-top:36px;display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.menu-reserve .btn{width:100%;min-height:56px}
+
 /* ============ THE ROOM ============ */
-.room-title{font-family:var(--font-display);font-weight:300;font-size:var(--t-display);line-height:1;max-width:15ch;text-wrap:balance;margin-bottom:24px}
+.room-title{font-family:var(--font-display);font-weight:300;font-size:var(--t-display);line-height:1;max-width:16ch;text-wrap:balance;margin-bottom:24px}
 .room-note{border-top:1px solid var(--line-d);padding-top:20px;margin-bottom:36px}
 .room-note .label{display:block;color:var(--ivory-70);line-height:1.8;margin-bottom:20px;max-width:var(--measure)}
 .room-note .btn{width:100%;min-height:56px}
@@ -221,10 +204,8 @@ body.menu-open .site-head{background:transparent;border-bottom-color:transparent
 .carousel .slide{position:relative;overflow:hidden;border-radius:0;margin:0;flex:0 0 100%;scroll-snap-align:start;scroll-snap-stop:always}
 .carousel .slide img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5}
 .slide figcaption{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:48px 18px 16px;background:linear-gradient(transparent,rgba(8,6,4,.9));color:var(--ivory)}
-.slide figcaption .n{font-family:var(--font-label);font-size:10px;letter-spacing:.22em;color:var(--gold)}
+.slide figcaption .n{font-size:10px;letter-spacing:.14em;color:var(--gold);font-weight:600}
 .slide figcaption .t{font-family:var(--font-display);font-style:italic;font-weight:300;font-size:18px}
-/* Gold frame marks the owner's real photograph */
-.slide-anchor{outline:1px solid rgba(201,169,97,.65);outline-offset:-1px}
 .carousel-controls{display:grid;grid-template-columns:52px 1fr 52px;align-items:center;gap:12px;margin-top:18px}
 .car-arrow{width:52px;height:52px;border:1px solid var(--line-d);border-radius:50%;background:transparent;color:var(--ivory);font-size:18px;cursor:pointer;transition:border-color var(--dur-s)}
 .car-arrow:hover{border-color:var(--gold)}
@@ -235,38 +216,25 @@ body.menu-open .site-head{background:transparent;border-bottom-color:transparent
 .car-dots button[aria-current="true"]::before{background:var(--gold)}
 .carousel-status{margin-top:14px;color:var(--ivory-50);font-size:13px}
 
-/* ============ EVENTS ============ */
+/* ============ WHAT'S ON (recurring programming) ============ */
 .events-intro{max-width:var(--measure);color:var(--ivory-70);margin:0 0 32px}
-/* Full-width stacked cards on mobile — strong hierarchy, easy to tap */
-.event-cards{display:grid;gap:16px}
 .events-layout{display:grid;gap:24px}
 .events-figure{overflow:hidden;border-radius:8px;margin:0}
 .events-figure img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.event-cards{display:grid;gap:16px}
 .event-card{border:1px solid var(--line-d);border-radius:12px;padding:28px 24px;background:var(--noir-2);display:flex;flex-direction:column;gap:12px}
-.event-card .when{font-family:var(--font-label);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);line-height:1.7}
+.event-card .when{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);line-height:1.7;font-weight:600}
 .event-card h4{font-family:var(--font-display);font-size:clamp(26px,7vw,40px);font-weight:400;line-height:1.05;text-wrap:balance}
 .event-card p{color:var(--ivory-70);font-size:15px;line-height:1.6;flex:1;max-width:var(--measure)}
-.status{align-self:flex-start;font-family:var(--font-label);font-size:10px;letter-spacing:.2em;text-transform:uppercase;padding:9px 16px;border-radius:100px;border:1px solid rgba(201,169,97,.55);color:var(--gold);line-height:1.4}
-.event-card .btn{margin-top:6px;align-self:stretch;justify-content:center;min-height:54px}
-.events-more{margin-top:32px;border-top:1px solid var(--line-d)}
-.events-more summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:16px;cursor:pointer;padding:20px 0;font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;min-height:52px;color:var(--ivory)}
-.events-more summary::-webkit-details-marker{display:none}
-.events-more summary .plus{font-size:22px;font-weight:300;color:var(--gold);transition:transform var(--dur-s) var(--ease);flex-shrink:0}
-.events-more[open] summary .plus{transform:rotate(45deg)}
-.past-list{list-style:none;padding:6px 0 26px}
-.past-list li{display:grid;gap:4px;padding:16px 0;border-bottom:1px solid var(--line-d);align-items:baseline}
-.past-list time{font-family:var(--font-label);font-size:11px;letter-spacing:.12em;color:var(--ivory-70)}
-.past-list .t{font-family:var(--font-display);font-size:20px;line-height:1.2}
-.past-list .d{color:var(--ivory-70);font-size:14px}
 
 /* ============ VISIT ============ */
-.visit-addr{font-family:var(--font-display);font-weight:300;font-size:clamp(40px,12.5vw,150px);line-height:.98;letter-spacing:-.015em;text-wrap:balance;margin-bottom:36px}
+.visit-addr{font-family:var(--font-display);font-weight:300;font-size:clamp(40px,12.5vw,110px);line-height:.98;letter-spacing:-.015em;text-wrap:balance;margin-bottom:36px}
 .visit-addr em{font-style:italic;color:var(--bronze)}
 .visit-rows{display:grid;gap:20px;margin-bottom:36px}
 .visit-rows>div{border-top:1px solid var(--line-l);padding-top:16px}
 .visit-rows .label{display:block;opacity:.6;margin-bottom:8px}
-.visit-rows .big{font-family:var(--font-display);font-size:24px;font-weight:400;line-height:1.25}
-/* Visit actions: large, separated, thumb-friendly controls */
+.visit-rows .big{display:block;font-family:var(--font-display);font-size:24px;font-weight:400;line-height:1.25}
+.visit-rows .small{display:block;font-size:15px;line-height:1.6;color:rgba(13,11,8,.72);margin-top:6px}
 .visit-cta{display:grid;gap:14px}
 .visit-actions{display:grid;gap:12px}
 .visit-actions .btn{width:100%;min-height:56px}
@@ -275,27 +243,42 @@ body.menu-open .site-head{background:transparent;border-bottom-color:transparent
 .private-figure{overflow:hidden;border-radius:8px;position:relative;margin:0 0 30px}
 .private-figure img{width:100%;aspect-ratio:4/4.2;object-fit:cover}
 .private-figure figcaption{position:absolute;left:0;right:0;bottom:0;padding:48px 20px 18px;background:linear-gradient(transparent,rgba(8,6,4,.9));font-size:14px;line-height:1.55;color:var(--ivory)}
-.private-figure figcaption .cap-k{font-family:var(--font-label);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:6px}
+.private-figure figcaption .cap-k{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:6px;font-weight:600}
 .private-h{font-family:var(--font-display);font-weight:300;font-size:var(--t-display);line-height:.95;max-width:12ch;text-wrap:balance}
 .private-h em{font-style:italic;color:var(--gold)}
 .private-lede{margin-top:20px;color:var(--ivory-70);max-width:var(--measure)}
 .private-cta{margin-top:28px}
 .private-cta .btn{width:100%;min-height:58px}
 
+/* ============ RECOGNITION (quiet close, noir) ============ */
+.recog-feature{border-top:1px solid var(--line-d);padding-top:32px;max-width:860px}
+.recog-head{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.recog-head img{width:96px;height:auto}
+.recog-head .big{font-family:var(--font-display);font-size:clamp(36px,9vw,56px);font-weight:400;line-height:1}
+.recog-sub{margin-top:14px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ivory-70);font-weight:600}
+.recog-quote{margin-top:18px;font-family:var(--font-display);font-style:italic;font-weight:300;font-size:clamp(18px,4.6vw,24px);line-height:1.5;color:var(--ivory);max-width:56ch}
+.recog-quote cite{display:block;margin-top:12px;font-family:var(--font-label);font-style:normal;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ivory-50)}
+.recog-list{list-style:none;margin-top:40px;border-top:1px solid var(--line-d);max-width:860px}
+.recog-list li{display:grid;gap:4px;padding:18px 0;border-bottom:1px solid var(--line-d)}
+.recog-list .r-label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.recog-list .r-name{font-family:var(--font-display);font-size:22px;font-weight:400;line-height:1.2}
+.recog-list .r-note{color:var(--ivory-70);font-size:14px;line-height:1.6}
+
 /* ============ FOOTER ============ */
 footer{background:#080604;padding:64px 0 0;overflow:hidden}
 .foot-grid{display:grid;gap:36px;margin-bottom:56px}
-.foot-grid h2{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:rgba(245,239,227,.6);margin-bottom:16px;font-weight:600;font-family:var(--font-body)}
+.foot-grid h2{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,239,227,.6);margin-bottom:16px;font-weight:600;font-family:var(--font-body)}
 .foot-grid a,.foot-grid p{display:block;text-decoration:none;font-size:16px;line-height:2.4;color:var(--ivory-70);overflow-wrap:anywhere}
 .foot-grid a{min-height:44px;display:flex;align-items:center}
 .foot-grid a:hover{color:var(--ivory)}
-.foot-giant{font-family:var(--font-display);font-weight:400;font-size:30vw;line-height:.8;text-align:center;letter-spacing:.06em;color:transparent;-webkit-text-stroke:1px rgba(245,239,227,.3);user-select:none;margin-bottom:-1.5vw;white-space:nowrap}
+.foot-giant{font-family:var(--font-display);font-weight:400;font-size:18vw;line-height:.8;text-align:center;letter-spacing:.06em;color:transparent;-webkit-text-stroke:1px rgba(245,239,227,.3);user-select:none;margin-bottom:-1.5vw;white-space:nowrap}
 .foot-base{display:flex;flex-direction:column;gap:8px;padding:22px 20px calc(22px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line-d);position:relative;background:#080604}
 .foot-base .label{opacity:.55}
 
-/* ============ STICKY MOBILE BAR (Reserve + View menus, on mobile) ============ */
-/* Translucent + blurred so it feels part of the brand.
-   body.has-bar reserves space so the bar never covers content. */
+/* ============ STICKY MOBILE BAR (Reserve + View menus) ============
+   Shown only once the hero has left the viewport (IntersectionObserver),
+   hidden + inert while the mobile menu is open. body.has-bar reserves
+   space so the bar never covers content. */
 .stickybar{display:none}
 @media (max-width:1023px){
   body.has-bar{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}
@@ -306,38 +289,15 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
   .stickybar .btn.btn-red{flex:1.5}
 }
 
-/* ============ EVENTS: editorial groups ============ */
-/* Group eyebrows/headings for the restructured Events section. */
-.events-eyebrow{margin:44px 0 12px;color:var(--gold)}
-.events-group-h{font-family:var(--font-display);font-weight:400;font-size:clamp(28px,7vw,44px);line-height:1.05;margin:0 0 12px;text-wrap:balance}
-.events-group-intro{color:var(--ivory-70);font-size:15px;line-height:1.6;max-width:var(--measure);margin:0 0 24px}
-
-/* ============ MOBILE: sticky bar is the persistent reservation CTA ============ */
-/* Below 768px the section-level reservation CTAs are removed from layout and
-   the accessibility tree (display:none) so Events stays editorial. The hero
-   keeps its primary "Reserve a table" CTA (it must always be the primary
-   action), and the sticky bar remains the persistent path while scrolling.
-   Desktop (768px+) is untouched. */
-@media (max-width:767px){
-  .mobile-menu .btn-red,  /* mobile menu "Reserve a table" */
-  .room-note .btn-red,    /* The Room "Reserve a table" */
-  footer a[href*="resy.com"] /* footer "Reserve on Resy" */
-  {display:none!important}
-}
-
-/* ============ REDUCED MOTION: stillness is the design ============ */
+/* ============ REDUCED MOTION ============ */
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important}
-  .js .rv{opacity:1;transform:none}
-  .hero-inner{animation:none}
 }
 
-/* Short landscape phones: keep the hero compact, hide the scroll cue */
+/* Short landscape phones: keep the hero compact */
 @media (max-height:520px) and (orientation:landscape){
-  .hero{min-height:0}
   .hero-inner{padding:104px 20px 40px}
-  .hero-scroll{display:none}
 }
 
 /* ================================================================
@@ -345,52 +305,44 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
    these rules only add the wide compositions.
    ================================================================ */
 @media (min-width:1024px){
-  :root{--measure:68ch;--pad-sec:clamp(76px,9vw,150px)}
+  :root{--measure:66ch;--pad-sec:clamp(76px,9vw,132px)}
   .wrap{max-width:1400px;padding-left:clamp(20px,4vw,48px);padding-right:clamp(20px,4vw,48px)}
-  .kicker{margin-bottom:clamp(28px,4vw,48px)}
 
-  /* Header: full nav + CTA, no hamburger */
+  /* Header: full nav + one Reserve CTA (Menus lives in the nav — no duplicate) */
   .site-head{padding:20px clamp(20px,4vw,48px)}
   .site-head.scrolled{padding-top:12px;padding-bottom:12px}
   .wordmark{font-size:20px}
   .wordmark img{height:30px}
-  .site-nav{display:flex;gap:32px}
-  .site-nav a{position:relative;text-decoration:none;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;opacity:.72;padding:14px 2px;transition:opacity var(--dur-s)}
+  .site-nav{display:flex;gap:28px}
+  .site-nav a{position:relative;text-decoration:none;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;opacity:.72;padding:14px 2px;transition:opacity var(--dur-s)}
   .site-nav a::after{content:"";position:absolute;left:0;bottom:2px;height:1px;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform var(--dur-s) var(--ease)}
   .site-nav a:hover,.site-nav a:focus-visible{opacity:1}
   .site-nav a:hover::after,.site-nav a:focus-visible::after{transform:scaleX(1)}
   .head-ctas{display:inline-flex;gap:12px;flex-shrink:0}
   .menu-toggle{display:none}
 
-  /* Hero: centered cinematic composition */
-  .hero{min-height:100svh;align-items:center}
+  /* Hero: bottom-anchored composition — text over the dark floor, arches above */
+  .hero{min-height:100svh;align-items:flex-end}
+  .hero-media img{object-position:center 35%}
   .hero-inner{padding:120px 24px 110px}
-  .hero .kicker::before,.hero .kicker::after{width:56px}
   .hero-ctas{flex-direction:row;justify-content:center;flex-wrap:wrap;margin-top:38px}
   .hero-ctas .btn{width:auto;min-height:52px}
 
   /* About: editorial two-column */
   .about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(48px,7vw,120px);align-items:start}
   .about-title{margin-bottom:0}
-  /* Proof row: horizontal scroll-snap carousel on desktop */
-  .proof{margin-top:clamp(48px,6vw,84px)}
-  .proof-track{grid-template-columns:1.2fr 1fr 1fr}
-  .proof-card{scroll-snap-align:start;min-height:220px;transition:transform var(--dur-s) var(--ease),box-shadow var(--dur-s)}
-  .proof-card:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(13,11,8,.1)}
-  .proof-card .big{font-size:30px}
-  .proof-card.featured{grid-row:span 2}
-  .proof-card.featured .big{font-size:44px}
-  .proof-card.featured .yelp-head{flex-direction:row;align-items:center;gap:20px}
-
 
   /* Taste: alternating editorial grid */
   .taste-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(44px,6vw,96px);align-items:center}
   .dish-figure{margin:0}
-  .dish-figure img{aspect-ratio:4/4.4;transition:transform 1.2s var(--ease)}
-  .dish-figure:hover img{transform:scale(1.04)}
+  .dish-figure img{aspect-ratio:4/4.4}
   .taste-copy .textlink.btn-block{width:auto;border:0;border-radius:0;padding:0 0 8px;min-height:44px;justify-content:flex-start}
 
-  /* Room: heading row + gallery grid (no swipe needed) */
+  /* Menus: category nav wraps on desktop */
+  .menu-nav{flex-wrap:wrap;overflow-x:visible}
+  .menu-reserve .btn{width:auto}
+
+  /* Room: heading row + gallery */
   .room-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,360px);gap:48px;align-items:end;margin-bottom:clamp(44px,5vw,72px)}
   .room-title{margin-bottom:0}
   .room-note{margin-bottom:0}
@@ -398,18 +350,14 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
   .carousel .slide{border-radius:8px}
   .carousel .slide img{aspect-ratio:16/9;max-height:78vh}
 
-  /* Events: photo left, cards stacked right */
+  /* What's on: photo left, cards stacked right */
   .events-layout{grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(32px,4vw,56px);align-items:stretch}
   .events-figure img{aspect-ratio:auto;height:100%}
   .event-cards{grid-template-columns:1fr;gap:16px}
-  .event-card{transition:transform var(--dur-s) var(--ease),border-color var(--dur-s),box-shadow var(--dur-s)}
-  .event-card:hover{transform:translateY(-6px);border-color:rgba(201,169,97,.5);box-shadow:0 24px 60px rgba(0,0,0,.45)}
   .event-card .btn{align-self:flex-start}
-  .past-list li{grid-template-columns:150px 1fr;gap:20px}
 
-  /* Visit: giant address + three-column facts */
-  .visit-addr{margin-bottom:clamp(44px,5vw,72px)}
-  .visit-rows{grid-template-columns:repeat(3,1fr);gap:36px;margin-bottom:clamp(44px,5vw,72px)}
+  /* Visit: facts in two columns, actions in a row */
+  .visit-rows{grid-template-columns:repeat(2,1fr);gap:36px;margin-bottom:clamp(44px,5vw,72px)}
   .visit-cta{display:flex;gap:clamp(28px,4vw,56px);align-items:stretch;flex-wrap:wrap}
   .visit-actions{display:flex;flex-direction:row;flex-wrap:wrap;gap:14px;align-items:center;justify-content:flex-start}
   .visit-actions .btn{width:auto}
@@ -420,9 +368,12 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
   .private-cta .btn{width:auto}
   .private-h{max-width:9ch}
 
-  /* Footer: three columns */
-  .foot-grid{grid-template-columns:1.1fr 1fr 1fr;gap:56px;margin-bottom:clamp(64px,7vw,100px)}
-  .foot-giant{font-size:22vw}
+  /* Recognition: featured + list */
+  .recog-list li{grid-template-columns:220px 1fr;gap:20px;align-items:baseline}
+
+  /* Footer: three columns, smaller giant wordmark */
+  .foot-grid{grid-template-columns:1.1fr 1fr 1fr;gap:56px;margin-bottom:clamp(48px,6vw,72px)}
+  .foot-giant{font-size:14vw}
   .foot-base{flex-direction:row;justify-content:space-between;align-items:center;padding:24px clamp(20px,4vw,48px)}
 }
 
@@ -431,25 +382,21 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
   .hero-inner{max-width:1100px}
 }
 </style>
-<noscript><style>.js .rv{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
 <a class="skip-link" href="#maincontent">Skip to content</a>
 
 <header class="site-head" id="site-head">
-  <a class="wordmark" href="#top" aria-label="LUCIA — back to top"><img src="assets/lucia-logo-gold.webp" alt=""></a>
+  <a class="wordmark" href="#top" aria-label="LUCIA — back to top"><img src="assets/lucia-logo-gold.webp" alt="" width="720" height="208"></a>
   <nav class="site-nav" aria-label="Primary">
-    <a href="#about">About</a>
-    <a href="#taste">Taste</a>
+    <a href="#menus">Menus</a>
     <a href="#room">The Room</a>
-    <a href="#events">Events</a>
-    <a href="#private-events">Private Events</a>
-    <a href="#recognized">Awards</a>
+    <a href="#events">What&rsquo;s On</a>
+    <a href="#private-events">Private Dining</a>
     <a href="#visit">Visit</a>
   </nav>
-  <!-- PLACEHOLDER: swap href for LUCIA's official Resy page when confirmed -->
   <div class="head-ctas">
-    <a class="btn btn-gold btn-sm" href="#taste">View menus</a>
+    <!-- PLACEHOLDER: swap href for LUCIA's official Resy page when confirmed -->
     <a class="btn btn-red btn-sm" href="https://resy.com/cities/los-angeles-ca/venues/lucia-ca" target="_blank" rel="noopener noreferrer">Reserve a table<span class="sr-only"> (opens in new tab)</span></a>
   </div>
   <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation menu">
@@ -458,173 +405,306 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
 </header>
 
 <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu" aria-hidden="true">
+  <button class="menu-close" id="menu-close" type="button" aria-label="Close menu"><span aria-hidden="true">&times;</span></button>
   <ol>
-    <li><a href="#about"><span class="num">01</span><span class="name">About Us</span><span class="arr" aria-hidden="true">→</span></a></li>
-    <li><a href="#taste"><span class="num">02</span><span class="name">Taste</span><span class="arr" aria-hidden="true">→</span></a></li>
-    <li><a href="#room"><span class="num">03</span><span class="name">The Room</span><span class="arr" aria-hidden="true">→</span></a></li>
-    <li><a href="#events"><span class="num">04</span><span class="name">Events</span><span class="arr" aria-hidden="true">→</span></a></li>
-    <li><a href="#private-events"><span class="num">05</span><span class="name">Private Events</span><span class="arr" aria-hidden="true">→</span></a></li>
-    <li><a href="#recognized"><span class="num">06</span><span class="name">Awards</span><span class="arr" aria-hidden="true">→</span></a></li>
-    <li><a href="#visit"><span class="num">07</span><span class="name">Visit</span><span class="arr" aria-hidden="true">→</span></a></li>
+    <li><a href="#menus"><span class="name">Menus</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
+    <li><a href="#room"><span class="name">The Room</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
+    <li><a href="#events"><span class="name">What&rsquo;s On</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
+    <li><a href="#private-events"><span class="name">Private Dining</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
+    <li><a href="#visit"><span class="name">Visit</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
   </ol>
   <!-- PLACEHOLDER: swap href for LUCIA's official Resy page when confirmed -->
   <a class="btn btn-red" href="https://resy.com/cities/los-angeles-ca/venues/lucia-ca" target="_blank" rel="noopener noreferrer">Reserve a table<span class="sr-only"> (opens in new tab)</span></a>
+  <div class="menu-secondary">
+    <a href="#about">About us</a>
+    <a href="#recognized">Recognition</a>
+  </div>
 </div>
 
 <main id="maincontent" tabindex="-1">
 <!-- ============ HERO ============ -->
 <header class="hero" id="top">
   <div class="hero-media">
-    <img loading="eager" src="assets/hero.webp" alt="LUCIA dining room with sculptural white arches and red banquettes" fetchpriority="high" decoding="async">
+    <img loading="eager" src="assets/hero-room.webp" alt="LUCIA dining room — green banquettes, mustard chairs, and sculptural arches glowing after dark" fetchpriority="high" decoding="async" width="1170" height="717">
   </div>
   <div class="hero-scrim" aria-hidden="true"></div>
   <div class="hero-inner">
-    <p class="kicker"><span class="label">Modern Afro-Caribbean · Los Angeles</span></p>
+    <p class="kicker"><span class="label">Modern Afro-Caribbean &middot; Los Angeles</span></p>
     <h1>LUCIA</h1>
     <p class="hero-line">Dinner is the excuse. <em>The night is the point.</em></p>
     <ul class="hero-facts" aria-label="Essential information">
       <li>351 N Fairfax Ave</li>
-      <li>Wed–Sun · 6PM–12AM</li>
+      <li>Wed&ndash;Sun &middot; 6PM&ndash;12AM</li>
       <li>21+</li>
     </ul>
     <div class="hero-ctas">
       <!-- PLACEHOLDER: swap href for LUCIA's official Resy page when confirmed -->
       <a class="btn btn-red" href="https://resy.com/cities/los-angeles-ca/venues/lucia-ca" target="_blank" rel="noopener noreferrer">Reserve a table<span class="sr-only"> (opens in new tab)</span></a>
-      <a class="btn btn-ghost" href="#taste">View menus</a>
+      <a class="btn btn-ghost" href="#menus">View menus</a>
     </div>
   </div>
-  <p class="hero-scroll label" aria-hidden="true">Scroll</p>
 </header>
 
-<!-- ============ CONCEPT ============ -->
-<section class="concept noir" aria-label="The concept">
-  <div class="wrap pad">
-    <p class="concept-lead rv">Modern Afro-Caribbean dining, standout cocktails, and a room made for <em>long Los Angeles nights.</em></p>
-  </div>
-</section>
-
-<!-- ============ 01 ABOUT ============ -->
+<!-- ============ ABOUT ============ -->
 <section class="ivory" id="about" aria-labelledby="about-h">
   <div class="wrap pad">
-    <div class="kicker rv"><span class="label">01 — About us</span></div>
     <div class="about-grid">
-      <h2 class="about-title rv" id="about-h">About Us</h2>
-      <div class="rv" data-d="1">
-        <p class="about-lead">Modern Afro-Caribbean food, celebrated cocktails, and a room the city talks about.</p>
+      <h2 class="about-title" id="about-h">About Us</h2>
+      <div>
+        <p class="about-lead">Modern Afro-Caribbean food, cocktails built for the room, and a dining room that comes alive after dark.</p>
         <div class="about-body">
-          <p>LUCIA is modern Afro-Caribbean fine dining in Los Angeles—a seasonally evolving menu, a celebrated cocktail program, and a dining room designed for the full evening.</p>
+          <p>LUCIA is modern Afro-Caribbean fine dining in Los Angeles &mdash; a menu that follows the seasons, a cocktail program built on rum, tropical fruit, and spice, and a dining room made for long evenings.</p>
           <p>The menu draws on the food traditions of the African and Caribbean diaspora, translated into a refined, contemporary dining experience. Come for dinner; stay for the music, the bar, and the room.</p>
-          <p>Recognized by the LA Times, Eater, Vogue, Condé Nast, Robb Report, and Yelp's Best New Restaurants 2026.</p>
+          <p>Recognized by the LA Times, Eater, Vogue, Cond&eacute; Nast, Robb Report, and Yelp&rsquo;s Best New Restaurants 2026.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ 02 TASTE ============ -->
+<!-- ============ TASTE (editorial) ============ -->
 <section class="noir" id="taste" aria-labelledby="taste-h">
   <div class="wrap pad">
     <div class="taste-grid">
-      <figure class="dish-figure rv">
-        <img src="assets/dish.webp" alt="Tamarind Pepper Wings served with lime at LUCIA" loading="lazy" decoding="async">
-        <figcaption><span class="cap-k">From the pass</span>Tamarind Pepper Wings — glazed, heat-forward, finished with lime.</figcaption>
+      <figure class="dish-figure">
+        <img src="assets/dish.webp" alt="Glazed wings with lime, served at LUCIA" loading="lazy" decoding="async" width="1000" height="1202">
+        <figcaption><span class="cap-k">From the pass</span>Glazed wings, finished with lime.</figcaption>
       </figure>
       <div class="taste-copy">
-        <div class="kicker rv"><span class="label">02 — Taste</span></div>
-        <h2 class="taste-h rv" id="taste-h">The menu <em>turns.</em> The craving stays.</h2>
-        <p class="taste-desc rv" data-d="1">Afro-Caribbean flavors, seasonal ingredients, and cocktails built for the room. The menu changes; the standards do not.</p>
-        <ul class="dish-list rv" data-d="2" aria-label="Signature dishes">
-          <li><span class="dish">Tamarind Pepper Wings</span><span class="num">Nº 01</span><span class="desc">Glazed, heat-forward, finished with lime. The menu turns; this one stays.</span></li>
-          <li><span class="dish">Jerk Lamb Shank</span><span class="num">Nº 02</span><span class="desc">Whipped sweet potato, goat cheese, <span lang="es">salsa criolla</span> — the centerpiece of the menu.</span></li>
-          <li><span class="dish">Oil Down</span><span class="num">Nº 03</span><span class="desc">Coconut dashi, Scotch bonnet, green seasoning, tamarind — highly refined.</span></li>
+        <h2 class="taste-h" id="taste-h">The menu <em>turns.</em> The craving stays.</h2>
+        <p class="taste-desc">Afro-Caribbean flavors, seasonal ingredients, and cocktails built for the room. The menu changes; the standards do not.</p>
+        <ul class="sig-list" aria-label="Signature dishes">
+          <li><span class="dish">Hamachi Crudo</span><p class="desc">Mango, passion fruit Scotch bonnet, culantro oil, shaved shallot.</p></li>
+          <li><span class="dish">Jerk Lamb Shank</span><p class="desc">Whipped sweet potato, brown butter, goat cheese, salsa criolla.</p></li>
+          <li><span class="dish">Spicy Rum Pasta</span><p class="desc">Rum, tomato, Calabrian chile, basil, whipped ricotta.</p></li>
         </ul>
-        <a class="textlink btn-block rv" data-d="2" href="#taste">View menus <span aria-hidden="true">→</span></a>
+        <a class="textlink btn-block" href="#menus">See the full menu <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ 03 THE ROOM ============ -->
+<!-- ============ MENUS (full text menu, from luciala.com/menus) ============ -->
+<section class="ivory" id="menus" aria-labelledby="menus-h">
+  <div class="wrap pad">
+    <h2 class="sec-h" id="menus-h">Menus</h2>
+    <p class="menu-intro">Our menu is always adapting. Below is the menu as it stands &mdash; food, desserts, hot beverages, and specialty cocktails.</p>
+    <nav class="menu-nav" aria-label="Menu sections">
+      <a href="#menu-raw">Raw</a>
+      <a href="#menu-milkbread">Milkbread</a>
+      <a href="#menu-patty">Patty Shop</a>
+      <a href="#menu-greens">Greens</a>
+      <a href="#menu-street">Street Bites</a>
+      <a href="#menu-pasta">Pasta Tings</a>
+      <a href="#menu-sea">Sea</a>
+      <a href="#menu-land">Land</a>
+      <a href="#menu-heritage">Heritage Classics</a>
+      <a href="#menu-fixings">Fixings</a>
+      <a href="#menu-desserts">Desserts</a>
+      <a href="#menu-icecream">Ice Cream &amp; Sorbet</a>
+      <a href="#menu-hot">Hot Beverages</a>
+      <a href="#menu-cocktails">Cocktails</a>
+    </nav>
+    <div class="menu-cats">
+      <div class="menu-cat" id="menu-raw">
+        <h3>Raw</h3>
+        <ul class="menu-list">
+          <li><div class="menu-item"><span class="menu-name">Hamachi Crudo</span><span class="menu-price">$25</span></div><p class="menu-desc">Mango, passion fruit Scotch bonnet, culantro oil, shaved shallot.</p></li>
+          <li><div class="menu-item"><span class="menu-name">Bigeye Tuna Tartare</span><span class="menu-price">$27</span></div><p class="menu-desc">Green mango, sour orange, avocado, benne, root chips.</p></li>
+          <li><div class="menu-item"><span class="menu-name">Rockfish &amp; Shrimp Ceviche</span><span class="menu-price">$24</span></div><p class="menu-desc">Coconut-culantro leche de tigre, Asian pear, avocado, root chips.</p></li>
+        </ul>
+      </div>
+      <div class="menu-cat" id="menu-milkbread">
+        <h3>Housemade Milkbread</h3>
+        <ul class="menu-list">
+          <li><div class="menu-item"><span class="menu-name">Jamaican Bun</span><span class="menu-price">$18</span></div><p class="menu-desc">Served with coconut butter.</p></li>
+        </ul>
+      </div>
+      <div class="menu-cat" id="menu-patty">
+        <h3>The Patty Shop</h3>
+        <ul class="menu-list">
+          <li><div class="menu-item"><span class="menu-name">Wagyu Beef Patty</span><span class="menu-price">$8</span></div><p class="menu-desc">Served with mango calypso.</p></li>
+          <li><div class="menu-item"><span class="menu-name">Crab &amp; Callaloo Patty</span><span class="menu-price">$11</span></div><p class="menu-desc">Served with green papaya kuchela.</p></li>
+        </ul>
+      </div>
+      <div class="menu-cat" id="menu-greens">
+        <h3>Greens &amp; Provisions</h3>
+        <ul class="menu-list">
+          <li><div class="menu-item"><span class="menu-name">Starfruit &amp; Guava Chow</span><span class="menu-price">$18</span></div><p class="menu-desc">Chayote, gooseberries, hearts of palm, marcona almonds.</p></li>
+          <li><div class="menu-item"><span class="menu-name">Green Salad</span><span class="menu-price">$18</span></div><p class="menu-desc">Little gem lettuce, cucumber, radish, avocado, toasted pepitas, calamansi vinaigrette.</p></li>
+          <li><div class="menu-item"><span class="menu-name">Roasted Eggplant Dip</span><span class="menu-price">$17</span></div><p class="menu-desc">Choka, green seasoning, pickled shallots, avocado, fry bake.</p></li>
+        </ul>
+      </div>
+      <div class="menu-cat" id="menu-street">
+        <h3>Street Bites</h3>
+        <ul class="menu-list">
+          <li><div class="menu-item"><span class="menu-name">Plantain Expressions</span><span class="menu-price">$21</span></div><p class="menu-desc">Maduros, plantain mole, plantain chips.</p></li>
+          <li><div class="menu-item"><span class="menu-name">Charred Octopus</span><span class="menu-price">$21</span></div><p class="menu-desc">Charred geera octopus, coriander-malta glaze, culantro emulsion.</p></li>
+          <li><div class="menu-item"><span class="menu-name">Jerk Butter Burger</span><span class="menu-price">$35</span></div><p class="menu-desc">Beef patty, jerk butter, Cooper Sharp American cheese, charred sweet onion, cabbage pikliz, mayo, potato bun.</p></li>
+        </ul>
+      </div>
+      <div class="menu-cat" id="menu-pasta">
+        <h3>Pasta Tings</h3>
+        <ul class="menu-list">
+          <li><div class="menu-item"><span class="menu-name">Past&eacute;lon</span><span class="menu-price">$17</span></div><p class="menu-desc">Plantain pasta, wagyu sofrito, pecorino b&eacute;chamel.</p></li>
+          <li><div class="menu-item"><span class="menu-name">Spicy Rum Pasta</span><span class="menu-price">$28</span></div><p class="menu-desc">Rum, tomato, Calabrian chile, basil, whipped ricotta.</p></li>
+        </ul>
+      </div>
+      <div class="menu-cat" id="menu-sea">
+        <h3>Sea</h3>
+        <ul class="menu-list">
+          <li><div class="menu-item"><span class="menu-name">Green Fig-Leaf Fish Roast</span><span class="menu-price">$55</span></div><p class="menu-desc">Naranja agria, bell peppers caldo, lime caviar.</p></li>
+        </ul>
+      </div>
+      <div class="menu-cat" id="menu-land">
+        <h3>Land</h3>
+        <ul class="menu-list">
+          <li><div class="menu-item"><span class="menu-name">Trini-Chinese Chicken</span><span class="menu-price">$48</span></div><p class="menu-desc">Malta, ginger, green seasoning, le courage spice blend.</p></li>
+          <li><div class="menu-item"><span class="menu-name">Jerk Lamb Shank</span><span class="menu-price">$70</span></div><p class="menu-desc">Whipped sweet potato, brown butter, goat cheese, salsa criolla.</p></li>
+          <li><div class="menu-item"><span class="menu-name">Ropa Fina 12oz NY Strip</span><span class="menu-price">$80</span></div><p class="menu-desc">Reca&iacute;to, sorrel pickled red onions, mojo spices.</p></li>
+        </ul>
+      </div>
+      <div class="menu-cat" id="menu-heritage">
+        <h3>Heritage Classics</h3>
+        <ul class="menu-list">
+          <li><div class="menu-item"><span class="menu-name">Escovitch Sea Bream</span><span class="menu-price">$125</span></div><p class="menu-desc">Sweet chili garlic, Jimmy Nardello peppers, green mango, green papaya.</p></li>
+          <li><div class="menu-item"><span class="menu-name">Oxtail</span><span class="menu-price">$110</span></div><p class="menu-desc">Coconut rice and peas, roasted carrots.</p></li>
+        </ul>
+      </div>
+      <div class="menu-cat" id="menu-fixings">
+        <h3>Fixings</h3>
+        <ul class="menu-list">
+          <li><div class="menu-item"><span class="menu-name">French Fries</span><span class="menu-price">$14</span></div><p class="menu-desc">House fry seasoning, nuancaina.</p></li>
+          <li><div class="menu-item"><span class="menu-name">Fufu Mash</span><span class="menu-price">$14</span></div><p class="menu-desc">Boniato, cassava, coconut milk, confit garlic.</p></li>
+          <li><div class="menu-item"><span class="menu-name">Frijoles Cubanos</span><span class="menu-price">$14</span></div><p class="menu-desc">Black beans, smoked onions, sour orange, cilantro.</p></li>
+          <li><div class="menu-item"><span class="menu-name">Peppa Rice</span><span class="menu-price">$14</span></div><p class="menu-desc">Jasmine rice, annatto, sofrito, peppa sauce, confit garlic, herbs.</p></li>
+        </ul>
+      </div>
+      <div class="menu-cat" id="menu-desserts">
+        <h3>Desserts</h3>
+        <p class="cat-note">Sweet mouth</p>
+        <ul class="menu-list">
+          <li><div class="menu-item"><span class="menu-name">Dasheen Puffs</span><span class="menu-price">$14</span></div><p class="menu-desc">Cumin sugar, coconut caramel.</p></li>
+          <li><div class="menu-item"><span class="menu-name">Guava &amp; Cheese Pastelitos</span><span class="menu-price">$14</span></div><p class="menu-desc">Buttery puff pastry, floral guava.</p></li>
+          <li><div class="menu-item"><span class="menu-name">Chocolate Tres Leches Cake</span><span class="menu-price">$18</span></div><p class="menu-desc">Pineapple amaro jam, macadamia praline, cocoa nib.</p></li>
+          <li><div class="menu-item"><span class="menu-name">Dukanoo Ice Cream Sandwich</span><span class="menu-price">$12</span></div><p class="menu-desc">Sweet potato-coconut cookies, golden raisins, dark rum, warm spice, coconut ice cream.</p></li>
+        </ul>
+      </div>
+      <div class="menu-cat" id="menu-icecream">
+        <h3>Ice Cream &amp; Sorbet</h3>
+        <p class="cat-note">Priced per scoop</p>
+        <ul class="menu-list">
+          <li><div class="menu-item"><span class="menu-name">Mango Sorbet</span><span class="menu-price">$2</span></div><p class="menu-sub">With Caribbean taj&iacute;n.</p></li>
+          <li><div class="menu-item"><span class="menu-name">Coconut Ice Cream</span><span class="menu-price">$2</span></div></li>
+        </ul>
+      </div>
+      <div class="menu-cat" id="menu-hot">
+        <h3>Hot Beverages</h3>
+        <ul class="menu-list">
+          <li><div class="menu-item"><span class="menu-name">8th and Roast Coffee Co</span><span class="menu-price">$6</span></div><p class="menu-sub">Latte &middot; Cappuccino &middot; Americano &middot; Double Espresso</p></li>
+          <li><div class="menu-item"><span class="menu-name">Art of Tea</span><span class="menu-price">$6</span></div><p class="menu-sub">Sencha Green &middot; Orchid Oolong &middot; Tali&rsquo;s Masala Chai &middot; Egyptian Chamomile &middot; White Coconut Creme &middot; Pacific Coast Mint</p></li>
+        </ul>
+      </div>
+      <div class="menu-cat" id="menu-cocktails">
+        <h3>Specialty Cocktails</h3>
+        <ul class="menu-list">
+          <li><div class="menu-item"><span class="menu-name">Okra &ldquo;Martini&rdquo;</span><span class="menu-price">$21</span></div><p class="menu-desc">Belvedere vodka, pickled okra, lemongrass, thyme and bay leaf dry vermouth, escovitch.</p></li>
+          <li><div class="menu-item"><span class="menu-name">Mango &ldquo;Cosmo&rdquo;</span><span class="menu-price">$20</span></div><p class="menu-desc">Aspen vodka, mango, Empirical Symphony 6, citrus, pomegranate, Hpnotiq, orange oils.</p></li>
+          <li><div class="menu-item"><span class="menu-name">Culantro &ldquo;G+T&rdquo;</span><span class="menu-price">$20</span></div><p class="menu-desc">Bombay gin, culantro shrub, lime, basil eau de vie, aloe vera, sage, honeydew, sparkling cucumber.</p></li>
+          <li><div class="menu-item"><span class="menu-name">Taro &ldquo;Sky Juice&rdquo;</span><span class="menu-price">$19</span></div><p class="menu-desc">Bombay gin, taro blended creme, white chocolate, Lillet Blanc, citrus, salted cacao taro chip.</p></li>
+          <li><div class="menu-item"><span class="menu-name">Lychee &ldquo;Margarita&rdquo;</span><span class="menu-price">$21</span></div><p class="menu-desc">El Tesoro Blanco tequila, lychee, jerk spiced agave, sorrel, lime, Red Bear cabernet, Tajin.</p></li>
+          <li><div class="menu-item"><span class="menu-name">Agave &ldquo;Pina Verde&rdquo;</span><span class="menu-price">$20</span></div><p class="menu-desc">Altos reposado tequila, Caribbean coconut, pineapple, citric solution, Chartreuse vegetal.</p></li>
+          <li><div class="menu-item"><span class="menu-name">Tamarind &ldquo;Collins&rdquo;</span><span class="menu-price">$21</span></div><p class="menu-desc">Ilegal mezcal, tamarind, cassia cinnamon, chili spices, lemon, Red Stripe Jamaican lager.</p></li>
+          <li><div class="menu-item"><span class="menu-name">Soursop &ldquo;Paloma&rdquo;</span><span class="menu-price">$21</span></div><p class="menu-desc">Kilinga Bacanora, soursop, Kin banana, sparkling pink grapefruit, lime, gray salt, white pepper.</p></li>
+          <li><div class="menu-item"><span class="menu-name">Passion Fruit &ldquo;Jungle Bird&rdquo;</span><span class="menu-price">$20</span></div><p class="menu-desc">Hennessy cognac, passion fruit, pineapple, red bitter, dark rum, lemon, soursop vanilla foam.</p></li>
+          <li><div class="menu-item"><span class="menu-name">Vanilla &ldquo;Espresso Martini&rdquo;</span><span class="menu-price">$21</span></div><p class="menu-desc">Astral reposado tequila, vanilla bean, Bar Nine espresso, Baileys salted caramel, vanilla dust.</p></li>
+          <li><div class="menu-item"><span class="menu-name">Coconut &ldquo;Coquito&rdquo;</span><span class="menu-price">$19</span></div><p class="menu-desc">Haku vodka, Licor 43, condensed milk, Kahlua, coconut cream, baking spices, RumChata.</p></li>
+        </ul>
+      </div>
+    </div>
+    <div class="menu-notes">
+      <p>Our menu is always adapting.</p>
+      <p>Consuming raw or undercooked seafood may increase your risk of foodborne illness.</p>
+      <p>A 20% gratuity will be applied to parties of 6 or more.</p>
+    </div>
+    <div class="menu-reserve">
+      <!-- PLACEHOLDER: swap href for LUCIA's official Resy page when confirmed -->
+      <a class="btn btn-red" href="https://resy.com/cities/los-angeles-ca/venues/lucia-ca" target="_blank" rel="noopener noreferrer">Reserve a table<span class="sr-only"> (opens in new tab)</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE ROOM ============ -->
 <section class="noir" id="room" aria-labelledby="room-h">
   <div class="wrap pad">
-    <div class="kicker rv"><span class="label">03 — The room</span></div>
     <div class="room-head">
-      <h2 class="room-title rv" id="room-h">A room designed to be <em>experienced.</em></h2>
-      <div class="room-note rv" data-d="1">
-        <span class="label">Sculptural arches, red banquettes, and a glowing bar after dark—a Los Angeles dining room designed to be experienced.</span>
+      <h2 class="room-title" id="room-h">Arches, red banquettes, and a bar that glows after dark.</h2>
+      <div class="room-note">
+        <span class="label">Reservations open two weeks out.</span>
         <!-- PLACEHOLDER: swap href for LUCIA's official Resy page when confirmed -->
         <a class="btn btn-red" href="https://resy.com/cities/los-angeles-ca/venues/lucia-ca" target="_blank" rel="noopener noreferrer">Reserve a table<span class="sr-only"> (opens in new tab)</span></a>
       </div>
     </div>
-    <div class="carousel rv" data-d="1">
-      <div class="carousel-track" id="room-track" role="region" aria-roledescription="carousel" aria-label="LUCIA room gallery" tabindex="0">
-        <figure class="slide slide-anchor" role="group" aria-roledescription="slide" aria-label="Through the doors · 1 of 3">
-          <img src="assets/room-doors.webp" alt="LUCIA's open wooden entrance door revealing the illuminated curved bar at night" loading="lazy" decoding="async" draggable="false">
-          <figcaption><span class="n">01</span><span class="t">Through the doors</span></figcaption>
+    <div class="carousel" id="room-carousel">
+      <div class="carousel-track" id="room-track" tabindex="0" role="region" aria-roledescription="carousel" aria-label="The room">
+        <figure class="slide">
+          <img src="assets/hero.webp" alt="Dining room with sculptural white arches, red banquettes, and set tables" loading="lazy" decoding="async" width="1080" height="810">
+          <figcaption><span class="n">01</span><span class="t">The dining room</span></figcaption>
         </figure>
-        <figure class="slide" role="group" aria-roledescription="slide" aria-label="The table · 2 of 3">
-          <img src="assets/room-table.webp" alt="A shared table spread with cocktails and Caribbean dishes" loading="lazy" decoding="async" draggable="false">
-          <figcaption><span class="n">02</span><span class="t">The table</span></figcaption>
+        <figure class="slide">
+          <img src="assets/room-entrance.webp" alt="Entrance door with a brass serpent handle, the bar glowing beyond" loading="lazy" decoding="async" width="1200" height="900">
+          <figcaption><span class="n">02</span><span class="t">The entrance</span></figcaption>
         </figure>
-        <figure class="slide" role="group" aria-roledescription="slide" aria-label="The entrance · 3 of 3">
-          <img src="assets/room-entrance.webp" alt="Mirrored entrance and illuminated bar inside LUCIA" loading="lazy" decoding="async" draggable="false">
-          <figcaption><span class="n">03</span><span class="t">The entrance</span></figcaption>
+        <figure class="slide">
+          <img src="assets/room-table.webp" alt="Shared plates and cocktails on a marble table, seen from above" loading="lazy" decoding="async" width="1080" height="810">
+          <figcaption><span class="n">03</span><span class="t">The table</span></figcaption>
         </figure>
       </div>
       <div class="carousel-controls">
-        <button class="car-arrow car-prev" type="button" aria-label="Previous image" aria-controls="room-track">←</button>
-        <div class="car-dots" role="group" aria-label="Choose an image">
-          <button type="button" aria-label="Show: Through the doors" aria-current="true"></button>
-          <button type="button" aria-label="Show: The table" aria-current="false"></button>
-          <button type="button" aria-label="Show: The entrance" aria-current="false"></button>
-        </div>
-        <button class="car-arrow car-next" type="button" aria-label="Next image" aria-controls="room-track">→</button>
+        <button class="car-arrow" id="room-prev" type="button" aria-label="Previous photo">&larr;</button>
+        <div class="car-dots" id="room-dots" role="group" aria-label="Choose photo"></div>
+        <button class="car-arrow" id="room-next" type="button" aria-label="Next photo">&rarr;</button>
       </div>
-      <p class="carousel-status sr-only" id="room-status" aria-live="polite">Through the doors · 1 of 3</p>
+      <p class="carousel-status" id="room-status" aria-live="polite">Photo 1 of 3 &mdash; The dining room</p>
     </div>
   </div>
 </section>
 
-<!-- ============ 04 EVENTS ============ -->
+<!-- ============ WHAT'S ON ============ -->
 <section class="noir" id="events" aria-labelledby="events-h">
   <div class="wrap pad">
-    <div class="kicker rv"><span class="label">04 — Events</span></div>
-    <h2 class="taste-h rv" id="events-h" style="margin-bottom:18px">This week at LUCIA</h2>
-    <p class="events-intro rv">Live R&amp;B, DJs, and late nights — the programming is part of the reservation. Full dinner service runs through every event.</p>
+    <h2 class="sec-h" id="events-h" style="margin-bottom:18px">What&rsquo;s on</h2>
+    <p class="events-intro">Live R&amp;B, DJs, and late nights.</p>
     <!-- No booking buttons on event cards — booking lives in the header and sticky bar -->
     <div class="events-layout">
-      <figure class="events-figure rv">
+      <figure class="events-figure">
         <img src="assets/events-live.webp" alt="A DJ plays to a packed, red-lit room at LUCIA" loading="lazy" decoding="async" width="1200" height="800">
       </figure>
       <div class="event-cards">
-      <article class="event-card rv">
-        <p class="when">Every Wednesday · 6:30–10 PM</p>
-        <h4>Live at LUCIA</h4>
-        <p>Live R&amp;B with Matthew Grant, sounds by DJ Joe Cooks. Reservations required.</p>
-      </article>
-      <article class="event-card rv" data-d="1">
-        <p class="when">Every Thursday · 8 PM–12 AM</p>
-        <h4 lang="es">Sobremesa</h4>
-        <p><span lang="es">&ldquo;Sabores y ritmos.&rdquo;</span> Dinner and music with rotating DJs.</p>
-      </article>
-      <article class="event-card rv" data-d="2">
-        <p class="when">This week</p>
-        <p>Sounds by Jae Murphy, Tomi Tribe &amp; Major League.</p>
-      </article>
+        <article class="event-card">
+          <p class="when">Every Wednesday &middot; 6:30&ndash;10 PM</p>
+          <h4>Live at LUCIA</h4>
+          <p>Live R&amp;B with Matthew Grant, sounds by DJ Joe Cooks. Reservations required.</p>
+        </article>
+        <article class="event-card">
+          <p class="when">Every Thursday &middot; 8 PM&ndash;12 AM</p>
+          <h4 lang="es">Sobremesa</h4>
+          <p><span lang="es">&ldquo;Sabores y ritmos.&rdquo;</span> Dinner and music with rotating DJs.</p>
+        </article>
       </div>
     </div>
   </div>
 </section>
-<!-- ============ 05 PRIVATE EVENTS ============ -->
+
+<!-- ============ PRIVATE EVENTS ============ -->
 <section class="noir" id="private-events" aria-labelledby="private-h">
   <div class="wrap pad">
-    <div class="kicker rv"><span class="label">05 — Private events</span></div>
     <div class="private-grid">
-      <figure class="private-figure rv">
-        <img src="assets/private-event.webp" alt="Ms. Lauryn Hill performing with a microphone at LUCIA" loading="lazy" decoding="async">
-        <figcaption><span class="cap-k">Featured past private event</span>Ms. Lauryn Hill's BET Awards afterparty — live at LUCIA.</figcaption>
+      <figure class="private-figure">
+        <img src="assets/private-event.webp" alt="Ms. Lauryn Hill performing with a microphone at LUCIA" loading="lazy" decoding="async" width="1200" height="676">
+        <figcaption><span class="cap-k">Featured past private event</span>Ms. Lauryn Hill&rsquo;s BET Awards afterparty &mdash; live at LUCIA.</figcaption>
       </figure>
-      <div class="rv" data-d="1">
+      <div>
         <h2 class="private-h" id="private-h">Take <em>the room</em> for a night that deserves it.</h2>
         <p class="private-lede">Host a private dinner, celebration, or full-venue buyout in one of Los Angeles&rsquo; most distinctive dining rooms. Our events team will help shape the evening.</p>
         <div class="private-cta">
@@ -635,69 +715,51 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
     </div>
   </div>
 </section>
-<!-- ============ 06 RECOGNIZED ============ -->
-<section class="ivory" id="recognized" aria-labelledby="recognized-h">
+
+<!-- ============ VISIT ============ -->
+<section class="ivory" id="visit" aria-labelledby="visit-h">
   <div class="wrap pad">
-    <h2 class="sr-only" id="recognized-h">Recognized among the best</h2>
-    <div class="proof rv">
-      <div class="kicker"><span class="label">06 — Recognized among the best</span></div>
-      <div class="proof-track" role="list" aria-label="Awards and press">
-        <div class="proof-card featured" role="listitem">
-          <div class="yelp-head">
-            <img src="assets/yelp-badge.webp" alt="Yelp Best New Restaurants 2026 badge" loading="lazy" decoding="async" width="96">
-            <h3 class="big">No. 19</h3>
-          </div>
-          <p class="sub">Yelp · Best New Restaurants 2026 · National</p>
-          <details class="disclosure yelp-quote" id="yelp-quote">
-            <summary><span>View more</span><span class="plus" aria-hidden="true">+</span></summary>
-            <div class="disclosure-body">
-              <p>Yelp's editors wrote: “Diners are treated to Caribbean fine dining in this upscale, see-and-be-seen L.A. spot, which has received both national and international recognition for its stunning interior design and has already drawn celebrities like Usher and Saweetie.”</p>
-            </div>
-          </details>
-        </div>
-        <div class="proof-card" role="listitem">
-          <h3 class="big">Gold Key Award</h3>
-          <p class="sub">2025 · Hospitality design</p>
-          <p class="note">Design and hospitality, recognized on the national stage.</p>
-        </div>
-        <div class="proof-card" role="listitem">
-          <h3 class="big">LA Times 101</h3>
-          <p class="sub">LA Times · Best restaurants</p>
-          <p class="note">Counted among the city's essential dining rooms.</p>
-        </div>
-        <div class="proof-card" role="listitem">
-          <h3 class="big">21 Most Beautiful</h3>
-          <p class="sub">Robb Report · Restaurants in America</p>
-          <p class="note">A dining room officially recognized for its design.</p>
-        </div>
-        <div class="proof-card" role="listitem">
-          <h3 class="big">In the press</h3>
-          <p class="sub">LA Times · Eater · Vogue · Condé Nast</p>
-          <p class="note">Food, culture, and travel desks all found the room.</p>
-        </div>
+    <h2 class="sr-only" id="visit-h">Visit</h2>
+    <p class="visit-addr">351 N <em>Fairfax</em> Ave</p>
+    <div class="visit-rows">
+      <div><span class="label">Hours</span><span class="big">Wednesday&ndash;Sunday, 6 PM&ndash;12 AM</span><span class="small">Kitchen closes 11:30 PM; last seating 11 PM, Thursday&ndash;Sunday.</span></div>
+      <div><span class="label">Good to know</span><span class="big">21+ after 8 PM</span></div>
+      <div><span class="label">Dietary</span><span class="big">Halal, vegan &amp; vegetarian options</span><span class="small">Dietary questions: <a href="mailto:info@luciala.com">info@luciala.com</a></span></div>
+      <div><span class="label">Getting here</span><span class="big">Street parking &amp; valet</span><span class="small">Street parking nearby; valet $15.</span></div>
+    </div>
+    <div class="visit-cta">
+      <div class="visit-actions">
+        <!-- PLACEHOLDER: swap href for LUCIA's official Resy page when confirmed -->
+        <a class="btn btn-red" href="https://resy.com/cities/los-angeles-ca/venues/lucia-ca" target="_blank" rel="noopener noreferrer">Reserve a table<span class="sr-only"> (opens in new tab)</span></a>
+        <a class="btn btn-ghost-d" href="https://www.google.com/maps/search/?api=1&amp;query=351+N+Fairfax+Ave+Los+Angeles+CA+90036" target="_blank" rel="noopener noreferrer">Get directions <span aria-hidden="true">&rarr;</span><span class="sr-only"> (opens in new tab)</span></a>
+        <a class="btn btn-ghost-d" href="tel:+12138000048">Call +1 213 800 0048</a>
+        <a class="btn btn-ghost-d" href="https://order.toasttab.com/egiftcards/lucia-349-north-fairfax-avenue" target="_blank" rel="noopener noreferrer">Send gift cards <span aria-hidden="true">&rarr;</span><span class="sr-only"> (opens in new tab)</span></a>
       </div>
     </div>
-
   </div>
 </section>
 
-<!-- ============ 07 VISIT ============ -->
-<section class="ivory" id="visit" aria-labelledby="visit-h">
+<!-- ============ RECOGNITION ============ -->
+<section class="noir" id="recognized" aria-labelledby="recognized-h">
   <div class="wrap pad">
-    <div class="kicker rv"><span class="label">07 — Visit</span></div>
-    <h2 class="sr-only" id="visit-h">Visit</h2>
-    <p class="visit-addr rv">351 N <em>Fairfax</em> Ave</p>
-    <div class="visit-rows">
-      <div class="rv" data-d="1"><span class="label">Hours</span><span class="big">Wednesday–Sunday, 6 PM–12 AM</span></div>
-      <div class="rv" data-d="2"><span class="label">Good to know</span><span class="big">21+</span></div>
-    </div>
-    <div class="visit-cta">
-      <div class="visit-actions rv" data-d="1">
-        <a class="btn btn-ghost-d" href="https://www.google.com/maps/search/?api=1&amp;query=351+N+Fairfax+Ave+Los+Angeles+CA+90036" target="_blank" rel="noopener noreferrer">Get directions <span aria-hidden="true">→</span><span class="sr-only"> (opens in new tab)</span></a>
-        <a class="btn btn-ghost-d" href="tel:+12138000048">Call +1 213 800 0048</a>
-        <a class="btn btn-ghost-d" href="https://order.toasttab.com/egiftcards/lucia-349-north-fairfax-avenue" target="_blank" rel="noopener noreferrer">Send gift cards <span aria-hidden="true">→</span><span class="sr-only"> (opens in new tab)</span></a>
+    <h2 class="sec-h" id="recognized-h">Recognition</h2>
+    <div class="recog-feature">
+      <div class="recog-head">
+        <img src="assets/yelp-badge.webp" alt="Yelp Best New Restaurants 2026 badge" loading="lazy" decoding="async" width="480" height="480">
+        <span class="big">No. 19</span>
       </div>
+      <p class="recog-sub">Yelp &middot; Best New Restaurants 2026 &middot; National</p>
+      <blockquote class="recog-quote">
+        <p>&ldquo;Diners are treated to Caribbean fine dining in this upscale, see-and-be-seen L.A. spot, which has received both national and international recognition for its stunning interior design and has already drawn celebrities like Usher and Saweetie.&rdquo;</p>
+        <cite>Yelp&rsquo;s editors</cite>
+      </blockquote>
     </div>
+    <ul class="recog-list">
+      <li><span class="r-label">Dining</span><div><div class="r-name">LA Times 101</div><div class="r-note">Counted among the city&rsquo;s essential dining rooms.</div></div></li>
+      <li><span class="r-label">Design</span><div><div class="r-name">Gold Key Award 2025</div><div class="r-note">Hospitality design, recognized on the national stage.</div></div></li>
+      <li><span class="r-label">Design</span><div><div class="r-name">Robb Report &mdash; 21 Most Beautiful Restaurants in America</div><div class="r-note">A dining room recognized for its design.</div></div></li>
+      <li><span class="r-label">In the press</span><div><div class="r-name">Eater &middot; Vogue &middot; Cond&eacute; Nast</div><div class="r-note">Food, culture, and travel desks all found the room.</div></div></li>
+    </ul>
   </div>
 </section>
 
@@ -710,16 +772,17 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
         <h2>On this page</h2>
         <a href="#about">About Us</a>
         <a href="#taste">Taste</a>
+        <a href="#menus">Menus</a>
         <a href="#room">The Room</a>
-        <a href="#events">Events</a>
+        <a href="#events">What&rsquo;s On</a>
         <a href="#private-events">Private Events</a>
-        <a href="#recognized">Awards</a>
+        <a href="#recognized">Recognition</a>
         <a href="#visit">Visit</a>
       </nav>
       <div>
         <h2>Find us</h2>
         <p>351 N Fairfax Ave<br>Los Angeles, CA</p>
-        <p>Wed–Sun · 6PM–12AM · 21+</p>
+        <p>Wed&ndash;Sun &middot; 6PM&ndash;12AM &middot; 21+</p>
       </div>
       <div>
         <h2>Book</h2>
@@ -733,23 +796,22 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
   </div>
   <div class="foot-giant" aria-hidden="true">LUCIA</div>
   <div class="foot-base">
-    <span class="label">© <span id="yr">2026</span> LUCIA</span>
+    <span class="label">&copy; <span id="yr">2026</span> LUCIA</span>
     <span class="label">Accessibility assistance: +1 213 800 0048</span>
-    <span class="label">Fairfax · Los Angeles</span>
+    <span class="label">Fairfax &middot; Los Angeles</span>
   </div>
 </footer>
 
-<!-- Persistent mobile conversion bar: "Reserve a table" (red, primary) + "View menus" (ghost), stationary on scroll. -->
-<div class="stickybar" id="stickybar" role="region" aria-label="Quick actions">
+<!-- Persistent mobile conversion bar: "Reserve a table" (red, primary) + "View menus" (ghost), shown once the hero leaves the viewport. -->
+<div class="stickybar" id="stickybar" role="region" aria-label="Quick actions" inert>
   <!-- PLACEHOLDER: swap href for LUCIA's official Resy page when confirmed -->
   <a class="btn btn-red" href="https://resy.com/cities/los-angeles-ca/venues/lucia-ca" target="_blank" rel="noopener noreferrer">Reserve a table<span class="sr-only"> (opens in new tab)</span></a>
-  <a class="btn btn-ghost" href="#taste">View menus</a>
+  <a class="btn btn-ghost" href="#menus">View menus</a>
 </div>
 
 <script>
 (function(){
   "use strict";
-  document.documentElement.classList.add('js'); /* reveals only hide when JS runs */
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var mobileMQ = window.matchMedia('(max-width: 1023px)');
 
@@ -758,15 +820,19 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
   function onScroll(){ head.classList.toggle('scrolled', window.scrollY > 40); }
   window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
 
-  /* Accessible mobile menu: dialog pattern — Escape closes, focus returns,
-     background inert. Tab cycles within the open menu (standard dialog
-     behavior, released on close). */
+  /* Accessible mobile menu: dialog pattern — focus moves into the close
+     button, Escape closes, focus returns to the toggle, background inert.
+     Tab cycles within the open menu, over VISIBLE focusables only. */
   var toggle = document.getElementById('menu-toggle'),
       menu = document.getElementById('mobile-menu'),
       main = document.getElementById('maincontent'),
       footer = document.querySelector('footer'),
       bar = document.getElementById('stickybar');
-  var focusables = function(){ return Array.prototype.slice.call(menu.querySelectorAll('a[href], button:not([disabled])')); };
+  function focusables(){
+    return Array.prototype.slice.call(menu.querySelectorAll('a[href], button:not([disabled])')).filter(function(el){
+      return el.offsetWidth > 0 || el.offsetHeight > 0 || el.getClientRects().length > 0;
+    });
+  }
   function setMenu(open, returnFocus){
     menu.classList.toggle('open', open);
     menu.setAttribute('aria-hidden', open ? 'false' : 'true');
@@ -776,66 +842,79 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
     main.inert = open; footer.inert = open;
     if (open){ var f = focusables(); if (f[0]) f[0].focus(); }
     else if (returnFocus){ toggle.focus(); }
-    toggleBar();
+    updateBar();
   }
   toggle.addEventListener('click', function(){ setMenu(toggle.getAttribute('aria-expanded') !== 'true', true); });
-  menu.addEventListener('click', function(e){ if (e.target.closest('a')) setMenu(false, false); });
+  menu.addEventListener('click', function(e){
+    var a = e.target.closest('a');
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    setMenu(false, false);
+    if (href.charAt(0) === '#' && href.length > 1){
+      var t = document.getElementById(href.slice(1));
+      if (t){ t.setAttribute('tabindex', '-1'); t.focus({preventScroll:true}); }
+    }
+  });
   document.addEventListener('keydown', function(e){
     if (toggle.getAttribute('aria-expanded') !== 'true') return;
     if (e.key === 'Escape'){ e.preventDefault(); setMenu(false, true); return; }
     if (e.key === 'Tab'){
-      var f = focusables(), first = f[0], last = f[f.length-1];
+      var f = focusables(), first = f[0], last = f[f.length - 1];
+      if (!first || !last) return;
       if (e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
       else if (!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
     }
   });
-  window.addEventListener('resize', function(){ if (!mobileMQ.matches && toggle.getAttribute('aria-expanded') === 'true') setMenu(false, false); });
+  window.addEventListener('resize', function(){
+    if (!mobileMQ.matches && toggle.getAttribute('aria-expanded') === 'true') setMenu(false, false);
+  });
 
-  /* Scroll reveals: content is visible without JS; observer only enhances. */
-  var revealEls = document.querySelectorAll('.rv');
-  if ('IntersectionObserver' in window && !reduceMotion){
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(en){ if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
-    }, {threshold:.12, rootMargin:'0px 0px -8% 0px'});
-    revealEls.forEach(function(el){ io.observe(el); });
-  } else {
-    revealEls.forEach(function(el){ el.classList.add('in'); });
-  }
-
-  /* Sticky bar: appears after the hero and stays visible while scrolling;
-     hidden only while the mobile menu is open.
+  /* Sticky bar: shown only once the hero has left the viewport
+     (IntersectionObserver), hidden + inert while the mobile menu is open.
      body.has-bar reserves space so the bar never covers content. */
-  function toggleBar(){
+  var hero = document.getElementById('top');
+  var heroVisible = true;
+  function updateBar(){
     var menuOpen = toggle.getAttribute('aria-expanded') === 'true';
-    var show = mobileMQ.matches && !menuOpen && window.scrollY > window.innerHeight * .7;
+    var show = mobileMQ.matches && !menuOpen && !heroVisible;
     bar.classList.toggle('show', show);
+    bar.inert = !show;
     document.body.classList.toggle('has-bar', show);
   }
-  window.addEventListener('scroll', toggleBar, {passive:true});
-
-  /* Yelp quote: open on desktop (always visible), closed on mobile (View more toggle) */
-  var yelpQuote = document.getElementById('yelp-quote');
-  if (yelpQuote && !mobileMQ.matches) yelpQuote.open = true;
-  window.addEventListener('resize', toggleBar);
-  if (mobileMQ.addEventListener) mobileMQ.addEventListener('change', toggleBar);
+  if ('IntersectionObserver' in window){
+    var heroIO = new IntersectionObserver(function(entries){ heroVisible = entries[0].isIntersecting; updateBar(); }, {threshold: 0});
+    heroIO.observe(hero);
+  } else {
+    window.addEventListener('scroll', function(){ heroVisible = window.scrollY < hero.offsetHeight; updateBar(); }, {passive:true});
+  }
+  if (mobileMQ.addEventListener) mobileMQ.addEventListener('change', updateBar);
+  updateBar();
 
   /* Room carousel: buttons + dots + arrow keys; swipe is native scroll-snap.
      The same swipe/scroll-snap carousel runs at every width. */
   var track = document.getElementById('room-track');
   if (track){
     var slides = Array.prototype.slice.call(track.querySelectorAll('.slide')),
-        dots = Array.prototype.slice.call(track.parentElement.querySelectorAll('.car-dots button')),
-        prev = track.parentElement.querySelector('.car-prev'),
-        next = track.parentElement.querySelector('.car-next'),
+        dotsWrap = document.getElementById('room-dots'),
+        prev = document.getElementById('room-prev'),
+        next = document.getElementById('room-next'),
         status = document.getElementById('room-status'),
         idx = 0, raf = 0;
-    var captions = ['Through the doors', 'The table', 'The entrance'];
+    var captions = ['The dining room', 'The entrance', 'The table'];
+    var dots = slides.map(function(s, k){
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('aria-label', 'Go to photo ' + (k + 1) + ': ' + captions[k]);
+      b.addEventListener('click', function(){ go(k); });
+      dotsWrap.appendChild(b);
+      return b;
+    });
     function render(i){
-      idx = Math.max(0, Math.min(slides.length-1, i));
+      idx = Math.max(0, Math.min(slides.length - 1, i));
       dots.forEach(function(d, k){ d.setAttribute('aria-current', k === idx ? 'true' : 'false'); });
       if (prev) prev.disabled = idx === 0;
-      if (next) next.disabled = idx === slides.length-1;
-      status.textContent = captions[idx] + ' · ' + (idx+1) + ' of ' + slides.length;
+      if (next) next.disabled = idx === slides.length - 1;
+      if (status) status.textContent = 'Photo ' + (idx + 1) + ' of ' + slides.length + ' \u2014 ' + captions[idx];
     }
     function nearest(){
       var n = 0, best = Infinity;
@@ -846,18 +925,17 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
       render(i);
       track.scrollTo({left: slides[idx].offsetLeft, behavior: reduceMotion ? 'auto' : 'smooth'});
     }
-    if (prev) prev.addEventListener('click', function(){ go(idx-1); });
-    if (next) next.addEventListener('click', function(){ go(idx+1); });
-    dots.forEach(function(d, k){ d.addEventListener('click', function(){ go(k); }); });
+    if (prev) prev.addEventListener('click', function(){ go(idx - 1); });
+    if (next) next.addEventListener('click', function(){ go(idx + 1); });
     track.addEventListener('keydown', function(e){
-      if (e.key === 'ArrowLeft'){ e.preventDefault(); go(idx-1); }
-      if (e.key === 'ArrowRight'){ e.preventDefault(); go(idx+1); }
+      if (e.key === 'ArrowLeft'){ e.preventDefault(); go(idx - 1); }
+      if (e.key === 'ArrowRight'){ e.preventDefault(); go(idx + 1); }
     });
     track.addEventListener('scroll', function(){
       if (raf) return;
       raf = requestAnimationFrame(function(){ raf = 0; render(nearest()); });
     }, {passive:true});
-    window.addEventListener('resize', function(){ render(idx); });
+    window.addEventListener('resize', function(){ render(idx); track.scrollTo({left: slides[idx].offsetLeft, behavior: 'auto'}); });
     render(0);
   }
 
