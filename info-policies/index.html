@@ -280,9 +280,7 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
 @media (max-width:1023px){
   body.has-bar{padding-bottom:calc(78px + env(safe-area-inset-bottom,0px))}
   .stickybar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:1200;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:transparent;transform:translateY(110%);transition:transform .4s var(--ease)}
-/* White frosted fade behind the bar (mobile only): all white, 5%
-   transparent, and it blurs the content behind it. */
-.stickybar::before{content:"";position:absolute;left:0;right:0;top:10px;bottom:0;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);z-index:-1;pointer-events:none}
+/* No backdrop behind the bar — the Reserve button floats over the page. */
   .stickybar.show{transform:none}
   .stickybar{flex-direction:column;gap:10px}
   .stickybar .btn{flex:none;width:100%;min-height:56px;font-size:12px;letter-spacing:.08em;padding:16px 10px;white-space:nowrap}
