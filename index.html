@@ -104,7 +104,7 @@ a{color:inherit}
 .ivory :focus-visible{outline-color:var(--bronze)}
 
 /* ============ TYPE UTILITIES ============ */
-.label{font-family:var(--font-label);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;line-height:1.7}
+.label{font-family:var(--font-label);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;line-height:1.7}
 .wrap{max-width:100%;margin:0 auto;padding-left:20px;padding-right:20px}
 .pad{padding-top:var(--pad-sec);padding-bottom:var(--pad-sec)}
 .ivory{background:var(--ivory);color:var(--noir)}
@@ -291,7 +291,8 @@ body.menu-open .menu-toggle{display:none}
 .visit-col .visit-small{font-size:15px;line-height:1.6;color:rgba(13,11,8,.72);margin-top:8px}
 .visit-col .visit-small a{color:inherit;text-decoration:underline;text-underline-offset:3px}
 .visit-age{border-top:1px solid var(--line-l);padding-top:16px;margin-top:16px}
-.visit-dress{border-top:1px solid var(--line-l);padding-top:16px;margin-top:16px}
+.visit-dress{font-size:15px;line-height:1.6;color:rgba(13,11,8,.72);border-top:1px solid var(--line-l);padding-top:16px;margin-top:16px}
+.visit-dress a{color:inherit;text-decoration:underline;text-underline-offset:3px}
 /* Visit dropdowns (mobile only): header button + collapsible body.
    On desktop the columns stay fully open and the button reads as text. */
 .visit-toggle{display:flex;justify-content:space-between;align-items:center;gap:16px;width:100%;background:none;border:0;padding:0;margin:0;font:inherit;color:inherit;text-align:left;cursor:pointer;-webkit-tap-highlight-color:transparent}
@@ -302,8 +303,8 @@ body.menu-open .menu-toggle{display:none}
 @media (max-width:1023px){
   .visit-col .visit-body{display:none}
   .visit-col.open .visit-body{display:block}
-  /* Mobile dropdown headers: main line matches the label size above it (11px) */
-  .visit-col .visit-big{font-size:11px}
+  /* Mobile dropdown headers: main line matches the label size above it (12px) */
+  .visit-col .visit-big{font-size:12px}
 }
 @media (min-width:1024px){
   .visit-toggle{cursor:default}
@@ -479,6 +480,7 @@ body.menu-open .menu-toggle{display:none}
     <div class="nav-more" id="more-wrap">
       <button class="nav-more-btn" id="more-btn" type="button" aria-expanded="false" aria-controls="more-menu">More <span class="chev" aria-hidden="true"></span></button>
       <div class="nav-more-menu" id="more-menu" aria-label="More">
+        <a href="about/">About Us</a>
         <a href="info-policies/">Info &amp; Policies</a>
         <a href="https://order.toasttab.com/egiftcards/lucia-349-north-fairfax-avenue" target="_blank" rel="noopener noreferrer">Gift cards<span class="sr-only"> (opens in new tab)</span></a>
         <a href="#room">Gallery</a>
@@ -500,6 +502,7 @@ body.menu-open .menu-toggle{display:none}
   <button class="menu-close" id="menu-close" type="button" aria-label="Close menu"><span aria-hidden="true">&times;</span></button>
   <ol>
     <li><a href="menus/"><span class="name">Menus</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
+    <li><a href="about/"><span class="name">About Us</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
     <li><a href="info-policies/"><span class="name">Info &amp; Policies</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
     <li><a href="https://order.toasttab.com/egiftcards/lucia-349-north-fairfax-avenue" target="_blank" rel="noopener noreferrer"><span class="name">Gift cards</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
     <li><a href="#room"><span class="name">Gallery</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
@@ -541,14 +544,12 @@ body.menu-open .menu-toggle{display:none}
   <div class="wrap pad">
     <p class="sec-kicker" aria-hidden="true"><span>01</span><span>About</span></p>
     <div class="about-grid">
-      <h2 class="about-title" id="about-h">About Us</h2>
+      <h2 class="about-title" id="about-h">Afro-Caribbean inspiration. A distinctly modern perspective.</h2>
       <div>
-        <p class="about-lead">Afro-Caribbean cooking, bright and deliberate &mdash; served in a dining room built for long evenings.</p>
         <div class="about-body">
-          <p>LUCIA is modern Afro-Caribbean fine dining on Fairfax Avenue in Los Angeles. The cooking draws on the food traditions of the African and Caribbean diaspora &mdash; rum, tropical fruit, Scotch bonnet heat, slow-cooked meats &mdash; translated into a refined, contemporary menu that changes with the seasons.</p>
-          <p>The cocktail program follows the same instincts: rum at the centre, tropical fruit and spice around it. Come for dinner; stay for the music and the bar.</p>
-          <p>Recognized by the LA Times, Eater, Vogue, Cond&eacute; Nast, Robb Report, and Yelp&rsquo;s Best New Restaurants 2026.</p>
+          <p>LUCIA reimagines Afro-Caribbean flavors through contemporary techniques, unexpected pairings and influences beyond the region. On Fairfax Avenue in Los Angeles, the experience brings inventive cooking, expressive cocktails and thoughtful hospitality together in a room that moves from dinner into music and late-night conversation.</p>
         </div>
+        <a class="textlink" href="about/">Discover LUCIA &rarr;</a>
       </div>
     </div>
   </div>
@@ -766,11 +767,10 @@ body.menu-open .menu-toggle{display:none}
         </button>
         <div class="visit-body" id="visit-arrival-body">
           <p class="visit-small">Metered parking nearby; lot at 333 N Fairfax Ave.</p>
-          <p class="visit-small visit-dress">Dress code: upscale, elegant attire.</p>
-          <p class="visit-small"><a href="info-policies/#dress-code">View dress code <span aria-hidden="true">&#8599;</span></a></p>
         </div>
       </div>
     </div>
+    <p class="visit-dress">Dress code: upscale, elegant attire. <a href="info-policies/#dress-code">View dress code <span aria-hidden="true">&#8599;</span></a></p>
     <div class="visit-actions">
       <a class="visit-link" href="tel:+12138000048">Call +1 213 800 0048</a>
       <a class="visit-link" href="https://order.toasttab.com/egiftcards/lucia-349-north-fairfax-avenue" target="_blank" rel="noopener noreferrer">Gift cards <span aria-hidden="true">&#8599;</span><span class="sr-only"> (opens in new tab)</span></a>
