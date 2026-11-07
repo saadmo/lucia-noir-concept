@@ -322,14 +322,14 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
   .wordmark{font-size:20px}
   .wordmark img{height:30px}
   .site-nav{display:flex;gap:28px}
-  .site-nav a{position:relative;text-decoration:none;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;opacity:.72;padding:14px 2px;transition:opacity var(--dur-s)}
+  .site-nav a{position:relative;text-decoration:none;font-size:14px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;opacity:.72;padding:14px 2px;transition:opacity var(--dur-s)}
   .site-nav a::after{content:"";position:absolute;left:0;bottom:2px;height:1px;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform var(--dur-s) var(--ease)}
   .site-nav a:hover,.site-nav a:focus-visible{opacity:1}
   .site-nav a:hover::after,.site-nav a:focus-visible::after{transform:scaleX(1)}
   .head-ctas{display:inline-flex;gap:12px;flex-shrink:0}
   /* "More" dropdown (desktop nav) */
   .nav-more{position:relative}
-  .nav-more-btn{display:inline-flex;align-items:center;gap:7px;background:none;border:0;cursor:pointer;font-family:var(--font-body);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--ivory);opacity:.72;padding:14px 2px}
+  .nav-more-btn{display:inline-flex;align-items:center;gap:7px;background:none;border:0;cursor:pointer;font-family:var(--font-body);font-size:14px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--ivory);opacity:.72;padding:14px 2px}
   .nav-more-btn:hover,.nav-more-btn:focus-visible{opacity:1}
   .nav-more-btn .chev{width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;transition:transform var(--dur-s) var(--ease)}
   .nav-more.open .nav-more-btn .chev{transform:rotate(180deg)}
@@ -344,6 +344,8 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
   .hero{min-height:100svh;align-items:flex-end}
   .hero-inner{padding:120px 24px 110px}
   .hero .kicker::before,.hero .kicker::after{width:56px}
+  /* Desktop hero bottom text: at least 16px */
+  .hero .kicker .label,.hero-facts,.hero-scroll{font-size:16px}
   /* CTAs live in the header nav on desktop — not repeated in the hero */
   .hero-ctas{display:none}
 
