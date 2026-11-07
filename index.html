@@ -73,6 +73,10 @@ a{color:inherit}
 .noir{background:var(--noir);color:var(--ivory)}
 .sec-h{font-family:var(--font-display);font-weight:300;font-size:var(--t-h2);line-height:1.05;text-wrap:balance}
 .sec-h em{font-style:italic;color:var(--gold)}
+.sec-kicker{display:flex;align-items:center;gap:14px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--gold);margin:0 0 28px}
+.sec-kicker::after{content:"";flex:1;height:1px;background:rgba(201,169,97,.35)}
+.ivory .sec-kicker{color:var(--bronze)}
+.ivory .sec-kicker::after{background:rgba(13,11,8,.2)}
 
 /* Buttons: color/border feedback only — no lifts, no shadows. 48px+ targets. */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:16px 30px;border-radius:100px;min-height:52px;min-width:48px;border:1px solid transparent;cursor:pointer;transition:background var(--dur-s),border-color var(--dur-s),color var(--dur-s)}
@@ -133,7 +137,7 @@ body.menu-open .menu-toggle{display:none}
 .hero .kicker::after{flex:none;width:44px}
 .hero h1{font-family:var(--font-display);font-weight:400;font-size:var(--t-hero);line-height:.92;letter-spacing:.08em;padding-left:.08em;color:var(--ivory);text-wrap:balance}
 /* Operational facts sit directly under the hero line — no scrolling to find them */
-.hero-facts{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:8px 18px;margin-top:22px;color:var(--ivory-70);font-size:11px;letter-spacing:.12em;text-transform:uppercase;line-height:1.8}
+.hero-facts{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:8px 18px;margin-top:22px;color:var(--ivory-70);font-size:13px;letter-spacing:.1em;text-transform:uppercase;line-height:1.8}
 .hero-facts{text-shadow:0 1px 10px rgba(0,0,0,.5)}
 .hero-facts li{display:flex;align-items:center;gap:12px}
 .hero-facts li+li::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--gold);opacity:.8;flex-shrink:0}
@@ -154,7 +158,7 @@ body.menu-open .menu-toggle{display:none}
 .dish-figure{position:relative;overflow:hidden;border-radius:8px;margin:0 0 30px}
 .dish-figure img{width:100%;aspect-ratio:4/3.4;object-fit:cover}
 .dish-figure figcaption{position:absolute;left:0;right:0;bottom:0;padding:40px 20px 18px;background:linear-gradient(transparent,rgba(8,6,4,.88));font-size:14px;line-height:1.55;color:var(--ivory)}
-.dish-figure figcaption .cap-k{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:6px;font-weight:600}
+.dish-figure figcaption .cap-k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:6px;font-weight:600}
 .taste-h{font-family:var(--font-display);font-weight:300;font-size:var(--t-h2);line-height:1.02;text-wrap:balance}
 .taste-h em{font-style:italic;color:var(--gold)}
 .taste-desc{margin-top:20px;max-width:var(--measure);color:var(--ivory-70)}
@@ -169,7 +173,8 @@ body.menu-open .menu-toggle{display:none}
 /* ============ THE ROOM ============ */
 .room-title{font-family:var(--font-display);font-weight:300;font-size:var(--t-display);line-height:1;max-width:16ch;text-wrap:balance;margin-bottom:24px}
 .room-note{border-top:1px solid var(--line-d);padding-top:20px;margin-bottom:36px}
-.room-note .label{display:block;color:var(--ivory-70);line-height:1.8;margin-bottom:20px;max-width:var(--measure)}
+.room-note .label{display:block;color:var(--ivory-70);line-height:1.8;margin-bottom:20px;max-width:var(--measure);font-size:13px;letter-spacing:.12em}
+.room-desc{color:var(--ivory-70);font-size:15px;line-height:1.6;max-width:var(--measure)}
 /* Accessible carousel: native swipe + buttons + dots + arrow keys + live region */
 .carousel{position:relative}
 .carousel-track{display:flex;gap:0;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;border-radius:8px;overscroll-behavior-x:contain}
@@ -177,7 +182,7 @@ body.menu-open .menu-toggle{display:none}
 .carousel .slide{position:relative;overflow:hidden;border-radius:0;margin:0;flex:0 0 100%;scroll-snap-align:start;scroll-snap-stop:always}
 .carousel .slide img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5}
 .slide figcaption{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:48px 18px 16px;background:linear-gradient(transparent,rgba(8,6,4,.9));color:var(--ivory)}
-.slide figcaption .n{font-size:10px;letter-spacing:.14em;color:var(--gold);font-weight:600}
+.slide figcaption .n{font-size:12px;letter-spacing:.14em;color:var(--gold);font-weight:600}
 .slide figcaption .t{font-family:var(--font-display);font-style:italic;font-weight:300;font-size:18px}
 .carousel-controls{display:grid;grid-template-columns:52px 1fr 52px;align-items:center;gap:12px;margin-top:18px}
 .car-arrow{width:52px;height:52px;border:1px solid var(--line-d);border-radius:50%;background:transparent;color:var(--ivory);font-size:18px;cursor:pointer;transition:border-color var(--dur-s)}
@@ -196,8 +201,8 @@ body.menu-open .menu-toggle{display:none}
 .events-figure img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
 .event-cards{display:grid;gap:16px}
 .event-card{border:1px solid var(--line-d);border-radius:12px;padding:28px 24px;background:var(--noir-2);display:flex;flex-direction:column;gap:12px}
-.event-card .when{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);line-height:1.7;font-weight:600}
-.event-card h4{font-family:var(--font-display);font-size:clamp(26px,7vw,40px);font-weight:400;line-height:1.05;text-wrap:balance}
+.event-card .when{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);line-height:1.7;font-weight:600}
+.event-card h3{font-family:var(--font-display);font-size:clamp(26px,7vw,40px);font-weight:400;line-height:1.05;text-wrap:balance}
 .event-card p{color:var(--ivory-70);font-size:15px;line-height:1.6;flex:1;max-width:var(--measure)}
 
 /* ============ VISIT ============ */
@@ -216,7 +221,7 @@ body.menu-open .menu-toggle{display:none}
 .private-figure{overflow:hidden;border-radius:8px;position:relative;margin:0 0 30px}
 .private-figure img{width:100%;aspect-ratio:4/4.2;object-fit:cover}
 .private-figure figcaption{position:absolute;left:0;right:0;bottom:0;padding:48px 20px 18px;background:linear-gradient(transparent,rgba(8,6,4,.9));font-size:14px;line-height:1.55;color:var(--ivory)}
-.private-figure figcaption .cap-k{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:6px;font-weight:600}
+.private-figure figcaption .cap-k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:6px;font-weight:600}
 .private-h{font-family:var(--font-display);font-weight:300;font-size:var(--t-display);line-height:.95;max-width:12ch;text-wrap:balance}
 .private-h em{font-style:italic;color:var(--gold)}
 .private-lede{margin-top:20px;color:var(--ivory-70);max-width:var(--measure)}
@@ -228,27 +233,17 @@ body.menu-open .menu-toggle{display:none}
 .recog-head{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
 .recog-head img{width:96px;height:auto}
 .recog-head .big{font-family:var(--font-display);font-size:clamp(36px,9vw,56px);font-weight:400;line-height:1}
-.recog-sub{margin-top:14px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ivory-70);font-weight:600}
+.recog-sub{margin-top:14px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--ivory-70);font-weight:600}
 .recog-quote{margin-top:18px;font-family:var(--font-display);font-style:italic;font-weight:300;font-size:clamp(18px,4.6vw,24px);line-height:1.5;color:var(--ivory);max-width:56ch}
-.recog-quote cite{display:block;margin-top:12px;font-family:var(--font-label);font-style:normal;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ivory-50)}
+.recog-quote cite{display:block;margin-top:12px;font-family:var(--font-label);font-style:normal;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ivory-50)}
 .recog-list{list-style:none;margin-top:40px;border-top:1px solid var(--line-d);max-width:860px}
 .recog-list li{display:grid;gap:4px;padding:18px 0;border-bottom:1px solid var(--line-d)}
-.recog-list .r-label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.recog-list .r-label{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:600}
 .recog-list .r-name{font-family:var(--font-display);font-size:22px;font-weight:400;line-height:1.2}
 .recog-list .r-note{color:var(--ivory-70);font-size:14px;line-height:1.6}
 .recog-sub a,.recog-list a{color:inherit;text-decoration:underline;text-underline-offset:3px}
 .recog-sub a:hover,.recog-list a:hover{color:var(--gold)}
 
-/* ============ FOOTER ============ */
-footer{background:#080604;padding:64px 0 0;overflow:hidden}
-.foot-grid{display:grid;gap:36px;margin-bottom:56px}
-.foot-grid h2{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,239,227,.6);margin-bottom:16px;font-weight:600;font-family:var(--font-body)}
-.foot-grid a{display:block;text-decoration:none;font-size:16px;line-height:2.4;color:var(--ivory-70);overflow-wrap:anywhere}
-.foot-grid a{min-height:44px;display:flex;align-items:center}
-.foot-grid a:hover{color:var(--ivory)}
-.foot-giant{font-family:var(--font-display);font-weight:400;font-size:18vw;line-height:.8;text-align:center;letter-spacing:.06em;color:transparent;-webkit-text-stroke:1px rgba(245,239,227,.3);user-select:none;margin-bottom:-1.5vw;white-space:nowrap}
-.foot-base{display:flex;flex-direction:column;gap:8px;padding:22px 20px calc(22px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line-d);position:relative;background:#080604}
-.foot-base .label{opacity:.55}
 
 /* ============ STICKY MOBILE BAR (Reserve only) ============
    Shown only once the hero has left the viewport (IntersectionObserver),
@@ -289,15 +284,15 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
   .site-head.scrolled{padding-top:12px;padding-bottom:12px}
   .wordmark{font-size:20px}
   .wordmark img{height:30px}
-  .site-nav{display:flex;gap:28px}
-  .site-nav a{position:relative;text-decoration:none;font-size:14px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;opacity:.72;padding:14px 2px;transition:opacity var(--dur-s)}
+  .site-nav{display:flex;align-items:center;gap:28px}
+  .site-nav a{position:relative;text-decoration:none;font-size:14px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;line-height:1.65;opacity:.72;padding:14px 2px;transition:opacity var(--dur-s)}
   .site-nav a::after{content:"";position:absolute;left:0;bottom:2px;height:1px;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform var(--dur-s) var(--ease)}
   .site-nav a:hover,.site-nav a:focus-visible{opacity:1}
   .site-nav a:hover::after,.site-nav a:focus-visible::after{transform:scaleX(1)}
   .head-ctas{display:inline-flex;gap:12px;flex-shrink:0}
   /* "More" dropdown (desktop nav) */
   .nav-more{position:relative}
-  .nav-more-btn{display:inline-flex;align-items:center;gap:7px;background:none;border:0;cursor:pointer;font-family:var(--font-body);font-size:14px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--ivory);opacity:.72;padding:14px 2px}
+  .nav-more-btn{display:inline-flex;align-items:center;gap:7px;background:none;border:0;cursor:pointer;font-family:var(--font-body);font-size:14px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;line-height:1.65;color:var(--ivory);opacity:.72;padding:14px 2px}
   .nav-more-btn:hover,.nav-more-btn:focus-visible{opacity:1}
   .nav-more-btn .chev{width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;transition:transform var(--dur-s) var(--ease)}
   .nav-more.open .nav-more-btn .chev{transform:rotate(180deg)}
@@ -355,10 +350,6 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
   /* Recognition: featured + list */
   .recog-list li{grid-template-columns:220px 1fr;gap:20px;align-items:baseline}
 
-  /* Footer: three columns, smaller giant wordmark */
-  .foot-grid{grid-template-columns:1.1fr 1fr;gap:56px;margin-bottom:clamp(48px,6vw,72px)}
-  .foot-giant{font-size:14vw}
-  .foot-base{flex-direction:row;justify-content:space-between;align-items:center;padding:24px clamp(20px,4vw,48px)}
 }
 
 /* Wide screens: let the canvas breathe, keep measure constrained */
@@ -379,7 +370,7 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
     <a href="#private-events">Private Dining</a>
     <a href="#visit">Visit</a>
     <div class="nav-more" id="more-wrap">
-      <button class="nav-more-btn" id="more-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="more-menu">More <span class="chev" aria-hidden="true"></span></button>
+      <button class="nav-more-btn" id="more-btn" type="button" aria-expanded="false" aria-controls="more-menu">More <span class="chev" aria-hidden="true"></span></button>
       <div class="nav-more-menu" id="more-menu" aria-label="More">
         <a href="info-policies/">Info &amp; Policies</a>
         <a href="https://order.toasttab.com/egiftcards/lucia-349-north-fairfax-avenue" target="_blank" rel="noopener noreferrer">Gift cards<span class="sr-only"> (opens in new tab)</span></a>
@@ -441,13 +432,14 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
 <!-- ============ ABOUT ============ -->
 <section class="ivory" id="about" aria-labelledby="about-h">
   <div class="wrap pad">
+    <p class="sec-kicker" aria-hidden="true"><span>01</span><span>About</span></p>
     <div class="about-grid">
       <h2 class="about-title" id="about-h">About Us</h2>
       <div>
-        <p class="about-lead">Modern Afro-Caribbean food, cocktails built for the room, and a dining room that comes alive after dark.</p>
+        <p class="about-lead">Afro-Caribbean cooking, bright and deliberate &mdash; served in a dining room built for long evenings.</p>
         <div class="about-body">
-          <p>LUCIA is modern Afro-Caribbean fine dining in Los Angeles &mdash; a menu that follows the seasons, a cocktail program built on rum, tropical fruit, and spice, and a dining room made for long evenings.</p>
-          <p>The menu draws on the food traditions of the African and Caribbean diaspora, translated into a refined, contemporary dining experience. Come for dinner; stay for the music, the bar, and the room.</p>
+          <p>LUCIA is modern Afro-Caribbean fine dining on Fairfax Avenue in Los Angeles. The cooking draws on the food traditions of the African and Caribbean diaspora &mdash; rum, tropical fruit, Scotch bonnet heat, slow-cooked meats &mdash; translated into a refined, contemporary menu that changes with the seasons.</p>
+          <p>The cocktail program follows the same instincts: rum at the centre, tropical fruit and spice around it. Come for dinner; stay for the music and the bar.</p>
           <p>Recognized by the LA Times, Eater, Vogue, Cond&eacute; Nast, Robb Report, and Yelp&rsquo;s Best New Restaurants 2026.</p>
         </div>
       </div>
@@ -458,14 +450,15 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
 <!-- ============ TASTE (editorial) ============ -->
 <section class="noir" id="taste" aria-labelledby="taste-h">
   <div class="wrap pad">
+    <p class="sec-kicker" aria-hidden="true"><span>02</span><span>Taste</span></p>
     <div class="taste-grid">
       <figure class="dish-figure">
         <img src="assets/dish.webp" alt="Glazed wings with lime, served at LUCIA" loading="lazy" decoding="async" width="1000" height="1202">
         <figcaption><span class="cap-k">From the pass</span>Glazed wings, finished with lime.</figcaption>
       </figure>
       <div class="taste-copy">
-        <h2 class="taste-h" id="taste-h">The menu <em>turns.</em> The craving stays.</h2>
-        <p class="taste-desc">Afro-Caribbean flavors, seasonal ingredients, and cocktails built for the room. The menu changes; the standards do not.</p>
+        <h2 class="taste-h" id="taste-h">Bright heat, <em>slow cooking.</em></h2>
+        <p class="taste-desc">The cooking leans bright and hot &mdash; citrus and Scotch bonnet up front, slow-cooked meats and brown butter underneath, rum in the pasta and behind the bar. These three plates are a good place to start.</p>
         <ul class="sig-list" aria-label="Signature dishes">
           <li><span class="dish">Hamachi Crudo</span><p class="desc">Mango, passion fruit Scotch bonnet, culantro oil, shaved shallot.</p></li>
           <li><span class="dish">Jerk Lamb Shank</span><p class="desc">Whipped sweet potato, brown butter, goat cheese, salsa criolla.</p></li>
@@ -480,25 +473,23 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
 <!-- ============ THE ROOM ============ -->
 <section class="noir" id="room" aria-labelledby="room-h">
   <div class="wrap pad">
+    <p class="sec-kicker" aria-hidden="true"><span>03</span><span>The Room</span></p>
     <div class="room-head">
-      <h2 class="room-title" id="room-h">Arches, red banquettes, and a bar that glows after dark.</h2>
+      <h2 class="room-title" id="room-h">Ribbed white arches, red banquettes, and a bar that glows after dark.</h2>
       <div class="room-note">
         <span class="label">Reservations open two weeks out.</span>
+        <p class="room-desc">A curved bar anchors the room, with arched booths along the walls and low light once dinner service is underway.</p>
       </div>
     </div>
     <div class="carousel" id="room-carousel">
       <div class="carousel-track" id="room-track" tabindex="0" role="region" aria-roledescription="carousel" aria-label="The room">
         <figure class="slide">
           <img src="assets/room-doors.webp" alt="LUCIA's open wooden entrance door revealing the illuminated curved bar at night" loading="lazy" decoding="async" width="1200" height="900">
-          <figcaption><span class="n">01</span><span class="t">The dining room</span></figcaption>
-        </figure>
-        <figure class="slide">
-          <img src="assets/room-entrance.webp" alt="Entrance door with a brass serpent handle, the bar glowing beyond" loading="lazy" decoding="async" width="1200" height="900">
-          <figcaption><span class="n">02</span><span class="t">The entrance</span></figcaption>
+          <figcaption><span class="n">01</span><span class="t">The entrance</span></figcaption>
         </figure>
         <figure class="slide">
           <img src="assets/room-table.webp" alt="Shared plates and cocktails on a marble table, seen from above" loading="lazy" decoding="async" width="1080" height="810">
-          <figcaption><span class="n">03</span><span class="t">The table</span></figcaption>
+          <figcaption><span class="n">02</span><span class="t">The table</span></figcaption>
         </figure>
       </div>
       <div class="carousel-controls">
@@ -506,7 +497,7 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
         <div class="car-dots" id="room-dots" role="group" aria-label="Choose photo"></div>
         <button class="car-arrow" id="room-next" type="button" aria-label="Next photo">&rarr;</button>
       </div>
-      <p class="carousel-status" id="room-status" aria-live="polite">Photo 1 of 3 &mdash; The dining room</p>
+      <p class="carousel-status" id="room-status" aria-live="polite">Photo 1 of 2 &mdash; The entrance</p>
     </div>
   </div>
 </section>
@@ -514,22 +505,23 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
 <!-- ============ WHAT'S ON ============ -->
 <section class="noir" id="events" aria-labelledby="events-h">
   <div class="wrap pad">
+    <p class="sec-kicker" aria-hidden="true"><span>04</span><span>What&rsquo;s On</span></p>
     <h2 class="sec-h" id="events-h" style="margin-bottom:18px">What&rsquo;s on</h2>
-    <p class="events-intro">Live R&amp;B, DJs, and late nights.</p>
+    <p class="events-intro">Two nights a week, the dining room turns the music up: live R&amp;B on Wednesdays, dinner and rotating DJs on Thursdays.</p>
     <!-- No booking buttons on event cards — booking lives in the header and sticky bar -->
     <div class="events-layout">
       <figure class="events-figure">
-        <img src="assets/events-live.webp" alt="A DJ plays to a packed, red-lit room at LUCIA" loading="lazy" decoding="async" width="1200" height="800">
+        <img src="assets/events-live.webp" alt="A packed, red-lit night in the dining room, guests dancing beneath the glowing arches" loading="lazy" decoding="async" width="1200" height="800">
       </figure>
       <div class="event-cards">
         <article class="event-card">
           <p class="when">Every Wednesday &middot; 6:30&ndash;10 PM</p>
-          <h4>Live at LUCIA</h4>
+          <h3>Live at LUCIA</h3>
           <p>Live R&amp;B with Matthew Grant, sounds by DJ Joe Cooks. Reservations required.</p>
         </article>
         <article class="event-card">
           <p class="when">Every Thursday &middot; 8 PM&ndash;12 AM</p>
-          <h4 lang="es">Sobremesa</h4>
+          <h3 lang="es">Sobremesa</h3>
           <p><span lang="es">&ldquo;Sabores y ritmos.&rdquo;</span> Dinner and music with rotating DJs.</p>
         </article>
       </div>
@@ -540,14 +532,15 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
 <!-- ============ PRIVATE EVENTS ============ -->
 <section class="noir" id="private-events" aria-labelledby="private-h">
   <div class="wrap pad">
+    <p class="sec-kicker" aria-hidden="true"><span>05</span><span>Private Dining</span></p>
     <div class="private-grid">
       <figure class="private-figure">
         <img src="assets/private-event.webp" alt="Ms. Lauryn Hill performing with a microphone at LUCIA" loading="lazy" decoding="async" width="1200" height="676">
         <figcaption><span class="cap-k">Featured past private event</span>Ms. Lauryn Hill&rsquo;s BET Awards afterparty &mdash; live at LUCIA.</figcaption>
       </figure>
       <div>
-        <h2 class="private-h" id="private-h">Take <em>the room</em> for a night that deserves it.</h2>
-        <p class="private-lede">Host a private dinner, celebration, or full-venue buyout in one of Los Angeles&rsquo; most distinctive dining rooms. Our events team will help shape the evening.</p>
+        <h2 class="private-h" id="private-h">Host your night <em>at LUCIA.</em></h2>
+        <p class="private-lede">Host a private dinner, celebration, or full-venue buyout in one of Los Angeles&rsquo; most distinctive dining rooms. Mondays and Tuesdays, the room is available for private events only. Start with the inquiry form &mdash; share your date, party size, and occasion &mdash; and the events team will follow up to shape the evening.</p>
         <div class="private-cta">
           <!-- PLACEHOLDER: swap href for LUCIA's official Tripleseat inquiry form when confirmed -->
           <a class="btn btn-gold" href="https://349351nfairfaxllc.tripleseat.com/party_request/42802" target="_blank" rel="noopener noreferrer">Inquire about private events<span class="sr-only"> (opens in new tab)</span></a>
@@ -560,6 +553,7 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
 <!-- ============ RECOGNITION ============ -->
 <section class="noir" id="recognized" aria-labelledby="recognized-h">
   <div class="wrap pad">
+    <p class="sec-kicker" aria-hidden="true"><span>06</span><span>Recognition</span></p>
     <h2 class="sec-h" id="recognized-h">Recognition</h2>
     <div class="recog-feature">
       <div class="recog-head">
@@ -576,7 +570,7 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
       <li><span class="r-label">Dining</span><div><div class="r-name">LA Times 101</div><div class="r-note">No. 55 on the 2026 list &mdash; counted among the city&rsquo;s essential dining rooms.</div></div></li>
       <li><span class="r-label">Design</span><div><div class="r-name"><a href="https://hospitalitydesign.com/news/gold-key-awards-winners-2025/183850/" target="_blank" rel="noopener noreferrer">Gold Key Award 2025</a></div><div class="r-note">Winner &mdash; Restaurant Upscale Dining.</div></div></li>
       <li><span class="r-label">Design</span><div><div class="r-name">Robb Report &mdash; 21 Most Beautiful New Restaurants in America</div><div class="r-note">No. 20 on the 2025 list &mdash; a dining room recognized for its design.</div></div></li>
-      <li><span class="r-label">In the press</span><div><div class="r-name"><a href="https://la.eater.com/2025/5/14/24430356/lucia-afro-caribbean-restaurant-opening-fairfax-los-angeles" target="_blank" rel="noopener noreferrer">Eater</a> &middot; Vogue &middot; Cond&eacute; Nast</div><div class="r-note">Food, culture, and travel desks all found the room.</div></div></li>
+      <li><span class="r-label">In the press</span><div><div class="r-name"><a href="https://la.eater.com/2025/5/14/24430356/lucia-afro-caribbean-restaurant-opening-fairfax-los-angeles" target="_blank" rel="noopener noreferrer">Eater</a> &middot; Vogue &middot; Cond&eacute; Nast</div><div class="r-note">National press coverage of the opening.</div></div></li>
     </ul>
   </div>
 </section>
@@ -584,13 +578,15 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
 <!-- ============ VISIT ============ -->
 <section class="ivory" id="visit" aria-labelledby="visit-h">
   <div class="wrap pad">
+    <p class="sec-kicker" aria-hidden="true"><span>07</span><span>Visit</span></p>
     <h2 class="sr-only" id="visit-h">Visit</h2>
     <p class="visit-addr">351 N <em>Fairfax</em> Ave</p>
     <div class="visit-rows">
-      <div><span class="label">Hours</span><span class="big">Wednesday&ndash;Sunday, 6 PM&ndash;12 AM</span><span class="small">Kitchen closes 11:30 PM; last seating 11 PM, Thursday&ndash;Sunday.</span></div>
+      <div><span class="label">Hours</span><span class="big">Wednesday&ndash;Sunday, 6 PM&ndash;12 AM</span><span class="small">Kitchen closes 11:30 PM; last seating 11 PM, Thursday&ndash;Sunday. Monday &amp; Tuesday: private events only.</span></div>
+      <div><span class="label">Reservations</span><span class="big">Book two weeks out</span><span class="small">Tables for up to 8 guests; larger parties go through private dining.</span></div>
       <div><span class="label">Good to know</span><span class="big">21+ after 8 PM</span></div>
       <div><span class="label">Dietary</span><span class="big">Halal, vegan &amp; vegetarian options</span><span class="small">Dietary questions: <a href="mailto:info@luciala.com">info@luciala.com</a></span></div>
-      <div><span class="label">Dress code</span><span class="big">Upscale, elegant attire</span><span class="small">Athletic leisurewear, shorts, and jerseys may be denied entry. Hats are discouraged and may be asked to be removed.</span></div>
+      <div><span class="label">Dress code</span><span class="big">Upscale, elegant attire</span><span class="small">We ask guests to dress for the occasion &mdash; upscale-elegant, elevated, stylish attire is expected. Guests in athletic leisurewear, shorts and jerseys may be denied entry to the restaurant by management. Baseball caps and other hats are discouraged and may be asked to be removed.</span></div>
       <div><span class="label">Parking</span><span class="big">Valet $15, right out front.</span><span class="small">Metered parking nearby; nearest lot at 333 N Fairfax Ave.</span></div>
     </div>
     <div class="visit-cta">
@@ -605,21 +601,6 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
 
 </main>
 
-<footer>
-  <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <h2>Contact</h2>
-        <a href="mailto:reservations@luciala.com">reservations@luciala.com</a>
-      </div>
-    </div>
-  </div>
-  <div class="foot-giant" aria-hidden="true">LUCIA</div>
-  <div class="foot-base">
-    <span class="label">&copy; <span id="yr">2026</span> LUCIA</span>
-    <span class="label">Accessibility assistance: +1 213 800 0048</span>
-  </div>
-</footer>
 
 <!-- Persistent mobile conversion bar: "Reserve a table" (red, primary) only, shown once the hero leaves the viewport. -->
 <div class="stickybar" id="stickybar" role="region" aria-label="Quick actions" inert>
@@ -644,7 +625,6 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
   var toggle = document.getElementById('menu-toggle'),
       menu = document.getElementById('mobile-menu'),
       main = document.getElementById('maincontent'),
-      footer = document.querySelector('footer'),
       bar = document.getElementById('stickybar'),
       skipLink = document.querySelector('.skip-link');
   function focusables(){
@@ -658,7 +638,7 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
     toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     toggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
     document.body.classList.toggle('menu-open', open);
-    main.inert = open; footer.inert = open; head.inert = open;
+    main.inert = open; head.inert = open;
     if (skipLink) skipLink.inert = open;
     if (open){ var f = focusables(); if (f[0]) f[0].focus(); }
     else if (returnFocus){ toggle.focus(); }
@@ -770,7 +750,7 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
         next = document.getElementById('room-next'),
         status = document.getElementById('room-status'),
         idx = 0, raf = 0;
-    var captions = ['The dining room', 'The entrance', 'The table'];
+    var captions = ['The entrance', 'The table'];
     var dots = slides.map(function(s, k){
       var b = document.createElement('button');
       b.type = 'button';
@@ -809,7 +789,6 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
     render(0);
   }
 
-  document.getElementById('yr').textContent = new Date().getFullYear();
 })();
 </script>
 </body>
