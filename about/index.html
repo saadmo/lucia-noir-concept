@@ -531,9 +531,15 @@ body.menu-open .menu-toggle{display:none}
      body.has-bar reserves space so the bar never covers content. */
   var hero = document.getElementById('top');
   var heroVisible = true;
+  /* Hide the bar while the page's own actions (#actions) or the footer
+     is on screen, so the bar's Reserve button never duplicates the
+     page's own Reserve button at the bottom of the About page. */
+  var actionsEl = document.getElementById('actions'),
+      footerEl = document.querySelector('.site-footer'),
+      bottomVisible = false;
   function updateBar(){
     var menuOpen = toggle.getAttribute('aria-expanded') === 'true';
-    var show = mobileMQ.matches && !menuOpen && !heroVisible;
+    var show = mobileMQ.matches && !menuOpen && !heroVisible && !bottomVisible;
     bar.classList.toggle('show', show);
     bar.inert = !show;
     document.body.classList.toggle('has-bar', show);
@@ -553,8 +559,22 @@ body.menu-open .menu-toggle{display:none}
   if ('IntersectionObserver' in window){
     var heroIO = new IntersectionObserver(function(entries){ heroVisible = entries[0].isIntersecting; updateBar(); }, {threshold: 0, rootMargin: '-' + headH + 'px 0px 0px 0px'});
     heroIO.observe(hero);
+    /* Bottom observer: the bar stays hidden while #actions or the footer
+       is at all visible (threshold 0), and reappears once both have
+       scrolled out of view. */
+    var bottomIO = new IntersectionObserver(function(entries){
+      bottomVisible = entries.some(function(en){ return en.isIntersecting; });
+      updateBar();
+    }, {threshold: 0});
+    if (actionsEl) bottomIO.observe(actionsEl);
+    if (footerEl) bottomIO.observe(footerEl);
   } else {
     window.addEventListener('scroll', function(){ heroVisible = window.scrollY < hero.offsetHeight - headH; updateBar(); }, {passive:true});
+    window.addEventListener('scroll', function(){
+      function inView(el){ if (!el) return false; var r = el.getBoundingClientRect(); return r.bottom > 0 && r.top < window.innerHeight; }
+      bottomVisible = inView(actionsEl) || inView(footerEl);
+      updateBar();
+    }, {passive:true});
   }
   if (mobileMQ.addEventListener) mobileMQ.addEventListener('change', updateBar);
   window.addEventListener('resize', updateBar);
