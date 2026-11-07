@@ -305,6 +305,8 @@ body.menu-open .menu-toggle{display:none}
   .visit-col.open .visit-body{display:block}
   /* Mobile dropdown headers: main line matches the label size above it (12px) */
   .visit-col .visit-big{font-size:12px}
+  /* About heading: the desktop-only break is hidden on mobile (one line) */
+  .br-desktop{display:none}
 }
 @media (min-width:1024px){
   .visit-toggle{cursor:default}
@@ -544,7 +546,7 @@ body.menu-open .menu-toggle{display:none}
   <div class="wrap pad">
     <p class="sec-kicker" aria-hidden="true"><span>01</span><span>About</span></p>
     <div class="about-grid">
-      <h2 class="about-title" id="about-h">Afro-Caribbean inspiration. A distinctly modern perspective.</h2>
+      <h2 class="about-title" id="about-h">Caribbean,<br class="br-desktop"> reimagined.</h2>
       <div>
         <div class="about-body">
           <p>LUCIA reimagines Afro-Caribbean flavors through contemporary techniques, unexpected pairings and influences beyond the region. On Fairfax Avenue in Los Angeles, the experience brings inventive cooking, expressive cocktails and thoughtful hospitality together in a room that moves from dinner into music and late-night conversation.</p>
@@ -851,23 +853,45 @@ body.menu-open .menu-toggle{display:none}
     if (!mobileMQ.matches && toggle.getAttribute('aria-expanded') === 'true') setMenu(false, false);
   });
 
-  /* "More" dropdown (desktop nav): click to toggle, Escape closes and
-     returns focus to the button, outside click closes, focus leaving the
-     group closes it, Tab moves naturally through the visible links, and
-     arrow keys are an optional shortcut between items. Desktop only —
-     .site-nav is hidden below 1024px. */
+  /* "More" dropdown (desktop nav): opens on hover, click, or keyboard
+     focus; Escape closes and returns focus to the button, outside click
+     closes, focus leaving the group closes it, Tab moves naturally through
+     the visible links, and arrow keys are an optional shortcut between
+     items. Desktop only — .site-nav is hidden below 1024px.
+     Hover is an ADDITION to click/keyboard, not a replacement: hover-only
+     would exclude keyboard users, and touch users rely on click. The
+     close delay bridges the 8px gap between the button and the menu so
+     the pointer can travel into the menu without it flickering shut
+     (WCAG 1.4.13: dismissible via Escape, hoverable, persistent until
+     dismissed / pointer leaves / focus leaves). Hover opening is only
+     enabled when the device reports a hover-capable pointer, so a tap on
+     a touchscreen does not fight the click toggle. */
   var moreBtn = document.getElementById('more-btn'),
       moreWrap = document.getElementById('more-wrap'),
       moreMenu = document.getElementById('more-menu');
   function moreItems(){ return moreMenu ? Array.prototype.slice.call(moreMenu.querySelectorAll('a[href]')) : []; }
+  var hoverMQ = window.matchMedia('(hover: hover)');
+  var hoverCloseTimer = 0;
+  var suppressClickUntil = 0;
+  var ignoreFocusUntil = 0;
+  function clearHoverClose(){ if (hoverCloseTimer){ clearTimeout(hoverCloseTimer); hoverCloseTimer = 0; } }
   function setMore(open, focusBtn){
     if (!moreWrap) return;
+    clearHoverClose();
     moreWrap.classList.toggle('open', open);
     moreBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    if (!open && focusBtn) moreBtn.focus();
+    if (!open && focusBtn){ ignoreFocusUntil = Date.now() + 100; moreBtn.focus(); }
   }
   if (moreBtn){
-    moreBtn.addEventListener('click', function(e){ e.stopPropagation(); setMore(!moreWrap.classList.contains('open')); });
+    moreBtn.addEventListener('click', function(e){
+      e.stopPropagation();
+      /* A tap on a touchscreen (or a click landing just after a hover-open
+         or focus-open) fires mouseenter/focusin then click in quick
+         succession; ignore the click so it does not immediately undo the
+         open that just happened. */
+      if (Date.now() < suppressClickUntil){ suppressClickUntil = 0; return; }
+      setMore(!moreWrap.classList.contains('open'));
+    });
     moreBtn.addEventListener('keydown', function(e){
       if (!moreWrap.classList.contains('open')) return;
       var items = moreItems();
@@ -888,6 +912,38 @@ body.menu-open .menu-toggle{display:none}
     moreWrap.addEventListener('focusout', function(e){
       if (moreWrap.classList.contains('open') && !moreWrap.contains(e.relatedTarget)) setMore(false);
     });
+    /* Hover-open: pointer over the whole More group opens it; pointer
+       leaving the group closes it after a short delay (the delay bridges
+       the gap between button and menu). Keyboard focus on the button
+       also opens it, so keyboard users are not left out. */
+    moreWrap.addEventListener('mouseenter', function(){
+      if (!hoverMQ.matches) return;
+      clearHoverClose();
+      if (!moreWrap.classList.contains('open')){
+        setMore(true);
+        suppressClickUntil = Date.now() + 400;
+      }
+    });
+    moreWrap.addEventListener('mouseleave', function(){
+      if (!hoverMQ.matches) return;
+      if (!moreWrap.classList.contains('open')) return;
+      hoverCloseTimer = setTimeout(function(){
+        hoverCloseTimer = 0;
+        /* Don't close under the keyboard: if focus is inside the group,
+           the keyboard user is still working in the menu. */
+        if (!moreWrap.contains(document.activeElement)) setMore(false);
+      }, 250);
+    });
+    moreBtn.addEventListener('focusin', function(){
+      /* Skip the open when focus was just returned here by Escape (which
+         closes the menu); without this the focusin would re-open it. */
+      if (Date.now() < ignoreFocusUntil) return;
+      clearHoverClose();
+      if (!moreWrap.classList.contains('open')){
+        setMore(true);
+        suppressClickUntil = Date.now() + 400;
+      }
+    });
     document.addEventListener('click', function(e){ if (moreWrap.classList.contains('open') && !moreWrap.contains(e.target)) setMore(false); });
     document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && moreWrap.classList.contains('open')) setMore(false, true); });
   }
@@ -907,7 +963,14 @@ body.menu-open .menu-toggle{display:none}
     /* Reserve exactly the bar's rendered height (measured, not assumed),
        so the space matches at any text size. The CSS fallback above
        carries the measured default heights. */
-    document.body.style.paddingBottom = show ? bar.offsetHeight + 'px' : '';
+    /* Reserve the bar's space on mobile at all times (not only while the
+       bar is showing), so the document height — and therefore the max
+       scroll position — does not change when the bar appears mid-scroll.
+       Without this, a jump-scroll to the bottom lands short of the true
+       max because the reservation is added during the jump, and the
+       footer ends up behind the bar. The bar itself still shows/hides
+       exactly as before (transparent, Reserve only). */
+    document.body.style.paddingBottom = mobileMQ.matches ? bar.offsetHeight + 'px' : '';
   }
   var headH = head ? head.offsetHeight : 0;
   if ('IntersectionObserver' in window){
