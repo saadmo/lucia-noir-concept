@@ -145,6 +145,8 @@ body.menu-open .site-head{background:transparent;border-bottom-color:transparent
 .hero-ctas .btn{min-height:58px;width:100%}
 .hero-scroll{position:absolute;z-index:2;left:50%;bottom:18px;transform:translateX(-50%);display:grid;justify-items:center;gap:8px;color:var(--ivory-70)}
 .hero-scroll::after{content:"";width:1px;height:28px;background:linear-gradient(var(--gold),transparent)}
+/* No scroll cue below the desktop layout — it overlaps the stacked CTAs */
+@media (max-width:1023px){.hero-scroll{display:none}}
 
 /* ============ ABOUT ============ */
 .about-title{font-family:var(--font-display);font-weight:300;font-size:var(--t-display);line-height:.95;letter-spacing:-.015em;text-wrap:balance;margin-bottom:26px}
