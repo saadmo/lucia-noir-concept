@@ -767,8 +767,9 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
     document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && moreWrap.classList.contains('open')) setMore(false, true); });
   }
 
-  /* Sticky bar: shown only once the hero has left the viewport
-     (IntersectionObserver), hidden + inert while the mobile menu is open.
+  /* Sticky bar: shown once the hero has cleared the fixed header
+     (IntersectionObserver with the header's height cut off the top of
+     the viewport), hidden + inert while the mobile menu is open.
      body.has-bar reserves space so the bar never covers content. */
   var hero = document.getElementById('top');
   var heroVisible = true;
@@ -783,11 +784,12 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
        carries the measured default heights. */
     document.body.style.paddingBottom = show ? bar.offsetHeight + 'px' : '';
   }
+  var headH = head ? head.offsetHeight : 0;
   if ('IntersectionObserver' in window){
-    var heroIO = new IntersectionObserver(function(entries){ heroVisible = entries[0].isIntersecting; updateBar(); }, {threshold: 0});
+    var heroIO = new IntersectionObserver(function(entries){ heroVisible = entries[0].isIntersecting; updateBar(); }, {threshold: 0, rootMargin: '-' + headH + 'px 0px 0px 0px'});
     heroIO.observe(hero);
   } else {
-    window.addEventListener('scroll', function(){ heroVisible = window.scrollY < hero.offsetHeight; updateBar(); }, {passive:true});
+    window.addEventListener('scroll', function(){ heroVisible = window.scrollY < hero.offsetHeight - headH; updateBar(); }, {passive:true});
   }
   if (mobileMQ.addEventListener) mobileMQ.addEventListener('change', updateBar);
   window.addEventListener('resize', updateBar);
