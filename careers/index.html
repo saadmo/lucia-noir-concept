@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0D0B08">
+<link rel="icon" href="../assets/favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<title>Careers — LUCIA</title>
+<meta name="description" content="Explore exciting career opportunities at Lucia LA, a premier Afro-Caribbean restaurant in Los Angeles. Join our dynamic team dedicated to exceptional cuisine, vibrant culture, and outstanding guest experiences. Apply today to be part of our culinary journey.">
+<link rel="canonical" href="https://lucia-noir-concept-saadmos-projects.vercel.app/careers/">
+<meta property="og:type" content="restaurant">
+<meta property="og:title" content="Careers — LUCIA">
+<meta property="og:description" content="Explore exciting career opportunities at Lucia LA, a premier Afro-Caribbean restaurant in Los Angeles. Join our dynamic team dedicated to exceptional cuisine, vibrant culture, and outstanding guest experiences. Apply today to be part of our culinary journey.">
+<meta property="og:url" content="https://lucia-noir-concept-saadmos-projects.vercel.app/careers/">
+<meta property="og:image" content="https://lucia-noir-concept-saadmos-projects.vercel.app/assets/hero.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Careers — LUCIA">
+<meta name="twitter:description" content="Explore exciting career opportunities at Lucia LA, a premier Afro-Caribbean restaurant in Los Angeles. Join our dynamic team dedicated to exceptional cuisine, vibrant culture, and outstanding guest experiences. Apply today to be part of our culinary journey.">
+<meta name="twitter:image" content="https://lucia-noir-concept-saadmos-projects.vercel.app/assets/hero.webp">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Restaurant","name":"LUCIA","servesCuisine":"Afro-Caribbean","priceRange":"$$$","url":"https://lucia-noir-concept-saadmos-projects.vercel.app/careers/","telephone":"+1-213-800-0048","address":{"@type":"PostalAddress","streetAddress":"351 N Fairfax Ave","addressLocality":"Los Angeles","addressRegion":"CA","postalCode":"90036","addressCountry":"US"},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"18:00","closes":"24:00"},"acceptsReservations":"True","geo":{"@type":"GeoCoordinates","latitude":34.07766,"longitude":-118.3616},"menu":"https://lucia-noir-concept-saadmos-projects.vercel.app/menus/","hasMenu":"https://lucia-noir-concept-saadmos-projects.vercel.app/menus/","potentialAction":{"@type":"ReserveAction","target":"https://resy.com/cities/los-angeles-ca/venues/lucia-ca"}}
+</script>
+<style>
+/* ================================================================
+   LUCIA — refined preview. Self-hosted fonts, consolidated CSS.
+   Mobile-first: base styles target 320px and up; wide compositions
+   arrive in the min-width:1024px block. No scroll-reveal system:
+   content is always visible, with or without JavaScript.
+   ================================================================ */
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:100 900;font-display:swap;src:url(../assets/fonts/fraunces.woff2) format('woff2')}
+@font-face{font-family:'Fraunces';font-style:italic;font-weight:100 900;font-display:swap;src:url(../assets/fonts/fraunces-italic.woff2) format('woff2')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;src:url(../assets/fonts/inter.woff2) format('woff2')}
+:root{
+  --noir:#0D0B08; --noir-2:#161210; --noir-3:#080604;
+  --ivory:#F5EFE3; --ivory-70:rgba(245,239,227,.7); --ivory-50:rgba(245,239,227,.5); --ivory-30:rgba(245,239,227,.3);
+  --gold:#C2922E; --red:#C8401F; --red-deep:#9E2F13;
+  --bronze:#785F2B; /* logo gold darkened for AA text on ivory */
+  --line-d:rgba(245,239,227,.14); --line-l:rgba(13,11,8,.15);
+  --font-display:'Fraunces',Didot,'Bodoni MT',Georgia,'Times New Roman',serif;
+  --font-body:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  --font-label:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --dur-s:.22s;
+  --t-hero:clamp(56px,17vw,150px);
+  --t-display:clamp(34px,8vw,76px);
+  --t-h2:clamp(28px,7vw,56px);
+  --pad-sec:clamp(64px,12vw,132px);
+  --measure:44ch;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:var(--font-body);background:var(--noir);color:var(--ivory);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;overflow-x:clip;overflow-wrap:break-word}
+::selection{background:var(--gold);color:var(--noir)}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* Skip link: visible on focus */
+.skip-link{position:fixed;top:-80px;left:16px;z-index:3000;background:var(--gold);color:var(--noir);text-decoration:none;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:14px 22px;border-radius:10px;transition:top var(--dur-s) var(--ease)}
+.skip-link:focus{top:14px}
+
+/* Visible focus everywhere */
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:2px}
+.ivory :focus-visible{outline-color:var(--bronze)}
+
+/* ============ TYPE UTILITIES ============ */
+.label{font-family:var(--font-label);font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;line-height:1.7}
+.wrap{max-width:100%;margin:0 auto;padding-left:20px;padding-right:20px}
+.pad{padding-top:var(--pad-sec);padding-bottom:var(--pad-sec)}
+.ivory{background:var(--ivory);color:var(--noir)}
+.noir{background:var(--noir);color:var(--ivory)}
+
+/* Buttons: color/border feedback only — no lifts, no shadows. 48px+ targets. */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:16px 30px;border-radius:100px;min-height:52px;min-width:48px;border:1px solid transparent;cursor:pointer;transition:background var(--dur-s),border-color var(--dur-s),color var(--dur-s)}
+.btn-gold{background:var(--gold);color:var(--noir)}
+.btn-gold:hover{background:#D8B96F}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:var(--red-deep)}
+.btn-ghost-d{background:transparent;border-color:rgba(13,11,8,.32);color:var(--noir)}
+.btn-ghost-d:hover{border-color:var(--bronze);color:var(--bronze)}
+.btn-sm{padding:12px 26px;min-height:48px}
+
+/* ============ HEADER (compact mobile first) ============ */
+.site-head{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 16px;border-bottom:1px solid transparent;transition:background .4s,padding .4s,border-color .4s}
+.site-head.scrolled{background:rgba(13,11,8,.82);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);padding-top:10px;padding-bottom:10px;border-bottom-color:var(--line-d)}
+.wordmark{font-family:var(--font-display);font-weight:500;font-size:18px;letter-spacing:.32em;padding-left:.32em;text-decoration:none;color:var(--ivory);min-height:44px;display:inline-flex;align-items:center}
+.wordmark img{display:block;height:26px;width:auto}
+.wordmark picture{display:block}
+.site-nav,.head-ctas{display:none}
+.menu-toggle{display:flex;width:48px;height:48px;border:0;background:transparent;color:var(--ivory);align-items:center;justify-content:center;cursor:pointer;border-radius:8px}
+.menu-toggle-lines{position:relative;display:block;width:24px;height:16px}
+.menu-toggle-lines::before,.menu-toggle-lines::after{content:"";position:absolute;left:0;width:24px;height:2px;background:currentColor;transition:transform .3s var(--ease),top .3s var(--ease)}
+.menu-toggle-lines::before{top:3px}.menu-toggle-lines::after{top:11px}
+.menu-toggle[aria-expanded="true"] .menu-toggle-lines::before{top:7px;transform:rotate(45deg)}
+.menu-toggle[aria-expanded="true"] .menu-toggle-lines::after{top:7px;transform:rotate(-45deg)}
+
+/* Mobile menu: modal dialog — focus moves in, Escape closes, focus returns,
+   background inert, never taller than the viewport, internally scrollable.
+   Reserve stays visible inside the open menu. */
+.mobile-menu{position:fixed;inset:0;z-index:1500;height:100vh;height:100dvh;background:#080604;color:var(--ivory);padding:96px 20px 45px;display:flex;flex-direction:column;overflow-y:auto;overscroll-behavior:contain;opacity:0;visibility:hidden;transition:opacity .3s var(--ease),visibility 0s linear .3s}
+.mobile-menu.open{opacity:1;visibility:visible;transition:opacity .3s var(--ease),visibility 0s}
+.menu-close{position:absolute;top:18px;right:16px;width:48px;height:48px;border:1px solid var(--line-d);border-radius:50%;background:transparent;color:var(--ivory);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:26px;line-height:1}
+.menu-close:hover{border-color:var(--gold);color:var(--gold)}
+.mobile-menu ol{list-style:none;border-top:1px solid var(--line-d);margin-bottom:24px}
+.mobile-menu li a{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:1px solid var(--line-d);text-decoration:none;min-height:56px}
+.mobile-menu .name{font-family:var(--font-display);font-size:clamp(24px,7.5vw,36px);font-weight:300;line-height:1.1}
+.mobile-menu .arr{color:var(--ivory-50)}
+.mobile-menu .btn{margin-top:auto;width:100%;min-height:60px;font-size:13px}
+.mobile-menu .btn + .btn{margin-top:12px}
+body.menu-open{overflow:hidden}
+body.menu-open .site-head{background:transparent;border-bottom-color:transparent;-webkit-backdrop-filter:none;backdrop-filter:none;z-index:1600;pointer-events:none}
+body.menu-open .menu-toggle{display:none}
+
+/* ============ VISIT / ACTIONS ============ */
+.visit-actions{display:grid;gap:12px}
+.visit-actions .btn{width:100%;min-height:56px}
+.visit-actions a[href^="tel:"]{white-space:nowrap}
+
+/* ============ CAREERS FORMS ============ */
+main .ivory + .ivory{border-top:1px solid var(--line-l)}
+.form-sec h2{font-family:var(--font-display);font-weight:400;font-size:clamp(28px,5vw,44px);line-height:1.1;margin-bottom:16px}
+.form-note{max-width:var(--measure);font-size:15px;line-height:1.6;color:rgba(13,11,8,.72);margin-bottom:28px}
+.form-note a{color:var(--noir);text-underline-offset:3px}
+.form-grid{display:grid;gap:20px;max-width:640px}
+.form-grid[hidden]{display:none}
+.field{display:grid;gap:8px;min-width:0}
+.field label{font-family:var(--font-label);font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;line-height:1.7;color:var(--noir)}
+.field label .req{color:var(--bronze)}
+.field label .opt{color:rgba(13,11,8,.72);text-transform:none;letter-spacing:0;font-size:13px;font-weight:400}
+.field input[type="text"],.field input[type="email"],.field input[type="tel"],.field textarea{width:100%;min-width:0;font-family:var(--font-body);font-size:17px;line-height:1.5;color:var(--noir);background:#fff;border:1px solid rgba(13,11,8,.32);border-radius:10px;padding:14px 16px;-webkit-appearance:none;appearance:none}
+.field textarea{min-height:140px;resize:vertical}
+.field input[type="file"]{width:100%;min-width:0;font-family:var(--font-body);font-size:15px;line-height:1.5;color:var(--noir)}
+.field input:focus,.field textarea:focus{border-color:var(--bronze);outline:3px solid var(--bronze);outline-offset:2px}
+.form-thanks{max-width:var(--measure);font-family:var(--font-display);font-weight:400;font-size:clamp(22px,3vw,28px);line-height:1.3;color:var(--noir)}
+.form-thanks[hidden]{display:none}
+
+/* ============ STICKY MOBILE BAR (Reserve only) ============
+   Shown only once the intro has left the viewport (IntersectionObserver),
+   hidden + inert while the mobile menu is open. body.has-bar reserves
+   space so the bar never covers content. */
+.stickybar{display:none}
+@media (max-width:1023px){
+  body.has-bar{padding-bottom:calc(78px + env(safe-area-inset-bottom,0px))}
+  .stickybar{display:flex;flex-direction:column;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:1200;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:transparent;transform:translateY(110%);transition:transform .4s var(--ease)}
+/* No backdrop behind the bar — the Reserve button floats over the page. */
+  .stickybar.show{transform:none}
+  .stickybar .btn{flex:none;width:100%;min-height:56px;font-size:12px;letter-spacing:.08em;padding:16px 10px;white-space:nowrap}
+}
+
+/* ============ REDUCED MOTION ============ */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important}
+}
+
+/* ================================================================
+   DESKTOP — the editorial canvas. Mobile stays the foundation;
+   these rules only add the wide compositions.
+   ================================================================ */
+@media (min-width:1024px){
+  :root{--measure:66ch;--pad-sec:clamp(76px,9vw,132px)}
+  .wrap{max-width:1400px;padding-left:clamp(20px,4vw,48px);padding-right:clamp(20px,4vw,48px)}
+
+  /* Header: full nav + one Reserve CTA (Menus lives in the nav — no duplicate) */
+  .site-head{padding:20px clamp(20px,4vw,48px)}
+  .site-head.scrolled{padding-top:12px;padding-bottom:12px}
+  .wordmark{font-size:20px}
+  .wordmark img{height:30px}
+  .site-nav{display:flex;align-items:center;gap:28px}
+  .site-nav a{position:relative;text-decoration:none;font-size:14px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;line-height:1.65;opacity:.72;padding:14px 2px;transition:opacity var(--dur-s)}
+  .site-nav a::after{content:"";position:absolute;left:0;bottom:2px;height:1px;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform var(--dur-s) var(--ease)}
+  .site-nav a:hover,.site-nav a:focus-visible{opacity:1}
+  .site-nav a:hover::after,.site-nav a:focus-visible::after{transform:scaleX(1)}
+  .head-ctas{display:inline-flex;gap:12px;flex-shrink:0}
+  /* "More" dropdown (desktop nav) */
+  .nav-more{position:relative}
+  .nav-more-btn{display:inline-flex;align-items:center;gap:7px;background:none;border:0;cursor:pointer;font-family:var(--font-body);font-size:14px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;line-height:1.65;color:var(--ivory);opacity:.72;padding:14px 2px}
+  .nav-more-btn:hover,.nav-more-btn:focus-visible{opacity:1}
+  .nav-more-btn .chev{width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;transition:transform var(--dur-s) var(--ease)}
+  .nav-more.open .nav-more-btn .chev{transform:rotate(180deg)}
+  .nav-more-menu{position:absolute;top:calc(100% + 8px);right:0;min-width:230px;background:rgba(13,11,8,.96);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border:1px solid var(--line-d);border-radius:12px;padding:8px;box-shadow:0 18px 40px rgba(0,0,0,.45);opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity var(--dur-s) var(--ease),transform var(--dur-s) var(--ease),visibility 0s linear var(--dur-s)}
+  .nav-more.open .nav-more-menu{opacity:1;visibility:visible;transform:none;transition:opacity var(--dur-s) var(--ease),transform var(--dur-s) var(--ease),visibility 0s}
+  .nav-more-menu a{display:flex;align-items:center;min-height:44px;padding:10px 12px;border-radius:8px;text-decoration:none;font-size:14px;letter-spacing:.02em;text-transform:none;font-weight:500;color:var(--ivory);opacity:.85}
+  .nav-more-menu a:hover,.nav-more-menu a:focus-visible{opacity:1;background:rgba(245,239,227,.08)}
+  .nav-more-menu a::after{display:none}
+  .nav-more-menu a[aria-current="page"]{opacity:1;background:rgba(245,239,227,.08)}
+  .menu-toggle{display:none}
+
+  /* Visit actions in a row */
+  .visit-actions{display:flex;flex-direction:row;flex-wrap:wrap;gap:14px;align-items:center;justify-content:flex-start}
+  .visit-actions .btn{width:auto}
+}
+
+/* ============ PAGE INTRO (shared with Menus) ============
+   Noir intro band so the fixed header keeps its contrast,
+   matching the homepage rhythm. */
+.page-intro{padding:118px 0 44px}
+.page-intro .label{color:var(--gold);display:block;margin-bottom:14px}
+.page-title{font-family:var(--font-display);font-weight:300;font-size:var(--t-display);line-height:1;text-wrap:balance}
+.page-intro .menu-lede{font-family:var(--font-display);font-weight:300;font-size:clamp(22px,3.2vw,30px);line-height:1.3;color:var(--ivory);margin-top:18px;max-width:var(--measure)}
+.site-nav a[aria-current="page"]{opacity:1}
+.site-nav a[aria-current="page"]::after{transform:scaleX(1)}
+@media (min-width:1024px){
+  .page-intro{padding-top:150px}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#maincontent">Skip to content</a>
+
+<header class="site-head" id="site-head">
+  <a class="wordmark" href="../" aria-label="LUCIA — back to home"><picture><source type="image/avif" srcset="../assets/lucia-logo-gold-400.avif 400w, ../assets/lucia-logo-gold-720.avif 720w" sizes="(min-width:1024px) 104px, 90px"><img src="../assets/lucia-logo-gold.webp" alt="" width="720" height="208"></picture></a>
+  <nav class="site-nav" aria-label="Primary">
+    <a href="../menus/">Menus</a>
+    <a href="../#room">The Room</a>
+    <a href="../#events">What&rsquo;s On</a>
+    <a href="../#private-events">Private Dining</a>
+    <a href="../#visit">Visit</a>
+    <div class="nav-more" id="more-wrap">
+      <button class="nav-more-btn" id="more-btn" type="button" aria-expanded="false" aria-controls="more-menu">More <span class="chev" aria-hidden="true"></span></button>
+      <div class="nav-more-menu" id="more-menu" aria-label="More">
+        <a href="../info-policies/">Info &amp; Policies</a>
+        <a href="https://order.toasttab.com/egiftcards/lucia-349-north-fairfax-avenue" target="_blank" rel="noopener noreferrer">Gift cards<span class="sr-only"> (opens in new tab)</span></a>
+        <a href="../#room">Gallery</a>
+        <a href="../#recognized">Press</a>
+        <a href="./" aria-current="page">Careers</a>
+      </div>
+    </div>
+  </nav>
+  <div class="head-ctas">
+    <!-- PLACEHOLDER: swap href for LUCIA's official Resy page when confirmed -->
+    <a class="btn btn-red btn-sm" href="https://resy.com/cities/los-angeles-ca/venues/lucia-ca" target="_blank" rel="noopener noreferrer">Reserve a table<span class="sr-only"> (opens in new tab)</span></a>
+  </div>
+  <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation menu">
+    <span class="menu-toggle-lines" aria-hidden="true"></span>
+  </button>
+</header>
+
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu" aria-hidden="true">
+  <button class="menu-close" id="menu-close" type="button" aria-label="Close menu"><span aria-hidden="true">&times;</span></button>
+  <ol>
+    <li><a href="../menus/"><span class="name">Menus</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
+    <li><a href="../info-policies/"><span class="name">Info &amp; Policies</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
+    <li><a href="https://order.toasttab.com/egiftcards/lucia-349-north-fairfax-avenue" target="_blank" rel="noopener noreferrer"><span class="name">Gift cards</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
+    <li><a href="../#room"><span class="name">Gallery</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
+    <li><a href="../#recognized"><span class="name">Press</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
+    <li><a href="./" aria-current="page"><span class="name">Careers</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
+  </ol>
+  <!-- PLACEHOLDER: swap href for LUCIA's official Resy page when confirmed -->
+  <a class="btn btn-red" href="https://resy.com/cities/los-angeles-ca/venues/lucia-ca" target="_blank" rel="noopener noreferrer">Reserve a table<span class="sr-only"> (opens in new tab)</span></a>
+  <!-- PLACEHOLDER: swap href for LUCIA's official Tripleseat inquiry form when confirmed -->
+  <a class="btn btn-gold" href="https://349351nfairfaxllc.tripleseat.com/party_request/42802" target="_blank" rel="noopener noreferrer">Inquire about private events<span class="sr-only"> (opens in new tab)</span></a>
+</div>
+
+<main id="maincontent" tabindex="-1">
+<!-- ============ CAREERS INTRO (noir band, keeps header contrast) ============ -->
+<header class="noir page-intro" id="top">
+  <div class="wrap">
+    <span class="label">351 N Fairfax Ave &middot; Wed&ndash;Sun &middot; 6 PM&ndash;12 AM &middot; 21+ after 8 PM</span>
+    <h1 class="page-title">Careers</h1>
+    <p class="menu-lede">Explore exciting career opportunities at Lucia LA, a premier Afro-Caribbean restaurant in Los Angeles. Join our dynamic team dedicated to exceptional cuisine, vibrant culture, and outstanding guest experiences. Apply today to be part of our culinary journey.</p>
+  </div>
+</header>
+
+<!-- ============ APPLY ============ -->
+<section class="ivory form-sec" id="apply" aria-labelledby="apply-h">
+  <div class="wrap pad">
+    <h2 id="apply-h">Apply</h2>
+    <p class="form-note">Applications are received by the LUCIA team. This form is a preview &mdash; online submission is not connected yet, so submitting here shows the confirmation message only and does not send anything. To apply now, call <a href="tel:+12138000048">+1 213 800 0048</a> or email <a href="mailto:info@luciala.com">info@luciala.com</a>.</p>
+    <!-- TODO: wire to the production application system in Gene's build; no endpoint on record -->
+    <!-- TODO (production): the live careers page is reCAPTCHA-protected; wire reCAPTCHA in Gene's build. No reCAPTCHA on the concept site. -->
+    <form class="form-grid" id="apply-form" method="post">
+      <div class="field">
+        <label for="apply-name">Name <span class="req">(required)</span></label>
+        <input type="text" id="apply-name" name="name" required autocomplete="name">
+      </div>
+      <div class="field">
+        <label for="apply-email">Email <span class="req">(required)</span></label>
+        <input type="email" id="apply-email" name="email" required autocomplete="email">
+      </div>
+      <div class="field">
+        <label for="apply-phone">Phone Number <span class="req">(required)</span></label>
+        <input type="tel" id="apply-phone" name="phone" required autocomplete="tel">
+      </div>
+      <div class="field">
+        <label for="apply-cover">Cover Letter <span class="opt">(optional)</span></label>
+        <textarea id="apply-cover" name="cover-letter"></textarea>
+      </div>
+      <div class="field">
+        <label for="apply-resume">Resum&eacute; <span class="req">(required)</span></label>
+        <input type="file" id="apply-resume" name="resume" required>
+      </div>
+      <div>
+        <button class="btn btn-red" type="submit">Submit application</button>
+      </div>
+    </form>
+    <p class="form-thanks" id="apply-thanks" tabindex="-1" hidden>Thank you for your inquiry. We&rsquo;ll be in touch shortly.</p>
+  </div>
+</section>
+
+<!-- ============ EMAIL UPDATES ============ -->
+<section class="ivory form-sec" id="email-updates" aria-labelledby="signup-h">
+  <div class="wrap pad">
+    <h2 id="signup-h">Email updates</h2>
+    <p class="form-note">This signup is a preview &mdash; it is not connected yet, so submitting here shows the confirmation message only and does not send anything.</p>
+    <!-- TODO: wire to the production email signup system in Gene's build; no endpoint on record -->
+    <!-- TODO (production): the live signup form is reCAPTCHA-protected; wire reCAPTCHA in Gene's build. No reCAPTCHA on the concept site. -->
+    <form class="form-grid" id="signup-form" method="post">
+      <div class="field">
+        <label for="signup-first">First Name <span class="req">(required)</span></label>
+        <input type="text" id="signup-first" name="first-name" required autocomplete="given-name">
+      </div>
+      <div class="field">
+        <label for="signup-last">Last Name <span class="req">(required)</span></label>
+        <input type="text" id="signup-last" name="last-name" required autocomplete="family-name">
+      </div>
+      <div class="field">
+        <label for="signup-email">Email <span class="req">(required)</span></label>
+        <input type="email" id="signup-email" name="email" required autocomplete="email">
+      </div>
+      <div>
+        <button class="btn btn-ghost-d" type="submit">Sign up for email updates</button>
+      </div>
+    </form>
+    <p class="form-thanks" id="signup-thanks" tabindex="-1" hidden>Thank you for signing up for email updates!</p>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="ivory" id="contact" aria-labelledby="contact-h">
+  <div class="wrap pad">
+    <h2 id="contact-h" class="sr-only">Contact</h2>
+    <div class="visit-actions">
+      <a class="btn btn-ghost-d" href="tel:+12138000048">Call +1 213 800 0048</a>
+      <a class="btn btn-ghost-d" href="mailto:info@luciala.com">Email info@luciala.com</a>
+    </div>
+  </div>
+</section>
+</main>
+
+
+<!-- Persistent mobile conversion bar: Reserve only, shown once the intro leaves the viewport. -->
+<div class="stickybar" id="stickybar" role="region" aria-label="Quick actions" inert>
+  <!-- PLACEHOLDER: swap href for LUCIA's official Resy page when confirmed -->
+  <a class="btn btn-red" href="https://resy.com/cities/los-angeles-ca/venues/lucia-ca" target="_blank" rel="noopener noreferrer">Reserve a table<span class="sr-only"> (opens in new tab)</span></a>
+</div>
+
+<script>
+
+(function(){
+  "use strict";
+  var mobileMQ = window.matchMedia('(max-width: 1023px)');
+
+  /* Header state */
+  var head = document.getElementById('site-head');
+  function onScroll(){ head.classList.toggle('scrolled', window.scrollY > 40); }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  /* Accessible mobile menu: dialog pattern — focus moves into the close
+     button, Escape closes, focus returns to the toggle, background inert.
+     Tab cycles within the open menu, over VISIBLE focusables only. */
+  var toggle = document.getElementById('menu-toggle'),
+      menu = document.getElementById('mobile-menu'),
+      main = document.getElementById('maincontent'),
+      bar = document.getElementById('stickybar'),
+      skipLink = document.querySelector('.skip-link');
+  function focusables(){
+    return Array.prototype.slice.call(menu.querySelectorAll('a[href], button:not([disabled])')).filter(function(el){
+      return el.offsetWidth > 0 || el.offsetHeight > 0 || el.getClientRects().length > 0;
+    });
+  }
+  function setMenu(open, returnFocus){
+    menu.classList.toggle('open', open);
+    menu.setAttribute('aria-hidden', open ? 'false' : 'true');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+    document.body.classList.toggle('menu-open', open);
+    main.inert = open; head.inert = open;
+    if (skipLink) skipLink.inert = open;
+    if (open){ var f = focusables(); if (f[0]) f[0].focus(); }
+    else if (returnFocus){ toggle.focus(); }
+    updateBar();
+  }
+  toggle.addEventListener('click', function(){ setMenu(toggle.getAttribute('aria-expanded') !== 'true', true); });
+  var closeBtn = document.getElementById('menu-close');
+  if (closeBtn) closeBtn.addEventListener('click', function(){ setMenu(false, true); });
+  menu.addEventListener('click', function(e){
+    var a = e.target.closest('a');
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    setMenu(false, false);
+    if (href.charAt(0) === '#' && href.length > 1){
+      var t = document.getElementById(href.slice(1));
+      if (t){ t.setAttribute('tabindex', '-1'); t.focus({preventScroll:true}); }
+    }
+  });
+  document.addEventListener('keydown', function(e){
+    if (toggle.getAttribute('aria-expanded') !== 'true') return;
+    if (e.key === 'Escape'){ e.preventDefault(); setMenu(false, true); return; }
+    if (e.key === 'Tab'){
+      var f = focusables(), first = f[0], last = f[f.length - 1];
+      if (!first || !last) return;
+      if (e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+    }
+  });
+  window.addEventListener('resize', function(){
+    if (!mobileMQ.matches && toggle.getAttribute('aria-expanded') === 'true') setMenu(false, false);
+  });
+
+  /* "More" dropdown (desktop nav): click to toggle, Escape closes and
+     returns focus to the button, outside click closes, focus leaving the
+     group closes it, Tab moves naturally through the visible links, and
+     arrow keys are an optional shortcut between items. Desktop only —
+     .site-nav is hidden below 1024px. */
+  var moreBtn = document.getElementById('more-btn'),
+      moreWrap = document.getElementById('more-wrap'),
+      moreMenu = document.getElementById('more-menu');
+  function moreItems(){ return moreMenu ? Array.prototype.slice.call(moreMenu.querySelectorAll('a[href]')) : []; }
+  function setMore(open, focusBtn){
+    if (!moreWrap) return;
+    moreWrap.classList.toggle('open', open);
+    moreBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (!open && focusBtn) moreBtn.focus();
+  }
+  if (moreBtn){
+    moreBtn.addEventListener('click', function(e){ e.stopPropagation(); setMore(!moreWrap.classList.contains('open')); });
+    moreBtn.addEventListener('keydown', function(e){
+      if (!moreWrap.classList.contains('open')) return;
+      var items = moreItems();
+      if (e.key === 'ArrowDown'){ e.preventDefault(); items[0].focus(); }
+      else if (e.key === 'ArrowUp'){ e.preventDefault(); items[items.length - 1].focus(); }
+    });
+    moreMenu.addEventListener('keydown', function(e){
+      var items = moreItems(), i = items.indexOf(document.activeElement);
+      if (e.key === 'ArrowDown'){ e.preventDefault(); (items[i + 1] || items[0]).focus(); }
+      else if (e.key === 'ArrowUp'){ e.preventDefault(); (items[i - 1] || items[items.length - 1]).focus(); }
+      else if (e.key === 'Home'){ e.preventDefault(); items[0].focus(); }
+      else if (e.key === 'End'){ e.preventDefault(); items[items.length - 1].focus(); }
+      else if (e.key === 'Escape'){ e.preventDefault(); e.stopPropagation(); setMore(false, true); }
+      /* Tab is NOT intercepted: it moves naturally through the visible links.
+         The focusout handler below closes the disclosure once focus leaves it. */
+    });
+    moreMenu.addEventListener('click', function(e){ if (e.target.closest('a')) setMore(false); });
+    moreWrap.addEventListener('focusout', function(e){
+      if (moreWrap.classList.contains('open') && !moreWrap.contains(e.relatedTarget)) setMore(false);
+    });
+    document.addEventListener('click', function(e){ if (moreWrap.classList.contains('open') && !moreWrap.contains(e.target)) setMore(false); });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && moreWrap.classList.contains('open')) setMore(false, true); });
+  }
+
+  /* Sticky bar: shown once the hero has cleared the fixed header
+     (IntersectionObserver with the header's height cut off the top of
+     the viewport), hidden + inert while the mobile menu is open.
+     body.has-bar reserves space so the bar never covers content. */
+  var hero = document.getElementById('top');
+  var heroVisible = true;
+  function updateBar(){
+    var menuOpen = toggle.getAttribute('aria-expanded') === 'true';
+    var show = mobileMQ.matches && !menuOpen && !heroVisible;
+    bar.classList.toggle('show', show);
+    bar.inert = !show;
+    document.body.classList.toggle('has-bar', show);
+    /* Reserve exactly the bar's rendered height (measured, not assumed),
+       so the space matches at any text size. The CSS fallback above
+       carries the measured default heights. */
+    document.body.style.paddingBottom = show ? bar.offsetHeight + 'px' : '';
+  }
+  var headH = head ? head.offsetHeight : 0;
+  if ('IntersectionObserver' in window){
+    var heroIO = new IntersectionObserver(function(entries){ heroVisible = entries[0].isIntersecting; updateBar(); }, {threshold: 0, rootMargin: '-' + headH + 'px 0px 0px 0px'});
+    heroIO.observe(hero);
+  } else {
+    window.addEventListener('scroll', function(){ heroVisible = window.scrollY < hero.offsetHeight - headH; updateBar(); }, {passive:true});
+  }
+  if (mobileMQ.addEventListener) mobileMQ.addEventListener('change', updateBar);
+  window.addEventListener('resize', updateBar);
+  updateBar();
+
+  /* Careers forms: no backend on the concept site. Submissions are a
+     client-side demo only — the thank-you message appears and nothing
+     is sent anywhere. The production build must wire a real endpoint. */
+  function demoForm(formId, thanksId){
+    var form = document.getElementById(formId),
+        thanks = document.getElementById(thanksId);
+    if (!form || !thanks) return;
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      form.hidden = true;
+      thanks.hidden = false;
+      thanks.focus();
+    });
+  }
+  demoForm('apply-form', 'apply-thanks');
+  demoForm('signup-form', 'signup-thanks');
+
+})();
+
+</script>
+</body>
+</html>
