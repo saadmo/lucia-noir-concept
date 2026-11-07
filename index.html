@@ -286,12 +286,11 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
    space so the bar never covers content. */
 .stickybar{display:none}
 @media (max-width:1023px){
-  body.has-bar{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}
+  body.has-bar{padding-bottom:calc(162px + env(safe-area-inset-bottom,0px))}
   .stickybar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:1200;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(13,11,8,.82);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);border-top:1px solid var(--line-d);transform:translateY(110%);transition:transform .4s var(--ease)}
   .stickybar.show{transform:none}
-  .stickybar{gap:10px}
-  .stickybar .btn{flex:1;min-height:56px;font-size:12px;letter-spacing:.08em;padding:16px 10px;white-space:nowrap}
-  .stickybar .btn.btn-red{flex:1.5}
+  .stickybar{flex-direction:column;gap:10px}
+  .stickybar .btn{flex:none;width:100%;min-height:56px;font-size:12px;letter-spacing:.08em;padding:16px 10px;white-space:nowrap}
 }
 
 /* ============ REDUCED MOTION ============ */
