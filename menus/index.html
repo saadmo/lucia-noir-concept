@@ -49,7 +49,6 @@
   --pad-sec:clamp(64px,12vw,132px);
   --measure:44ch;
   --head-h:76px; /* measured at runtime — see updateOffsets() */
-  --nav-h:67px; /* measured at runtime; 0 while the rail is hidden */
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:var(--head-h,76px)}
@@ -68,7 +67,7 @@ a{color:inherit}
 .ivory :focus-visible{outline-color:var(--bronze)}
 
 /* ============ TYPE UTILITIES ============ */
-.label{font-family:var(--font-label);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;line-height:1.7}
+.label{font-family:var(--font-label);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;line-height:1.7}
 .wrap{max-width:100%;margin:0 auto;padding-left:20px;padding-right:20px}
 .pad{padding-top:var(--pad-sec);padding-bottom:var(--pad-sec)}
 .ivory{background:var(--ivory);color:var(--noir)}
@@ -117,17 +116,6 @@ body.menu-open .menu-toggle{display:none}
 
 
 /* ============ MENUS (full text menu, ivory — readable, no images) ============ */
-.menu-nav{display:flex;gap:8px;overflow-x:auto;flex-wrap:nowrap;padding:6px 0 4px;margin:32px 0 8px;scrollbar-width:none;mask-image:linear-gradient(to right,#000 calc(100% - 28px),transparent 100%);-webkit-mask-image:linear-gradient(to right,#000 calc(100% - 28px),transparent 100%)}
-.menu-nav.at-end{mask-image:none;-webkit-mask-image:none}
-.menu-nav a[aria-current="true"]{border-color:var(--bronze);color:var(--bronze);background:rgba(120,95,43,.08)}
-.menu-nav::-webkit-scrollbar{display:none}
-.menu-nav a{flex:0 0 auto;text-decoration:none;font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:rgba(13,11,8,.72);border:1px solid var(--line-l);border-radius:100px;padding:12px 18px;min-height:44px;display:inline-flex;align-items:center}
-.menu-nav a:hover{border-color:var(--bronze);color:var(--bronze)}
-/* Group chips (Dinner / Desserts / Beverages) read as the group heading,
-   not as another category: a flat tint sets them apart, and .is-in-group
-   (set by the scroll-spy) shows which group the current category sits in. */
-.menu-nav a.is-group{background:rgba(13,11,8,.06);color:var(--noir)}
-.menu-nav a.is-in-group{border-color:var(--bronze);color:var(--bronze);background:rgba(120,95,43,.08)}
 .menu-cats{max-width:860px}
 .menu-cat{padding:36px 0 8px;border-top:1px solid var(--line-l)}
 .menu-cat:first-of-type{border-top:0}
@@ -232,8 +220,8 @@ body.menu-open .menu-toggle{display:none}
 
 /* ============ MENUS PAGE ============
    Nobu-style organization: one page, major menu groups (Dinner /
-   Desserts / Beverages) with a sticky category chip nav under the
-   fixed header. Intro band stays noir so the fixed ivory header
+   Desserts / Beverages), linked from the group pills in the intro
+   band. Intro band stays noir so the fixed ivory header
    keeps its contrast, matching the homepage rhythm. */
 .page-intro{padding:118px 0 44px}
 .page-intro .label{color:var(--gold);display:block;margin-bottom:14px;font-size:12px}
@@ -242,24 +230,20 @@ body.menu-open .menu-toggle{display:none}
 .menu-groups{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
 .menu-groups a{flex:0 0 auto;text-decoration:none;font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:var(--ivory-70);border:1px solid var(--line-d);border-radius:100px;padding:12px 20px;min-height:44px;display:inline-flex;align-items:center}
 .menu-groups a:hover{border-color:var(--gold);color:var(--gold)}
-/* Sticky offsets are measured, not fixed: --head-h / --nav-h are set by
-   updateOffsets() from the header's and the rail's real heights (after
-   fonts load, on resize, and when the header's scrolled state changes).
-   The rail sticks directly under the fixed header; anchor landings use
-   scroll-padding-top (the header) + scroll-margin-top (the rail + a
-   16px gap), so headings land below the sticky stack instead of under it. */
-.menu-nav--sticky{position:sticky;top:var(--head-h,76px);z-index:900;background:var(--ivory);margin-left:-20px;margin-right:-20px;padding:10px 20px;border-bottom:1px solid var(--line-l)}
-/* No horizontal category rail on mobile: the menu is a vertical scroll. */
-@media (max-width:1023px){.menu-nav--sticky{display:none}}
-.menu-group{scroll-margin-top:calc(var(--nav-h,67px) + 16px)}
+/* Anchor offsets are measured, not fixed: --head-h is set by
+   updateOffsets() from the fixed header's real height (after fonts
+   load, on resize, and when the header's scrolled state changes).
+   Anchor landings use scroll-padding-top (the header) +
+   scroll-margin-top (the header + a 16px gap), so headings land
+   below the fixed header instead of under it. */
+.menu-group{scroll-margin-top:calc(var(--head-h,76px) + 16px)}
 .menu-group + .menu-group{margin-top:56px}
 .group-h{font-family:var(--font-display);font-weight:300;font-size:clamp(30px,7vw,52px);line-height:1.05;padding-bottom:18px;border-bottom:1px solid var(--line-l);margin-bottom:8px}
-.menu-cat{scroll-margin-top:calc(var(--nav-h,67px) + 16px)}
+.menu-cat{scroll-margin-top:calc(var(--head-h,76px) + 16px)}
 .site-nav a[aria-current="page"]{opacity:1}
 .site-nav a[aria-current="page"]::after{transform:scaleX(1)}
 @media (min-width:1024px){
   .page-intro{padding-top:150px}
-  .menu-nav--sticky{margin-left:calc(-1 * clamp(20px,4vw,48px));margin-right:calc(-1 * clamp(20px,4vw,48px));padding-left:clamp(20px,4vw,48px);padding-right:clamp(20px,4vw,48px)}
 }
 </style>
 </head>
@@ -277,6 +261,7 @@ body.menu-open .menu-toggle{display:none}
     <div class="nav-more" id="more-wrap">
       <button class="nav-more-btn" id="more-btn" type="button" aria-expanded="false" aria-controls="more-menu">More <span class="chev" aria-hidden="true"></span></button>
       <div class="nav-more-menu" id="more-menu" aria-label="More">
+        <a href="../about/">About Us</a>
         <a href="../info-policies/">Info &amp; Policies</a>
         <a href="https://order.toasttab.com/egiftcards/lucia-349-north-fairfax-avenue" target="_blank" rel="noopener noreferrer">Gift cards<span class="sr-only"> (opens in new tab)</span></a>
         <a href="../#room">Gallery</a>
@@ -298,6 +283,7 @@ body.menu-open .menu-toggle{display:none}
   <button class="menu-close" id="menu-close" type="button" aria-label="Close menu"><span aria-hidden="true">&times;</span></button>
   <ol>
     <li><a href="./" aria-current="page"><span class="name">Menus</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
+    <li><a href="../about/"><span class="name">About Us</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
     <li><a href="../info-policies/"><span class="name">Info &amp; Policies</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
     <li><a href="https://order.toasttab.com/egiftcards/lucia-349-north-fairfax-avenue" target="_blank" rel="noopener noreferrer"><span class="name">Gift cards</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
     <li><a href="../#room"><span class="name">Gallery</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
@@ -329,28 +315,6 @@ body.menu-open .menu-toggle{display:none}
 <section class="ivory" id="menus" aria-labelledby="menus-h">
   <div class="wrap pad">
     <h2 class="sr-only" id="menus-h">Full menu</h2>
-    <nav class="menu-nav menu-nav--sticky" aria-label="Menu sections">
-      <!-- Group chips (Dinner / Desserts / Beverages) land on the group
-           heading; category chips land on their own category. Hot
-           Beverages and Cocktails sit under Beverages; Ice Cream & Sorbet
-           sits under Desserts. -->
-      <a href="#group-dinner" class="is-group">Dinner</a>
-      <a href="#menu-raw">Raw</a>
-      <a href="#menu-milkbread">Milkbread</a>
-      <a href="#menu-patty">Patty Shop</a>
-      <a href="#menu-greens">Greens</a>
-      <a href="#menu-street">Street Bites</a>
-      <a href="#menu-pasta">Pasta Tings</a>
-      <a href="#menu-sea">Sea</a>
-      <a href="#menu-land">Land</a>
-      <a href="#menu-heritage">Heritage Classics</a>
-      <a href="#menu-fixings">Fixings</a>
-      <a href="#group-desserts" class="is-group">Desserts</a>
-      <a href="#menu-icecream">Ice Cream &amp; Sorbet</a>
-      <a href="#group-beverages" class="is-group">Beverages</a>
-      <a href="#menu-hot">Hot Beverages</a>
-      <a href="#menu-cocktails">Cocktails</a>
-    </nav>
     <div class="menu-group" id="group-dinner">
         <h2 class="group-h">Dinner</h2>
         <div class="menu-cats">
@@ -512,23 +476,20 @@ body.menu-open .menu-toggle{display:none}
   "use strict";
   var mobileMQ = window.matchMedia('(max-width: 1023px)');
 
-  /* Header state + measured anchor offsets. The fixed header and the
-     sticky category rail change height with fonts, zoom and wrapping, so
-     updateOffsets() reads both and writes --head-h / --nav-h, which the
-     CSS uses for the rail's sticky top, scroll-padding-top (header) and
-     scroll-margin-top (rail + 16px gap). It runs on load, font load,
-     resize, header/nav size changes, and whenever the header's scrolled
-     state (and height) changes. Writes are skipped when nothing moved. */
+  /* Header state + measured anchor offset. The fixed header changes
+     height with fonts, zoom and wrapping, so updateOffsets() reads it
+     and writes --head-h, which the CSS uses for scroll-padding-top
+     (header) and scroll-margin-top (header + 16px gap). It runs on
+     load, font load, resize, header size changes, and whenever the
+     header's scrolled state (and height) changes. Writes are skipped
+     when nothing moved. */
   var head = document.getElementById('site-head');
-  var lastHeadH = -1, lastNavH = -1;
+  var lastHeadH = -1;
   function updateOffsets(){
     var h = head ? head.offsetHeight : 76;
-    var rail = document.querySelector('.menu-nav--sticky');
-    var n = (rail && rail.offsetHeight) ? rail.offsetHeight : 0;
-    if (h === lastHeadH && n === lastNavH) return;
-    lastHeadH = h; lastNavH = n;
+    if (h === lastHeadH) return;
+    lastHeadH = h;
     document.documentElement.style.setProperty('--head-h', h + 'px');
-    document.documentElement.style.setProperty('--nav-h', n + 'px');
   }
   function onScroll(){
     var scrolled = window.scrollY > 40;
@@ -546,8 +507,6 @@ body.menu-open .menu-toggle{display:none}
        default (content-box) observer would never fire for that. */
     var sizeObs = new ResizeObserver(updateOffsets);
     if (head) sizeObs.observe(head, {box: 'border-box'});
-    var railEl = document.querySelector('.menu-nav--sticky');
-    if (railEl) sizeObs.observe(railEl, {box: 'border-box'});
   }
   /* Belt and braces for the header's 0.4s padding transition: re-measure
      once it settles, so --head-h ends at the height the header actually
@@ -674,90 +633,6 @@ body.menu-open .menu-toggle{display:none}
   if (mobileMQ.addEventListener) mobileMQ.addEventListener('change', updateBar);
   window.addEventListener('resize', updateBar);
   updateBar();
-
-  /* Menu category rail: mark the category in view (aria-current + visible
-     style), keep the active chip visible in the rail, and fade the rail's
-     right edge only while more chips lie beyond it. Group chips show which
-     group the current category belongs to (.is-in-group); aria-current
-     stays on the single category chip — except Desserts, whose first
-     category has no chip of its own, so the Desserts group chip carries it. */
-  var menuNav = document.querySelector('.menu-nav--sticky'),
-      /* Scroll-spy targets are the groups AND their categories, in
-         document order: when a group heading is the last target in view,
-         the current category is that group's first category. (A bare
-         category list misses this — the heading's own height puts its
-         first category below the probe after a group landing.) */
-      spyTargets = Array.prototype.slice.call(document.querySelectorAll('.menu-group, .menu-cat')),
-      menuLinks = menuNav ? Array.prototype.slice.call(menuNav.querySelectorAll('a[href^="#menu-"], a[href^="#group-"]')) : [];
-  /* A chip's target category: a #menu- chip points at its category; a
-     #group- chip points at that group's first category (used to decide
-     when a group chip is the sole chip for the current category). */
-  function linkTarget(a){
-    var href = a.getAttribute('href');
-    if (href.indexOf('#group-') === 0){
-      var g = document.querySelector(href);
-      var first = g ? g.querySelector('.menu-cat') : null;
-      return first ? first.id : null;
-    }
-    return href.slice(1);
-  }
-  function navFade(){
-    if (!menuNav) return;
-    menuNav.classList.toggle('at-end', menuNav.scrollLeft + menuNav.clientWidth >= menuNav.scrollWidth - 2);
-  }
-  var spyRaf = 0;
-  function spy(){
-    spyRaf = 0;
-    if (!spyTargets.length || !menuNav) return;
-    /* Probe sits below the measured sticky stack plus slack for the
-       header's height range: an anchor landing is computed with the
-       header height at click time (up to 16px taller unscrolled), so the
-       probe allows 16px for that + the 16px anchor gap + 8px for
-       sub-pixel rounding. Never a fixed pixel value: the stack height
-       changes with fonts, zoom and wrapping. */
-    var probe = (head ? head.offsetHeight : 0) + (menuNav.offsetHeight || 0) + 40,
-        currentEl = spyTargets[0];
-    spyTargets.forEach(function(el){ if (el.getBoundingClientRect().top <= probe) currentEl = el; });
-    /* A group target resolves to its first category, so landing on a
-       group heading selects that group's first category. */
-    var current = currentEl.classList.contains('menu-group') ? currentEl.querySelector('.menu-cat') : currentEl;
-    var id = current.id;
-    var currentGroup = (current.closest) ? current.closest('.menu-group') : null;
-    /* A group chip is the only chip for its first category when no
-       category chip points at that category (Desserts). Otherwise the
-       category chip carries aria-current and the group chip only shows
-       which group the current category belongs to. */
-    var hasCatChip = menuLinks.some(function(a){ return a.getAttribute('href') === '#' + id; });
-    menuLinks.forEach(function(a){
-      var href = a.getAttribute('href');
-      var isGroup = href.indexOf('#group-') === 0;
-      var on = false, inGroup = false;
-      if (isGroup){
-        var g = document.querySelector(href);
-        inGroup = !!(g && currentGroup && g === currentGroup);
-        on = inGroup && linkTarget(a) === id && !hasCatChip;
-      } else {
-        on = href === '#' + id;
-      }
-      a.classList.toggle('is-in-group', inGroup && !on);
-      if (on){
-        a.setAttribute('aria-current', 'true');
-        var r = a.getBoundingClientRect(), nr = menuNav.getBoundingClientRect();
-        if (r.left < nr.left) menuNav.scrollLeft -= (nr.left - r.left + 8);
-        else if (r.right > nr.right) menuNav.scrollLeft += (r.right - nr.right + 8);
-      } else {
-        a.removeAttribute('aria-current');
-      }
-    });
-  }
-  function spySoon(){ if (!spyRaf) spyRaf = requestAnimationFrame(spy); }
-  if (menuNav){
-    window.addEventListener('scroll', spySoon, {passive:true});
-    window.addEventListener('resize', function(){ navFade(); spySoon(); });
-    menuNav.addEventListener('scroll', navFade, {passive:true});
-    navFade(); spy();
-  }
-
 
   var yrEl = document.getElementById('yr');
   if (yrEl) yrEl.textContent = new Date().getFullYear();
