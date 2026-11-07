@@ -20,7 +20,7 @@
 <meta name="twitter:description" content="LUCIA info and policies — hours, reservations, dress code, age, dietary, and parking. Dinner Wed–Sun, 6PM–12AM, 21+ after 8 PM.">
 <meta name="twitter:image" content="https://lucia-noir-concept-saadmos-projects.vercel.app/assets/hero.webp">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Restaurant","name":"LUCIA","servesCuisine":"Afro-Caribbean","priceRange":"$$$","url":"https://www.luciala.com/","telephone":"+1-213-800-0048","address":{"@type":"PostalAddress","streetAddress":"351 N Fairfax Ave","addressLocality":"Los Angeles","addressRegion":"CA","postalCode":"90036","addressCountry":"US"},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"18:00","closes":"24:00"},"acceptsReservations":"True"}
+{"@context":"https://schema.org","@type":"Restaurant","name":"LUCIA","servesCuisine":"Afro-Caribbean","priceRange":"$$$","url":"https://www.luciala.com/location/lucia","telephone":"+1-213-800-0048","address":{"@type":"PostalAddress","streetAddress":"351 N Fairfax Ave","addressLocality":"Los Angeles","addressRegion":"CA","postalCode":"90036","addressCountry":"US"},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"18:00","closes":"24:00"},"acceptsReservations":"True"}
 </script>
 <style>
 /* ================================================================
@@ -107,19 +107,16 @@ a{color:inherit}
 /* Mobile menu: modal dialog — focus moves in, Escape closes, focus returns,
    background inert, never taller than the viewport, internally scrollable.
    Reserve stays visible inside the open menu. */
-.mobile-menu{position:fixed;inset:0;z-index:1500;height:100vh;height:100dvh;background:#080604;color:var(--ivory);padding:96px 20px calc(20px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;overflow-y:auto;overscroll-behavior:contain;opacity:0;visibility:hidden;transition:opacity .3s var(--ease),visibility 0s linear .3s}
+.mobile-menu{position:fixed;inset:0;z-index:1500;height:100vh;height:100dvh;background:#080604;color:var(--ivory);padding:96px 20px 45px;display:flex;flex-direction:column;overflow-y:auto;overscroll-behavior:contain;opacity:0;visibility:hidden;transition:opacity .3s var(--ease),visibility 0s linear .3s}
 .mobile-menu.open{opacity:1;visibility:visible;transition:opacity .3s var(--ease),visibility 0s}
 .menu-close{position:absolute;top:18px;right:16px;width:48px;height:48px;border:1px solid var(--line-d);border-radius:50%;background:transparent;color:var(--ivory);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:26px;line-height:1}
 .menu-close:hover{border-color:var(--gold);color:var(--gold)}
-.mobile-menu ol{list-style:none;border-top:1px solid var(--line-d)}
+.mobile-menu ol{list-style:none;border-top:1px solid var(--line-d);margin-bottom:24px}
 .mobile-menu li a{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:1px solid var(--line-d);text-decoration:none;min-height:56px}
 .mobile-menu .name{font-family:var(--font-display);font-size:clamp(24px,7.5vw,36px);font-weight:300;line-height:1.1}
 .mobile-menu .arr{color:var(--ivory-50)}
-.mobile-menu .btn{margin-top:24px;width:100%;min-height:60px;font-size:13px}
+.mobile-menu .btn{margin-top:auto;width:100%;min-height:60px;font-size:13px}
 .mobile-menu .btn + .btn{margin-top:12px}
-.mobile-menu .menu-secondary{margin-top:28px;display:flex;flex-wrap:wrap;gap:8px 24px}
-.mobile-menu .menu-secondary a{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--ivory-70);text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
-.mobile-menu .menu-secondary a:hover{color:var(--ivory)}
 body.menu-open{overflow:hidden}
 body.menu-open .site-head{background:transparent;border-bottom-color:transparent;-webkit-backdrop-filter:none;backdrop-filter:none;z-index:1600;pointer-events:none}
 body.menu-open .menu-toggle{display:none}
@@ -169,8 +166,6 @@ body.menu-open .menu-toggle{display:none}
 .taste-copy .textlink.btn-block{border:1px solid var(--ivory-30);border-radius:100px;justify-content:center;padding:16px 20px;min-height:56px}
 
 /* ============ MENUS (full text menu, ivory — readable, no images) ============ */
-.menu-intro{margin-top:18px;max-width:var(--measure);color:rgba(13,11,8,.74)}
-.menu-intro a{color:var(--bronze)}
 .menu-nav{display:flex;gap:8px;overflow-x:auto;flex-wrap:nowrap;padding:6px 0 4px;margin:32px 0 8px;scrollbar-width:none}
 .menu-nav::-webkit-scrollbar{display:none}
 .menu-nav a{flex:0 0 auto;text-decoration:none;font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:rgba(13,11,8,.72);border:1px solid var(--line-l);border-radius:100px;padding:12px 18px;min-height:44px;display:inline-flex;align-items:center}
@@ -283,8 +278,8 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
    space so the bar never covers content. */
 .stickybar{display:none}
 @media (max-width:1023px){
-  body.has-bar{padding-bottom:calc(162px + env(safe-area-inset-bottom,0px))}
-  .stickybar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:1200;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(13,11,8,.82);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);border-top:1px solid var(--line-d);transform:translateY(110%);transition:transform .4s var(--ease)}
+  body.has-bar{padding-bottom:calc(144px + env(safe-area-inset-bottom,0px))}
+  .stickybar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:1200;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(13,11,8,.20);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);border-top:1px solid var(--line-d);transform:translateY(110%);transition:transform .4s var(--ease)}
   .stickybar.show{transform:none}
   .stickybar{flex-direction:column;gap:10px}
   .stickybar .btn{flex:none;width:100%;min-height:56px;font-size:12px;letter-spacing:.08em;padding:16px 10px;white-space:nowrap}
@@ -315,14 +310,14 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
   .wordmark{font-size:20px}
   .wordmark img{height:30px}
   .site-nav{display:flex;gap:28px}
-  .site-nav a{position:relative;text-decoration:none;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;opacity:.72;padding:14px 2px;transition:opacity var(--dur-s)}
+  .site-nav a{position:relative;text-decoration:none;font-size:14px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;opacity:.72;padding:14px 2px;transition:opacity var(--dur-s)}
   .site-nav a::after{content:"";position:absolute;left:0;bottom:2px;height:1px;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform var(--dur-s) var(--ease)}
   .site-nav a:hover,.site-nav a:focus-visible{opacity:1}
   .site-nav a:hover::after,.site-nav a:focus-visible::after{transform:scaleX(1)}
   .head-ctas{display:inline-flex;gap:12px;flex-shrink:0}
   /* "More" dropdown (desktop nav) */
   .nav-more{position:relative}
-  .nav-more-btn{display:inline-flex;align-items:center;gap:7px;background:none;border:0;cursor:pointer;font-family:var(--font-body);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--ivory);opacity:.72;padding:14px 2px}
+  .nav-more-btn{display:inline-flex;align-items:center;gap:7px;background:none;border:0;cursor:pointer;font-family:var(--font-body);font-size:14px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--ivory);opacity:.72;padding:14px 2px}
   .nav-more-btn:hover,.nav-more-btn:focus-visible{opacity:1}
   .nav-more-btn .chev{width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;transition:transform var(--dur-s) var(--ease)}
   .nav-more.open .nav-more-btn .chev{transform:rotate(180deg)}
@@ -403,7 +398,6 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
 .page-intro{padding:118px 0 44px}
 .page-intro .label{color:var(--gold);display:block;margin-bottom:14px}
 .page-title{font-family:var(--font-display);font-weight:300;font-size:var(--t-display);line-height:1;text-wrap:balance}
-.page-intro .menu-intro{color:var(--ivory-70);margin-top:16px}
 .page-intro .menu-lede{font-family:var(--font-display);font-weight:300;font-size:clamp(22px,3.2vw,30px);line-height:1.3;color:var(--ivory);margin-top:18px;max-width:var(--measure)}
 .menu-groups{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
 .menu-groups a{flex:0 0 auto;text-decoration:none;font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--ivory-70);border:1px solid var(--line-d);border-radius:100px;padding:12px 20px;min-height:44px;display:inline-flex;align-items:center}
@@ -600,7 +594,8 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
       menu = document.getElementById('mobile-menu'),
       main = document.getElementById('maincontent'),
       footer = document.querySelector('footer'),
-      bar = document.getElementById('stickybar');
+      bar = document.getElementById('stickybar'),
+      skipLink = document.querySelector('.skip-link');
   function focusables(){
     return Array.prototype.slice.call(menu.querySelectorAll('a[href], button:not([disabled])')).filter(function(el){
       return el.offsetWidth > 0 || el.offsetHeight > 0 || el.getClientRects().length > 0;
@@ -612,7 +607,8 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
     toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     toggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
     document.body.classList.toggle('menu-open', open);
-    main.inert = open; footer.inert = open;
+    main.inert = open; footer.inert = open; head.inert = open;
+    if (skipLink) skipLink.inert = open;
     if (open){ var f = focusables(); if (f[0]) f[0].focus(); }
     else if (returnFocus){ toggle.focus(); }
     updateBar();
@@ -645,8 +641,10 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
   });
 
   /* "More" dropdown (desktop nav): click to toggle, Escape closes and
-     returns focus to the button, outside click closes, arrow keys move
-     between items. Desktop only — .site-nav is hidden below 1024px. */
+     returns focus to the button, outside click closes, focus leaving the
+     group closes it, Tab moves naturally through the visible links, and
+     arrow keys are an optional shortcut between items. Desktop only —
+     .site-nav is hidden below 1024px. */
   var moreBtn = document.getElementById('more-btn'),
       moreWrap = document.getElementById('more-wrap'),
       moreMenu = document.getElementById('more-menu');
@@ -672,7 +670,12 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
       else if (e.key === 'Home'){ e.preventDefault(); items[0].focus(); }
       else if (e.key === 'End'){ e.preventDefault(); items[items.length - 1].focus(); }
       else if (e.key === 'Escape'){ e.preventDefault(); e.stopPropagation(); setMore(false, true); }
-      else if (e.key === 'Tab'){ setMore(false); }
+      /* Tab is NOT intercepted: it moves naturally through the visible links.
+         The focusout handler below closes the disclosure once focus leaves it. */
+    });
+    moreMenu.addEventListener('click', function(e){ if (e.target.closest('a')) setMore(false); });
+    moreWrap.addEventListener('focusout', function(e){
+      if (moreWrap.classList.contains('open') && !moreWrap.contains(e.relatedTarget)) setMore(false);
     });
     document.addEventListener('click', function(e){ if (moreWrap.classList.contains('open') && !moreWrap.contains(e.target)) setMore(false); });
     document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && moreWrap.classList.contains('open')) setMore(false, true); });
@@ -689,6 +692,10 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
     bar.classList.toggle('show', show);
     bar.inert = !show;
     document.body.classList.toggle('has-bar', show);
+    /* Reserve exactly the bar's rendered height (measured, not assumed),
+       so the space matches at any text size. The CSS fallback above
+       carries the measured default heights. */
+    document.body.style.paddingBottom = show ? bar.offsetHeight + 'px' : '';
   }
   if ('IntersectionObserver' in window){
     var heroIO = new IntersectionObserver(function(entries){ heroVisible = entries[0].isIntersecting; updateBar(); }, {threshold: 0});
@@ -697,6 +704,7 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
     window.addEventListener('scroll', function(){ heroVisible = window.scrollY < hero.offsetHeight; updateBar(); }, {passive:true});
   }
   if (mobileMQ.addEventListener) mobileMQ.addEventListener('change', updateBar);
+  window.addEventListener('resize', updateBar);
   updateBar();
 
   /* Room carousel: buttons + dots + arrow keys; swipe is native scroll-snap.
