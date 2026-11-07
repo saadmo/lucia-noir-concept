@@ -9,18 +9,18 @@
 <link rel="icon" type="image/png" href="../assets/favicon.png">
 <title>Menus — LUCIA | Modern Afro-Caribbean Restaurant, Los Angeles</title>
 <meta name="description" content="The full LUCIA menu — Raw, the Patty Shop, Heritage Classics, desserts, hot beverages, and specialty cocktails. Dinner Wed–Sun, 6PM–12AM, 21+ after 8 PM.">
-<link rel="canonical" href="https://www.luciala.com/menus">
+<link rel="canonical" href="https://lucia-noir-concept-saadmos-projects.vercel.app/menus/">
 <meta property="og:type" content="restaurant">
 <meta property="og:title" content="Menus — LUCIA | Modern Afro-Caribbean Restaurant, Los Angeles">
 <meta property="og:description" content="The full menu — food, desserts, hot beverages, and specialty cocktails. Dinner Wed–Sun, 6PM–12AM, 21+ after 8 PM.">
-<meta property="og:url" content="https://www.luciala.com/menus">
+<meta property="og:url" content="https://lucia-noir-concept-saadmos-projects.vercel.app/menus/">
 <meta property="og:image" content="https://lucia-noir-concept-saadmos-projects.vercel.app/assets/hero.webp">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Menus — LUCIA | Modern Afro-Caribbean Restaurant, Los Angeles">
 <meta name="twitter:description" content="The full menu — food, desserts, hot beverages, and specialty cocktails. Dinner Wed–Sun, 6PM–12AM, 21+ after 8 PM.">
 <meta name="twitter:image" content="https://lucia-noir-concept-saadmos-projects.vercel.app/assets/hero.webp">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Restaurant","name":"LUCIA","servesCuisine":"Afro-Caribbean","priceRange":"$$$","url":"https://www.luciala.com/menus","telephone":"+1-213-800-0048","address":{"@type":"PostalAddress","streetAddress":"351 N Fairfax Ave","addressLocality":"Los Angeles","addressRegion":"CA","postalCode":"90036","addressCountry":"US"},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"18:00","closes":"24:00"},"acceptsReservations":"True"}
+{"@context":"https://schema.org","@type":"Restaurant","name":"LUCIA","servesCuisine":"Afro-Caribbean","priceRange":"$$$","url":"https://lucia-noir-concept-saadmos-projects.vercel.app/menus/","telephone":"+1-213-800-0048","address":{"@type":"PostalAddress","streetAddress":"351 N Fairfax Ave","addressLocality":"Los Angeles","addressRegion":"CA","postalCode":"90036","addressCountry":"US"},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"18:00","closes":"24:00"},"acceptsReservations":"True","geo":{"@type":"GeoCoordinates","latitude":34.07766,"longitude":-118.3616},"menu":"https://lucia-noir-concept-saadmos-projects.vercel.app/menus/","hasMenu":"https://lucia-noir-concept-saadmos-projects.vercel.app/menus/","potentialAction":{"@type":"ReserveAction","target":"https://resy.com/cities/los-angeles-ca/venues/lucia-ca"}}
 </script>
 <style>
 /* ================================================================
@@ -87,6 +87,7 @@ a{color:inherit}
 .site-head.scrolled{background:rgba(13,11,8,.82);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);padding-top:10px;padding-bottom:10px;border-bottom-color:var(--line-d)}
 .wordmark{font-family:var(--font-display);font-weight:500;font-size:18px;letter-spacing:.32em;padding-left:.32em;text-decoration:none;color:var(--ivory);min-height:44px;display:inline-flex;align-items:center}
 .wordmark img{display:block;height:26px;width:auto}
+.wordmark picture{display:block}
 .site-nav,.head-ctas{display:none}
 .menu-toggle{display:flex;width:48px;height:48px;border:0;background:transparent;color:var(--ivory);align-items:center;justify-content:center;cursor:pointer;border-radius:8px}
 .menu-toggle-lines{position:relative;display:block;width:24px;height:16px}
@@ -143,6 +144,15 @@ body.menu-open .menu-toggle{display:none}
 .menu-notes{margin-top:36px;border-top:1px solid var(--line-l);padding-top:24px;max-width:var(--measure)}
 .menu-notes p{font-size:14px;line-height:1.8;letter-spacing:.04em;text-transform:uppercase;color:rgba(13,11,8,.62)}
 .menu-notes p+p{margin-top:10px}
+
+/* ============ CONTACT STRIP (slim, noir — not a footer) ============ */
+.contact-strip{border-top:1px solid var(--line-d);padding:30px 0 34px}
+.contact-strip p{font-size:14px;line-height:2;color:var(--ivory-70);text-align:center}
+.contact-strip a{color:var(--ivory);text-decoration:none;border-bottom:1px solid var(--line-d);white-space:nowrap}
+.contact-strip a:hover{color:var(--gold);border-bottom-color:var(--gold)}
+.contact-strip .sep{color:var(--ivory-30);margin:0 10px}
+.contact-strip .reserve{color:var(--gold);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:12px}
+@media (min-width:1024px){.contact-strip p{text-align:left}}
 
 
 
@@ -257,7 +267,7 @@ body.menu-open .menu-toggle{display:none}
 <a class="skip-link" href="#maincontent">Skip to content</a>
 
 <header class="site-head" id="site-head">
-  <a class="wordmark" href="../" aria-label="LUCIA — back to home"><img src="../assets/lucia-logo-gold.webp" alt="" width="720" height="208"></a>
+  <a class="wordmark" href="../" aria-label="LUCIA — back to home"><picture><source type="image/avif" srcset="../assets/lucia-logo-gold-400.avif 400w, ../assets/lucia-logo-gold-720.avif 720w" sizes="(min-width:1024px) 104px, 90px"><source type="image/webp" srcset="../assets/lucia-logo-gold.webp 720w" sizes="(min-width:1024px) 104px, 90px"><img src="../assets/lucia-logo-gold.webp" alt="" width="720" height="208"></picture></a>
   <nav class="site-nav" aria-label="Primary">
     <a href="./" aria-current="page">Menus</a>
     <a href="../#room">The Room</a>
@@ -315,7 +325,7 @@ body.menu-open .menu-toggle{display:none}
   </div>
 </header>
 
-<!-- ============ MENUS (full text menu, from luciala.com/menus) ============ -->
+<!-- ============ MENUS (full text menu) ============ -->
 <section class="ivory" id="menus" aria-labelledby="menus-h">
   <div class="wrap pad">
     <h2 class="sr-only" id="menus-h">Full menu</h2>
@@ -476,6 +486,13 @@ body.menu-open .menu-toggle{display:none}
       <p>A 20% gratuity will be applied to parties of 6 or more.</p>
       <p>Halal, vegan, and vegetarian options are available &mdash; please ask your server.</p>
     </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT STRIP (slim — no footer) ============ -->
+<section class="noir contact-strip" aria-label="Contact LUCIA">
+  <div class="wrap">
+    <p>351 N Fairfax Ave, Los Angeles, CA 90036<span class="sep" aria-hidden="true">&middot;</span>Wed&ndash;Sun 6 PM&ndash;12 AM<span class="sep" aria-hidden="true">&middot;</span><a href="tel:+12138000048">+1 213 800 0048</a><span class="sep" aria-hidden="true">&middot;</span><a href="mailto:info@luciala.com">info@luciala.com</a><span class="sep" aria-hidden="true">&middot;</span><a class="reserve" href="https://resy.com/cities/los-angeles-ca/venues/lucia-ca" target="_blank" rel="noopener noreferrer">Reserve<span class="sr-only"> a table (opens in new tab)</span></a></p>
   </div>
 </section>
 
