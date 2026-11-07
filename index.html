@@ -7,20 +7,58 @@
 <meta name="theme-color" content="#0D0B08">
 <link rel="icon" href="assets/favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preload" as="image" href="assets/hero-1080.avif" type="image/avif" imagesrcset="assets/hero-400.avif 400w, assets/hero-800.avif 800w, assets/hero-1080.avif 1080w" imagesizes="100vw" fetchpriority="high">
 <title>LUCIA — Modern Afro-Caribbean Restaurant in Los Angeles, CA</title>
 <meta name="description" content="LUCIA is a modern Afro-Caribbean restaurant on Fairfax Ave in Los Angeles. Dinner Wed–Sun, 6PM–12AM, 21+ after 8 PM. Reserve your table.">
-<link rel="canonical" href="https://www.luciala.com/">
+<link rel="canonical" href="https://lucia-noir-concept-saadmos-projects.vercel.app/">
 <meta property="og:type" content="restaurant">
 <meta property="og:title" content="LUCIA — Modern Afro-Caribbean Restaurant in Los Angeles">
 <meta property="og:description" content="Dinner is the excuse. The night is the point. Reserve your table on Fairfax Ave.">
-<meta property="og:url" content="https://www.luciala.com/">
+<meta property="og:url" content="https://lucia-noir-concept-saadmos-projects.vercel.app/">
 <meta property="og:image" content="https://lucia-noir-concept-saadmos-projects.vercel.app/assets/hero.webp">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="LUCIA — Modern Afro-Caribbean Restaurant in Los Angeles">
 <meta name="twitter:description" content="Dinner is the excuse. The night is the point. Reserve your table on Fairfax Ave.">
 <meta name="twitter:image" content="https://lucia-noir-concept-saadmos-projects.vercel.app/assets/hero.webp">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Restaurant","name":"LUCIA","servesCuisine":"Afro-Caribbean","priceRange":"$$$","url":"https://www.luciala.com/","telephone":"+1-213-800-0048","address":{"@type":"PostalAddress","streetAddress":"351 N Fairfax Ave","addressLocality":"Los Angeles","addressRegion":"CA","postalCode":"90036","addressCountry":"US"},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"18:00","closes":"24:00"},"acceptsReservations":"True"}
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "LUCIA",
+  "servesCuisine": "Afro-Caribbean",
+  "priceRange": "$$$",
+  "url": "https://lucia-noir-concept-saadmos-projects.vercel.app/",
+  "telephone": "+1-213-800-0048",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "351 N Fairfax Ave",
+    "addressLocality": "Los Angeles",
+    "addressRegion": "CA",
+    "postalCode": "90036",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 34.077660,
+    "longitude": -118.361600
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+    "opens": "18:00",
+    "closes": "24:00"
+  },
+  "menu": "https://lucia-noir-concept-saadmos-projects.vercel.app/menus/",
+  "hasMenu": "https://lucia-noir-concept-saadmos-projects.vercel.app/menus/",
+  "acceptsReservations": "True",
+  "potentialAction": {
+    "@type": "ReserveAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://resy.com/cities/los-angeles-ca/venues/lucia-ca"
+    }
+  }
+}
 </script>
 <style>
 /* ================================================================
@@ -214,6 +252,7 @@ body.menu-open .menu-toggle{display:none}
 .visit-rows .big{display:block;font-family:var(--font-display);font-size:24px;font-weight:400;line-height:1.25}
 .visit-rows .small{display:block;font-size:15px;line-height:1.6;color:rgba(13,11,8,.72);margin-top:6px}
 .visit-cta{display:grid;gap:14px}
+.visit-proof{margin:0 0 20px;font-size:15px;line-height:1.6;color:rgba(13,11,8,.72)}
 .visit-actions{display:grid;gap:12px}
 .visit-actions .btn{width:100%;min-height:56px}
 
@@ -362,7 +401,7 @@ body.menu-open .menu-toggle{display:none}
 <a class="skip-link" href="#maincontent">Skip to content</a>
 
 <header class="site-head" id="site-head">
-  <a class="wordmark" href="#top" aria-label="LUCIA — back to top"><img src="assets/lucia-logo-gold.webp" alt="" width="720" height="208"></a>
+  <a class="wordmark" href="#top" aria-label="LUCIA — back to top"><picture><source type="image/avif" srcset="assets/lucia-logo-gold-400.avif 400w, assets/lucia-logo-gold-720.avif 720w" sizes="(min-width:1024px) 104px, 90px"><img src="assets/lucia-logo-gold.webp" alt="" width="720" height="208"></picture></a>
   <nav class="site-nav" aria-label="Primary">
     <a href="menus/">Menus</a>
     <a href="#room">The Room</a>
@@ -409,7 +448,7 @@ body.menu-open .menu-toggle{display:none}
 <!-- ============ HERO ============ -->
 <header class="hero" id="top">
   <div class="hero-media">
-    <img loading="eager" src="assets/hero.webp" alt="LUCIA dining room with sculptural white arches and red banquettes" fetchpriority="high" decoding="async">
+    <picture><source type="image/avif" srcset="assets/hero-400.avif 400w, assets/hero-800.avif 800w, assets/hero-1080.avif 1080w" sizes="100vw"><img loading="eager" src="assets/hero.webp" alt="LUCIA dining room with sculptural white arches and red banquettes" fetchpriority="high" decoding="async" width="1080" height="810"></picture>
   </div>
   <div class="hero-scrim" aria-hidden="true"></div>
   <div class="hero-inner">
@@ -453,7 +492,7 @@ body.menu-open .menu-toggle{display:none}
     <p class="sec-kicker" aria-hidden="true"><span>02</span><span>Taste</span></p>
     <div class="taste-grid">
       <figure class="dish-figure">
-        <img src="assets/dish.webp" alt="Glazed wings with lime, served at LUCIA" loading="lazy" decoding="async" width="1000" height="1202">
+        <picture><source type="image/avif" srcset="assets/dish-400.avif 400w, assets/dish-800.avif 800w, assets/dish-1000.avif 1000w" sizes="(min-width:1024px) 50vw, 100vw"><img src="assets/dish.webp" alt="Glazed wings with lime, served at LUCIA" loading="lazy" decoding="async" width="1000" height="1202"></picture>
         <figcaption><span class="cap-k">From the pass</span>Glazed wings, finished with lime.</figcaption>
       </figure>
       <div class="taste-copy">
@@ -484,11 +523,11 @@ body.menu-open .menu-toggle{display:none}
     <div class="carousel" id="room-carousel">
       <div class="carousel-track" id="room-track" tabindex="0" role="region" aria-roledescription="carousel" aria-label="The room">
         <figure class="slide">
-          <img src="assets/room-doors.webp" alt="LUCIA's open wooden entrance door revealing the illuminated curved bar at night" loading="lazy" decoding="async" width="1200" height="900">
+          <picture><source type="image/avif" srcset="assets/room-doors-400.avif 400w, assets/room-doors-800.avif 800w, assets/room-doors-1200.avif 1200w" sizes="100vw"><img src="assets/room-doors.webp" alt="LUCIA's open wooden entrance door revealing the illuminated curved bar at night" loading="lazy" decoding="async" width="1200" height="900"></picture>
           <figcaption><span class="n">01</span><span class="t">The entrance</span></figcaption>
         </figure>
         <figure class="slide">
-          <img src="assets/room-table.webp" alt="Shared plates and cocktails on a marble table, seen from above" loading="lazy" decoding="async" width="1080" height="810">
+          <picture><source type="image/avif" srcset="assets/room-table-400.avif 400w, assets/room-table-800.avif 800w, assets/room-table-1080.avif 1080w" sizes="100vw"><img src="assets/room-table.webp" alt="Shared plates and cocktails on a marble table, seen from above" loading="lazy" decoding="async" width="1080" height="810"></picture>
           <figcaption><span class="n">02</span><span class="t">The table</span></figcaption>
         </figure>
       </div>
@@ -511,7 +550,7 @@ body.menu-open .menu-toggle{display:none}
     <!-- No booking buttons on event cards — booking lives in the header and sticky bar -->
     <div class="events-layout">
       <figure class="events-figure">
-        <img src="assets/events-live.webp" alt="A packed, red-lit night in the dining room, guests dancing beneath the glowing arches" loading="lazy" decoding="async" width="1200" height="800">
+        <picture><source type="image/avif" srcset="assets/events-live-400.avif 400w, assets/events-live-800.avif 800w, assets/events-live-1200.avif 1200w" sizes="(min-width:1024px) 50vw, 100vw"><img src="assets/events-live.webp" alt="A packed, red-lit night in the dining room, guests dancing beneath the glowing arches" loading="lazy" decoding="async" width="1200" height="800"></picture>
       </figure>
       <div class="event-cards">
         <article class="event-card">
@@ -535,7 +574,7 @@ body.menu-open .menu-toggle{display:none}
     <p class="sec-kicker" aria-hidden="true"><span>05</span><span>Private Dining</span></p>
     <div class="private-grid">
       <figure class="private-figure">
-        <img src="assets/private-event.webp" alt="Ms. Lauryn Hill performing with a microphone at LUCIA" loading="lazy" decoding="async" width="1200" height="676">
+        <picture><source type="image/avif" srcset="assets/private-event-400.avif 400w, assets/private-event-800.avif 800w, assets/private-event-1200.avif 1200w" sizes="(min-width:1024px) 50vw, 100vw"><img src="assets/private-event.webp" alt="Ms. Lauryn Hill performing with a microphone at LUCIA" loading="lazy" decoding="async" width="1200" height="676"></picture>
         <figcaption><span class="cap-k">Featured past private event</span>Ms. Lauryn Hill&rsquo;s BET Awards afterparty &mdash; live at LUCIA.</figcaption>
       </figure>
       <div>
@@ -557,7 +596,7 @@ body.menu-open .menu-toggle{display:none}
     <h2 class="sec-h" id="recognized-h">Recognition</h2>
     <div class="recog-feature">
       <div class="recog-head">
-        <img src="assets/yelp-badge.webp" alt="Yelp Best New Restaurants 2026 badge" loading="lazy" decoding="async" width="480" height="480">
+        <picture><source type="image/avif" srcset="assets/yelp-badge-240.avif 240w, assets/yelp-badge-480.avif 480w" sizes="96px"><img src="assets/yelp-badge.webp" alt="Yelp Best New Restaurants 2026 badge" loading="lazy" decoding="async" width="480" height="480"></picture>
         <span class="big">No. 19</span>
       </div>
       <p class="recog-sub"><a href="https://www.yelp.com/article/best-new-restaurants-of-2026" target="_blank" rel="noopener noreferrer">Yelp</a> &middot; Best New Restaurants 2026 &middot; National</p>
@@ -590,6 +629,7 @@ body.menu-open .menu-toggle{display:none}
       <div><span class="label">Parking</span><span class="big">Valet $15, right out front.</span><span class="small">Metered parking nearby; nearest lot at 333 N Fairfax Ave.</span></div>
     </div>
     <div class="visit-cta">
+      <p class="visit-proof">Named No. 19 on Yelp's Best New Restaurants of 2026.</p>
       <div class="visit-actions">
         <a class="btn btn-ghost-d" href="https://www.google.com/maps/search/?api=1&amp;query=351+N+Fairfax+Ave+Los+Angeles+CA+90036" target="_blank" rel="noopener noreferrer">Get directions <span aria-hidden="true">&rarr;</span><span class="sr-only"> (opens in new tab)</span></a>
         <a class="btn btn-ghost-d" href="tel:+12138000048">Call +1 213 800 0048</a>
