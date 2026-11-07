@@ -107,19 +107,16 @@ a{color:inherit}
 /* Mobile menu: modal dialog — focus moves in, Escape closes, focus returns,
    background inert, never taller than the viewport, internally scrollable.
    Reserve stays visible inside the open menu. */
-.mobile-menu{position:fixed;inset:0;z-index:1500;height:100vh;height:100dvh;background:#080604;color:var(--ivory);padding:96px 20px calc(20px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;overflow-y:auto;overscroll-behavior:contain;opacity:0;visibility:hidden;transition:opacity .3s var(--ease),visibility 0s linear .3s}
+.mobile-menu{position:fixed;inset:0;z-index:1500;height:100vh;height:100dvh;background:#080604;color:var(--ivory);padding:96px 20px 45px;display:flex;flex-direction:column;overflow-y:auto;overscroll-behavior:contain;opacity:0;visibility:hidden;transition:opacity .3s var(--ease),visibility 0s linear .3s}
 .mobile-menu.open{opacity:1;visibility:visible;transition:opacity .3s var(--ease),visibility 0s}
 .menu-close{position:absolute;top:18px;right:16px;width:48px;height:48px;border:1px solid var(--line-d);border-radius:50%;background:transparent;color:var(--ivory);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:26px;line-height:1}
 .menu-close:hover{border-color:var(--gold);color:var(--gold)}
-.mobile-menu ol{list-style:none;border-top:1px solid var(--line-d)}
+.mobile-menu ol{list-style:none;border-top:1px solid var(--line-d);margin-bottom:24px}
 .mobile-menu li a{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:1px solid var(--line-d);text-decoration:none;min-height:56px}
 .mobile-menu .name{font-family:var(--font-display);font-size:clamp(24px,7.5vw,36px);font-weight:300;line-height:1.1}
 .mobile-menu .arr{color:var(--ivory-50)}
-.mobile-menu .btn{margin-top:24px;width:100%;min-height:60px;font-size:13px}
+.mobile-menu .btn{margin-top:auto;width:100%;min-height:60px;font-size:13px}
 .mobile-menu .btn + .btn{margin-top:12px}
-.mobile-menu .menu-secondary{margin-top:28px;display:flex;flex-wrap:wrap;gap:8px 24px}
-.mobile-menu .menu-secondary a{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--ivory-70);text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
-.mobile-menu .menu-secondary a:hover{color:var(--ivory)}
 body.menu-open{overflow:hidden}
 body.menu-open .site-head{background:transparent;border-bottom-color:transparent;-webkit-backdrop-filter:none;backdrop-filter:none;z-index:1600;pointer-events:none}
 body.menu-open .menu-toggle{display:none}
@@ -174,8 +171,6 @@ body.menu-open .menu-toggle{display:none}
 .taste-copy .textlink.btn-block{border:1px solid var(--ivory-30);border-radius:100px;justify-content:center;padding:16px 20px;min-height:56px}
 
 /* ============ MENUS (full text menu, ivory — readable, no images) ============ */
-.menu-intro{margin-top:18px;max-width:var(--measure);color:rgba(13,11,8,.74)}
-.menu-intro a{color:var(--bronze)}
 .menu-nav{display:flex;gap:8px;overflow-x:auto;flex-wrap:nowrap;padding:6px 0 4px;margin:32px 0 8px;scrollbar-width:none}
 .menu-nav::-webkit-scrollbar{display:none}
 .menu-nav a{flex:0 0 auto;text-decoration:none;font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:rgba(13,11,8,.72);border:1px solid var(--line-l);border-radius:100px;padding:12px 18px;min-height:44px;display:inline-flex;align-items:center}
@@ -270,6 +265,8 @@ body.menu-open .menu-toggle{display:none}
 .recog-list .r-label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600}
 .recog-list .r-name{font-family:var(--font-display);font-size:22px;font-weight:400;line-height:1.2}
 .recog-list .r-note{color:var(--ivory-70);font-size:14px;line-height:1.6}
+.recog-sub a,.recog-list a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.recog-sub a:hover,.recog-list a:hover{color:var(--gold)}
 
 /* ============ FOOTER ============ */
 footer{background:#080604;padding:64px 0 0;overflow:hidden}
@@ -288,8 +285,8 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
    space so the bar never covers content. */
 .stickybar{display:none}
 @media (max-width:1023px){
-  body.has-bar{padding-bottom:calc(162px + env(safe-area-inset-bottom,0px))}
-  .stickybar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:1200;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(13,11,8,.82);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);border-top:1px solid var(--line-d);transform:translateY(110%);transition:transform .4s var(--ease)}
+  body.has-bar{padding-bottom:calc(144px + env(safe-area-inset-bottom,0px))}
+  .stickybar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:1200;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(13,11,8,.20);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);border-top:1px solid var(--line-d);transform:translateY(110%);transition:transform .4s var(--ease)}
   .stickybar.show{transform:none}
   .stickybar{flex-direction:column;gap:10px}
   .stickybar .btn{flex:none;width:100%;min-height:56px;font-size:12px;letter-spacing:.08em;padding:16px 10px;white-space:nowrap}
@@ -603,17 +600,17 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
         <img src="assets/yelp-badge.webp" alt="Yelp Best New Restaurants 2026 badge" loading="lazy" decoding="async" width="480" height="480">
         <span class="big">No. 19</span>
       </div>
-      <p class="recog-sub">Yelp &middot; Best New Restaurants 2026 &middot; National</p>
+      <p class="recog-sub"><a href="https://www.yelp.com/article/best-new-restaurants-of-2026" target="_blank" rel="noopener noreferrer">Yelp</a> &middot; Best New Restaurants 2026 &middot; National</p>
       <blockquote class="recog-quote">
         <p>&ldquo;Diners are treated to Caribbean fine dining in this upscale, see-and-be-seen L.A. spot, which has received both national and international recognition for its stunning interior design and has already drawn celebrities like Usher and Saweetie.&rdquo;</p>
-        <cite>Yelp&rsquo;s editors</cite>
+        <cite>Yelp Editorial staff</cite>
       </blockquote>
     </div>
     <ul class="recog-list">
-      <li><span class="r-label">Dining</span><div><div class="r-name">LA Times 101</div><div class="r-note">Counted among the city&rsquo;s essential dining rooms.</div></div></li>
-      <li><span class="r-label">Design</span><div><div class="r-name">Gold Key Award 2025</div><div class="r-note">Hospitality design, recognized on the national stage.</div></div></li>
-      <li><span class="r-label">Design</span><div><div class="r-name">Robb Report &mdash; 21 Most Beautiful Restaurants in America</div><div class="r-note">A dining room recognized for its design.</div></div></li>
-      <li><span class="r-label">In the press</span><div><div class="r-name">Eater &middot; Vogue &middot; Cond&eacute; Nast</div><div class="r-note">Food, culture, and travel desks all found the room.</div></div></li>
+      <li><span class="r-label">Dining</span><div><div class="r-name">LA Times 101</div><div class="r-note">No. 55 on the 2026 list &mdash; counted among the city&rsquo;s essential dining rooms.</div></div></li>
+      <li><span class="r-label">Design</span><div><div class="r-name"><a href="https://hospitalitydesign.com/news/gold-key-awards-winners-2025/183850/" target="_blank" rel="noopener noreferrer">Gold Key Award 2025</a></div><div class="r-note">Winner &mdash; Restaurant Upscale Dining.</div></div></li>
+      <li><span class="r-label">Design</span><div><div class="r-name">Robb Report &mdash; 21 Most Beautiful New Restaurants in America</div><div class="r-note">No. 20 on the 2025 list &mdash; a dining room recognized for its design.</div></div></li>
+      <li><span class="r-label">In the press</span><div><div class="r-name"><a href="https://la.eater.com/2025/5/14/24430356/lucia-afro-caribbean-restaurant-opening-fairfax-los-angeles" target="_blank" rel="noopener noreferrer">Eater</a> &middot; Vogue &middot; Cond&eacute; Nast</div><div class="r-note">Food, culture, and travel desks all found the room.</div></div></li>
     </ul>
   </div>
 </section>
@@ -694,7 +691,8 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
       menu = document.getElementById('mobile-menu'),
       main = document.getElementById('maincontent'),
       footer = document.querySelector('footer'),
-      bar = document.getElementById('stickybar');
+      bar = document.getElementById('stickybar'),
+      skipLink = document.querySelector('.skip-link');
   function focusables(){
     return Array.prototype.slice.call(menu.querySelectorAll('a[href], button:not([disabled])')).filter(function(el){
       return el.offsetWidth > 0 || el.offsetHeight > 0 || el.getClientRects().length > 0;
@@ -706,7 +704,8 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
     toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     toggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
     document.body.classList.toggle('menu-open', open);
-    main.inert = open; footer.inert = open;
+    main.inert = open; footer.inert = open; head.inert = open;
+    if (skipLink) skipLink.inert = open;
     if (open){ var f = focusables(); if (f[0]) f[0].focus(); }
     else if (returnFocus){ toggle.focus(); }
     updateBar();
@@ -739,8 +738,10 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
   });
 
   /* "More" dropdown (desktop nav): click to toggle, Escape closes and
-     returns focus to the button, outside click closes, arrow keys move
-     between items. Desktop only — .site-nav is hidden below 1024px. */
+     returns focus to the button, outside click closes, focus leaving the
+     group closes it, Tab moves naturally through the visible links, and
+     arrow keys are an optional shortcut between items. Desktop only —
+     .site-nav is hidden below 1024px. */
   var moreBtn = document.getElementById('more-btn'),
       moreWrap = document.getElementById('more-wrap'),
       moreMenu = document.getElementById('more-menu');
@@ -766,7 +767,12 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
       else if (e.key === 'Home'){ e.preventDefault(); items[0].focus(); }
       else if (e.key === 'End'){ e.preventDefault(); items[items.length - 1].focus(); }
       else if (e.key === 'Escape'){ e.preventDefault(); e.stopPropagation(); setMore(false, true); }
-      else if (e.key === 'Tab'){ setMore(false); }
+      /* Tab is NOT intercepted: it moves naturally through the visible links.
+         The focusout handler below closes the disclosure once focus leaves it. */
+    });
+    moreMenu.addEventListener('click', function(e){ if (e.target.closest('a')) setMore(false); });
+    moreWrap.addEventListener('focusout', function(e){
+      if (moreWrap.classList.contains('open') && !moreWrap.contains(e.relatedTarget)) setMore(false);
     });
     document.addEventListener('click', function(e){ if (moreWrap.classList.contains('open') && !moreWrap.contains(e.target)) setMore(false); });
     document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && moreWrap.classList.contains('open')) setMore(false, true); });
@@ -783,6 +789,10 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
     bar.classList.toggle('show', show);
     bar.inert = !show;
     document.body.classList.toggle('has-bar', show);
+    /* Reserve exactly the bar's rendered height (measured, not assumed),
+       so the space matches at any text size. The CSS fallback above
+       carries the measured default heights. */
+    document.body.style.paddingBottom = show ? bar.offsetHeight + 'px' : '';
   }
   if ('IntersectionObserver' in window){
     var heroIO = new IntersectionObserver(function(entries){ heroVisible = entries[0].isIntersecting; updateBar(); }, {threshold: 0});
@@ -791,6 +801,7 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
     window.addEventListener('scroll', function(){ heroVisible = window.scrollY < hero.offsetHeight; updateBar(); }, {passive:true});
   }
   if (mobileMQ.addEventListener) mobileMQ.addEventListener('change', updateBar);
+  window.addEventListener('resize', updateBar);
   updateBar();
 
   /* Room carousel: buttons + dots + arrow keys; swipe is native scroll-snap.
