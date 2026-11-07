@@ -116,7 +116,7 @@ a{color:inherit}
 .mobile-menu .name{font-family:var(--font-display);font-size:clamp(24px,7.5vw,36px);font-weight:300;line-height:1.1}
 .mobile-menu .arr{color:var(--ivory-50)}
 .mobile-menu .btn{margin-top:24px;width:100%;min-height:60px;font-size:13px}
-.mobile-menu .menu-secondary{margin-top:28px;display:flex;gap:24px}
+.mobile-menu .menu-secondary{margin-top:28px;display:flex;flex-wrap:wrap;gap:8px 24px}
 .mobile-menu .menu-secondary a{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--ivory-70);text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
 .mobile-menu .menu-secondary a:hover{color:var(--ivory)}
 body.menu-open{overflow:hidden}
@@ -325,6 +325,17 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
   .site-nav a:hover,.site-nav a:focus-visible{opacity:1}
   .site-nav a:hover::after,.site-nav a:focus-visible::after{transform:scaleX(1)}
   .head-ctas{display:inline-flex;gap:12px;flex-shrink:0}
+  /* "More" dropdown (desktop nav) */
+  .nav-more{position:relative}
+  .nav-more-btn{display:inline-flex;align-items:center;gap:7px;background:none;border:0;cursor:pointer;font-family:var(--font-body);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--ivory);opacity:.72;padding:14px 2px}
+  .nav-more-btn:hover,.nav-more-btn:focus-visible{opacity:1}
+  .nav-more-btn .chev{width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;transition:transform var(--dur-s) var(--ease)}
+  .nav-more.open .nav-more-btn .chev{transform:rotate(180deg)}
+  .nav-more-menu{position:absolute;top:calc(100% + 8px);right:0;min-width:230px;background:rgba(13,11,8,.96);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border:1px solid var(--line-d);border-radius:12px;padding:8px;box-shadow:0 18px 40px rgba(0,0,0,.45);opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity var(--dur-s) var(--ease),transform var(--dur-s) var(--ease),visibility 0s linear var(--dur-s)}
+  .nav-more.open .nav-more-menu{opacity:1;visibility:visible;transform:none;transition:opacity var(--dur-s) var(--ease),transform var(--dur-s) var(--ease),visibility 0s}
+  .nav-more-menu a{display:flex;align-items:center;min-height:44px;padding:10px 12px;border-radius:8px;text-decoration:none;font-size:14px;letter-spacing:.02em;text-transform:none;font-weight:500;color:var(--ivory);opacity:.85}
+  .nav-more-menu a:hover,.nav-more-menu a:focus-visible{opacity:1;background:rgba(245,239,227,.08)}
+  .nav-more-menu a::after{display:none}
   .menu-toggle{display:none}
 
   /* Hero: text sits low over the darker lower half */
@@ -400,6 +411,16 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
     <a href="#events">What&rsquo;s On</a>
     <a href="#private-events">Private Dining</a>
     <a href="#visit">Visit</a>
+    <div class="nav-more" id="more-wrap">
+      <button class="nav-more-btn" id="more-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="more-menu">More <span class="chev" aria-hidden="true"></span></button>
+      <div class="nav-more-menu" id="more-menu" aria-label="More">
+        <a href="info-policies/">Info &amp; Policies</a>
+        <a href="https://order.toasttab.com/egiftcards/lucia-349-north-fairfax-avenue" target="_blank" rel="noopener noreferrer">Gift cards<span class="sr-only"> (opens in new tab)</span></a>
+        <a href="#room">Gallery</a>
+        <a href="#recognized">Press</a>
+        <a href="https://www.luciala.com/careers/" target="_blank" rel="noopener noreferrer">Careers<span class="sr-only"> (opens in new tab)</span></a>
+      </div>
+    </div>
   </nav>
   <div class="head-ctas">
     <!-- PLACEHOLDER: swap href for LUCIA's official Resy page when confirmed -->
@@ -418,6 +439,11 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
     <li><a href="#events"><span class="name">What&rsquo;s On</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
     <li><a href="#private-events"><span class="name">Private Dining</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
     <li><a href="#visit"><span class="name">Visit</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
+    <li><a href="info-policies/"><span class="name">Info &amp; Policies</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
+    <li><a href="https://order.toasttab.com/egiftcards/lucia-349-north-fairfax-avenue" target="_blank" rel="noopener noreferrer"><span class="name">Gift cards</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
+    <li><a href="#room"><span class="name">Gallery</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
+    <li><a href="#recognized"><span class="name">Press</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
+    <li><a href="https://www.luciala.com/careers/" target="_blank" rel="noopener noreferrer"><span class="name">Careers</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
   </ol>
   <!-- PLACEHOLDER: swap href for LUCIA's official Resy page when confirmed -->
   <a class="btn btn-red" href="https://resy.com/cities/los-angeles-ca/venues/lucia-ca" target="_blank" rel="noopener noreferrer">Reserve a table<span class="sr-only"> (opens in new tab)</span></a>
@@ -711,6 +737,40 @@ footer{background:#080604;padding:64px 0 0;overflow:hidden}
   window.addEventListener('resize', function(){
     if (!mobileMQ.matches && toggle.getAttribute('aria-expanded') === 'true') setMenu(false, false);
   });
+
+  /* "More" dropdown (desktop nav): click to toggle, Escape closes and
+     returns focus to the button, outside click closes, arrow keys move
+     between items. Desktop only — .site-nav is hidden below 1024px. */
+  var moreBtn = document.getElementById('more-btn'),
+      moreWrap = document.getElementById('more-wrap'),
+      moreMenu = document.getElementById('more-menu');
+  function moreItems(){ return moreMenu ? Array.prototype.slice.call(moreMenu.querySelectorAll('a[href]')) : []; }
+  function setMore(open, focusBtn){
+    if (!moreWrap) return;
+    moreWrap.classList.toggle('open', open);
+    moreBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (!open && focusBtn) moreBtn.focus();
+  }
+  if (moreBtn){
+    moreBtn.addEventListener('click', function(e){ e.stopPropagation(); setMore(!moreWrap.classList.contains('open')); });
+    moreBtn.addEventListener('keydown', function(e){
+      if (!moreWrap.classList.contains('open')) return;
+      var items = moreItems();
+      if (e.key === 'ArrowDown'){ e.preventDefault(); items[0].focus(); }
+      else if (e.key === 'ArrowUp'){ e.preventDefault(); items[items.length - 1].focus(); }
+    });
+    moreMenu.addEventListener('keydown', function(e){
+      var items = moreItems(), i = items.indexOf(document.activeElement);
+      if (e.key === 'ArrowDown'){ e.preventDefault(); (items[i + 1] || items[0]).focus(); }
+      else if (e.key === 'ArrowUp'){ e.preventDefault(); (items[i - 1] || items[items.length - 1]).focus(); }
+      else if (e.key === 'Home'){ e.preventDefault(); items[0].focus(); }
+      else if (e.key === 'End'){ e.preventDefault(); items[items.length - 1].focus(); }
+      else if (e.key === 'Escape'){ e.preventDefault(); e.stopPropagation(); setMore(false, true); }
+      else if (e.key === 'Tab'){ setMore(false); }
+    });
+    document.addEventListener('click', function(e){ if (moreWrap.classList.contains('open') && !moreWrap.contains(e.target)) setMore(false); });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && moreWrap.classList.contains('open')) setMore(false, true); });
+  }
 
   /* Sticky bar: shown only once the hero has left the viewport
      (IntersectionObserver), hidden + inert while the mobile menu is open.
