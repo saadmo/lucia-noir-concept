@@ -475,8 +475,8 @@ body.menu-open .menu-toggle{display:none}
   .dish-figure img{aspect-ratio:4/4.4}
   .taste-copy .textlink.btn-block{width:auto;border:0;border-radius:0;padding:0 0 8px;min-height:44px;justify-content:flex-start}
   .taste-carousel{display:block}
-  .taste-track{gap:0}
-  .taste-slide{flex:0 0 100%;flex-direction:row}
+  .taste-track{gap:16px}
+  .taste-slide{flex:0 0 calc(50% - 8px);flex-direction:row}
   .taste-slide picture{flex:0 0 50%}
   .taste-slide-body{justify-content:center}
   .taste-spacer{display:none}
@@ -1281,11 +1281,14 @@ body.menu-open .menu-toggle{display:none}
       tDotsWrap.appendChild(b);
       return b;
     });
+    /* Two dishes are visible at once on desktop, one at a time on mobile,
+       so the last reachable index leaves a full view (no half-empty end). */
+    function tMaxIdx(){ return Math.max(0, tSlides.length - (window.matchMedia('(min-width:1024px)').matches ? 2 : 1)); }
     function tRender(i){
-      tIdx = Math.max(0, Math.min(tSlides.length - 1, i));
+      tIdx = Math.max(0, Math.min(tMaxIdx(), i));
       tDots.forEach(function(d, k){ d.setAttribute('aria-current', k === tIdx ? 'true' : 'false'); });
       if (tPrev) tPrev.disabled = tIdx === 0;
-      if (tNext) tNext.disabled = tIdx === tSlides.length - 1;
+      if (tNext) tNext.disabled = tIdx === tMaxIdx();
       if (tStatus) tStatus.textContent = 'Dish ' + (tIdx + 1) + ' of ' + tSlides.length + ' \u2014 ' + tCaptions[tIdx];
     }
     function tNearest(){
