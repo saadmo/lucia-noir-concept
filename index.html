@@ -476,7 +476,9 @@ body.menu-open .menu-toggle{display:none}
   .taste-copy .textlink.btn-block{width:auto;border:0;border-radius:0;padding:0 0 8px;min-height:44px;justify-content:flex-start}
   .taste-carousel{display:block}
   .taste-track{gap:0}
-  .taste-slide{flex:0 0 100%}
+  .taste-slide{flex:0 0 100%;flex-direction:row}
+  .taste-slide picture{flex:0 0 50%}
+  .taste-slide-body{justify-content:center}
   .taste-spacer{display:none}
   .taste-controls{display:grid;grid-template-columns:52px minmax(0,1fr) 52px;align-items:center;gap:12px}
   .taste-controls .car-arrow{display:block}
@@ -635,12 +637,12 @@ body.menu-open .menu-toggle{display:none}
     <p class="sec-kicker" aria-hidden="true"><span>02</span><span>Taste</span></p>
     <div class="taste-grid">
       <figure class="dish-figure">
-        <picture><source type="image/avif" srcset="assets/dish-trini-chicken-400.avif 400w, assets/dish-trini-chicken-800.avif 800w, assets/dish-trini-chicken-1000.avif 1000w" sizes="(min-width:1024px) 50vw, 100vw"><img src="assets/dish-trini-chicken.webp" alt="Trini-Chinese chicken with a soy-ginger glaze, sesame, and garlic, served at LUCIA" loading="lazy" decoding="async" width="1000" height="750"></picture>
+        <picture><source type="image/avif" srcset="assets/dish-trini-chicken-400.avif 400w, assets/dish-trini-chicken-800.avif 800w, assets/dish-trini-chicken-1200.avif 1200w" sizes="(min-width:1024px) 50vw, 100vw"><img src="assets/dish-trini-chicken.webp" alt="Trini-Chinese chicken with a soy-ginger glaze, sesame, and garlic, served at LUCIA" loading="lazy" decoding="async" width="1200" height="900"></picture>
         <figcaption>Trini-Chinese chicken, glazed with Malta and ginger.</figcaption>
       </figure>
       <div class="taste-copy">
         <h2 class="taste-h" id="taste-h">Bright heat, <em>slow cooking.</em></h2>
-        <p class="taste-desc">The cooking leans bright and hot &mdash; citrus and Scotch bonnet up front, slow-cooked meats and brown butter underneath, rum behind the bar. These three plates are a good place to start.</p>
+        <p class="taste-desc">The cooking leans bright and hot &mdash; citrus and Scotch bonnet up front, slow-cooked meats and brown butter underneath, rum behind the bar. These four plates are a good place to start.</p>
         <!-- ============ TASTE — CAROUSEL ============
              Swipe + dots on mobile (Variant A, no arrows); arrows + dots on
              desktop. The slides are built by JavaScript from the signature
@@ -662,12 +664,13 @@ body.menu-open .menu-toggle{display:none}
             <div class="car-dots" id="taste-dots" role="group" aria-label="Choose dish"></div>
             <button class="car-arrow" id="taste-next" type="button" aria-label="Next dish">&rarr;</button>
           </div>
-          <p class="carousel-status" id="taste-status" aria-live="polite">Dish 1 of 3 &mdash; Trini-Chinese Chicken</p>
+          <p class="carousel-status" id="taste-status" aria-live="polite">Dish 1 of 4 &mdash; Trini-Chinese Chicken</p>
         </div>
         <ul class="sig-list" aria-label="Signature dishes">
-          <li><picture><source type="image/avif" srcset="assets/dish-trini-chicken-400.avif 400w, assets/dish-trini-chicken-800.avif 800w, assets/dish-trini-chicken-1000.avif 1000w" sizes="100vw"><img src="assets/dish-trini-chicken.webp" alt="Trini-Chinese chicken with a soy-ginger glaze, sesame, and garlic, served at LUCIA" loading="lazy" decoding="async" width="1000" height="750"></picture><span class="dish">Trini-Chinese Chicken</span><p class="desc">Malta, ginger, green seasoning, le courage spice blend.</p></li>
-          <li><picture><source type="image/avif" srcset="assets/dish-tuna-tartare-400.avif 400w, assets/dish-tuna-tartare-800.avif 800w, assets/dish-tuna-tartare-1000.avif 1000w" sizes="100vw"><img src="assets/dish-tuna-tartare.webp" alt="Bigeye tuna tartare with green mango and avocado, served at LUCIA" loading="lazy" decoding="async" width="1000" height="750"></picture><span class="dish">Bigeye Tuna Tartare</span><p class="desc">Green mango, sour orange, avocado, benne, root chips.</p></li>
-          <li><picture><source type="image/avif" srcset="assets/dish-plantain-400.avif 400w, assets/dish-plantain-800.avif 800w, assets/dish-plantain-1000.avif 1000w" sizes="100vw"><img src="assets/dish-plantain.webp" alt="Plantain expressions with maduros, plantain mole, and plantain chips, served at LUCIA" loading="lazy" decoding="async" width="1000" height="750"></picture><span class="dish">Plantain Expressions</span><p class="desc">Maduros, plantain mole, plantain chips.</p></li>
+          <li><picture><source type="image/avif" srcset="assets/dish-trini-chicken-400.avif 400w, assets/dish-trini-chicken-800.avif 800w, assets/dish-trini-chicken-1200.avif 1200w" sizes="(min-width:1024px) 720px, 88vw"><img src="assets/dish-trini-chicken.webp" alt="Trini-Chinese chicken with a soy-ginger glaze, sesame, and garlic, served at LUCIA" loading="lazy" decoding="async" width="1200" height="900"></picture><span class="dish">Trini-Chinese Chicken</span><p class="desc">Malta, ginger, green seasoning, le courage spice blend.</p></li>
+          <li><picture><source type="image/avif" srcset="assets/dish-fish-roast-400.avif 400w, assets/dish-fish-roast-800.avif 800w, assets/dish-fish-roast-1200.avif 1200w" sizes="(min-width:1024px) 720px, 88vw"><img src="assets/dish-fish-roast.webp" alt="Green fig-leaf fish roast in a red sauce with a bright diced salsa, served at LUCIA" loading="lazy" decoding="async" width="1200" height="1600"></picture><span class="dish">Green Fig-Leaf Fish Roast</span><p class="desc">Naranja agria, bell peppers caldo, lime caviar.</p></li>
+          <li><picture><source type="image/avif" srcset="assets/dish-ropa-fina-400.avif 400w, assets/dish-ropa-fina-800.avif 800w, assets/dish-ropa-fina-1200.avif 1200w" sizes="(min-width:1024px) 720px, 88vw"><img src="assets/dish-ropa-fina.webp" alt="Ropa Fina NY strip, sliced, with sorrel pickled red onions and a creamy mash, served at LUCIA" loading="lazy" decoding="async" width="1200" height="900"></picture><span class="dish">Ropa Fina 12oz NY Strip</span><p class="desc">Reca&iacute;to, sorrel pickled red onions, mojo spices.</p></li>
+          <li><picture><source type="image/avif" srcset="assets/dish-crab-patty-400.avif 400w, assets/dish-crab-patty-800.avif 800w, assets/dish-crab-patty-1200.avif 1200w" sizes="(min-width:1024px) 720px, 88vw"><img src="assets/dish-crab-patty.webp" alt="Golden crab and callaloo patties with a dipping sauce, served at LUCIA" loading="lazy" decoding="async" width="1200" height="900"></picture><span class="dish">Crab &amp; Callaloo Patty</span><p class="desc">Served with green papaya kuchela.</p></li>
         </ul>
         <a class="textlink btn-block" href="menus/">See the full menu <span aria-hidden="true">&rarr;</span></a>
       </div>
