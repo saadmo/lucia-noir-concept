@@ -20,7 +20,7 @@
 <meta name="twitter:description" content="The full menu — food, desserts, hot beverages, and specialty cocktails. Dinner Wed–Sun, 6PM–12AM, 21+ after 8 PM.">
 <meta name="twitter:image" content="https://lucia-noir-concept-saadmos-projects.vercel.app/assets/hero.webp">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Restaurant","name":"LUCIA","servesCuisine":"Afro-Caribbean","priceRange":"$$$","url":"https://lucia-noir-concept-saadmos-projects.vercel.app/menus/","telephone":"+1-213-800-0048","address":{"@type":"PostalAddress","streetAddress":"351 N Fairfax Ave","addressLocality":"Los Angeles","addressRegion":"CA","postalCode":"90036","addressCountry":"US"},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"18:00","closes":"24:00"},"acceptsReservations":"True","geo":{"@type":"GeoCoordinates","latitude":34.07766,"longitude":-118.3616},"menu":"https://lucia-noir-concept-saadmos-projects.vercel.app/menus/","hasMenu":"https://lucia-noir-concept-saadmos-projects.vercel.app/menus/","potentialAction":{"@type":"ReserveAction","target":"https://resy.com/cities/los-angeles-ca/venues/lucia-ca"}}
+{"@context":"https://schema.org","@type":"Restaurant","name":"LUCIA","servesCuisine":"Afro-Caribbean","priceRange":"$$$","url":"https://lucia-noir-concept-saadmos-projects.vercel.app/menus/","telephone":"+1-213-800-0048","address":{"@type":"PostalAddress","streetAddress":"351 N Fairfax Ave","addressLocality":"Los Angeles","addressRegion":"CA","postalCode":"90036","addressCountry":"US"},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"18:00","closes":"24:00"},"acceptsReservations":true,"geo":{"@type":"GeoCoordinates","latitude":34.07766,"longitude":-118.3616},"menu":"https://lucia-noir-concept-saadmos-projects.vercel.app/menus/","hasMenu":"https://lucia-noir-concept-saadmos-projects.vercel.app/menus/","potentialAction":{"@type":"ReserveAction","target":"https://resy.com/cities/los-angeles-ca/venues/lucia-ca"}}
 </script>
 <style>
 /* ================================================================
@@ -111,6 +111,13 @@ a{color:inherit}
 body.menu-open{overflow:hidden}
 body.menu-open .site-head{background:transparent;border-bottom-color:transparent;-webkit-backdrop-filter:none;backdrop-filter:none;z-index:1600;pointer-events:none}
 body.menu-open .menu-toggle{display:none}
+
+/* No-JS fallback navigation: only rendered when JavaScript is off
+   (inside <noscript>). A plain stacked link list below the header. */
+.noscript-nav{margin-top:84px;background:#080604;padding:8px 20px 16px}
+.noscript-nav a{display:block;padding:12px 0;border-bottom:1px solid var(--line-d);text-decoration:none;font-family:var(--font-display);font-size:22px;font-weight:300;color:var(--ivory)}
+.noscript-nav a[aria-current="page"]{color:var(--gold)}
+@media (min-width:1024px){.noscript-nav{display:none}}
 
 
 
@@ -251,6 +258,7 @@ body.menu-open .menu-toggle{display:none}
   .page-intro{padding-top:150px}
 }
 </style>
+<noscript><style>.menu-toggle{display:none}</style></noscript>
 </head>
 <body>
 <a class="skip-link" href="#maincontent">Skip to content</a>
@@ -269,8 +277,7 @@ body.menu-open .menu-toggle{display:none}
         <a href="../about/">About Us</a>
         <a href="../info-policies/">Info &amp; Policies</a>
         <a href="https://order.toasttab.com/egiftcards/lucia-349-north-fairfax-avenue" target="_blank" rel="noopener noreferrer">Gift cards<span class="sr-only"> (opens in new tab)</span></a>
-        <a href="../#room">Gallery</a>
-        <a href="../#recognized">Press</a>
+        <a href="../#recognized">Recognition</a>
         <a href="../careers/">Careers</a>
       </div>
     </div>
@@ -290,9 +297,9 @@ body.menu-open .menu-toggle{display:none}
     <li><a href="./" aria-current="page"><span class="name">Menus</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
     <li><a href="../about/"><span class="name">About Us</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
     <li><a href="../info-policies/"><span class="name">Info &amp; Policies</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
+    <li><a href="../#visit"><span class="name">Visit</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
     <li><a href="https://order.toasttab.com/egiftcards/lucia-349-north-fairfax-avenue" target="_blank" rel="noopener noreferrer"><span class="name">Gift cards</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
-    <li><a href="../#room"><span class="name">Gallery</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
-    <li><a href="../#recognized"><span class="name">Press</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
+    <li><a href="../#recognized"><span class="name">Recognition</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
     <li><a href="../careers/"><span class="name">Careers</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
   </ol>
   <!-- PLACEHOLDER: swap href for LUCIA's official Resy page when confirmed -->
@@ -300,6 +307,20 @@ body.menu-open .menu-toggle{display:none}
   <!-- PLACEHOLDER: swap href for LUCIA's official Tripleseat inquiry form when confirmed -->
   <a class="btn btn-gold" href="https://349351nfairfaxllc.tripleseat.com/party_request/42802" target="_blank" rel="noopener noreferrer">Inquire about private events<span class="sr-only"> (opens in new tab)</span></a>
 </div>
+
+<noscript>
+<nav class="noscript-nav" aria-label="Menu">
+  <a href="./" aria-current="page">Menus</a>
+  <a href="../about/">About Us</a>
+  <a href="../info-policies/">Info &amp; Policies</a>
+  <a href="../#visit">Visit</a>
+  <a href="https://order.toasttab.com/egiftcards/lucia-349-north-fairfax-avenue" target="_blank" rel="noopener noreferrer">Gift cards</a>
+  <a href="../#recognized">Recognition</a>
+  <a href="../careers/">Careers</a>
+  <a href="https://resy.com/cities/los-angeles-ca/venues/lucia-ca" target="_blank" rel="noopener noreferrer">Reserve a table</a>
+  <a href="https://349351nfairfaxllc.tripleseat.com/party_request/42802" target="_blank" rel="noopener noreferrer">Inquire about private events</a>
+</nav>
+</noscript>
 
 <main id="maincontent" tabindex="-1">
 <!-- ============ MENUS INTRO (noir band, keeps header contrast) ============ -->
@@ -402,7 +423,7 @@ body.menu-open .menu-toggle{display:none}
         <h2 class="group-h">Desserts</h2>
         <div class="menu-cats">
       <div class="menu-cat" id="menu-desserts">
-        <p class="cat-note">Sweet mouth</p>
+        <h3>Sweet mouth</h3>
         <ul class="menu-list">
           <li><div class="menu-item"><span class="menu-name">Dasheen Puffs</span><span class="menu-price">$14</span></div><p class="menu-desc">Cumin sugar, coconut caramel.</p></li>
           <li><div class="menu-item"><span class="menu-name">Guava &amp; Cheese Pastelitos</span><span class="menu-price">$14</span></div><p class="menu-desc">Buttery puff pastry, floral guava.</p></li>
