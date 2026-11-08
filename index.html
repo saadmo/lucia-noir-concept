@@ -211,6 +211,9 @@ body.menu-open .menu-toggle{display:none}
 .sig-list li{padding:22px 0;border-bottom:1px solid var(--line-d)}
 .sig-list .dish{font-family:var(--font-display);font-size:clamp(22px,6vw,36px);font-weight:400;line-height:1.15}
 .sig-list .desc{margin-top:6px;color:var(--ivory-70);font-size:15px;line-height:1.6;max-width:var(--measure)}
+/* Each signature dish carries its own photo for the mobile carousel
+   (buildTasteSlides clones it into the slide). Hidden in the text list. */
+.sig-list li picture{display:none}
 .taste-copy .textlink{color:var(--ivory)}
 .taste-copy .textlink.btn-block{border:1px solid var(--ivory-30);border-radius:100px;justify-content:center;padding:16px 20px;min-height:56px}
 
@@ -235,9 +238,11 @@ body.menu-open .menu-toggle{display:none}
 /* Trailing spacer: without it the last 88%-wide slide can never snap
    flush-left — same 12.5% as the events carousel. */
 .taste-spacer{flex:0 0 12.5%}
-/* VARIANT A — no arrows on mobile: swipe + dots only, same as events. */
-.taste-dots-row{display:flex;justify-content:center;margin-top:18px;margin-bottom:8px}
-.taste-dots-row .car-dots button{width:48px;height:48px}
+/* VARIANT A — no arrows on mobile: swipe + dots only, same as events.
+   Desktop adds prev/next arrows (see min-width:1024px block). */
+.taste-controls{display:flex;justify-content:center;margin-top:18px;margin-bottom:8px}
+.taste-controls .car-dots button{width:48px;height:48px}
+.taste-controls .car-arrow{display:none}
 
 
 /* ============ THE ROOM ============ */
@@ -343,8 +348,8 @@ body.menu-open .menu-toggle{display:none}
 @media (max-width:1023px){
   .visit-col .visit-body{display:none}
   .visit-col.open .visit-body{display:block}
-  /* Mobile dropdown headers: main line matches the label size above it (12px) */
-  .visit-col .visit-big{font-size:12px}
+  /* Mobile dropdown headers: main line readable at 16px (was 12px) */
+  .visit-col .visit-big{font-size:16px}
   /* About heading: the desktop-only break is hidden on mobile (one line) */
   .br-desktop{display:none}
 }
@@ -462,14 +467,19 @@ body.menu-open .menu-toggle{display:none}
   .about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(48px,7vw,120px);align-items:start}
   .about-title{margin-bottom:0}
 
-  /* Taste: alternating editorial grid */
-  .taste-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(44px,6vw,96px);align-items:center}
-  .taste-grid .dish-figure{display:block}
-  .taste-grid .sig-list{display:block}
+  /* Taste: carousel on desktop too (replaces the editorial figure + list) */
+  .taste-grid{display:block}
+  .taste-grid .dish-figure{display:none}
+  .taste-grid .sig-list{display:none}
   .dish-figure{margin:0}
   .dish-figure img{aspect-ratio:4/4.4}
   .taste-copy .textlink.btn-block{width:auto;border:0;border-radius:0;padding:0 0 8px;min-height:44px;justify-content:flex-start}
-  .taste-carousel{display:none}
+  .taste-carousel{display:block}
+  .taste-track{gap:0}
+  .taste-slide{flex:0 0 100%}
+  .taste-spacer{display:none}
+  .taste-controls{display:grid;grid-template-columns:52px minmax(0,1fr) 52px;align-items:center;gap:12px}
+  .taste-controls .car-arrow{display:block}
 
 
   /* Room: heading row + gallery */
@@ -514,7 +524,7 @@ body.menu-open .menu-toggle{display:none}
   .hero-inner{max-width:1100px}
 }
 </style>
-<noscript><style>.menu-toggle{display:none}.events-carousel{display:none!important}.taste-carousel{display:none!important}@media (max-width:1023px){.events-layout{display:block!important}.taste-grid .dish-figure{display:block!important}.taste-grid .sig-list{display:block!important}}</style></noscript>
+<noscript><style>.menu-toggle{display:none}.events-carousel{display:none!important}.taste-carousel{display:none!important}.taste-grid .dish-figure{display:block!important}.taste-grid .sig-list{display:block!important}@media (min-width:1024px){.taste-grid{display:grid!important;grid-template-columns:1fr 1fr;gap:clamp(44px,6vw,96px);align-items:center}}@media (max-width:1023px){.events-layout{display:block!important}}</style></noscript>
 </head>
 <body>
 <a class="skip-link" href="#maincontent">Skip to content</a>
@@ -625,23 +635,20 @@ body.menu-open .menu-toggle{display:none}
     <p class="sec-kicker" aria-hidden="true"><span>02</span><span>Taste</span></p>
     <div class="taste-grid">
       <figure class="dish-figure">
-        <picture><source type="image/avif" srcset="assets/dish-400.avif 400w, assets/dish-800.avif 800w, assets/dish-1000.avif 1000w" sizes="(min-width:1024px) 50vw, 100vw"><img src="assets/dish.webp" alt="Glazed wings with lime, served at LUCIA" loading="lazy" decoding="async" width="1000" height="1202"></picture>
-        <figcaption>Glazed wings, finished with lime.</figcaption>
+        <picture><source type="image/avif" srcset="assets/dish-trini-chicken-400.avif 400w, assets/dish-trini-chicken-800.avif 800w, assets/dish-trini-chicken-1000.avif 1000w" sizes="(min-width:1024px) 50vw, 100vw"><img src="assets/dish-trini-chicken.webp" alt="Trini-Chinese chicken with a soy-ginger glaze, sesame, and garlic, served at LUCIA" loading="lazy" decoding="async" width="1000" height="750"></picture>
+        <figcaption>Trini-Chinese chicken, glazed with Malta and ginger.</figcaption>
       </figure>
       <div class="taste-copy">
         <h2 class="taste-h" id="taste-h">Bright heat, <em>slow cooking.</em></h2>
-        <p class="taste-desc">The cooking leans bright and hot &mdash; citrus and Scotch bonnet up front, slow-cooked meats and brown butter underneath, rum in the pasta and behind the bar. These three plates are a good place to start.</p>
-        <!-- ============ TASTE — MOBILE CAROUSEL ============
-             Shown on mobile only (max-width:1023px); hidden on desktop, where
-             the editorial grid above is used. The slides are built by
-             JavaScript from the signature dishes list below — the single
-             source of truth — so one edit updates both presentations. Without
-             JavaScript the dish figure and list are shown on mobile instead
-             (see the <noscript> style in the head).
-             PLACEHOLDER: every slide uses assets/dish.webp (the only dish
-             photo on record). Swap each slide's image when the team supplies
-             per-dish photos; the slide structure already takes one image
-             per dish. -->
+        <p class="taste-desc">The cooking leans bright and hot &mdash; citrus and Scotch bonnet up front, slow-cooked meats and brown butter underneath, rum behind the bar. These three plates are a good place to start.</p>
+        <!-- ============ TASTE — CAROUSEL ============
+             Swipe + dots on mobile (Variant A, no arrows); arrows + dots on
+             desktop. The slides are built by JavaScript from the signature
+             dishes list below — the single source of truth — so one edit
+             updates both presentations. Without JavaScript the dish figure
+             and list are shown instead (see the <noscript> style in the head).
+             Each slide uses its own dish photo, carried in the matching
+             list item's <picture> (hidden in the text list by CSS). -->
         <div class="taste-carousel" id="taste-carousel">
           <div class="taste-track" id="taste-track" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Signature dishes">
             <!-- Slides are built by JavaScript from the signature dishes list
@@ -650,15 +657,17 @@ body.menu-open .menu-toggle{display:none}
                  dish figure and list are shown instead. -->
             <div class="taste-spacer" aria-hidden="true"></div>
           </div>
-          <div class="taste-dots-row">
+          <div class="taste-controls">
+            <button class="car-arrow" id="taste-prev" type="button" aria-label="Previous dish">&larr;</button>
             <div class="car-dots" id="taste-dots" role="group" aria-label="Choose dish"></div>
+            <button class="car-arrow" id="taste-next" type="button" aria-label="Next dish">&rarr;</button>
           </div>
-          <p class="carousel-status" id="taste-status" aria-live="polite">Dish 1 of 3 &mdash; Hamachi Crudo</p>
+          <p class="carousel-status" id="taste-status" aria-live="polite">Dish 1 of 3 &mdash; Trini-Chinese Chicken</p>
         </div>
         <ul class="sig-list" aria-label="Signature dishes">
-          <li><span class="dish">Hamachi Crudo</span><p class="desc">Mango, passion fruit Scotch bonnet, culantro oil, shaved shallot.</p></li>
-          <li><span class="dish">Jerk Lamb Shank</span><p class="desc">Whipped sweet potato, brown butter, goat cheese, salsa criolla.</p></li>
-          <li><span class="dish">Spicy Rum Pasta</span><p class="desc">Rum, tomato, Calabrian chile, basil, whipped ricotta.</p></li>
+          <li><picture><source type="image/avif" srcset="assets/dish-trini-chicken-400.avif 400w, assets/dish-trini-chicken-800.avif 800w, assets/dish-trini-chicken-1000.avif 1000w" sizes="100vw"><img src="assets/dish-trini-chicken.webp" alt="Trini-Chinese chicken with a soy-ginger glaze, sesame, and garlic, served at LUCIA" loading="lazy" decoding="async" width="1000" height="750"></picture><span class="dish">Trini-Chinese Chicken</span><p class="desc">Malta, ginger, green seasoning, le courage spice blend.</p></li>
+          <li><picture><source type="image/avif" srcset="assets/dish-tuna-tartare-400.avif 400w, assets/dish-tuna-tartare-800.avif 800w, assets/dish-tuna-tartare-1000.avif 1000w" sizes="100vw"><img src="assets/dish-tuna-tartare.webp" alt="Bigeye tuna tartare with green mango and avocado, served at LUCIA" loading="lazy" decoding="async" width="1000" height="750"></picture><span class="dish">Bigeye Tuna Tartare</span><p class="desc">Green mango, sour orange, avocado, benne, root chips.</p></li>
+          <li><picture><source type="image/avif" srcset="assets/dish-plantain-400.avif 400w, assets/dish-plantain-800.avif 800w, assets/dish-plantain-1000.avif 1000w" sizes="100vw"><img src="assets/dish-plantain.webp" alt="Plantain expressions with maduros, plantain mole, and plantain chips, served at LUCIA" loading="lazy" decoding="async" width="1000" height="750"></picture><span class="dish">Plantain Expressions</span><p class="desc">Maduros, plantain mole, plantain chips.</p></li>
         </ul>
         <a class="textlink btn-block" href="menus/">See the full menu <span aria-hidden="true">&rarr;</span></a>
       </div>
@@ -690,13 +699,21 @@ body.menu-open .menu-toggle{display:none}
           <picture><source type="image/avif" srcset="assets/room-table-400.avif 400w, assets/room-table-800.avif 800w, assets/room-table-1080.avif 1080w" sizes="100vw"><img src="assets/room-table.webp" alt="Shared plates and cocktails on a marble table, seen from above" loading="lazy" decoding="async" width="1080" height="810"></picture>
           <figcaption><span class="n">02</span><span class="t">The table</span></figcaption>
         </figure>
+        <figure class="slide">
+          <picture><source type="image/avif" srcset="assets/room-interior-400.avif 400w, assets/room-interior-800.avif 800w, assets/room-interior-1200.avif 1200w" sizes="100vw"><img src="assets/room-interior.webp" alt="LUCIA's dining room with white ribbed arches, red banquettes, and set tables" loading="lazy" decoding="async" width="1200" height="900"></picture>
+          <figcaption><span class="n">03</span><span class="t">The dining room</span></figcaption>
+        </figure>
+        <figure class="slide">
+          <picture><source type="image/avif" srcset="assets/room-spread-400.avif 400w, assets/room-spread-800.avif 800w, assets/room-spread-1200.avif 1200w" sizes="100vw"><img src="assets/room-spread.webp" alt="A marble table shared with Caribbean dishes, cocktails, and hands reaching in, at LUCIA" loading="lazy" decoding="async" width="1200" height="900"></picture>
+          <figcaption><span class="n">04</span><span class="t">The table, shared</span></figcaption>
+        </figure>
       </div>
       <div class="carousel-controls">
         <button class="car-arrow" id="room-prev" type="button" aria-label="Previous photo">&larr;</button>
         <div class="car-dots" id="room-dots" role="group" aria-label="Choose photo"></div>
         <button class="car-arrow" id="room-next" type="button" aria-label="Next photo">&rarr;</button>
       </div>
-      <p class="carousel-status" id="room-status" aria-live="polite">Photo 1 of 2 &mdash; The entrance</p>
+      <p class="carousel-status" id="room-status" aria-live="polite">Photo 1 of 4 &mdash; The entrance</p>
     </div>
   </div>
 </section>
@@ -1076,7 +1093,7 @@ body.menu-open .menu-toggle{display:none}
         next = document.getElementById('room-next'),
         status = document.getElementById('room-status'),
         idx = 0, raf = 0;
-    var captions = ['The entrance', 'The table'];
+    var captions = ['The entrance', 'The table', 'The dining room', 'The table, shared'];
     var dots = slides.map(function(s, k){
       var b = document.createElement('button');
       b.type = 'button';
@@ -1208,31 +1225,29 @@ body.menu-open .menu-toggle{display:none}
     eRender(0);
   }
 
-  /* Taste carousel (mobile only, Variant A): same pattern as the events
-     carousel — dots + arrow keys + live region; swipe is the track's
-     native scroll-snap. No arrows on mobile by design (Variant A).
-     The slides are built here from the signature dishes list — the
-     single source of truth — so one edit to a dish updates both
-     presentations. Only the name and description are cloned from the
-     list; the photo is the shared dish image for every slide (the
-     only dish photo on record — a placeholder until the team supplies
-     per-dish photos). */
+  /* Taste carousel (Variant A on mobile — swipe + dots, no arrows;
+     arrows + dots on desktop): same pattern as the events carousel
+     — dots + arrow keys + live region; swipe is the track's native
+     scroll-snap. The slides are built here from the signature dishes
+     list — the single source of truth — so one edit to a dish updates
+     both presentations. The name, description, and photo are cloned
+     from each list item; every slide shows its own dish's photo. */
   (function buildTasteSlides(){
     var dishes = document.querySelectorAll('.sig-list li');
     var track = document.getElementById('taste-track');
-    var figurePic = document.querySelector('.dish-figure picture');
     var spacer = track ? track.querySelector('.taste-spacer') : null;
-    if (!dishes.length || !track || !figurePic) return;
+    if (!dishes.length || !track) return;
     Array.prototype.forEach.call(dishes, function(item, i){
       var name = item.querySelector('.dish'),
-          desc = item.querySelector('.desc');
-      if (!name || !desc) return;
+          desc = item.querySelector('.desc'),
+          pic = item.querySelector('picture');
+      if (!name || !desc || !pic) return;
       var slide = document.createElement('div');
       slide.className = 'taste-slide';
       slide.setAttribute('role', 'group');
       slide.setAttribute('aria-roledescription', 'slide');
       slide.setAttribute('aria-label', 'Slide ' + (i + 1) + ' of ' + dishes.length + ': ' + name.textContent.trim());
-      slide.appendChild(figurePic.cloneNode(true));
+      slide.appendChild(pic.cloneNode(true));
       var body = document.createElement('div');
       body.className = 'taste-slide-body';
       var h = document.createElement('h3');
