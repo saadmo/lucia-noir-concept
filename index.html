@@ -518,6 +518,11 @@ body.menu-open .menu-toggle{display:none}
   /* Recognition: featured + list */
   .recog-brand{font-size:24px}
   .recog-list li{grid-template-columns:220px 1fr;gap:20px;align-items:baseline}
+  /* Desktop: Yelp feature and the list side by side */
+  #recognized .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 clamp(44px,5vw,80px);align-items:start}
+  #recognized .sec-kicker,#recognized .sec-h{grid-column:1/-1}
+  .recog-feature{max-width:none}
+  .recog-list{max-width:none;margin-top:0}
 
 }
 
