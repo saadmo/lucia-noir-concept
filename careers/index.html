@@ -130,6 +130,14 @@ main .ivory + .ivory{border-top:1px solid var(--line-l)}
 .form-sec h2{font-family:var(--font-display);font-weight:400;font-size:clamp(28px,5vw,44px);line-height:1.1;margin-bottom:16px}
 .form-note{max-width:var(--measure);font-size:15px;line-height:1.6;color:rgba(13,11,8,.72);margin-bottom:28px}
 .form-note a{color:var(--noir);text-underline-offset:3px}
+.form-grid{display:grid;gap:20px;max-width:640px}
+.field{display:grid;gap:8px;min-width:0}
+.field label{font-family:var(--font-label);font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;line-height:1.7;color:var(--noir)}
+.field label .req{color:var(--bronze)}
+.field label .opt{color:rgba(13,11,8,.72);text-transform:none;letter-spacing:0;font-size:13px;font-weight:400}
+.field input[type="text"],.field input[type="email"],.field input[type="tel"],.field textarea{width:100%;min-width:0;font-family:var(--font-body);font-size:17px;line-height:1.5;color:var(--noir);background:#fff;border:1px solid rgba(13,11,8,.32);border-radius:10px;padding:14px 16px;-webkit-appearance:none;appearance:none}
+.field textarea{min-height:140px;resize:vertical}
+.field input:focus,.field textarea:focus{border-color:var(--bronze);outline:3px solid var(--bronze);outline-offset:2px}
 
 /* ============ STICKY MOBILE BAR (Reserve only) ============
    Shown only once the intro has left the viewport (IntersectionObserver),
@@ -291,7 +299,28 @@ main .ivory + .ivory{border-top:1px solid var(--line-l)}
 <section class="ivory form-sec" id="apply" aria-labelledby="apply-h">
   <div class="wrap pad">
     <h2 id="apply-h">Apply</h2>
-    <p class="form-note">To apply, email your r&eacute;sum&eacute; to <a href="mailto:info@luciala.com">info@luciala.com</a>.</p>
+    <p class="form-note">Submitting opens your email app with your application addressed to info@luciala.com. Please attach your r&eacute;sum&eacute; to the email before sending.</p>
+    <form class="form-grid" id="apply-form" action="mailto:info@luciala.com?subject=Job%20Application" method="post" enctype="text/plain">
+      <div class="field">
+        <label for="apply-name">Name <span class="req">(required)</span></label>
+        <input type="text" id="apply-name" name="name" required autocomplete="name">
+      </div>
+      <div class="field">
+        <label for="apply-email">Email <span class="req">(required)</span></label>
+        <input type="email" id="apply-email" name="email" required autocomplete="email">
+      </div>
+      <div class="field">
+        <label for="apply-phone">Phone Number <span class="req">(required)</span></label>
+        <input type="tel" id="apply-phone" name="phone" required autocomplete="tel">
+      </div>
+      <div class="field">
+        <label for="apply-cover">Cover Letter <span class="opt">(optional)</span></label>
+        <textarea id="apply-cover" name="cover-letter"></textarea>
+      </div>
+      <div>
+        <button class="btn btn-red" type="submit">Submit application</button>
+      </div>
+    </form>
   </div>
 </section>
 
@@ -299,7 +328,24 @@ main .ivory + .ivory{border-top:1px solid var(--line-l)}
 <section class="ivory form-sec" id="email-updates" aria-labelledby="signup-h">
   <div class="wrap pad">
     <h2 id="signup-h">Email updates</h2>
-    <p class="form-note">To join our email list, email <a href="mailto:info@luciala.com">info@luciala.com</a>.</p>
+    <p class="form-note">Submitting opens your email app with your signup request addressed to info@luciala.com.</p>
+    <form class="form-grid" id="signup-form" action="mailto:info@luciala.com?subject=Email%20List%20Signup" method="post" enctype="text/plain">
+      <div class="field">
+        <label for="signup-first">First Name <span class="req">(required)</span></label>
+        <input type="text" id="signup-first" name="first-name" required autocomplete="given-name">
+      </div>
+      <div class="field">
+        <label for="signup-last">Last Name <span class="req">(required)</span></label>
+        <input type="text" id="signup-last" name="last-name" required autocomplete="family-name">
+      </div>
+      <div class="field">
+        <label for="signup-email">Email <span class="req">(required)</span></label>
+        <input type="email" id="signup-email" name="email" required autocomplete="email">
+      </div>
+      <div>
+        <button class="btn btn-ghost-d" type="submit">Sign up for email updates</button>
+      </div>
+    </form>
   </div>
 </section>
 
