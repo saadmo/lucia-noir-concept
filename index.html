@@ -214,6 +214,31 @@ body.menu-open .menu-toggle{display:none}
 .taste-copy .textlink{color:var(--ivory)}
 .taste-copy .textlink.btn-block{border:1px solid var(--ivory-30);border-radius:100px;justify-content:center;padding:16px 20px;min-height:56px}
 
+/* ============ TASTE — MOBILE CAROUSEL ============
+   Mobile shows a swipeable carousel of one dish per slide (photo +
+   name + description). The dish figure and signature list are hidden
+   on mobile — the carousel replaces them. Desktop keeps the editorial
+   grid (see min-width:1024px block, which restores the figure and
+   list and hides this carousel). The slides are built by JavaScript
+   from the signature dishes list — the single source of truth. */
+.taste-grid .dish-figure{display:none}
+.taste-grid .sig-list{display:none}
+.taste-carousel{display:block;overflow-x:clip;margin-top:30px}
+.taste-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;padding:2px 2px 6px}
+.taste-track::-webkit-scrollbar{display:none}
+.taste-slide{flex:0 0 88%;scroll-snap-align:start;scroll-snap-stop:always;border:1px solid var(--line-d);border-radius:12px;background:var(--noir-2);overflow:hidden;display:flex;flex-direction:column}
+.taste-slide picture{display:block}
+.taste-slide img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+.taste-slide-body{padding:24px;display:flex;flex-direction:column;gap:12px;flex:1}
+.taste-slide-body h3{font-family:var(--font-display);font-size:clamp(26px,7vw,40px);font-weight:400;line-height:1.05;text-wrap:balance}
+.taste-slide-body p{color:var(--ivory-70);font-size:15px;line-height:1.6;flex:1;max-width:var(--measure)}
+/* Trailing spacer: without it the last 88%-wide slide can never snap
+   flush-left — same 12.5% as the events carousel. */
+.taste-spacer{flex:0 0 12.5%}
+/* VARIANT A — no arrows on mobile: swipe + dots only, same as events. */
+.taste-dots-row{display:flex;justify-content:center;margin-top:18px;margin-bottom:8px}
+.taste-dots-row .car-dots button{width:48px;height:48px}
+
 
 /* ============ THE ROOM ============ */
 .room-title{font-family:var(--font-display);font-weight:300;font-size:var(--t-display);line-height:1;max-width:16ch;text-wrap:balance;margin-bottom:24px}
@@ -436,9 +461,12 @@ body.menu-open .menu-toggle{display:none}
 
   /* Taste: alternating editorial grid */
   .taste-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(44px,6vw,96px);align-items:center}
+  .taste-grid .dish-figure{display:block}
+  .taste-grid .sig-list{display:block}
   .dish-figure{margin:0}
   .dish-figure img{aspect-ratio:4/4.4}
   .taste-copy .textlink.btn-block{width:auto;border:0;border-radius:0;padding:0 0 8px;min-height:44px;justify-content:flex-start}
+  .taste-carousel{display:none}
 
 
   /* Room: heading row + gallery */
@@ -482,7 +510,7 @@ body.menu-open .menu-toggle{display:none}
   .hero-inner{max-width:1100px}
 }
 </style>
-<noscript><style>.menu-toggle{display:none}.events-carousel{display:none!important}@media (max-width:1023px){.events-layout{display:block!important}}</style></noscript>
+<noscript><style>.menu-toggle{display:none}.events-carousel{display:none!important}.taste-carousel{display:none!important}@media (max-width:1023px){.events-layout{display:block!important}.taste-grid .dish-figure{display:block!important}.taste-grid .sig-list{display:block!important}}</style></noscript>
 </head>
 <body>
 <a class="skip-link" href="#maincontent">Skip to content</a>
@@ -599,6 +627,30 @@ body.menu-open .menu-toggle{display:none}
       <div class="taste-copy">
         <h2 class="taste-h" id="taste-h">Bright heat, <em>slow cooking.</em></h2>
         <p class="taste-desc">The cooking leans bright and hot &mdash; citrus and Scotch bonnet up front, slow-cooked meats and brown butter underneath, rum in the pasta and behind the bar. These three plates are a good place to start.</p>
+        <!-- ============ TASTE — MOBILE CAROUSEL ============
+             Shown on mobile only (max-width:1023px); hidden on desktop, where
+             the editorial grid above is used. The slides are built by
+             JavaScript from the signature dishes list below — the single
+             source of truth — so one edit updates both presentations. Without
+             JavaScript the dish figure and list are shown on mobile instead
+             (see the <noscript> style in the head).
+             PLACEHOLDER: every slide uses assets/dish.webp (the only dish
+             photo on record). Swap each slide's image when the team supplies
+             per-dish photos; the slide structure already takes one image
+             per dish. -->
+        <div class="taste-carousel" id="taste-carousel">
+          <div class="taste-track" id="taste-track" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Signature dishes">
+            <!-- Slides are built by JavaScript from the signature dishes list
+                 below (the single source of truth); they are inserted before
+                 the spacer. Without JavaScript this track stays empty and the
+                 dish figure and list are shown instead. -->
+            <div class="taste-spacer" aria-hidden="true"></div>
+          </div>
+          <div class="taste-dots-row">
+            <div class="car-dots" id="taste-dots" role="group" aria-label="Choose dish"></div>
+          </div>
+          <p class="carousel-status" id="taste-status" aria-live="polite">Dish 1 of 3 &mdash; Hamachi Crudo</p>
+        </div>
         <ul class="sig-list" aria-label="Signature dishes">
           <li><span class="dish">Hamachi Crudo</span><p class="desc">Mango, passion fruit Scotch bonnet, culantro oil, shaved shallot.</p></li>
           <li><span class="dish">Jerk Lamb Shank</span><p class="desc">Whipped sweet potato, brown butter, goat cheese, salsa criolla.</p></li>
@@ -1147,6 +1199,91 @@ body.menu-open .menu-toggle{display:none}
     }, {passive:true});
     window.addEventListener('resize', function(){ eRender(eIdx); eTrack.scrollTo({left: eSlides[eIdx].offsetLeft, behavior: 'auto'}); });
     eRender(0);
+  }
+
+  /* Taste carousel (mobile only, Variant A): same pattern as the events
+     carousel — dots + arrow keys + live region; swipe is the track's
+     native scroll-snap. No arrows on mobile by design (Variant A).
+     The slides are built here from the signature dishes list — the
+     single source of truth — so one edit to a dish updates both
+     presentations. Only the name and description are cloned from the
+     list; the photo is the shared dish image for every slide (the
+     only dish photo on record — a placeholder until the team supplies
+     per-dish photos). */
+  (function buildTasteSlides(){
+    var dishes = document.querySelectorAll('.sig-list li');
+    var track = document.getElementById('taste-track');
+    var figurePic = document.querySelector('.dish-figure picture');
+    var spacer = track ? track.querySelector('.taste-spacer') : null;
+    if (!dishes.length || !track || !figurePic) return;
+    Array.prototype.forEach.call(dishes, function(item, i){
+      var name = item.querySelector('.dish'),
+          desc = item.querySelector('.desc');
+      if (!name || !desc) return;
+      var slide = document.createElement('div');
+      slide.className = 'taste-slide';
+      slide.setAttribute('role', 'group');
+      slide.setAttribute('aria-roledescription', 'slide');
+      slide.setAttribute('aria-label', 'Slide ' + (i + 1) + ' of ' + dishes.length + ': ' + name.textContent.trim());
+      slide.appendChild(figurePic.cloneNode(true));
+      var body = document.createElement('div');
+      body.className = 'taste-slide-body';
+      var h = document.createElement('h3');
+      h.textContent = name.textContent.trim();
+      body.appendChild(h);
+      var d = document.createElement('p');
+      d.textContent = desc.textContent.trim();
+      body.appendChild(d);
+      slide.appendChild(body);
+      if (spacer) track.insertBefore(slide, spacer);
+      else track.appendChild(slide);
+    });
+  })();
+  var tTrack = document.getElementById('taste-track');
+  if (tTrack){
+    var tSlides = Array.prototype.slice.call(tTrack.querySelectorAll('.taste-slide')),
+        tDotsWrap = document.getElementById('taste-dots'),
+        tPrev = document.getElementById('taste-prev'),
+        tNext = document.getElementById('taste-next'),
+        tStatus = document.getElementById('taste-status'),
+        tIdx = 0, tRaf = 0;
+    var tCaptions = tSlides.map(function(sl){ var h = sl.querySelector('h3'); return h ? h.textContent.trim() : ''; });
+    var tDots = tSlides.map(function(sl, k){
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('aria-label', 'Go to dish ' + (k + 1) + ': ' + tCaptions[k]);
+      b.addEventListener('click', function(){ tGo(k); });
+      tDotsWrap.appendChild(b);
+      return b;
+    });
+    function tRender(i){
+      tIdx = Math.max(0, Math.min(tSlides.length - 1, i));
+      tDots.forEach(function(d, k){ d.setAttribute('aria-current', k === tIdx ? 'true' : 'false'); });
+      if (tPrev) tPrev.disabled = tIdx === 0;
+      if (tNext) tNext.disabled = tIdx === tSlides.length - 1;
+      if (tStatus) tStatus.textContent = 'Dish ' + (tIdx + 1) + ' of ' + tSlides.length + ' \u2014 ' + tCaptions[tIdx];
+    }
+    function tNearest(){
+      var n = 0, best = Infinity;
+      tSlides.forEach(function(sl, k){ var d = Math.abs(sl.offsetLeft - tTrack.scrollLeft); if (d < best){ best = d; n = k; } });
+      return n;
+    }
+    function tGo(i){
+      tRender(i);
+      tTrack.scrollTo({left: tSlides[tIdx].offsetLeft, behavior: reduceMotion ? 'auto' : 'smooth'});
+    }
+    if (tPrev) tPrev.addEventListener('click', function(){ tGo(tIdx - 1); });
+    if (tNext) tNext.addEventListener('click', function(){ tGo(tIdx + 1); });
+    tTrack.addEventListener('keydown', function(e){
+      if (e.key === 'ArrowLeft'){ e.preventDefault(); tGo(tIdx - 1); }
+      if (e.key === 'ArrowRight'){ e.preventDefault(); tGo(tIdx + 1); }
+    });
+    tTrack.addEventListener('scroll', function(){
+      if (tRaf) return;
+      tRaf = requestAnimationFrame(function(){ tRaf = 0; tRender(tNearest()); });
+    }, {passive:true});
+    window.addEventListener('resize', function(){ tRender(tIdx); tTrack.scrollTo({left: tSlides[tIdx].offsetLeft, behavior: 'auto'}); });
+    tRender(0);
   }
 
   /* Visit dropdowns (mobile only): each group is a disclosure, collapsed
