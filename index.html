@@ -185,7 +185,6 @@ body.menu-open .menu-toggle{display:none}
 .hero-facts{text-shadow:0 1px 10px rgba(0,0,0,.5)}
 .hero-facts li{display:flex;align-items:center;gap:12px}
 .hero-facts li+li::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--gold);opacity:.8;flex-shrink:0}
-.hero-line{font-family:var(--font-display);font-style:italic;font-weight:300;font-size:clamp(26px,6vw,40px);line-height:1.2;color:var(--ivory);margin-top:20px;text-shadow:0 1px 10px rgba(0,0,0,.5)}
 .hero-ctas{display:flex;flex-direction:column;gap:12px;margin-top:30px;align-items:stretch}
 .hero-ctas .btn{min-height:58px;width:100%}
 .hero-scroll{position:absolute;z-index:2;left:50%;bottom:18px;transform:translateX(-50%);display:grid;justify-items:center;gap:8px;color:var(--ivory-70)}
@@ -316,16 +315,10 @@ body.menu-open .menu-toggle{display:none}
 .event-card p{color:var(--ivory-70);font-size:15px;line-height:1.6;flex:1;max-width:var(--measure)}
 
 /* ============ VISIT ============ */
-/* Visit: "Find us on Fairfax" — four-column plan-your-visit (desktop),
+/* Visit: four-column plan-your-visit (desktop),
    stacked disclosures with map on mobile. */
 #visit .pad{padding-top:36px;padding-bottom:40px}
 .visit-kicker{font-family:var(--font-label);font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--bronze);margin-bottom:14px}
-.visit-title{font-family:var(--font-display);font-weight:300;font-size:clamp(32px,7vw,48px);line-height:1.05;letter-spacing:-.01em;text-wrap:balance}
-.visit-title em{font-style:italic;color:var(--bronze)}
-/* Mobile: the "Find us on Fairfax" heading is screen-reader-only (the
-   address is the visual heading). */
-.visit-head{border:0;padding:0;margin:0}
-.visit-head .visit-title{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .visit-addr{font-family:var(--font-display);font-weight:300;font-size:clamp(28px,4vw,32px);line-height:1.05;letter-spacing:-.01em;text-wrap:balance;margin-bottom:8px}
 .visit-addr em{font-style:italic;color:var(--bronze)}
 .visit-city{font-size:15px;line-height:1.6;color:rgba(13,11,8,.72)}
@@ -339,8 +332,6 @@ body.menu-open .menu-toggle{display:none}
 .visit-col .visit-big{font-family:var(--font-display);font-size:19px;font-weight:700;line-height:1.3}
 .visit-col .visit-small{font-size:15px;line-height:1.6;color:rgba(13,11,8,.72);margin-top:8px}
 .visit-col .visit-small a{color:inherit;text-decoration:underline;text-underline-offset:3px}
-.visit-sub{display:block;font-size:15px;line-height:1.6;color:rgba(13,11,8,.72);margin-top:6px}
-.visit-sub a{color:inherit;text-decoration:underline;text-underline-offset:3px}
 .visit-age{font-family:var(--font-display);font-size:19px;font-weight:400;line-height:1.3;margin-top:12px}
 /* "Before arriving" subheadings: bold Parking / Attire, details in regular text. */
 .visit-subhead{font-family:var(--font-display);font-size:19px;font-weight:700;line-height:1.3;margin-top:16px}
@@ -355,6 +346,8 @@ body.menu-open .menu-toggle{display:none}
 @media (max-width:1023px){
   .visit-col .visit-body{display:none}
   .visit-col.open .visit-body{display:block}
+  /* "Before arriving" is always visible (no expand/collapse) */
+  .visit-col.visit-col-arrival .visit-body{display:block}
   /* About heading: the desktop-only break is hidden on mobile (one line) */
   .br-desktop{display:none}
   /* Reservations main line: mobile wording */
@@ -369,10 +362,7 @@ body.menu-open .menu-toggle{display:none}
   .visit-toggle{cursor:default}
   .visit-chev{display:none}
   .visit-body{display:block}
-  .visit-sub{display:none}
   .vb-m{display:none}
-  /* "Before arriving" shows its Parking / Attire subheadings, not a single summary line */
-  .visit-col-arrival .visit-toggle .visit-big{display:none}
   .visit-actions .as{display:none}
 }
 @media (prefers-reduced-motion:reduce){
@@ -512,10 +502,8 @@ body.menu-open .menu-toggle{display:none}
   .events-figure img{aspect-ratio:auto;height:100%}
   .event-cards{grid-template-columns:1fr;gap:16px}
 
-  /* Visit: four-column "Find us on Fairfax" */
+  /* Visit: four-column plan-your-visit */
   #visit .pad{padding-top:56px;padding-bottom:64px}
-  .visit-head{display:flex;justify-content:space-between;align-items:center;gap:32px;border-bottom:1px solid var(--line-l);padding-bottom:28px;margin-bottom:32px}
-  .visit-head .visit-title{position:static;width:auto;height:auto;overflow:visible;clip:auto;white-space:normal}
   .visit-map iframe{height:160px}
   .visit-cols{grid-template-columns:repeat(4,1fr);gap:28px}
   .visit-col{padding-top:0}
@@ -625,7 +613,6 @@ body.menu-open .menu-toggle{display:none}
       <li>Wed–Sun · 6PM–12AM</li>
       <li>21+ after 8 PM</li>
     </ul>
-    <p class="hero-line">Caribbean, reimagined.</p>
     <div class="hero-ctas">
       <!-- PLACEHOLDER: swap href for LUCIA's official Resy page when confirmed -->
       <a class="btn btn-red" href="https://resy.com/cities/los-angeles-ca/venues/lucia-ca" target="_blank" rel="noopener noreferrer">Reserve a table<span class="sr-only"> (opens in new tab)</span></a>
@@ -842,12 +829,9 @@ body.menu-open .menu-toggle{display:none}
 </section>
 
 <!-- ============ VISIT ============ -->
-<section class="ivory" id="visit" aria-labelledby="visit-h">
+<section class="ivory" id="visit" aria-label="Plan your visit">
   <div class="wrap pad visit-pad">
     <p class="visit-kicker">Plan your visit</p>
-    <div class="visit-head">
-      <h2 class="visit-title" id="visit-h">Find us on <em>Fairfax</em></h2>
-    </div>
     <div class="visit-cols">
       <div class="visit-col visit-col-addr">
         <p class="visit-addr">351 N <em>Fairfax</em> Ave</p>
@@ -862,10 +846,10 @@ body.menu-open .menu-toggle{display:none}
           </span>
           <span class="visit-chev" aria-hidden="true"></span>
         </button>
+        <p class="visit-age">21+ after 8 PM</p>
         <div class="visit-body" id="visit-hours-body">
           <p class="visit-small">Kitchen closes 11:30 PM; last seating 11 PM, Thu&ndash;Sun.</p>
           <p class="visit-small">Mon&ndash;Tue: private events only.</p>
-          <p class="visit-age">21+ after 8 PM</p>
         </div>
       </div>
       <div class="visit-col">
@@ -873,7 +857,6 @@ body.menu-open .menu-toggle{display:none}
           <span class="visit-toggle-text">
             <span class="label">Reservations</span>
             <span class="visit-big"><span class="vb-d">Book two weeks<br class="br-desktop"> ahead</span><span class="vb-m">Book up to two weeks ahead</span></span>
-            <span class="visit-sub">Up to 8 guests &middot; <a href="#private-events">Larger parties &#8599;</a></span>
           </span>
           <span class="visit-chev" aria-hidden="true"></span>
         </button>
@@ -883,14 +866,7 @@ body.menu-open .menu-toggle{display:none}
         </div>
       </div>
       <div class="visit-col visit-col-arrival">
-        <button class="visit-toggle" type="button" aria-expanded="false" aria-controls="visit-arrival-body">
-          <span class="visit-toggle-text">
-            <span class="label">Before arriving</span>
-            <span class="visit-big">Parking &amp; attire</span>
-            <span class="visit-sub">Valet available</span>
-          </span>
-          <span class="visit-chev" aria-hidden="true"></span>
-        </button>
+        <span class="label">Before arriving</span>
         <div class="visit-body" id="visit-arrival-body">
           <p class="visit-subhead">Parking</p>
           <p class="visit-small">Valet available. Street parking may be available nearby.</p>
