@@ -109,7 +109,7 @@ a{color:inherit}
 .pad{padding-top:var(--pad-sec);padding-bottom:var(--pad-sec)}
 .ivory{background:var(--ivory);color:var(--noir)}
 .noir{background:var(--noir);color:var(--ivory)}
-.sec-h{font-family:var(--font-display);font-weight:300;font-size:var(--t-h2);line-height:1.05;text-wrap:balance}
+.sec-h{font-family:var(--font-display);font-weight:300;font-size:var(--t-display);line-height:1.05;text-wrap:balance}
 .sec-h em{font-style:italic;color:var(--gold)}
 .sec-kicker{display:flex;align-items:center;gap:14px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--gold);margin:0 0 28px}
 .sec-kicker::after{content:"";flex:1;height:1px;background:rgba(194,146,46,.35)}
@@ -203,7 +203,7 @@ body.menu-open .menu-toggle{display:none}
 .dish-figure img{width:100%;aspect-ratio:4/3.4;object-fit:cover}
 .dish-figure figcaption{position:absolute;left:0;right:0;bottom:0;padding:40px 20px 18px;background:linear-gradient(transparent,rgba(8,6,4,.88));font-size:14px;line-height:1.55;color:var(--ivory)}
 .dish-figure figcaption .cap-k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:6px;font-weight:600}
-.taste-h{font-family:var(--font-display);font-weight:300;font-size:var(--t-h2);line-height:1.02;text-wrap:balance}
+.taste-h{font-family:var(--font-display);font-weight:300;font-size:var(--t-display);line-height:1.02;text-wrap:balance}
 .taste-h em{font-style:italic;color:var(--gold)}
 .taste-desc{margin-top:20px;max-width:var(--measure);color:var(--ivory-70)}
 .sig-list{list-style:none;margin-top:30px;border-top:1px solid var(--line-d)}
@@ -318,7 +318,6 @@ body.menu-open .menu-toggle{display:none}
 /* Visit: four-column plan-your-visit (desktop),
    stacked disclosures with map on mobile. */
 #visit .pad{padding-top:36px;padding-bottom:40px}
-.visit-kicker{font-family:var(--font-label);font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--bronze);margin-bottom:14px}
 .visit-addr{font-family:var(--font-display);font-weight:300;font-size:clamp(28px,4vw,32px);line-height:1.05;letter-spacing:-.01em;text-wrap:balance;margin-bottom:8px}
 .visit-addr em{font-style:italic;color:var(--bronze)}
 .visit-city{font-size:15px;line-height:1.6;color:rgba(13,11,8,.72)}
@@ -389,7 +388,6 @@ body.menu-open .menu-toggle{display:none}
 .recog-sub{margin-top:14px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--ivory-70);font-weight:600}
 .recog-num{display:flex;flex-direction:column;gap:4px}
 .recog-brand{font-family:var(--font-label);font-size:20px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ivory);text-decoration:none;line-height:1.2}
-.recog-brand:hover{color:var(--gold)}
 .recog-quote{margin-top:18px;font-family:var(--font-display);font-style:italic;font-weight:300;font-size:clamp(18px,4.6vw,24px);line-height:1.5;color:var(--ivory);max-width:56ch}
 .recog-quote cite{display:block;margin-top:12px;font-family:var(--font-label);font-style:normal;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ivory-50)}
 .recog-list{list-style:none;margin-top:40px;border-top:1px solid var(--line-d);max-width:860px}
@@ -627,12 +625,11 @@ body.menu-open .menu-toggle{display:none}
   <div class="wrap pad">
     <p class="sec-kicker" aria-hidden="true"><span>01</span><span>About</span></p>
     <div class="about-grid">
-      <h2 class="about-title" id="about-h">Caribbean,<br class="br-desktop"> reimagined.</h2>
+      <h2 class="about-title" id="about-h">A taste of LUCIA.</h2>
       <div>
         <div class="about-body">
           <p>LUCIA reimagines Afro-Caribbean flavors through contemporary techniques, unexpected pairings and influences beyond the region. On Fairfax Avenue in Los Angeles, the experience brings inventive cooking, expressive cocktails and thoughtful hospitality together in a room that moves from dinner into music and late-night conversation.</p>
         </div>
-        <a class="textlink" href="about/">Discover LUCIA &rarr;</a>
       </div>
     </div>
   </div>
@@ -692,7 +689,7 @@ body.menu-open .menu-toggle{display:none}
     <div class="room-head">
       <div>
         <h2 class="room-title" id="room-h">The room, after dark.</h2>
-        <p class="room-desc">Ribbed white arches, red banquettes, and a bar that glows after dark.</p>
+        <p class="room-desc">Ribbed white arches, red banquettes, and a bar that glows into the night.</p>
       </div>
       <div class="room-note">
         <span class="label">Reservations open two weeks out.</span>
@@ -731,7 +728,7 @@ body.menu-open .menu-toggle{display:none}
 <!-- ============ WHAT'S ON ============ -->
 <section class="noir" id="events" aria-labelledby="events-h">
   <div class="wrap pad">
-    <p class="sec-kicker" aria-hidden="true"><span>04</span></p>
+    <p class="sec-kicker" aria-hidden="true"><span>04</span><span>What&rsquo;s On</span></p>
     <h2 class="sec-h" id="events-h" style="margin-bottom:18px">What&rsquo;s on</h2>
     <p class="events-intro">Two nights a week, the dining room turns the music up: live R&amp;B on Wednesdays, dinner and rotating DJs on Thursdays.</p>
     <!-- No booking buttons on event cards — booking lives in the header and sticky bar -->
@@ -803,13 +800,13 @@ body.menu-open .menu-toggle{display:none}
 <!-- ============ RECOGNITION ============ -->
 <section class="noir" id="recognized" aria-labelledby="recognized-h">
   <div class="wrap pad">
-    <p class="sec-kicker" aria-hidden="true"><span>06</span></p>
+    <p class="sec-kicker" aria-hidden="true"><span>06</span><span>Recognition</span></p>
     <h2 class="sec-h" id="recognized-h">Recognition</h2>
     <div class="recog-feature">
       <div class="recog-head">
         <picture><source type="image/avif" srcset="assets/yelp-badge-240.avif 240w, assets/yelp-badge-480.avif 480w" sizes="96px"><img src="assets/yelp-badge.webp" alt="Yelp Best New Restaurants 2026 badge" loading="lazy" decoding="async" width="480" height="480"></picture>
         <div class="recog-num">
-          <a class="recog-brand" href="https://www.yelp.com/article/best-new-restaurants-of-2026" target="_blank" rel="noopener noreferrer">Yelp</a>
+          <span class="recog-brand">Yelp</span>
           <span class="big">No. 19</span>
         </div>
       </div>
@@ -820,10 +817,10 @@ body.menu-open .menu-toggle{display:none}
       </blockquote>
     </div>
     <ul class="recog-list">
-      <li><span class="r-label">Dining</span><div><div class="r-name"><a href="https://www.latimes.com/food/list/101-best-restaurants-los-angeles" target="_blank" rel="noopener noreferrer">LA Times 101</a></div><div class="r-note">Counted among the city&rsquo;s essential dining rooms.</div></div></li>
-      <li><span class="r-label">Design</span><div><div class="r-name"><a href="https://hospitalitydesign.com/news/gold-key-awards-winners-2025/183850/" target="_blank" rel="noopener noreferrer">Gold Key Award 2025</a></div><div class="r-note">Winner &mdash; Restaurant Upscale Dining.</div></div></li>
-      <li><span class="r-label">Design</span><div><div class="r-name"><a href="https://robbreport.com/food-drink/dining/lists/most-beautiful-new-restaurants-america-2025-1237404703/" target="_blank" rel="noopener noreferrer">Robb Report &mdash; 21 Most Beautiful New Restaurants in America</a></div><div class="r-note">A dining room recognized for its design.</div></div></li>
-      <li><span class="r-label">In the press</span><div><div class="r-name"><a href="https://la.eater.com/2025/5/14/24430356/lucia-afro-caribbean-restaurant-opening-fairfax-los-angeles" target="_blank" rel="noopener noreferrer">Eater</a> &middot; Vogue &middot; Cond&eacute; Nast</div><div class="r-note">National press coverage of the opening.</div></div></li>
+      <li><span class="r-label">Dining</span><div><div class="r-name">LA Times 101</div><div class="r-note">Counted among the city&rsquo;s essential dining rooms.</div></div></li>
+      <li><span class="r-label">Design</span><div><div class="r-name">Gold Key Award 2025</div><div class="r-note">Winner &mdash; Restaurant Upscale Dining.</div></div></li>
+      <li><span class="r-label">Design</span><div><div class="r-name">Robb Report &mdash; 21 Most Beautiful New Restaurants in America</div><div class="r-note">A dining room recognized for its design.</div></div></li>
+      <li><span class="r-label">In the press</span><div><div class="r-name">Eater &middot; Vogue &middot; Cond&eacute; Nast</div><div class="r-note">National press coverage of the opening.</div></div></li>
     </ul>
   </div>
 </section>
@@ -831,7 +828,7 @@ body.menu-open .menu-toggle{display:none}
 <!-- ============ VISIT ============ -->
 <section class="ivory" id="visit" aria-label="Plan your visit">
   <div class="wrap pad visit-pad">
-    <p class="visit-kicker">Plan your visit</p>
+    <p class="sec-kicker" aria-hidden="true"><span>07</span><span>Visit</span></p>
     <div class="visit-cols">
       <div class="visit-col visit-col-addr">
         <p class="visit-addr">351 N <em>Fairfax</em> Ave</p>
