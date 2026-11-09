@@ -323,31 +323,28 @@ body.menu-open .menu-toggle{display:none}
 .visit-title{font-family:var(--font-display);font-weight:300;font-size:clamp(32px,7vw,48px);line-height:1.05;letter-spacing:-.01em;text-wrap:balance}
 .visit-title em{font-style:italic;color:var(--bronze)}
 /* Mobile: the "Find us on Fairfax" heading is screen-reader-only (the
-   address is the visual heading); the desktop policies link is hidden
-   (the mobile one lives next to Get directions). */
+   address is the visual heading). */
 .visit-head{border:0;padding:0;margin:0}
 .visit-head .visit-title{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.visit-head .visit-policies{display:none}
 .visit-addr{font-family:var(--font-display);font-weight:300;font-size:clamp(28px,4vw,32px);line-height:1.05;letter-spacing:-.01em;text-wrap:balance;margin-bottom:8px}
 .visit-addr em{font-style:italic;color:var(--bronze)}
 .visit-city{font-size:15px;line-height:1.6;color:rgba(13,11,8,.72)}
 .visit-col-addr{display:flex;flex-direction:column}
 .visit-map{margin:16px 0 0;border-radius:8px;overflow:hidden;background:#E9E2D2}
 .visit-map iframe{display:block;width:100%;height:220px;border:0}
-.visit-links-row{display:flex;justify-content:space-between;align-items:center;gap:16px;margin:12px 0 0}
 .visit-cols{display:grid}
 .visit-col{padding-top:20px}
 .visit-col + .visit-col{border-top:1px solid var(--line-l);margin-top:20px}
 .visit-col .label{display:block;opacity:.6;margin-bottom:10px}
-.visit-col .visit-big{font-family:var(--font-display);font-size:clamp(22px,2.5vw,26px);font-weight:400;line-height:1.3}
+.visit-col .visit-big{font-family:var(--font-display);font-size:19px;font-weight:700;line-height:1.3}
 .visit-col .visit-small{font-size:15px;line-height:1.6;color:rgba(13,11,8,.72);margin-top:8px}
 .visit-col .visit-small a{color:inherit;text-decoration:underline;text-underline-offset:3px}
 .visit-sub{display:block;font-size:15px;line-height:1.6;color:rgba(13,11,8,.72);margin-top:6px}
 .visit-sub a{color:inherit;text-decoration:underline;text-underline-offset:3px}
-.visit-age-row{border-top:1px solid var(--line-l);padding-top:20px;margin-top:20px}
-.visit-age{font-family:var(--font-display);font-size:clamp(22px,2.5vw,26px);font-weight:400;line-height:1.3}
-.visit-dress{font-size:15px;line-height:1.6;color:rgba(13,11,8,.72);margin-top:8px}
-.visit-dress a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.visit-age{font-family:var(--font-display);font-size:19px;font-weight:400;line-height:1.3;margin-top:12px}
+/* "Before arriving" subheadings: bold Parking / Attire, details in regular text. */
+.visit-subhead{font-family:var(--font-display);font-size:19px;font-weight:700;line-height:1.3;margin-top:16px}
+.visit-subhead:first-child{margin-top:0}
 /* Visit dropdowns (mobile only): header button + collapsible body.
    On desktop the columns stay fully open and the button reads as text. */
 .visit-toggle{display:flex;justify-content:space-between;align-items:center;gap:16px;width:100%;background:none;border:0;padding:0;margin:0;font:inherit;color:inherit;text-align:left;cursor:pointer;-webkit-tap-highlight-color:transparent}
@@ -358,18 +355,15 @@ body.menu-open .menu-toggle{display:none}
 @media (max-width:1023px){
   .visit-col .visit-body{display:none}
   .visit-col.open .visit-body{display:block}
-  /* Mobile dropdown headers: main line readable at 16px (was 12px) */
-  .visit-col .visit-big{font-size:16px}
   /* About heading: the desktop-only break is hidden on mobile (one line) */
   .br-desktop{display:none}
   /* Reservations main line: mobile wording */
   .vb-d{display:none}
-  /* Address column: links row above the map on mobile */
-  .visit-col-addr .visit-links-row{order:3}
-  .visit-col-addr .visit-map{order:4}
   /* Actions: two-column grid, short labels */
   .visit-actions{display:grid;grid-template-columns:1fr 1fr;gap:14px 28px;border-top:1px solid var(--line-l);padding-top:24px;margin-top:28px}
   .visit-actions .al{display:none}
+  /* Info & policies spans the full width on its own row */
+  .visit-actions .visit-policies-f{grid-column:1/-1}
 }
 @media (min-width:1024px){
   .visit-toggle{cursor:default}
@@ -377,7 +371,8 @@ body.menu-open .menu-toggle{display:none}
   .visit-body{display:block}
   .visit-sub{display:none}
   .vb-m{display:none}
-  .visit-links-row .visit-policies-m{display:none}
+  /* "Before arriving" shows its Parking / Attire subheadings, not a single summary line */
+  .visit-col-arrival .visit-toggle .visit-big{display:none}
   .visit-actions .as{display:none}
 }
 @media (prefers-reduced-motion:reduce){
@@ -521,14 +516,10 @@ body.menu-open .menu-toggle{display:none}
   #visit .pad{padding-top:56px;padding-bottom:64px}
   .visit-head{display:flex;justify-content:space-between;align-items:center;gap:32px;border-bottom:1px solid var(--line-l);padding-bottom:28px;margin-bottom:32px}
   .visit-head .visit-title{position:static;width:auto;height:auto;overflow:visible;clip:auto;white-space:normal}
-  .visit-head .visit-policies{display:inline-flex;margin-top:0;white-space:nowrap}
   .visit-map iframe{height:160px}
   .visit-cols{grid-template-columns:repeat(4,1fr);gap:28px}
   .visit-col{padding-top:0}
   .visit-col + .visit-col{border-top:0;margin-top:0;border-left:1px solid var(--line-l);padding-left:28px}
-  .visit-age-row{display:flex;align-items:center;gap:28px;border-top:1px solid var(--line-l);padding-top:24px;margin-top:32px}
-  .visit-age{font-size:28px}
-  .visit-dress{margin-top:0;border-left:1px solid var(--line-l);padding-left:28px}
   .visit-actions{display:flex;flex-direction:row;flex-wrap:wrap;align-items:center;gap:16px 28px;border-top:1px solid var(--line-l);padding-top:28px;margin-top:36px}
   .visit-actions .visit-link + .visit-link{border-left:1px solid var(--line-l);padding-left:28px}
   .visit-actions .visit-gift{margin-left:auto;border-left:0;padding-left:0}
@@ -856,14 +847,12 @@ body.menu-open .menu-toggle{display:none}
     <p class="visit-kicker">Plan your visit</p>
     <div class="visit-head">
       <h2 class="visit-title" id="visit-h">Find us on <em>Fairfax</em></h2>
-      <a class="visit-link visit-policies" href="info-policies/">Info &amp; policies <span aria-hidden="true">&#8599;</span></a>
     </div>
     <div class="visit-cols">
       <div class="visit-col visit-col-addr">
         <p class="visit-addr">351 N <em>Fairfax</em> Ave</p>
         <p class="visit-city">Los Angeles, CA 90036</p>
         <div class="visit-map"><iframe title="Map showing LUCIA's location at 351 N Fairfax Ave, Los Angeles" src="https://maps.google.com/maps?q=351+N+Fairfax+Ave,+Los+Angeles,+CA+90036&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
-        <p class="visit-links-row"><a class="visit-link" href="https://www.google.com/maps/search/?api=1&amp;query=351+N+Fairfax+Ave+Los+Angeles+CA+90036" target="_blank" rel="noopener noreferrer">Get directions <span aria-hidden="true">&#8599;</span><span class="sr-only"> (opens in new tab)</span></a><a class="visit-link visit-policies-m" href="info-policies/">Info &amp; policies <span aria-hidden="true">&#8599;</span></a></p>
       </div>
       <div class="visit-col">
         <button class="visit-toggle" type="button" aria-expanded="false" aria-controls="visit-hours-body">
@@ -876,6 +865,7 @@ body.menu-open .menu-toggle{display:none}
         <div class="visit-body" id="visit-hours-body">
           <p class="visit-small">Kitchen closes 11:30 PM; last seating 11 PM, Thu&ndash;Sun.</p>
           <p class="visit-small">Mon&ndash;Tue: private events only.</p>
+          <p class="visit-age">21+ after 8 PM</p>
         </div>
       </div>
       <div class="visit-col">
@@ -892,29 +882,29 @@ body.menu-open .menu-toggle{display:none}
           <p class="visit-small"><a href="#private-events">Larger parties &#8599;</a></p>
         </div>
       </div>
-      <div class="visit-col">
+      <div class="visit-col visit-col-arrival">
         <button class="visit-toggle" type="button" aria-expanded="false" aria-controls="visit-arrival-body">
           <span class="visit-toggle-text">
-            <span class="label">Arrival</span>
-            <span class="visit-big">Valet &middot; $15</span>
-            <span class="visit-sub">Metered parking and nearby lot</span>
+            <span class="label">Before arriving</span>
+            <span class="visit-big">Parking &amp; attire</span>
+            <span class="visit-sub">Valet available</span>
           </span>
           <span class="visit-chev" aria-hidden="true"></span>
         </button>
         <div class="visit-body" id="visit-arrival-body">
-          <p class="visit-small">Metered parking nearby. Parking lot: 333 N Fairfax Ave.</p>
+          <p class="visit-subhead">Parking</p>
+          <p class="visit-small">Valet available. Street parking may be available nearby.</p>
+          <p class="visit-subhead">Attire</p>
+          <p class="visit-small">Upscale, elegant attire. <a href="info-policies/#dress-code">Dress code <span aria-hidden="true">&#8599;</span></a></p>
         </div>
       </div>
-    </div>
-    <div class="visit-age-row">
-      <p class="visit-big visit-age">21+ after 8 PM</p>
-      <p class="visit-dress">Upscale, elegant attire. <a href="info-policies/#dress-code">Dress code <span aria-hidden="true">&#8599;</span></a></p>
     </div>
     <div class="visit-actions">
       <a class="visit-link" href="tel:+12138000048"><span class="al">Call +1 213 800 0048</span><span class="as">Call us</span></a>
       <a class="visit-link" href="mailto:info@luciala.com"><span class="al">Email info@luciala.com</span><span class="as">Email us</span></a>
       <a class="visit-link visit-gift" href="https://order.toasttab.com/egiftcards/lucia-349-north-fairfax-avenue" target="_blank" rel="noopener noreferrer">Gift cards <span aria-hidden="true">&#8599;</span><span class="sr-only"> (opens in new tab)</span></a>
       <a class="visit-link visit-a11y" href="info-policies/#accessibility-help">Accessibility help <span aria-hidden="true">&#8599;</span></a>
+      <a class="visit-link visit-policies-f" href="info-policies/">Info &amp; policies <span aria-hidden="true">&#8599;</span></a>
     </div>
   </div>
 </section>
