@@ -243,6 +243,15 @@ body.menu-open .menu-toggle{display:none}
 .taste-h{font-family:var(--font-display);font-weight:300;font-size:var(--t-display);line-height:1.02;text-wrap:balance}
 .taste-h em{font-style:italic;color:var(--gold)}
 .taste-desc{margin-top:20px;max-width:var(--measure);color:var(--ivory-70)}
+/* Taste is ivory: the intro, dish list, and carousel controls need dark
+   colours, while the slide bodies stay on their photos/dark cards. */
+#taste .taste-desc{color:rgba(13,11,8,.72)}
+#taste .taste-h em{color:var(--bronze)}
+#taste .sig-list{border-top-color:var(--line-l)}
+#taste .sig-list li{border-bottom-color:var(--line-l)}
+#taste .sig-list .desc{color:rgba(13,11,8,.72)}
+#taste .car-arrow{color:var(--noir);border-color:var(--line-l)}
+#taste .car-dots button::before{background:rgba(13,11,8,.25)}
 .sig-list{list-style:none;margin-top:30px;border-top:1px solid var(--line-d)}
 .sig-list li{padding:22px 0;border-bottom:1px solid var(--line-d)}
 .sig-list .dish{font-family:var(--font-display);font-size:clamp(22px,6vw,36px);font-weight:400;line-height:1.15}
@@ -268,7 +277,7 @@ body.menu-open .menu-toggle{display:none}
 .taste-slide picture{display:block}
 .taste-slide img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
 .taste-slide-body{position:absolute;left:0;right:0;bottom:0;display:flex;flex-direction:column;gap:8px;padding:48px 18px 20px;background:linear-gradient(transparent,rgba(8,6,4,.92))}
-.taste-slide-body h3{font-family:var(--font-display);font-size:clamp(26px,7vw,40px);font-weight:400;line-height:1.05;text-wrap:balance}
+.taste-slide-body h3{font-family:var(--font-display);font-size:clamp(26px,7vw,40px);font-weight:400;line-height:1.05;text-wrap:balance;color:var(--ivory)}
 .taste-slide-body p{color:var(--ivory-70);font-size:15px;line-height:1.6;flex:none;max-width:var(--measure)}
 /* Trailing spacer is hidden: slides are 100% wide (like the Room
    carousel), so the last slide snaps flush-left with no extra room needed. */
@@ -691,7 +700,7 @@ body.menu-open .menu-toggle{display:none}
 </section>
 
 <!-- ============ TASTE (editorial) ============ -->
-<section class="noir" id="taste" aria-labelledby="taste-h" data-reveal>
+<section class="ivory" id="taste" aria-labelledby="taste-h" data-reveal>
   <div class="wrap pad">
     <p class="sec-kicker" aria-hidden="true"><span>02</span><span>Taste</span></p>
     <div class="taste-grid">
