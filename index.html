@@ -197,7 +197,7 @@ body.menu-open .menu-toggle{display:none}
 .hero-scroll{position:absolute;z-index:2;left:50%;bottom:18px;transform:translateX(-50%);display:grid;justify-items:center;gap:8px;color:var(--ivory-70)}
 .hero-scroll::after{content:"";width:1px;height:28px;background:linear-gradient(var(--gold),transparent)}
 /* Mobile: scroll cue sits in flow under View menus */
-@media (max-width:1023px){.hero-scroll{position:static;left:auto;bottom:auto;transform:none;margin-top:36px}.hero-scroll span{display:none}.hero-media img{object-position:100% 40%}}
+@media (max-width:1023px){.hero-scroll{position:static;left:auto;bottom:auto;transform:none;margin-top:16px}.hero-scroll span{display:none}.hero-media img{object-position:100% 40%}}
 
 /* ============ MOTION (restrained; disabled under reduced-motion) ============ */
 @media (prefers-reduced-motion: no-preference){
@@ -217,8 +217,9 @@ body.menu-open .menu-toggle{display:none}
 .taste-slide img,.dish-figure img,#room-track img,.events-figure img,.private-figure img{filter:sepia(.14) contrast(1.05) saturate(1.05)}
 /* Mobile hero: solid dark band behind the CTAs (option 4), longer band, CTAs lower */
 @media (max-width:1023px){
-  .hero-scrim{background:linear-gradient(to bottom,rgba(26,16,8,0) 0%,rgba(26,16,8,0) 68%,rgba(13,11,8,1) 76%,rgba(13,11,8,1) 100%)}
+  .hero-scrim{background:linear-gradient(to bottom,rgba(26,16,8,0) 0%,rgba(26,16,8,0) 75%,rgba(13,11,8,1) 80.7%,rgba(13,11,8,1) 100%)}
   .hero-inner{padding-bottom:0}
+  .hero-ctas .btn{background:#D83C2F;box-shadow:0 10px 34px rgba(0,0,0,.6)}
 }
 @media (hover:hover) and (min-width:1024px){
   .taste-slide,.event-slide,figure.slide,.event-card{transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
