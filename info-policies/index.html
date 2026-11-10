@@ -134,6 +134,10 @@ body.menu-open .menu-toggle{display:none}
 .visit-rows{display:grid;gap:20px;margin-bottom:36px}
 .visit-rows>div{border-top:1px solid var(--line-l);padding-top:16px}
 .visit-rows .label{display:block;opacity:.6;margin-bottom:8px}
+/* Image placeholder: marks where an approved photo will go */
+.img-ph{margin:0 0 32px}
+.img-ph-box{aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;background:rgba(13,11,8,.05);border:1px dashed rgba(120,95,43,.6);border-radius:16px}
+.img-ph-box span{font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:rgba(13,11,8,.5)}
 .visit-big{display:block;font-family:var(--font-display);font-size:24px;font-weight:400;line-height:1.25}
 .visit-small{display:block;font-size:15px;line-height:1.6;color:rgba(13,11,8,.72);margin-top:6px}
 .visit-actions{display:grid;gap:12px}
@@ -323,6 +327,7 @@ body.menu-open .menu-toggle{display:none}
 <section class="ivory" id="policies" aria-labelledby="policies-h">
   <div class="wrap pad">
     <h2 id="policies-h" class="sr-only">Policies</h2>
+    <figure class="img-ph"><div class="img-ph-box"><span>Photo coming soon</span></div></figure>
     <div class="visit-rows">
       <div class="visit-row">
         <h3 class="label">Hours</h3>
