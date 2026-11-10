@@ -256,17 +256,17 @@ body.menu-open .menu-toggle{display:none}
 .taste-grid .dish-figure{display:none}
 .taste-grid .sig-list{display:none}
 .taste-carousel{display:block;overflow-x:clip;margin-top:30px}
-.taste-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;padding:2px 2px 6px}
+.taste-track{display:flex;gap:0;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;padding:2px 0 6px}
 .taste-track::-webkit-scrollbar{display:none}
-.taste-slide{flex:0 0 88%;scroll-snap-align:start;scroll-snap-stop:always;border:1px solid var(--line-d);border-radius:12px;background:var(--noir-2);overflow:hidden;display:flex;flex-direction:column}
+.taste-slide{flex:0 0 100%;scroll-snap-align:start;scroll-snap-stop:always;border:1px solid var(--line-d);border-radius:12px;background:var(--noir-2);overflow:hidden;display:flex;flex-direction:column}
 .taste-slide picture{display:block}
 .taste-slide img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
 .taste-slide-body{padding:24px;display:flex;flex-direction:column;gap:12px;flex:1}
 .taste-slide-body h3{font-family:var(--font-display);font-size:clamp(26px,7vw,40px);font-weight:400;line-height:1.05;text-wrap:balance}
 .taste-slide-body p{color:var(--ivory-70);font-size:15px;line-height:1.6;flex:1;max-width:var(--measure)}
-/* Trailing spacer: without it the last 88%-wide slide can never snap
-   flush-left — same 12.5% as the events carousel. */
-.taste-spacer{flex:0 0 12.5%}
+/* Trailing spacer is hidden: slides are 100% wide (like the Room
+   carousel), so the last slide snaps flush-left with no extra room needed. */
+.taste-spacer{display:none}
 /* VARIANT A — no arrows on mobile: swipe + dots only, same as events.
    Desktop adds prev/next arrows (see min-width:1024px block). */
 .taste-controls{display:flex;justify-content:center;margin-top:18px}
@@ -317,20 +317,18 @@ body.menu-open .menu-toggle{display:none}
    duplication; the final production build would render both from one
    source of truth. */
 .events-carousel{display:block;overflow-x:clip}
-.events-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;padding:2px 2px 6px}
+.events-track{display:flex;gap:0;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;padding:2px 0 6px}
 .events-track::-webkit-scrollbar{display:none}
-.event-slide{flex:0 0 88%;scroll-snap-align:start;scroll-snap-stop:always;border:1px solid var(--line-d);border-radius:12px;background:var(--noir-2);overflow:hidden;display:flex;flex-direction:column}
+.event-slide{flex:0 0 100%;scroll-snap-align:start;scroll-snap-stop:always;border:1px solid var(--line-d);border-radius:12px;background:var(--noir-2);overflow:hidden;display:flex;flex-direction:column}
 .event-slide picture{display:block}
 .event-slide img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
 .event-slide-body{padding:24px;display:flex;flex-direction:column;gap:12px;flex:1}
 .event-slide-body .when{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);line-height:1.7;font-weight:600}
 .event-slide-body h3{font-family:var(--font-display);font-size:clamp(26px,7vw,40px);font-weight:400;line-height:1.05;text-wrap:balance}
 .event-slide-body p{color:var(--ivory-70);font-size:15px;line-height:1.6;flex:1;max-width:var(--measure)}
-/* Trailing spacer: without it the last 88%-wide slide can never snap
-   flush-left — max scroll falls ~12% of the track short, leaving the
-   active card 43px off the section's left edge. 12.5% of the track
-   adds exactly the missing scroll room; it is empty space, not a slide. */
-.events-spacer{flex:0 0 12.5%}
+/* Trailing spacer is hidden: slides are 100% wide (like the Room
+   carousel), so the last slide snaps flush-left with no extra room needed. */
+.events-spacer{display:none}
 /* VARIANT A — no arrows on mobile: swipe + dots only. The dots row is
    centered with generous space below, so the only controls are small,
    centered dots — no large edge buttons anywhere near the sticky bar. */
