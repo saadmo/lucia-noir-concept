@@ -128,7 +128,7 @@ a{color:inherit}
 .btn-ghost-d:hover{border-color:var(--bronze);color:var(--bronze)}
 .btn-sm{padding:12px 26px;min-height:48px}
 .btn-block{width:100%}
-.textlink{display:inline-flex;align-items:center;gap:10px;margin-top:30px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:8px;min-height:44px}
+.textlink{display:inline-flex;align-items:center;gap:10px;margin-top:30px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px;min-height:44px}
 
 /* ============ HEADER (compact mobile first) ============ */
 .site-head{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 16px;border-bottom:1px solid transparent;transition:background .4s,padding .4s,border-color .4s}
@@ -197,8 +197,8 @@ body.menu-open .menu-toggle{display:none}
 
 /* ============ MOTION (restrained; disabled under reduced-motion) ============ */
 @media (prefers-reduced-motion: no-preference){
-  .hero-media img{animation:hero-drift 36s ease-in-out infinite alternate}
-  @keyframes hero-drift{from{transform:scale(1)}to{transform:scale(1.06)}}
+  .hero-media img{animation:hero-drift 20s ease-in-out infinite alternate}
+  @keyframes hero-drift{from{transform:scale(1)}to{transform:scale(1.08)}}
   .hero-scroll{animation:scroll-pulse 2.4s ease-in-out infinite}
   @keyframes scroll-pulse{0%,100%{opacity:.7}50%{opacity:1}}
   .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
@@ -492,7 +492,7 @@ body.menu-open .menu-toggle{display:none}
   .taste-grid .sig-list{display:none}
   .dish-figure{margin:0}
   .dish-figure img{aspect-ratio:4/4.4}
-  .taste-copy .textlink.btn-block{width:auto;border:0;border-radius:0;padding:0 0 8px;min-height:44px;justify-content:flex-start}
+  .taste-copy .textlink.btn-block{width:auto;border:0;border-radius:0;padding:0;min-height:44px;justify-content:flex-start}
   .taste-carousel{display:block}
   .taste-track{gap:16px}
   .taste-slide{flex:0 0 calc(50% - 8px);flex-direction:row}
