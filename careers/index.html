@@ -131,6 +131,10 @@ body.menu-open .menu-toggle{display:none}
 /* ============ CAREERS FORMS ============ */
 main .ivory + .ivory{border-top:1px solid var(--line-l)}
 .form-sec h2{font-family:var(--font-display);font-weight:400;font-size:clamp(28px,5vw,44px);line-height:1.1;margin-bottom:16px}
+/* Image placeholder: marks where an approved photo will go */
+.img-ph{margin:0 0 32px}
+.img-ph-box{aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;background:rgba(13,11,8,.05);border:1px dashed rgba(120,95,43,.6);border-radius:16px}
+.img-ph-box span{font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:rgba(13,11,8,.5)}
 .form-note{max-width:var(--measure);font-size:15px;line-height:1.6;color:rgba(13,11,8,.72);margin-bottom:28px}
 .form-note a{color:var(--noir);text-underline-offset:3px}
 .form-grid{display:grid;gap:20px;max-width:640px}
@@ -307,6 +311,7 @@ main .ivory + .ivory{border-top:1px solid var(--line-l)}
 <!-- ============ APPLY / EMAIL UPDATES ============ -->
 <section class="ivory form-sec" id="apply" aria-labelledby="apply-h">
   <div class="wrap pad">
+    <figure class="img-ph"><div class="img-ph-box"><span>Photo coming soon</span></div></figure>
     <h2 id="apply-h">Apply</h2>
     <p class="form-note">Submitting opens your email app with your message addressed to info@luciala.com. If you're applying, please attach your r&eacute;sum&eacute; to the email before sending.</p>
     <form class="form-grid" id="careers-form" action="mailto:info@luciala.com?subject=Careers%20at%20LUCIA" method="post" enctype="text/plain">
