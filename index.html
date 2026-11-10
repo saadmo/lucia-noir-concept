@@ -229,11 +229,11 @@ body.menu-open .menu-toggle{display:none}
 /* ============ ABOUT ============ */
 .about-title{font-family:var(--font-display);font-weight:300;font-size:var(--t-display);line-height:.95;letter-spacing:-.015em;text-wrap:balance;margin-bottom:0}
 .about-lead{font-family:var(--font-display);font-size:clamp(21px,5.6vw,38px);line-height:1.35;font-weight:300;max-width:30ch;text-wrap:balance}
-.about-body{margin-top:20px;max-width:var(--measure);color:rgba(13,11,8,.72)}
+.about-body{margin-top:20px;max-width:var(--measure);color:var(--ivory-70)}
 .about-body p+p{margin-top:16px}
-.about-press{display:flex;align-items:center;gap:16px;margin-top:36px;padding-top:28px;border-top:1px solid var(--line-l)}
+.about-press{display:flex;align-items:center;gap:16px;margin-top:36px}
 .about-press img{width:64px;height:auto;flex:none}
-.about-press p{font-size:15px;line-height:1.6;color:rgba(13,11,8,.72);max-width:44ch}
+.about-press p{font-size:15px;line-height:1.6;color:var(--ivory-70);max-width:44ch}
 
 /* ============ TASTE (editorial food section, noir) ============ */
 .dish-figure{position:relative;overflow:hidden;border-radius:8px;margin:0 0 30px}
@@ -681,7 +681,7 @@ body.menu-open .menu-toggle{display:none}
 </header>
 
 <!-- ============ ABOUT ============ -->
-<section class="ivory" id="about" aria-labelledby="about-h" data-reveal>
+<section class="noir" id="about" aria-labelledby="about-h" data-reveal>
   <div class="wrap pad">
     <p class="sec-kicker" aria-hidden="true"><span>01</span><span>About</span></p>
     <div class="about-grid">
@@ -690,11 +690,11 @@ body.menu-open .menu-toggle{display:none}
         <div class="about-body">
           <p>LUCIA reimagines Afro-Caribbean flavors through contemporary techniques, unexpected pairings and influences beyond the region. On Fairfax Avenue in Los Angeles, the experience brings inventive cooking, expressive cocktails and thoughtful hospitality together in a room that moves from dinner into music and late-night conversation.</p>
         </div>
+        <div class="about-press">
+          <picture><source type="image/avif" srcset="assets/yelp-badge-240.avif 240w, assets/yelp-badge-480.avif 480w" sizes="64px"><img src="assets/yelp-badge.webp" alt="Yelp Best New Restaurants 2026 badge" loading="lazy" decoding="async" width="480" height="480"></picture>
+          <p>Yelp named LUCIA No. 19 on its Best New Restaurants of 2026 list.</p>
+        </div>
       </div>
-    </div>
-    <div class="about-press">
-      <picture><source type="image/avif" srcset="assets/yelp-badge-240.avif 240w, assets/yelp-badge-480.avif 480w" sizes="64px"><img src="assets/yelp-badge.webp" alt="Yelp Best New Restaurants 2026 badge" loading="lazy" decoding="async" width="480" height="480"></picture>
-      <p>Yelp named LUCIA No. 19 on its Best New Restaurants of 2026 list.</p>
     </div>
   </div>
 </section>
