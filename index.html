@@ -191,7 +191,7 @@ body.menu-open .menu-toggle{display:none}
 /* Operational facts sit directly under the hero line — no scrolling to find them */
 .hero-facts{list-style:none;display:flex;flex-direction:column;align-items:center;gap:4px;margin-top:30px;color:var(--ivory);font-size:13px;letter-spacing:.1em;text-transform:uppercase;line-height:1.8}
 .hero-facts{text-shadow:0 1px 10px rgba(0,0,0,.5)}
-.hero-ctas{display:flex;flex-direction:column;gap:12px;margin-top:30px;align-items:stretch}
+.hero-ctas{display:flex;flex-direction:column;gap:12px;margin-top:40px;align-items:stretch}
 .hero-ctas .btn{min-height:58px;width:100%}
 .hero-ctas .textlink{margin-top:0;align-self:center}
 .hero-scroll{position:absolute;z-index:2;left:50%;bottom:18px;transform:translateX(-50%);display:grid;justify-items:center;gap:8px;color:var(--ivory-70)}
@@ -215,6 +215,11 @@ body.menu-open .menu-toggle{display:none}
 }
 /* Consistent warm noir grade across all photography */
 .taste-slide img,.dish-figure img,#room-track img,.events-figure img,.private-figure img{filter:sepia(.14) contrast(1.05) saturate(1.05)}
+/* Mobile hero: solid dark band behind the CTAs (option 4), longer band, CTAs lower */
+@media (max-width:1023px){
+  .hero-scrim{background:linear-gradient(to bottom,rgba(26,16,8,0) 0%,rgba(26,16,8,0) 68%,rgba(13,11,8,1) 76%,rgba(13,11,8,1) 100%)}
+  .hero-inner{padding-bottom:0}
+}
 @media (hover:hover) and (min-width:1024px){
   .taste-slide,.event-slide,figure.slide,.event-card{transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
   .taste-slide:hover,.event-slide:hover,figure.slide:hover,.event-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.35)}
