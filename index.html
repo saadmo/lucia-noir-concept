@@ -127,7 +127,6 @@ a{color:inherit}
 .btn-ghost-d{border-color:rgba(13,11,8,.32);color:var(--noir)}
 .btn-ghost-d:hover{border-color:var(--bronze);color:var(--bronze)}
 .btn-sm{padding:12px 26px;min-height:48px}
-.btn-block{width:100%}
 .textlink{display:inline-flex;align-items:center;gap:10px;margin-top:30px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px;min-height:44px}
 
 /* ============ HEADER (compact mobile first) ============ */
@@ -229,7 +228,6 @@ body.menu-open .menu-toggle{display:none}
    (buildTasteSlides clones it into the slide). Hidden in the text list. */
 .sig-list li picture{display:none}
 .taste-copy .textlink{color:var(--ivory)}
-.taste-copy .textlink.btn-block{border:1px solid var(--ivory-30);border-radius:100px;justify-content:center;padding:16px 20px;min-height:56px}
 
 /* ============ TASTE — MOBILE CAROUSEL ============
    Mobile shows a swipeable carousel of one dish per slide (photo +
@@ -345,7 +343,7 @@ body.menu-open .menu-toggle{display:none}
 .visit-col .label{display:block;opacity:.6;margin-bottom:10px}
 .visit-col .visit-big{font-family:var(--font-display);font-size:19px;font-weight:700;line-height:1.3}
 .visit-col .visit-small{font-size:15px;line-height:1.6;color:rgba(13,11,8,.72);margin-top:8px}
-.visit-col .visit-small a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.visit-col .visit-small a{color:inherit;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
 .visit-age{font-family:var(--font-display);font-size:19px;font-weight:400;line-height:1.3;margin-top:12px}
 /* "Before arriving" subheadings: bold Parking / Attire, details in regular text. */
 .visit-subhead{font-family:var(--font-display);font-size:19px;font-weight:700;line-height:1.3;margin-top:16px}
@@ -382,7 +380,7 @@ body.menu-open .menu-toggle{display:none}
 @media (prefers-reduced-motion:reduce){
   .visit-chev{transition:none}
 }
-.visit-link{font-size:15px;line-height:1.6;color:var(--noir);text-decoration:underline;text-underline-offset:3px;min-height:44px;display:inline-flex;align-items:center}
+.visit-link{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;line-height:1.65;color:var(--noir);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px;min-height:44px;display:inline-flex;align-items:center}
 
 /* ============ PRIVATE EVENTS ============ */
 .private-figure{overflow:hidden;border-radius:8px;position:relative;margin:0 0 30px}
@@ -492,7 +490,6 @@ body.menu-open .menu-toggle{display:none}
   .taste-grid .sig-list{display:none}
   .dish-figure{margin:0}
   .dish-figure img{aspect-ratio:4/4.4}
-  .taste-copy .textlink.btn-block{width:auto;border:0;border-radius:0;padding:0;min-height:44px;justify-content:flex-start}
   .taste-carousel{display:block}
   .taste-track{gap:16px}
   .taste-slide{flex:0 0 calc(50% - 8px);flex-direction:row}
@@ -685,7 +682,7 @@ body.menu-open .menu-toggle{display:none}
           <li><picture><source type="image/avif" srcset="assets/dish-ropa-fina-400.avif 400w, assets/dish-ropa-fina-800.avif 800w, assets/dish-ropa-fina-1200.avif 1200w" sizes="(min-width:1024px) 720px, 88vw"><img src="assets/dish-ropa-fina.webp" alt="Ropa Fina NY strip, sliced, with sorrel pickled red onions and a creamy mash, served at LUCIA" loading="lazy" decoding="async" width="1200" height="900"></picture><span class="dish">Ropa Fina 12oz NY Strip</span><p class="desc">Reca&iacute;to, sorrel pickled red onions, mojo spices.</p></li>
           <li><picture><source type="image/avif" srcset="assets/dish-crab-patty-400.avif 400w, assets/dish-crab-patty-800.avif 800w, assets/dish-crab-patty-1200.avif 1200w" sizes="(min-width:1024px) 720px, 88vw"><img src="assets/dish-crab-patty.webp" alt="Golden crab and callaloo patties with a dipping sauce, served at LUCIA" loading="lazy" decoding="async" width="1200" height="900"></picture><span class="dish">Crab &amp; Callaloo Patty</span><p class="desc">Served with green papaya kuchela.</p></li>
         </ul>
-        <a class="textlink btn-block" href="menus/">See the full menu <span aria-hidden="true">&rarr;</span></a>
+        <a class="textlink" href="menus/">See the full menu</a>
       </div>
     </div>
   </div>
@@ -872,7 +869,7 @@ body.menu-open .menu-toggle{display:none}
         </button>
         <div class="visit-body" id="visit-res-body">
           <p class="visit-small">Up to 8 guests.</p>
-          <p class="visit-small"><a href="#private-events">Larger parties &#8599;</a></p>
+          <p class="visit-small"><a href="#private-events">Larger parties</a></p>
         </div>
       </div>
       <div class="visit-col visit-col-arrival">
@@ -881,16 +878,16 @@ body.menu-open .menu-toggle{display:none}
           <p class="visit-subhead">Parking</p>
           <p class="visit-small">Valet available. Street parking may be available nearby.</p>
           <p class="visit-subhead">Attire</p>
-          <p class="visit-small">Upscale, elegant attire. <a href="info-policies/#dress-code">Dress code <span aria-hidden="true">&#8599;</span></a></p>
+          <p class="visit-small">Upscale, elegant attire. <a href="info-policies/#dress-code">Dress code</a></p>
         </div>
       </div>
     </div>
     <div class="visit-actions">
       <a class="visit-link" href="tel:+12138000048"><span class="al">Call +1 213 800 0048</span><span class="as">Call us</span></a>
       <a class="visit-link" href="mailto:info@luciala.com"><span class="al">Email info@luciala.com</span><span class="as">Email us</span></a>
-      <a class="visit-link visit-gift" href="https://order.toasttab.com/egiftcards/lucia-349-north-fairfax-avenue" target="_blank" rel="noopener noreferrer">Gift cards <span aria-hidden="true">&#8599;</span><span class="sr-only"> (opens in new tab)</span></a>
-      <a class="visit-link visit-a11y" href="info-policies/#accessibility-help">Accessibility help <span aria-hidden="true">&#8599;</span></a>
-      <a class="visit-link visit-policies-f" href="info-policies/">Info &amp; policies <span aria-hidden="true">&#8599;</span></a>
+      <a class="visit-link visit-gift" href="https://order.toasttab.com/egiftcards/lucia-349-north-fairfax-avenue" target="_blank" rel="noopener noreferrer">Gift cards<span class="sr-only"> (opens in new tab)</span></a>
+      <a class="visit-link visit-a11y" href="info-policies/#accessibility-help">Accessibility help</a>
+      <a class="visit-link visit-policies-f" href="info-policies/">Info &amp; policies</a>
     </div>
   </div>
 </section>
