@@ -15,11 +15,14 @@
 <meta property="og:title" content="LUCIA — Modern Afro-Caribbean Restaurant in Los Angeles">
 <meta property="og:description" content="LUCIA is a modern Afro-Caribbean restaurant on Fairfax Ave in Los Angeles. Dinner Wed–Sun, 6PM–12AM, 21+ after 8 PM. Reserve your table.">
 <meta property="og:url" content="https://lucia-noir-concept-saadmos-projects.vercel.app/">
-<meta property="og:image" content="https://lucia-noir-concept-saadmos-projects.vercel.app/assets/hero.webp">
+<meta property="og:image" content="https://lucia-noir-concept-saadmos-projects.vercel.app/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/jpeg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="LUCIA — Modern Afro-Caribbean Restaurant in Los Angeles">
 <meta name="twitter:description" content="LUCIA is a modern Afro-Caribbean restaurant on Fairfax Ave in Los Angeles. Dinner Wed–Sun, 6PM–12AM, 21+ after 8 PM. Reserve your table.">
-<meta name="twitter:image" content="https://lucia-noir-concept-saadmos-projects.vercel.app/assets/hero.webp">
+<meta name="twitter:image" content="https://lucia-noir-concept-saadmos-projects.vercel.app/assets/og-image.jpg">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -109,7 +112,8 @@ a{color:inherit}
 .pad{padding-top:var(--pad-sec);padding-bottom:var(--pad-sec)}
 .ivory{background:var(--ivory);color:var(--noir)}
 .noir{background:var(--noir);color:var(--ivory)}
-.sec-h{font-family:var(--font-display);font-weight:300;font-size:var(--t-display);line-height:1.05;text-wrap:balance}
+.sec-h{font-family:var(--font-display);font-weight:300;font-size:var(--t-display);line-height:1.05;letter-spacing:-.01em;text-wrap:balance}
+p{text-wrap:pretty}
 .sec-h em{font-style:italic;color:var(--gold)}
 .sec-kicker{display:flex;align-items:center;gap:14px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--gold);margin:0 0 28px}
 .sec-kicker::after{content:"";flex:1;height:1px;background:rgba(194,146,46,.35)}
@@ -196,6 +200,8 @@ body.menu-open .menu-toggle{display:none}
 
 /* ============ MOTION (restrained; disabled under reduced-motion) ============ */
 @media (prefers-reduced-motion: no-preference){
+  body{animation:page-fade .6s ease}
+  @keyframes page-fade{from{opacity:0}to{opacity:1}}
   .hero-media img{animation:hero-drift 12s ease-in-out infinite alternate}
   @keyframes hero-drift{from{transform:scale(1)}to{transform:scale(1.12)}}
   .hero-scroll{animation:scroll-pulse 1.8s ease-in-out infinite}
@@ -203,6 +209,12 @@ body.menu-open .menu-toggle{display:none}
   .reveal{opacity:0;transform:translateY(32px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
   .reveal.in{opacity:1;transform:none}
   .taste-track,.carousel-track,.events-track{scroll-behavior:smooth}
+  .img-fade{opacity:0;transition:opacity .8s var(--ease)}
+  .img-fade.loaded{opacity:1}
+}
+@media (hover:hover) and (min-width:1024px){
+  .taste-slide,figure.slide,.event-card{transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+  .taste-slide:hover,figure.slide:hover,.event-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.35)}
 }
 .btn:active{transform:scale(.95)}
 
@@ -922,6 +934,18 @@ body.menu-open .menu-toggle{display:none}
       });
     }, {threshold:.12});
     document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  })();
+
+  /* Image fade-in (progressive enhancement: no-JS and reduced-motion stay visible) */
+  (function(){
+    if (reduceMotion) return;
+    document.querySelectorAll('img').forEach(function(im){
+      if (im.complete && im.naturalWidth > 0) return;
+      im.classList.add('img-fade');
+      var done = function(){ im.classList.add('loaded'); };
+      im.addEventListener('load', done, {once:true});
+      im.addEventListener('error', done, {once:true});
+    });
   })();
 
   /* Header state */
