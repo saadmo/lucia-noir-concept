@@ -442,6 +442,17 @@ body.menu-open .menu-toggle{display:none}
 .private-cta{margin-top:28px}
 .private-cta .btn{width:100%;min-height:58px}
 .private-cta .textlink{margin-top:0}
+/* Private Dining as a featured card, like the Taste/Events/Room cards. */
+.private-card{position:relative;overflow:hidden;border:1px solid rgba(245,239,227,.16);border-radius:16px;aspect-ratio:4/5;margin:0;width:96vw;margin-left:calc(50% - 48vw)}
+.private-card picture{position:absolute;inset:0}
+.private-card img{width:100%;height:100%;object-fit:cover;display:block}
+.private-card::before{content:"";position:absolute;inset:0;background:linear-gradient(to top, rgba(8,6,4,.92) 0%, rgba(8,6,4,.7) 30%, rgba(8,6,4,.35) 45%, transparent 60%);z-index:1}
+.private-card-body{position:absolute;left:0;bottom:24px;max-width:min(85%,520px);padding:0 0 0 24px;display:flex;flex-direction:column;gap:10px;z-index:2}
+.private-card-cap{font-size:14px;line-height:1.55;color:var(--ivory)}
+.private-card-cap .cap-k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:6px;font-weight:600}
+.private-card-body .private-h{font-size:clamp(24px,6vw,40px);font-weight:400;line-height:1.05;max-width:none;margin:0}
+.private-card-body .private-lede{margin-top:0;font-size:15px;line-height:1.6}
+.private-card-body .textlink{align-self:flex-start;margin-top:6px;color:var(--ivory)}
 /* Private events modal — shell for the Tripleseat lead-form embed.
    The form renders inside #tripleseat-embed once the Tripleseat script
    (Settings -> Lead Forms -> Setup Codes) is pasted there. */
@@ -563,7 +574,7 @@ body.menu-open .menu-toggle{display:none}
   .room-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,360px);gap:48px;align-items:end;margin-bottom:clamp(44px,5vw,72px)}
   .room-title{margin-bottom:0}
   .room-note{margin-bottom:0}
-  .carousel{width:85%;margin-inline:auto}
+  .carousel{width:auto;margin-left:0}
   .carousel .slide{border-radius:16px;aspect-ratio:16/9;max-height:640px}
   .slide figcaption{padding:0 0 0 40px;max-width:min(52%,560px)}
   #room-status{display:none}
@@ -591,7 +602,10 @@ body.menu-open .menu-toggle{display:none}
   .visit-actions .visit-link + .visit-link{border-left:1px solid var(--line-l);padding-left:28px}
   .visit-actions .visit-gift{margin-left:auto;border-left:0;padding-left:0}
 
-  /* Private events: editorial split */
+  /* Private events: featured card, like the carousels */
+  .private-card{aspect-ratio:16/9;max-height:640px;width:auto;margin-left:0}
+  .private-card::before{background:linear-gradient(to right, rgba(8,6,4,.75) 0%, rgba(8,6,4,.45) 32%, rgba(8,6,4,.18) 55%, transparent 72%),linear-gradient(to top, rgba(8,6,4,.92) 0%, rgba(8,6,4,.7) 30%, rgba(8,6,4,.35) 45%, transparent 60%)}
+  .private-card-body{padding:0 0 0 40px;max-width:min(52%,560px);bottom:64px}
   .private-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(44px,5vw,80px);align-items:start}
   .private-figure{margin:0}
   .private-cta .btn{width:auto}
@@ -846,20 +860,16 @@ body.menu-open .menu-toggle{display:none}
 <section class="noir" id="private-events" aria-labelledby="private-h" data-reveal>
   <div class="wrap pad">
     <p class="sec-kicker" aria-hidden="true"><span>05</span><span>Private Dining</span></p>
-    <div class="private-grid">
-      <figure class="private-figure">
-        <picture><source type="image/avif" srcset="assets/private-event-400.avif 400w, assets/private-event-800.avif 800w, assets/private-event-1200.avif 1200w" sizes="(min-width:1024px) 50vw, 100vw"><img src="assets/private-event.webp" alt="Ms. Lauryn Hill performing with a microphone at LUCIA" loading="lazy" decoding="async" width="1200" height="676"></picture>
-        <figcaption><span class="cap-k">Featured past private event</span>Ms. Lauryn Hill&rsquo;s BET Awards afterparty &mdash; live at LUCIA.</figcaption>
-      </figure>
-      <div>
+    <figure class="private-card">
+      <picture><source type="image/avif" srcset="assets/private-event-400.avif 400w, assets/private-event-800.avif 800w, assets/private-event-1200.avif 1200w" sizes="(min-width:1024px) 100vw, 96vw"><img src="assets/private-event.webp" alt="Ms. Lauryn Hill performing with a microphone at LUCIA" loading="lazy" decoding="async" width="1200" height="676"></picture>
+      <div class="private-card-body">
+        <p class="private-card-cap"><span class="cap-k">Featured past private event</span>Ms. Lauryn Hill&rsquo;s BET Awards afterparty &mdash; live at LUCIA.</p>
         <h2 class="private-h" id="private-h">Host your night <em>at LUCIA.</em></h2>
-        <p class="private-lede">Host a private dinner, celebration, or full-venue buyout in one of Los Angeles&rsquo; most distinctive dining rooms. Mondays and Tuesdays, the room is available for private events only.</p>
-        <div class="private-cta">
-          <!-- Tripleseat inquiry form opens in a modal (see #private-modal) -->
-          <button type="button" class="textlink" data-private-modal-open>Plan your private events</button>
-        </div>
+        <!-- Tripleseat inquiry form opens in a modal (see #private-modal) -->
+        <button type="button" class="textlink" data-private-modal-open>Plan your private events</button>
       </div>
-    </div>
+    </figure>
+    <p class="private-lede">Host a private dinner, celebration, or full-venue buyout in one of Los Angeles&rsquo; most distinctive dining rooms. Mondays and Tuesdays, the room is available for private events only.</p>
   </div>
 </section>
 
