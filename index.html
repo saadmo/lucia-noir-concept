@@ -717,24 +717,16 @@ body.menu-open .menu-toggle{display:none}
           <figcaption><span class="n">01</span><span class="t">The entrance</span></figcaption>
         </figure>
         <figure class="slide">
-          <picture><source type="image/avif" srcset="assets/room-table-400.avif 400w, assets/room-table-800.avif 800w, assets/room-table-1080.avif 1080w" sizes="100vw"><img src="assets/room-table.webp" alt="Shared plates and cocktails on a marble table, seen from above" loading="lazy" decoding="async" width="1080" height="810"></picture>
-          <figcaption><span class="n">02</span><span class="t">The table</span></figcaption>
-        </figure>
-        <figure class="slide">
           <picture><source type="image/avif" srcset="assets/room-interior-400.avif 400w, assets/room-interior-800.avif 800w, assets/room-interior-1200.avif 1200w" sizes="100vw"><img src="assets/room-interior.webp" alt="LUCIA's dining room with white ribbed arches, red banquettes, and set tables" loading="lazy" decoding="async" width="1200" height="900"></picture>
-          <figcaption><span class="n">03</span><span class="t">The dining room</span></figcaption>
-        </figure>
-        <figure class="slide">
-          <picture><source type="image/avif" srcset="assets/room-spread-400.avif 400w, assets/room-spread-800.avif 800w, assets/room-spread-1200.avif 1200w" sizes="100vw"><img src="assets/room-spread.webp" alt="A marble table shared with Caribbean dishes, cocktails, and hands reaching in, at LUCIA" loading="lazy" decoding="async" width="1200" height="900"></picture>
-          <figcaption><span class="n">04</span><span class="t">The table, shared</span></figcaption>
+          <figcaption><span class="n">02</span><span class="t">The dining room</span></figcaption>
         </figure>
         <figure class="slide">
           <picture><source type="image/avif" srcset="assets/room-banquette-400.avif 400w, assets/room-banquette-800.avif 800w, assets/room-banquette-1200.avif 1200w" sizes="100vw"><img src="assets/room-banquette.webp" alt="Wide view of LUCIA's dining room with glowing white arches and red banquettes around set tables" loading="lazy" decoding="async" width="1200" height="800"></picture>
-          <figcaption><span class="n">05</span><span class="t">The banquette</span></figcaption>
+          <figcaption><span class="n">03</span><span class="t">The banquette</span></figcaption>
         </figure>
         <figure class="slide">
           <picture><source type="image/avif" srcset="assets/room-bar-400.avif 400w, assets/room-bar-800.avif 800w, assets/room-bar-1200.avif 1200w" sizes="100vw"><img src="assets/room-bar.webp" alt="LUCIA's bar with sculptural white ceiling forms, backlit bottles, and gold bar stools" loading="lazy" decoding="async" width="1200" height="800"></picture>
-          <figcaption><span class="n">06</span><span class="t">The bar</span></figcaption>
+          <figcaption><span class="n">04</span><span class="t">The bar</span></figcaption>
         </figure>
       </div>
       <div class="carousel-controls">
@@ -742,7 +734,7 @@ body.menu-open .menu-toggle{display:none}
         <div class="car-dots" id="room-dots" role="group" aria-label="Choose photo"></div>
         <button class="car-arrow" id="room-next" type="button" aria-label="Next photo">&rarr;</button>
       </div>
-      <p class="carousel-status" id="room-status" aria-live="polite">Photo 1 of 6 &mdash; The entrance</p>
+      <p class="carousel-status" id="room-status" aria-live="polite">Photo 1 of 4 &mdash; The entrance</p>
     </div>
   </div>
 </section>
@@ -1133,7 +1125,7 @@ body.menu-open .menu-toggle{display:none}
         next = document.getElementById('room-next'),
         status = document.getElementById('room-status'),
         idx = 0, raf = 0;
-    var captions = ['The entrance', 'The table', 'The dining room', 'The table, shared', 'The banquette', 'The bar'];
+    var captions = ['The entrance', 'The dining room', 'The banquette', 'The bar'];
     var dots = slides.map(function(s, k){
       var b = document.createElement('button');
       b.type = 'button';
