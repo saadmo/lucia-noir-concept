@@ -7,7 +7,8 @@
 <meta name="theme-color" content="#0D0B08">
 <link rel="icon" href="assets/favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" type="image/png" href="assets/favicon.png">
-<link rel="preload" as="image" href="assets/hero-shells-1600.avif" type="image/avif" imagesrcset="assets/hero-shells-400.avif 400w, assets/hero-shells-800.avif 800w, assets/hero-shells-1600.avif 1600w" imagesizes="(max-width:1023px) 300vw, 100vw" fetchpriority="high">
+<link rel="preload" as="image" media="(max-width: 1023px)" href="assets/hero-shells-m-1600.avif" type="image/avif" imagesrcset="assets/hero-shells-m-400.avif 400w, assets/hero-shells-m-800.avif 800w, assets/hero-shells-m-1600.avif 1600w" imagesizes="100vw" fetchpriority="high">
+<link rel="preload" as="image" media="(min-width: 1024px)" href="assets/hero-shells-1600.avif" type="image/avif" imagesrcset="assets/hero-shells-400.avif 400w, assets/hero-shells-800.avif 800w, assets/hero-shells-1600.avif 1600w" imagesizes="100vw" fetchpriority="high">
 <title>LUCIA — Modern Afro-Caribbean Restaurant in Los Angeles, CA</title>
 <meta name="description" content="LUCIA is a modern Afro-Caribbean restaurant on Fairfax Ave in Los Angeles. Dinner Wed–Sun, 6PM–12AM, 21+ after 8 PM. Reserve your table.">
 <link rel="canonical" href="https://lucia-noir-concept-saadmos-projects.vercel.app/">
@@ -255,23 +256,24 @@ body.menu-open .menu-toggle{display:none}
    from the signature dishes list — the single source of truth. */
 .taste-grid .dish-figure{display:none}
 .taste-grid .sig-list{display:none}
-.taste-carousel{display:block;overflow-x:clip;margin-top:30px}
-.taste-track{display:flex;gap:0;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;padding:2px 0 6px;width:88%;margin-inline:auto}
+.taste-carousel{display:block;overflow-x:clip;margin-top:30px;width:100vw;margin-left:calc(50% - 50vw)}
+.taste-track{display:flex;gap:0;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
 .taste-track::-webkit-scrollbar{display:none}
-.taste-slide{flex:0 0 100%;scroll-snap-align:start;scroll-snap-stop:always;border:1px solid var(--line-d);border-radius:12px;background:var(--noir-2);overflow:hidden;display:flex;flex-direction:column}
+.taste-slide{flex:0 0 100%;scroll-snap-align:start;scroll-snap-stop:always;position:relative;overflow:hidden;display:flex;flex-direction:column}
 .taste-slide picture{display:block}
-.taste-slide img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
-.taste-slide-body{padding:24px;display:flex;flex-direction:column;gap:12px;flex:1}
+.taste-slide img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
+.taste-slide-body{position:absolute;left:0;right:0;bottom:0;display:flex;flex-direction:column;gap:8px;padding:48px 18px 20px;background:linear-gradient(transparent,rgba(8,6,4,.92))}
 .taste-slide-body h3{font-family:var(--font-display);font-size:clamp(26px,7vw,40px);font-weight:400;line-height:1.05;text-wrap:balance}
-.taste-slide-body p{color:var(--ivory-70);font-size:15px;line-height:1.6;flex:1;max-width:var(--measure)}
+.taste-slide-body p{color:var(--ivory-70);font-size:15px;line-height:1.6;flex:none;max-width:var(--measure)}
 /* Trailing spacer is hidden: slides are 100% wide (like the Room
    carousel), so the last slide snaps flush-left with no extra room needed. */
 .taste-spacer{display:none}
 /* VARIANT A — no arrows on mobile: swipe + dots only, same as events.
    Desktop adds prev/next arrows (see min-width:1024px block). */
-.taste-controls{display:flex;justify-content:center;margin-top:18px}
+.taste-controls{display:flex;justify-content:center;margin-top:14px}
 .taste-controls .car-dots button{width:44px;height:44px}
 .taste-controls .car-arrow{display:none}
+#taste-status{display:none}
 
 
 /* ============ THE ROOM ============ */
@@ -316,24 +318,24 @@ body.menu-open .menu-toggle{display:none}
    The two slides duplicate the desktop cards' content — known
    duplication; the final production build would render both from one
    source of truth. */
-.events-carousel{display:block;overflow-x:clip}
-.events-track{display:flex;gap:0;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;padding:2px 0 6px;width:88%;margin-inline:auto}
+.events-carousel{display:block;overflow-x:clip;width:100vw;margin-left:calc(50% - 50vw)}
+.events-track{display:flex;gap:0;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
 .events-track::-webkit-scrollbar{display:none}
-.event-slide{flex:0 0 100%;scroll-snap-align:start;scroll-snap-stop:always;border:1px solid var(--line-d);border-radius:12px;background:var(--noir-2);overflow:hidden;display:flex;flex-direction:column}
+.event-slide{flex:0 0 100%;scroll-snap-align:start;scroll-snap-stop:always;position:relative;overflow:hidden;display:flex;flex-direction:column}
 .event-slide picture{display:block}
-.event-slide img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
-.event-slide-body{padding:24px;display:flex;flex-direction:column;gap:12px;flex:1}
+.event-slide img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
+.event-slide-body{position:absolute;left:0;right:0;bottom:0;display:flex;flex-direction:column;gap:8px;padding:48px 18px 20px;background:linear-gradient(transparent,rgba(8,6,4,.92))}
 .event-slide-body .when{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);line-height:1.7;font-weight:600}
 .event-slide-body h3{font-family:var(--font-display);font-size:clamp(26px,7vw,40px);font-weight:400;line-height:1.05;text-wrap:balance}
-.event-slide-body p{color:var(--ivory-70);font-size:15px;line-height:1.6;flex:1;max-width:var(--measure)}
+.event-slide-body p{color:var(--ivory-70);font-size:15px;line-height:1.6;flex:none;max-width:var(--measure)}
 /* Trailing spacer is hidden: slides are 100% wide (like the Room
    carousel), so the last slide snaps flush-left with no extra room needed. */
 .events-spacer{display:none}
-/* VARIANT A — no arrows on mobile: swipe + dots only. The dots row is
-   centered with generous space below, so the only controls are small,
-   centered dots — no large edge buttons anywhere near the sticky bar. */
-.events-dots-row{display:flex;justify-content:center;margin-top:18px}
-.events-dots-row .car-dots button{width:44px;height:44px}
+/* Controls match the Room carousel: prev / dots / next in one row. */
+.events-controls{display:flex;justify-content:center;margin-top:14px}
+.events-controls .car-dots button{width:44px;height:44px}
+.events-controls .car-arrow{display:none}
+#events-status{display:none}
 .events-figure{overflow:hidden;border-radius:8px;margin:0}
 .events-figure img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
 .event-cards{display:grid;gap:16px}
@@ -488,11 +490,14 @@ body.menu-open .menu-toggle{display:none}
   .dish-figure{margin:0}
   .dish-figure img{aspect-ratio:4/4.4}
   .taste-carousel{display:block}
+  .taste-carousel{width:auto;margin-left:0}
   .taste-track{gap:0;width:auto;margin-inline:0}
-  .taste-slide{flex:0 0 100%;flex-direction:row}
+  .taste-slide{flex:0 0 100%;flex-direction:row;border:1px solid var(--line-d);border-radius:12px;background:var(--noir-2)}
   .taste-slide picture{flex:0 0 50%}
-  .taste-slide-body{justify-content:center}
+  .taste-slide img{aspect-ratio:16/9}
+  .taste-slide-body{position:static;justify-content:center;padding:24px;gap:12px;background:none}
   .taste-slide-body p{flex:none}
+  #taste-status{display:block}
   .taste-spacer{display:none}
   .taste-controls{display:grid;grid-template-columns:52px minmax(0,1fr) 52px;align-items:center;gap:12px}
   .taste-controls .car-arrow{display:block}
@@ -508,11 +513,16 @@ body.menu-open .menu-toggle{display:none}
   /* What's on: one swipable card at a time, like the Room carousel */
   .events-layout{display:none;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(32px,4vw,56px);align-items:stretch}
   .events-carousel{display:block}
-  .event-slide{flex:0 0 100%;flex-direction:row}
+  .events-carousel{width:auto;margin-left:0}
+  .event-slide{flex:0 0 100%;flex-direction:row;border:1px solid var(--line-d);border-radius:12px;background:var(--noir-2)}
   .event-slide picture{flex:0 0 50%}
-  .event-slide-body{justify-content:center}
+  .event-slide img{aspect-ratio:16/9}
+  .event-slide-body{position:static;justify-content:center;padding:24px;gap:12px;background:none}
   .event-slide-body p{flex:none}
   .events-track{gap:0;width:auto;margin-inline:0}
+  .events-controls{display:grid;grid-template-columns:52px minmax(0,1fr) 52px;align-items:center;gap:12px}
+  .events-controls .car-arrow{display:block}
+  #events-status{display:block}
   .events-figure img{aspect-ratio:auto;height:100%}
   .event-cards{grid-template-columns:1fr;gap:16px}
 
@@ -608,7 +618,7 @@ body.menu-open .menu-toggle{display:none}
 <!-- ============ HERO ============ -->
 <header class="hero" id="top">
   <div class="hero-media">
-    <picture><source type="image/avif" srcset="assets/hero-shells-400.avif 400w, assets/hero-shells-800.avif 800w, assets/hero-shells-1600.avif 1600w" sizes="(max-width:1023px) 300vw, 100vw"><img loading="eager" src="assets/hero-shells-1600.webp" alt="LUCIA dining room with glowing shell arches, red banquettes, and bar" fetchpriority="high" decoding="async" width="1600" height="1600"></picture>
+    <picture><source media="(max-width: 1023px)" type="image/avif" srcset="assets/hero-shells-m-400.avif 400w, assets/hero-shells-m-800.avif 800w, assets/hero-shells-m-1600.avif 1600w" sizes="100vw"><source type="image/avif" srcset="assets/hero-shells-400.avif 400w, assets/hero-shells-800.avif 800w, assets/hero-shells-1600.avif 1600w" sizes="100vw"><img loading="eager" src="assets/hero-shells-1600.webp" srcset="assets/hero-shells-m-1600.webp 800w, assets/hero-shells-1600.webp 1600w" sizes="(max-width: 1023px) 100vw, 1600px" alt="LUCIA dining room with glowing shell arches, red banquettes, and bar" fetchpriority="high" decoding="async" width="1600" height="1200"></picture>
   </div>
   <div class="hero-scrim" aria-hidden="true"></div>
   <div class="hero-inner">
@@ -676,10 +686,10 @@ body.menu-open .menu-toggle{display:none}
           <p class="carousel-status" id="taste-status" aria-live="polite">Dish 1 of 4 &mdash; Trini-Chinese Chicken</p>
         </div>
         <ul class="sig-list" aria-label="Signature dishes">
-          <li><picture><source type="image/avif" srcset="assets/dish-trini-chicken-400.avif 400w, assets/dish-trini-chicken-800.avif 800w, assets/dish-trini-chicken-1200.avif 1200w" sizes="(min-width:1024px) 720px, 88vw"><img src="assets/dish-trini-chicken.webp" alt="Trini-Chinese chicken with a soy-ginger glaze, sesame, and garlic, served at LUCIA" loading="lazy" decoding="async" width="1200" height="900"></picture><span class="dish">Trini-Chinese Chicken</span><p class="desc">Malta, ginger, green seasoning, le courage spice blend.</p></li>
-          <li><picture><source type="image/avif" srcset="assets/dish-fish-roast-400.avif 400w, assets/dish-fish-roast-800.avif 800w, assets/dish-fish-roast-1200.avif 1200w" sizes="(min-width:1024px) 720px, 88vw"><img src="assets/dish-fish-roast.webp" alt="Green fig-leaf fish roast in a red sauce with a bright diced salsa, served at LUCIA" loading="lazy" decoding="async" width="1200" height="1600"></picture><span class="dish">Green Fig-Leaf Fish Roast</span><p class="desc">Naranja agria, bell peppers caldo, lime caviar.</p></li>
-          <li><picture><source type="image/avif" srcset="assets/dish-ropa-fina-400.avif 400w, assets/dish-ropa-fina-800.avif 800w, assets/dish-ropa-fina-1200.avif 1200w" sizes="(min-width:1024px) 720px, 88vw"><img src="assets/dish-ropa-fina.webp" alt="Ropa Fina NY strip, sliced, with sorrel pickled red onions and a creamy mash, served at LUCIA" loading="lazy" decoding="async" width="1200" height="900"></picture><span class="dish">Ropa Fina 12oz NY Strip</span><p class="desc">Reca&iacute;to, sorrel pickled red onions, mojo spices.</p></li>
-          <li><picture><source type="image/avif" srcset="assets/dish-crab-patty-400.avif 400w, assets/dish-crab-patty-800.avif 800w, assets/dish-crab-patty-1200.avif 1200w" sizes="(min-width:1024px) 720px, 88vw"><img src="assets/dish-crab-patty.webp" alt="Golden crab and callaloo patties with a dipping sauce, served at LUCIA" loading="lazy" decoding="async" width="1200" height="900"></picture><span class="dish">Crab &amp; Callaloo Patty</span><p class="desc">Served with green papaya kuchela.</p></li>
+          <li><picture><source type="image/avif" srcset="assets/dish-trini-chicken-400.avif 400w, assets/dish-trini-chicken-800.avif 800w, assets/dish-trini-chicken-1200.avif 1200w" sizes="(min-width:1024px) 720px, 100vw"><img src="assets/dish-trini-chicken.webp" alt="Trini-Chinese chicken with a soy-ginger glaze, sesame, and garlic, served at LUCIA" loading="lazy" decoding="async" width="1200" height="900"></picture><span class="dish">Trini-Chinese Chicken</span><p class="desc">Malta, ginger, green seasoning, le courage spice blend.</p></li>
+          <li><picture><source type="image/avif" srcset="assets/dish-fish-roast-400.avif 400w, assets/dish-fish-roast-800.avif 800w, assets/dish-fish-roast-1200.avif 1200w" sizes="(min-width:1024px) 720px, 100vw"><img src="assets/dish-fish-roast.webp" alt="Green fig-leaf fish roast in a red sauce with a bright diced salsa, served at LUCIA" loading="lazy" decoding="async" width="1200" height="1600"></picture><span class="dish">Green Fig-Leaf Fish Roast</span><p class="desc">Naranja agria, bell peppers caldo, lime caviar.</p></li>
+          <li><picture><source type="image/avif" srcset="assets/dish-ropa-fina-400.avif 400w, assets/dish-ropa-fina-800.avif 800w, assets/dish-ropa-fina-1200.avif 1200w" sizes="(min-width:1024px) 720px, 100vw"><img src="assets/dish-ropa-fina.webp" alt="Ropa Fina NY strip, sliced, with sorrel pickled red onions and a creamy mash, served at LUCIA" loading="lazy" decoding="async" width="1200" height="900"></picture><span class="dish">Ropa Fina 12oz NY Strip</span><p class="desc">Reca&iacute;to, sorrel pickled red onions, mojo spices.</p></li>
+          <li><picture><source type="image/avif" srcset="assets/dish-crab-patty-400.avif 400w, assets/dish-crab-patty-800.avif 800w, assets/dish-crab-patty-1200.avif 1200w" sizes="(min-width:1024px) 720px, 100vw"><img src="assets/dish-crab-patty.webp" alt="Golden crab and callaloo patties with a dipping sauce, served at LUCIA" loading="lazy" decoding="async" width="1200" height="900"></picture><span class="dish">Crab &amp; Callaloo Patty</span><p class="desc">Served with green papaya kuchela.</p></li>
         </ul>
         <a class="textlink" href="menus/">See the full menu</a>
       </div>
@@ -769,8 +779,10 @@ body.menu-open .menu-toggle{display:none}
              desktop cards are shown instead. -->
         <div class="events-spacer" aria-hidden="true"></div>
       </div>
-      <div class="events-dots-row">
+      <div class="events-controls">
+        <button class="car-arrow" id="events-prev" type="button" aria-label="Previous event">&larr;</button>
         <div class="car-dots" id="events-dots" role="group" aria-label="Choose event"></div>
+        <button class="car-arrow" id="events-next" type="button" aria-label="Next event">&rarr;</button>
       </div>
       <p class="carousel-status" id="events-status" aria-live="polite">Event 1 of 2 &mdash; Live at LUCIA</p>
     </div>
