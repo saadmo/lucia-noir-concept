@@ -209,6 +209,8 @@ body.menu-open .menu-toggle{display:none}
   .reveal{opacity:0;transform:translateY(32px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
   .reveal.in{opacity:1;transform:none}
   .taste-track,.carousel-track,.events-track{scroll-behavior:smooth}
+  img{animation:img-in .8s ease}
+  @keyframes img-in{from{opacity:0}to{opacity:1}}
 }
 @media (hover:hover) and (min-width:1024px){
   .taste-slide,figure.slide,.event-card{transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
