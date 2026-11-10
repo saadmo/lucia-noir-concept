@@ -133,6 +133,7 @@ p{text-wrap:pretty}
 .btn-ghost-d:hover{border-color:var(--bronze);color:var(--bronze)}
 .btn-sm{padding:12px 26px;min-height:48px}
 .textlink{display:inline-flex;align-items:center;gap:10px;margin-top:30px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px;min-height:44px}
+button.textlink{background:transparent;border:0;padding:0;cursor:pointer;color:inherit;font-family:inherit;text-align:left}
 
 /* ============ HEADER (compact mobile first) ============ */
 .site-head{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 16px;border-bottom:1px solid transparent;transition:background .4s,padding .4s,border-color .4s}
@@ -418,6 +419,31 @@ body.menu-open .menu-toggle{display:none}
 .private-cta{margin-top:28px}
 .private-cta .btn{width:100%;min-height:58px}
 .private-cta .textlink{margin-top:0}
+/* Private events modal — shell for the Tripleseat lead-form embed.
+   The form renders inside #tripleseat-embed once the Tripleseat script
+   (Settings -> Lead Forms -> Setup Codes) is pasted there. */
+.modal-backdrop{position:fixed;inset:0;z-index:2000;display:flex;align-items:flex-end;justify-content:center;background:rgba(8,6,4,.72)}
+.modal-backdrop[hidden]{display:none}
+.modal-panel{position:relative;width:100%;max-width:560px;max-height:88vh;max-height:88dvh;overflow:auto;background:var(--noir-2);color:var(--ivory);border:1px solid rgba(194,146,46,.35);border-radius:16px 16px 0 0;padding:28px 22px calc(28px + env(safe-area-inset-bottom,0px));box-shadow:0 24px 64px rgba(0,0,0,.6)}
+.modal-panel h2{font-family:var(--font-display);font-weight:300;font-size:28px;letter-spacing:-.01em;line-height:1.15;margin:0 44px 6px 0}
+.modal-sub{color:var(--ivory-70);font-size:15px;line-height:1.55;margin:0 0 20px}
+.modal-close{position:absolute;top:14px;right:14px;width:44px;height:44px;border:1px solid var(--ivory-30);border-radius:50%;background:transparent;color:var(--ivory);font-size:26px;line-height:1;cursor:pointer}
+.modal-close:hover{border-color:var(--ivory)}
+.modal-placeholder{border:1px dashed var(--ivory-30);border-radius:12px;padding:28px 18px;text-align:center;color:var(--ivory-70);font-size:14px;line-height:1.55;margin:0}
+/* Mockup of the Tripleseat lead form (stand-in until the real embed lands). */
+.mock-form label{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--ivory-70);margin-bottom:14px}
+.mock-form input,.mock-form select,.mock-form textarea{display:block;width:100%;margin-top:6px;background:var(--noir-3);border:1px solid var(--ivory-30);border-radius:10px;color:var(--ivory);font-family:var(--font-body);font-size:15px;padding:13px 14px;min-height:48px}
+.mock-form input:focus,.mock-form select:focus,.mock-form textarea:focus{outline:none;border-color:var(--gold)}
+.mock-form textarea{resize:vertical;min-height:96px}
+.mock-form select{appearance:none;-webkit-appearance:none}
+.mock-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.mock-submit{width:100%;min-height:56px;margin-top:6px}
+.mock-note{color:var(--ivory-50);font-size:12px;line-height:1.5;text-align:center;margin:14px 0 0}
+@media (min-width:1024px){
+  .modal-backdrop{align-items:center;padding:24px}
+  .modal-panel{border-radius:16px;padding:32px 32px 36px}
+  .modal-panel h2{font-size:32px}
+}
 
 
 /* ============ STICKY MOBILE BAR (Reserve only) ============
@@ -607,8 +633,8 @@ body.menu-open .menu-toggle{display:none}
   </ol>
   <!-- PLACEHOLDER: swap href for LUCIA's official Resy page when confirmed -->
   <a class="btn btn-red" href="https://resy.com/cities/los-angeles-ca/venues/lucia-ca" target="_blank" rel="noopener noreferrer">Reserve a table<span class="sr-only"> (opens in new tab)</span></a>
-  <!-- PLACEHOLDER: swap href for LUCIA's official Tripleseat inquiry form when confirmed -->
-  <a class="textlink" href="https://349351nfairfaxllc.tripleseat.com/party_request/42802" target="_blank" rel="noopener noreferrer">Plan a private event<span class="sr-only"> (opens in new tab)</span></a>
+  <!-- Tripleseat inquiry form opens in a modal (see #private-modal) -->
+  <button type="button" class="textlink" data-private-modal-open>Plan a private event</button>
 </div>
 
 <noscript>
@@ -814,8 +840,8 @@ body.menu-open .menu-toggle{display:none}
         <h2 class="private-h" id="private-h">Host your night <em>at LUCIA.</em></h2>
         <p class="private-lede">Host a private dinner, celebration, or full-venue buyout in one of Los Angeles&rsquo; most distinctive dining rooms. Mondays and Tuesdays, the room is available for private events only.</p>
         <div class="private-cta">
-          <!-- PLACEHOLDER: swap href for LUCIA's official Tripleseat inquiry form when confirmed -->
-          <a class="textlink" href="https://349351nfairfaxllc.tripleseat.com/party_request/42802" target="_blank" rel="noopener noreferrer">Plan your private events<span class="sr-only"> (opens in new tab)</span></a>
+          <!-- Tripleseat inquiry form opens in a modal (see #private-modal) -->
+          <button type="button" class="textlink" data-private-modal-open>Plan your private events</button>
         </div>
       </div>
     </div>
@@ -886,6 +912,67 @@ body.menu-open .menu-toggle{display:none}
 <div class="stickybar" id="stickybar" role="region" aria-label="Quick actions" inert>
   <!-- PLACEHOLDER: swap href for LUCIA's official Resy page when confirmed -->
   <a class="btn btn-red" href="https://resy.com/cities/los-angeles-ca/venues/lucia-ca" target="_blank" rel="noopener noreferrer">Reserve a table<span class="sr-only"> (opens in new tab)</span></a>
+</div>
+
+<!-- ============ PRIVATE EVENTS MODAL (Tripleseat lead-form shell) ============ -->
+<!-- To wire up the form: in Tripleseat go to Settings -> Lead Forms -> Setup Codes,
+     copy the embed <script src="https://api.tripleseat.com/v1/leads/ts_script.js?lead_form_id=...&public_key=...">
+     and paste it inside #tripleseat-embed below (add &inline_form=true for the
+     mobile-friendly layout). The form renders there; submissions land in Tripleseat
+     as leads. Remove the .modal-placeholder paragraph once the form renders. -->
+<div class="modal-backdrop" id="private-modal" hidden>
+  <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="private-modal-h">
+    <button type="button" class="modal-close" id="private-modal-close" aria-label="Close private events form">&times;</button>
+    <h2 id="private-modal-h">Plan your private event</h2>
+    <p class="modal-sub">Host a private dinner, celebration, or full-venue buyout at LUCIA.</p>
+    <div id="tripleseat-embed">
+      <!-- MOCKUP ONLY: a stand-in for the Tripleseat lead form, built from the
+           fields Tripleseat collects for a private-event inquiry (name, contact,
+           date, party size, event type, time, budget, details). The real form's
+           exact fields are whatever Danica configured in Tripleseat — replace
+           this whole block with the real embed script when she shares it. -->
+      <form class="mock-form" id="private-mock-form" action="#" method="post">
+        <div class="mock-row">
+          <label>First name<input type="text" name="first_name" autocomplete="given-name" required></label>
+          <label>Last name<input type="text" name="last_name" autocomplete="family-name" required></label>
+        </div>
+        <label>Email<input type="email" name="email" autocomplete="email" required></label>
+        <label>Phone<input type="tel" name="phone" autocomplete="tel"></label>
+        <div class="mock-row">
+          <label>Event date<input type="date" name="event_date" required></label>
+          <label>Guests<input type="number" name="guests" min="1" max="200" placeholder="e.g. 40" required></label>
+        </div>
+        <label>Event type
+          <select name="event_type" required>
+            <option value="" selected>Select an event type</option>
+            <option>Birthday</option>
+            <option>Celebration</option>
+            <option>Corporate dinner</option>
+            <option>Full-venue buyout</option>
+            <option>Wedding</option>
+            <option>Other</option>
+          </select>
+        </label>
+        <div class="mock-row">
+          <label>Start time<input type="time" name="start_time"></label>
+          <label>End time<input type="time" name="end_time"></label>
+        </div>
+        <label>Budget
+          <select name="budget">
+            <option value="" selected>Select a budget range</option>
+            <option>Under $2,500</option>
+            <option>$2,500 &ndash; $5,000</option>
+            <option>$5,000 &ndash; $10,000</option>
+            <option>$10,000+</option>
+            <option>Prefer not to say</option>
+          </select>
+        </label>
+        <label>Tell us more<textarea name="details" rows="4" placeholder="Occasion, music, dietary needs, anything else that matters."></textarea></label>
+        <button type="submit" class="btn btn-red mock-submit">Send inquiry</button>
+        <p class="mock-note">Mockup &mdash; the real Tripleseat form will appear here once its embed code is added.</p>
+      </form>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -966,6 +1053,52 @@ body.menu-open .menu-toggle{display:none}
   });
   window.addEventListener('resize', function(){
     if (!mobileMQ.matches && toggle.getAttribute('aria-expanded') === 'true') setMenu(false, false);
+  });
+
+  /* Private events modal (Tripleseat lead-form shell): opens from the
+     "Plan your private events" / "Plan a private event" buttons. Escape,
+     the close button, or a backdrop click closes it; focus is trapped
+     inside while open and returns to the trigger on close. The Tripleseat
+     form renders inside #tripleseat-embed once its script is pasted there. */
+  var pModal = document.getElementById('private-modal'),
+      pClose = document.getElementById('private-modal-close'),
+      pLastTrigger = null;
+  function pFocusables(){
+    return Array.prototype.slice.call(pModal.querySelectorAll('a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])')).filter(function(el){
+      return el.offsetWidth > 0 || el.offsetHeight > 0 || el.getClientRects().length > 0;
+    });
+  }
+  function openPrivateModal(trigger){
+    if (!pModal) return;
+    pLastTrigger = trigger || null;
+    if (toggle.getAttribute('aria-expanded') === 'true') setMenu(false, false);
+    pModal.hidden = false;
+    document.body.style.overflow = 'hidden';
+    if (pClose) pClose.focus();
+  }
+  function closePrivateModal(){
+    if (!pModal || pModal.hidden) return;
+    pModal.hidden = true;
+    document.body.style.overflow = '';
+    if (pLastTrigger) pLastTrigger.focus();
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('[data-private-modal-open]'), function(btn){
+    btn.addEventListener('click', function(){ openPrivateModal(btn); });
+  });
+  /* Mock form only: stop the stand-in form from submitting anywhere. */
+  var mockForm = document.getElementById('private-mock-form');
+  if (mockForm) mockForm.addEventListener('submit', function(e){ e.preventDefault(); });
+  if (pClose) pClose.addEventListener('click', closePrivateModal);
+  if (pModal) pModal.addEventListener('click', function(e){ if (e.target === pModal) closePrivateModal(); });
+  document.addEventListener('keydown', function(e){
+    if (!pModal || pModal.hidden) return;
+    if (e.key === 'Escape'){ e.preventDefault(); closePrivateModal(); return; }
+    if (e.key === 'Tab'){
+      var f = pFocusables(), first = f[0], last = f[f.length - 1];
+      if (!first || !last) return;
+      if (e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+    }
   });
 
   /* "More" dropdown (desktop nav): opens on hover, click, or keyboard
