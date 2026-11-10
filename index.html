@@ -88,7 +88,7 @@
   --t-hero:clamp(64px,19vw,176px);
   --t-display:clamp(34px,8vw,76px);
   --t-h2:clamp(28px,7vw,56px);
-  --pad-sec:clamp(64px,12vw,132px);
+  --pad-sec:clamp(64px,10vw,104px);
   --measure:44ch;
 }
 *{margin:0;padding:0;box-sizing:border-box}
@@ -214,8 +214,6 @@ body.menu-open .menu-toggle{display:none}
   img{animation:img-in .8s ease}
   @keyframes img-in{from{opacity:0}to{opacity:1}}
 }
-/* Consistent warm noir grade across all photography */
-.taste-slide img,.dish-figure img,#room-track img,.events-figure img,.private-figure img{filter:sepia(.14) contrast(1.05) saturate(1.05)}
 /* Mobile hero: solid dark band behind the CTAs (option 4), longer band, CTAs lower */
 @media (max-width:1023px){
   .hero-scrim{background:linear-gradient(to bottom,rgba(26,16,8,0) 0%,rgba(26,16,8,0) 75%,rgba(13,11,8,1) 80.7%,rgba(13,11,8,1) 100%)}
@@ -229,9 +227,9 @@ body.menu-open .menu-toggle{display:none}
 .btn:active{transform:scale(.95)}
 
 /* ============ ABOUT ============ */
-.about-title{font-family:var(--font-display);font-weight:300;font-size:var(--t-display);line-height:.95;letter-spacing:-.015em;text-wrap:balance;margin-bottom:26px}
+.about-title{font-family:var(--font-display);font-weight:300;font-size:var(--t-display);line-height:.95;letter-spacing:-.015em;text-wrap:balance;margin-bottom:0}
 .about-lead{font-family:var(--font-display);font-size:clamp(21px,5.6vw,38px);line-height:1.35;font-weight:300;max-width:30ch;text-wrap:balance}
-.about-body{margin-top:22px;max-width:var(--measure);color:rgba(13,11,8,.74)}
+.about-body{margin-top:20px;max-width:var(--measure);color:rgba(13,11,8,.72)}
 .about-body p+p{margin-top:16px}
 .about-press{display:flex;align-items:center;gap:16px;margin-top:36px;padding-top:28px;border-top:1px solid var(--line-l)}
 .about-press img{width:64px;height:auto;flex:none}
@@ -304,9 +302,9 @@ body.menu-open .menu-toggle{display:none}
 .carousel-track::-webkit-scrollbar{display:none}
 .carousel .slide{position:relative;overflow:hidden;border-radius:0;margin:0;flex:0 0 100%;scroll-snap-align:start;scroll-snap-stop:always}
 .carousel .slide img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5}
-.slide figcaption{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:48px 18px 16px;background:linear-gradient(transparent,rgba(8,6,4,.9));color:var(--ivory)}
+.slide figcaption{position:absolute;left:0;right:0;bottom:0;display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:48px 18px 20px;background:linear-gradient(transparent,rgba(8,6,4,.9));color:var(--ivory)}
 .slide figcaption .n{font-size:12px;letter-spacing:.14em;color:var(--gold);font-weight:600}
-.slide figcaption .t{font-family:var(--font-display);font-style:italic;font-weight:300;font-size:18px}
+.slide figcaption .t{font-family:var(--font-display);font-weight:400;font-size:clamp(26px,7vw,40px);line-height:1.05;text-wrap:balance}
 .car-arrow{width:52px;height:52px;border:1px solid var(--line-d);border-radius:50%;background:transparent;color:var(--ivory);font-size:18px;cursor:pointer;transition:border-color var(--dur-s)}
 .car-arrow:hover{border-color:var(--gold)}
 .car-arrow:disabled{opacity:.3;cursor:default}
@@ -317,7 +315,13 @@ body.menu-open .menu-toggle{display:none}
 .carousel-status{margin-top:14px;color:var(--ivory-50);font-size:13px}
 
 /* ============ WHAT'S ON (recurring programming) ============ */
-.events-intro{max-width:var(--measure);color:var(--ivory-70);margin:0 0 32px}
+.events-intro{max-width:var(--measure);color:var(--ivory-70);margin:20px 0 32px}
+/* What's On is ivory: the intro and carousel controls need dark colours,
+   while the event cards stay dark (noir-2) so their ivory text still reads. */
+#events .events-intro{color:rgba(13,11,8,.72)}
+#events .event-card h3,#events .event-slide h3{color:var(--ivory)}
+#events .car-arrow{color:var(--noir);border-color:var(--line-l)}
+#events .car-dots button::before{background:rgba(13,11,8,.25)}
 .events-layout{display:none}
 /* ============ WHAT'S ON — MOBILE CAROUSEL ============
    Mobile shows a swipeable carousel of one combined card per event
@@ -356,7 +360,6 @@ body.menu-open .menu-toggle{display:none}
 /* ============ VISIT ============ */
 /* Visit: four-column plan-your-visit (desktop),
    stacked disclosures with map on mobile. */
-#visit .pad{padding-top:36px;padding-bottom:40px}
 .visit-addr{font-family:var(--font-display);font-weight:300;font-size:clamp(28px,4vw,32px);line-height:1.05;letter-spacing:-.01em;text-wrap:balance;margin-bottom:8px}
 .visit-addr em{font-style:italic;color:var(--bronze)}
 .visit-city{font-size:15px;line-height:1.6;color:rgba(13,11,8,.72)}
@@ -477,7 +480,7 @@ body.menu-open .menu-toggle{display:none}
    these rules only add the wide compositions.
    ================================================================ */
 @media (min-width:1024px){
-  :root{--measure:66ch;--pad-sec:clamp(76px,9vw,132px)}
+  :root{--measure:66ch;--pad-sec:clamp(72px,8vw,104px)}
   .wrap{max-width:1400px;padding-left:clamp(20px,4vw,48px);padding-right:clamp(20px,4vw,48px)}
 
   /* Header: full nav + one Reserve CTA (Menus lives in the nav — no duplicate) */
@@ -565,7 +568,6 @@ body.menu-open .menu-toggle{display:none}
   .event-cards{grid-template-columns:1fr;gap:16px}
 
   /* Visit: four-column plan-your-visit */
-  #visit .pad{padding-top:56px;padding-bottom:64px}
   .visit-map iframe{height:160px}
   .visit-cols{grid-template-columns:repeat(4,1fr);gap:28px}
   .visit-col{padding-top:0}
@@ -775,10 +777,10 @@ body.menu-open .menu-toggle{display:none}
 </section>
 
 <!-- ============ WHAT'S ON ============ -->
-<section class="noir" id="events" aria-labelledby="events-h" data-reveal>
+<section class="ivory" id="events" aria-labelledby="events-h" data-reveal>
   <div class="wrap pad">
     <p class="sec-kicker" aria-hidden="true"><span>04</span><span>What&rsquo;s On</span></p>
-    <h2 class="sec-h" id="events-h" style="margin-bottom:18px">What&rsquo;s on</h2>
+    <h2 class="sec-h" id="events-h">What&rsquo;s on</h2>
     <p class="events-intro">Two nights a week, the dining room turns the music up: live R&amp;B on Wednesdays, dinner and rotating DJs on Thursdays.</p>
     <!-- No booking buttons on event cards — booking lives in the header and sticky bar -->
     <div class="events-layout">
