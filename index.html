@@ -270,14 +270,14 @@ body.menu-open .menu-toggle{display:none}
    from the signature dishes list — the single source of truth. */
 .taste-grid .dish-figure{display:none}
 .taste-grid .sig-list{display:none}
-.taste-carousel{position:relative;display:block;overflow-x:clip;margin-top:30px;width:96vw;margin-left:calc(50% - 48vw)}
+.taste-carousel{position:relative;display:block;overflow-x:clip;margin-top:32px;width:96vw;margin-left:calc(50% - 48vw)}
 .taste-track{display:flex;gap:0;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
 .taste-track::-webkit-scrollbar{display:none}
 /* Featured card: photo fills the card, text overlaid on the left, dots centred at the bottom of the card. */
 .taste-slide{flex:0 0 100%;scroll-snap-align:start;scroll-snap-stop:always;position:relative;overflow:hidden;display:flex;flex-direction:column;border-radius:16px;border:1px solid rgba(245,239,227,.16);aspect-ratio:4/5}
 .taste-slide picture{position:absolute;inset:0;display:block}
 .taste-slide img{display:block;width:100%;height:100%;object-fit:cover}
-.taste-slide::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(8,6,4,.92) 0%,rgba(8,6,4,.7) 30%,rgba(8,6,4,.35) 45%,transparent 60%)}
+.taste-slide::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(8,6,4,.92) 0%,rgba(8,6,4,.7) 12%,rgba(8,6,4,.35) 18%,transparent 25%)}
 .taste-slide-body{position:absolute;left:0;bottom:64px;max-width:min(85%,520px);padding:0 0 0 24px;display:flex;flex-direction:column;gap:10px;background:none;z-index:2}
 .taste-slide-body h3{font-family:var(--font-display);font-size:clamp(24px,6vw,40px);font-weight:400;line-height:1.05;text-wrap:balance;color:var(--ivory)}
 .taste-slide-body p{color:var(--ivory-70);font-size:15px;line-height:1.6;flex:none;max-width:var(--measure)}
@@ -294,11 +294,12 @@ body.menu-open .menu-toggle{display:none}
 
 
 /* ============ THE ROOM ============ */
-.room-title{font-family:var(--font-display);font-weight:300;font-size:var(--t-display);line-height:1;max-width:16ch;text-wrap:balance;margin-bottom:24px}
+.room-title{font-family:var(--font-display);font-weight:300;font-size:var(--t-display);line-height:1;max-width:16ch;text-wrap:balance;margin-bottom:0}
 .room-note{border-top:1px solid var(--line-d);padding-top:20px;margin-bottom:36px}
 .room-note .label{display:block;color:var(--ivory-70);line-height:1.8;margin-bottom:20px;max-width:var(--measure);font-size:13px;letter-spacing:.12em}
 .room-desc{color:var(--ivory-70);font-size:15px;line-height:1.6;max-width:var(--measure)}
-.room-head .room-desc{margin-top:16px}
+.room-head .room-desc{margin-top:20px}
+.room-head{margin-bottom:32px}
 /* Accessible carousel: native swipe + buttons + dots + arrow keys + live region */
 .carousel{position:relative;overflow-x:clip;width:96vw;margin-left:calc(50% - 48vw)}
 /* Overflow fix: the controls grid's middle column (dots) must be allowed
@@ -318,7 +319,7 @@ body.menu-open .menu-toggle{display:none}
 .carousel .slide{position:relative;overflow:hidden;border-radius:16px;border:1px solid rgba(245,239,227,.16);margin:0;flex:0 0 100%;scroll-snap-align:start;scroll-snap-stop:always;aspect-ratio:4/5}
 .carousel .slide picture{position:absolute;inset:0;display:block}
 .carousel .slide img{width:100%;height:100%;object-fit:cover}
-.carousel .slide::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(8,6,4,.92) 0%,rgba(8,6,4,.7) 30%,rgba(8,6,4,.35) 45%,transparent 60%)}
+.carousel .slide::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(8,6,4,.92) 0%,rgba(8,6,4,.7) 12%,rgba(8,6,4,.35) 18%,transparent 25%)}
 .slide figcaption{position:absolute;left:0;bottom:64px;max-width:min(85%,520px);padding:0 0 0 24px;display:flex;flex-direction:column;align-items:flex-start;gap:4px;background:none;color:var(--ivory);z-index:2}
 .slide figcaption .n{font-size:12px;letter-spacing:.14em;color:var(--gold);font-weight:600}
 .slide figcaption .t{font-family:var(--font-display);font-weight:400;font-size:clamp(24px,6vw,40px);line-height:1.05;text-wrap:balance}
@@ -355,7 +356,7 @@ body.menu-open .menu-toggle{display:none}
 .event-slide{flex:0 0 100%;scroll-snap-align:start;scroll-snap-stop:always;position:relative;overflow:hidden;display:flex;flex-direction:column;border-radius:16px;border:1px solid rgba(245,239,227,.16);aspect-ratio:4/5}
 .event-slide picture{position:absolute;inset:0;display:block}
 .event-slide img{display:block;width:100%;height:100%;object-fit:cover}
-.event-slide::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(8,6,4,.92) 0%,rgba(8,6,4,.7) 30%,rgba(8,6,4,.35) 45%,transparent 60%)}
+.event-slide::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(8,6,4,.92) 0%,rgba(8,6,4,.7) 12%,rgba(8,6,4,.35) 18%,transparent 25%)}
 .event-slide-body{position:absolute;left:0;bottom:64px;max-width:min(85%,520px);padding:0 0 0 24px;display:flex;flex-direction:column;gap:10px;background:none;z-index:2}
 .event-slide-body .when{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);line-height:1.7;font-weight:600;white-space:nowrap}
 .event-slide-body h3{font-family:var(--font-display);font-size:clamp(24px,6vw,40px);font-weight:400;line-height:1.05;text-wrap:balance}
@@ -437,9 +438,9 @@ body.menu-open .menu-toggle{display:none}
 .private-figure img{width:100%;aspect-ratio:4/4.2;object-fit:cover}
 .private-figure figcaption{position:absolute;left:0;right:0;bottom:0;padding:48px 20px 18px;background:linear-gradient(transparent,rgba(8,6,4,.9));font-size:14px;line-height:1.55;color:var(--ivory)}
 .private-figure figcaption .cap-k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:6px;font-weight:600}
-.private-h{font-family:var(--font-display);font-weight:300;font-size:var(--t-display);line-height:.95;max-width:12ch;text-wrap:balance}
+.private-h{font-family:var(--font-display);font-weight:300;font-size:var(--t-display);line-height:.95;max-width:12ch;text-wrap:balance;margin-bottom:0}
 .private-h em{font-style:italic;color:var(--gold)}
-.private-lede{margin-top:20px;color:var(--ivory-70);max-width:var(--measure)}
+.private-lede{margin:20px 0 32px;color:var(--ivory-70);max-width:var(--measure)}
 .private-cta{margin-top:28px}
 .private-cta .btn{width:100%;min-height:58px}
 .private-cta .textlink{margin-top:0}
@@ -447,7 +448,7 @@ body.menu-open .menu-toggle{display:none}
 .private-card{position:relative;overflow:hidden;border:1px solid rgba(245,239,227,.16);border-radius:16px;aspect-ratio:4/5;margin:0;width:96vw;margin-left:calc(50% - 48vw)}
 .private-card picture{position:absolute;inset:0}
 .private-card img{width:100%;height:100%;object-fit:cover;display:block}
-.private-card::before{content:"";position:absolute;inset:0;background:linear-gradient(to top, rgba(8,6,4,.92) 0%, rgba(8,6,4,.7) 30%, rgba(8,6,4,.35) 45%, transparent 60%);z-index:1}
+.private-card::before{content:"";position:absolute;inset:0;background:linear-gradient(to top, rgba(8,6,4,.92) 0%, rgba(8,6,4,.7) 12%, rgba(8,6,4,.35) 18%, transparent 25%);z-index:1}
 .private-card-body{position:absolute;left:0;bottom:24px;max-width:min(85%,520px);padding:0 0 0 24px;display:flex;flex-direction:column;gap:10px;z-index:2}
 .private-card-cap{font-size:14px;line-height:1.55;color:var(--ivory)}
 .private-card-cap .cap-k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:6px;font-weight:600}
@@ -570,9 +571,8 @@ body.menu-open .menu-toggle{display:none}
   .taste-controls,.events-controls,.carousel-controls{position:absolute;top:50%;left:16px;right:16px;transform:translateY(-50%);display:flex;justify-content:space-between;z-index:4;pointer-events:none}
   #taste .taste-controls .car-arrow,#events .events-controls .car-arrow,#room .carousel-controls .car-arrow{display:block;pointer-events:auto;background:rgba(8,6,4,.55);color:var(--ivory);border-color:rgba(245,239,227,.6)}
 
-
   /* Room: heading row + gallery */
-  .room-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,360px);gap:48px;align-items:end;margin-bottom:clamp(44px,5vw,72px)}
+  .room-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,360px);gap:48px;align-items:end;margin-bottom:32px}
   .room-title{margin-bottom:0}
   .room-note{margin-bottom:0}
   .carousel{width:auto;margin-left:0}
@@ -590,7 +590,7 @@ body.menu-open .menu-toggle{display:none}
   .events-track{gap:0;width:auto;margin-inline:0}
   #events-status{display:none}
   /* Desktop keeps the left-side gradient too (the bottom-only fade is mobile-only). */
-  .taste-slide::before,.event-slide::before,.carousel .slide::before{background:linear-gradient(90deg,rgba(8,6,4,.88) 0%,rgba(8,6,4,.62) 42%,rgba(8,6,4,.22) 68%,rgba(8,6,4,.06) 100%),linear-gradient(to top,rgba(8,6,4,.6) 0%,transparent 40%)}
+  .taste-slide::before,.event-slide::before,.carousel .slide::before{background:linear-gradient(to top,rgba(8,6,4,.92) 0%,rgba(8,6,4,.7) 12%,rgba(8,6,4,.35) 18%,transparent 25%)}
   .events-figure img{aspect-ratio:auto;height:100%}
   .event-cards{grid-template-columns:1fr;gap:16px}
 
@@ -605,12 +605,12 @@ body.menu-open .menu-toggle{display:none}
 
   /* Private events: featured card, like the carousels */
   .private-card{aspect-ratio:auto;height:640px;width:auto;margin-left:0}
-  .private-card::before{background:linear-gradient(to right, rgba(8,6,4,.75) 0%, rgba(8,6,4,.45) 32%, rgba(8,6,4,.18) 55%, transparent 72%),linear-gradient(to top, rgba(8,6,4,.92) 0%, rgba(8,6,4,.7) 30%, rgba(8,6,4,.35) 45%, transparent 60%)}
+  .private-card::before{background:linear-gradient(to top, rgba(8,6,4,.92) 0%, rgba(8,6,4,.7) 12%, rgba(8,6,4,.35) 18%, transparent 25%)}
   .private-card-body{padding:0 0 0 40px;max-width:min(52%,560px);bottom:64px}
   .private-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(44px,5vw,80px);align-items:start}
   .private-figure{margin:0}
   .private-cta .btn{width:auto}
-  .private-h{max-width:9ch}
+  .private-h{max-width:none}
 
 }
 
@@ -861,16 +861,16 @@ body.menu-open .menu-toggle{display:none}
 <section class="noir" id="private-events" aria-labelledby="private-h" data-reveal>
   <div class="wrap pad">
     <p class="sec-kicker" aria-hidden="true"><span>05</span><span>Private Dining</span></p>
+    <h2 class="private-h" id="private-h">Host your night <em>at LUCIA.</em></h2>
+    <p class="private-lede">Host a private dinner, celebration, or full-venue buyout in one of Los Angeles&rsquo; most distinctive dining rooms. Mondays and Tuesdays, the room is available for private events only.</p>
     <figure class="private-card">
       <picture><source type="image/avif" srcset="assets/private-event-400.avif 400w, assets/private-event-800.avif 800w, assets/private-event-1200.avif 1200w" sizes="(min-width:1024px) 100vw, 96vw"><img src="assets/private-event.webp" alt="Ms. Lauryn Hill performing with a microphone at LUCIA" loading="lazy" decoding="async" width="1200" height="676"></picture>
       <div class="private-card-body">
-        <h2 class="private-h" id="private-h">Host your night <em>at LUCIA.</em></h2>
         <p class="private-card-cap"><span class="cap-k">Featured past private event</span>Ms. Lauryn Hill&rsquo;s BET Awards afterparty &mdash; live at LUCIA.</p>
         <!-- Tripleseat inquiry form opens in a modal (see #private-modal) -->
         <button type="button" class="textlink" data-private-modal-open>Plan your private events</button>
       </div>
     </figure>
-    <p class="private-lede">Host a private dinner, celebration, or full-venue buyout in one of Los Angeles&rsquo; most distinctive dining rooms. Mondays and Tuesdays, the room is available for private events only.</p>
   </div>
 </section>
 
