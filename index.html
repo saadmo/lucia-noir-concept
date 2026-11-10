@@ -256,7 +256,7 @@ body.menu-open .menu-toggle{display:none}
    from the signature dishes list — the single source of truth. */
 .taste-grid .dish-figure{display:none}
 .taste-grid .sig-list{display:none}
-.taste-carousel{display:block;overflow-x:clip;margin-top:30px;width:100vw;margin-left:calc(50% - 50vw)}
+.taste-carousel{display:block;overflow-x:clip;margin-top:30px;width:96vw;margin-left:calc(50% - 48vw)}
 .taste-track{display:flex;gap:0;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
 .taste-track::-webkit-scrollbar{display:none}
 .taste-slide{flex:0 0 100%;scroll-snap-align:start;scroll-snap-stop:always;position:relative;overflow:hidden;display:flex;flex-direction:column}
@@ -283,14 +283,16 @@ body.menu-open .menu-toggle{display:none}
 .room-desc{color:var(--ivory-70);font-size:15px;line-height:1.6;max-width:var(--measure)}
 .room-head .room-desc{margin-top:16px}
 /* Accessible carousel: native swipe + buttons + dots + arrow keys + live region */
-.carousel{position:relative;overflow-x:clip}
+.carousel{position:relative;overflow-x:clip;width:96vw;margin-left:calc(50% - 48vw)}
 /* Overflow fix: the controls grid's middle column (dots) must be allowed
    to shrink below its content width, or at narrow widths the grid's
    min-content pushes the next button past the viewport and the document
    scrolls sideways. The clip on the carousel wrappers is a safety net:
    nothing inside a carousel may extend the document. The tracks still
    scroll internally (they are their own scroll containers). */
-.carousel-controls{display:grid;grid-template-columns:52px minmax(0,1fr) 52px;align-items:center;gap:12px;margin-top:18px}
+.carousel-controls{display:flex;justify-content:center;margin-top:14px}
+.carousel-controls .car-arrow{display:none}
+#room-status{display:none}
 .carousel-track{display:flex;gap:0;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;border-radius:8px;overscroll-behavior-x:contain}
 .carousel-track::-webkit-scrollbar{display:none}
 .carousel .slide{position:relative;overflow:hidden;border-radius:0;margin:0;flex:0 0 100%;scroll-snap-align:start;scroll-snap-stop:always}
@@ -318,7 +320,7 @@ body.menu-open .menu-toggle{display:none}
    The two slides duplicate the desktop cards' content — known
    duplication; the final production build would render both from one
    source of truth. */
-.events-carousel{display:block;overflow-x:clip;width:100vw;margin-left:calc(50% - 50vw)}
+.events-carousel{display:block;overflow-x:clip;width:96vw;margin-left:calc(50% - 48vw)}
 .events-track{display:flex;gap:0;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
 .events-track::-webkit-scrollbar{display:none}
 .event-slide{flex:0 0 100%;scroll-snap-align:start;scroll-snap-stop:always;position:relative;overflow:hidden;display:flex;flex-direction:column}
@@ -507,8 +509,12 @@ body.menu-open .menu-toggle{display:none}
   .room-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,360px);gap:48px;align-items:end;margin-bottom:clamp(44px,5vw,72px)}
   .room-title{margin-bottom:0}
   .room-note{margin-bottom:0}
+  .carousel{width:auto;margin-left:0}
   .carousel .slide{border-radius:8px}
   .carousel .slide img{aspect-ratio:16/9;max-height:78vh}
+  .carousel-controls{display:grid;grid-template-columns:52px minmax(0,1fr) 52px;align-items:center;gap:12px}
+  .carousel-controls .car-arrow{display:block}
+  #room-status{display:block}
 
   /* What's on: one swipable card at a time, like the Room carousel */
   .events-layout{display:none;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(32px,4vw,56px);align-items:stretch}
