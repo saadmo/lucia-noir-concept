@@ -7,7 +7,7 @@
 <meta name="theme-color" content="#0D0B08">
 <link rel="icon" href="assets/favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" type="image/png" href="assets/favicon.png">
-<link rel="preload" as="image" href="assets/hero-1080.avif" type="image/avif" imagesrcset="assets/hero-400.avif 400w, assets/hero-800.avif 800w, assets/hero-1080.avif 1080w" imagesizes="(max-width:1023px) 300vw, 100vw" fetchpriority="high">
+<link rel="preload" as="image" href="assets/hero-kitchen-800.avif" type="image/avif" imagesrcset="assets/hero-kitchen-400.avif 400w, assets/hero-kitchen-800.avif 800w" imagesizes="(max-width:1023px) 300vw, 100vw" fetchpriority="high">
 <title>LUCIA — Modern Afro-Caribbean Restaurant in Los Angeles, CA</title>
 <meta name="description" content="LUCIA is a modern Afro-Caribbean restaurant on Fairfax Ave in Los Angeles. Dinner Wed–Sun, 6PM–12AM, 21+ after 8 PM. Reserve your table.">
 <link rel="canonical" href="https://lucia-noir-concept-saadmos-projects.vercel.app/">
@@ -196,7 +196,7 @@ body.menu-open .menu-toggle{display:none}
 .hero-scroll{position:absolute;z-index:2;left:50%;bottom:18px;transform:translateX(-50%);display:grid;justify-items:center;gap:8px;color:var(--ivory-70)}
 .hero-scroll::after{content:"";width:1px;height:28px;background:linear-gradient(var(--gold),transparent)}
 /* Mobile: scroll cue sits in flow under View menus */
-@media (max-width:1023px){.hero-scroll{position:static;left:auto;bottom:auto;transform:none;margin-top:56px}.hero-media img{object-position:18% 32%}}
+@media (max-width:1023px){.hero-scroll{position:static;left:auto;bottom:auto;transform:none;margin-top:56px}.hero-scroll span{display:none}.hero-media img{object-position:100% 40%}}
 
 /* ============ MOTION (restrained; disabled under reduced-motion) ============ */
 @media (prefers-reduced-motion: no-preference){
@@ -625,7 +625,7 @@ body.menu-open .menu-toggle{display:none}
 <!-- ============ HERO ============ -->
 <header class="hero" id="top">
   <div class="hero-media">
-    <picture><source type="image/avif" srcset="assets/hero-400.avif 400w, assets/hero-800.avif 800w, assets/hero-1080.avif 1080w" sizes="(max-width:1023px) 300vw, 100vw"><img loading="eager" src="assets/hero.webp" alt="LUCIA dining room with glowing white arches, red banquettes, and set tables" fetchpriority="high" decoding="async" width="1080" height="810"></picture>
+    <picture><source type="image/avif" srcset="assets/hero-kitchen-400.avif 400w, assets/hero-kitchen-800.avif 800w" sizes="(max-width:1023px) 300vw, 100vw"><img loading="eager" src="assets/hero-kitchen.webp" alt="LUCIA dining room with glowing shell, red banquette, and open kitchen" fetchpriority="high" decoding="async" width="800" height="800"></picture>
   </div>
   <div class="hero-scrim" aria-hidden="true"></div>
   <div class="hero-inner">
@@ -634,7 +634,7 @@ body.menu-open .menu-toggle{display:none}
       <a class="btn btn-red" href="https://resy.com/cities/los-angeles-ca/venues/lucia-ca" target="_blank" rel="noopener noreferrer">Reserve a table<span class="sr-only"> (opens in new tab)</span></a>
       <a class="textlink" href="menus/">View menus</a>
     </div>
-    <p class="hero-scroll label" aria-hidden="true">Scroll</p>
+    <p class="hero-scroll label" aria-hidden="true"><span>Scroll</span></p>
   </div>
 </header>
 
