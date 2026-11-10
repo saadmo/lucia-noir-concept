@@ -117,7 +117,7 @@ a{color:inherit}
 .ivory .sec-kicker::after{background:rgba(13,11,8,.2)}
 
 /* Buttons: color/border feedback only — no lifts, no shadows. 48px+ targets. */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:16px 30px;border-radius:100px;min-height:52px;min-width:48px;border:1px solid transparent;cursor:pointer;transition:background var(--dur-s),border-color var(--dur-s),color var(--dur-s)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:16px 30px;border-radius:100px;min-height:52px;min-width:48px;border:1px solid transparent;cursor:pointer;transition:background var(--dur-s),border-color var(--dur-s),color var(--dur-s),transform var(--dur-s)}
 .btn-gold{background:var(--gold);color:var(--noir)}
 .btn-gold:hover{background:#D8B96F}
 .btn-red{background:var(--red);color:#fff}
@@ -152,7 +152,7 @@ a{color:inherit}
 .menu-close:hover{border-color:var(--gold);color:var(--gold)}
 .mobile-menu ol{list-style:none;border-top:1px solid var(--line-d);margin-bottom:24px}
 .mobile-menu li a{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:1px solid var(--line-d);text-decoration:none;min-height:56px}
-.mobile-menu .name{font-family:var(--font-display);font-size:clamp(24px,7.5vw,36px);font-weight:300;line-height:1.1}
+.mobile-menu .name{font-family:var(--font-display);font-size:clamp(22px,6.5vw,32px);font-weight:300;line-height:1.1}
 .mobile-menu .arr{color:var(--ivory-50)}
 .mobile-menu .btn{margin-top:auto;width:100%;min-height:60px;font-size:13px}
 .mobile-menu .btn + .btn{margin-top:12px}
@@ -194,6 +194,18 @@ body.menu-open .menu-toggle{display:none}
 .hero-scroll::after{content:"";width:1px;height:28px;background:linear-gradient(var(--gold),transparent)}
 /* Mobile: scroll cue sits in flow under View menus */
 @media (max-width:1023px){.hero-scroll{position:static;left:auto;bottom:auto;transform:none;margin-top:56px}.hero-media img{object-position:18% 32%}}
+
+/* ============ MOTION (restrained; disabled under reduced-motion) ============ */
+@media (prefers-reduced-motion: no-preference){
+  .hero-media img{animation:hero-drift 36s ease-in-out infinite alternate}
+  @keyframes hero-drift{from{transform:scale(1)}to{transform:scale(1.06)}}
+  .hero-scroll{animation:scroll-pulse 2.4s ease-in-out infinite}
+  @keyframes scroll-pulse{0%,100%{opacity:.7}50%{opacity:1}}
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+  .taste-track,.carousel-track,.events-track{scroll-behavior:smooth}
+}
+.btn:active{transform:scale(.97)}
 
 /* ============ ABOUT ============ */
 .about-title{font-family:var(--font-display);font-weight:300;font-size:var(--t-display);line-height:.95;letter-spacing:-.015em;text-wrap:balance;margin-bottom:26px}
@@ -618,7 +630,7 @@ body.menu-open .menu-toggle{display:none}
 </header>
 
 <!-- ============ ABOUT ============ -->
-<section class="ivory" id="about" aria-labelledby="about-h">
+<section class="ivory" id="about" aria-labelledby="about-h" data-reveal>
   <div class="wrap pad">
     <p class="sec-kicker" aria-hidden="true"><span>01</span><span>About</span></p>
     <div class="about-grid">
@@ -633,7 +645,7 @@ body.menu-open .menu-toggle{display:none}
 </section>
 
 <!-- ============ TASTE (editorial) ============ -->
-<section class="noir" id="taste" aria-labelledby="taste-h">
+<section class="noir" id="taste" aria-labelledby="taste-h" data-reveal>
   <div class="wrap pad">
     <p class="sec-kicker" aria-hidden="true"><span>02</span><span>Taste</span></p>
     <div class="taste-grid">
@@ -680,7 +692,7 @@ body.menu-open .menu-toggle{display:none}
 </section>
 
 <!-- ============ THE ROOM ============ -->
-<section class="noir" id="room" aria-labelledby="room-h">
+<section class="noir" id="room" aria-labelledby="room-h" data-reveal>
   <div class="wrap pad">
     <p class="sec-kicker" aria-hidden="true"><span>03</span><span>The Room</span></p>
     <div class="room-head">
@@ -727,7 +739,7 @@ body.menu-open .menu-toggle{display:none}
 </section>
 
 <!-- ============ WHAT'S ON ============ -->
-<section class="noir" id="events" aria-labelledby="events-h">
+<section class="noir" id="events" aria-labelledby="events-h" data-reveal>
   <div class="wrap pad">
     <p class="sec-kicker" aria-hidden="true"><span>04</span><span>What&rsquo;s On</span></p>
     <h2 class="sec-h" id="events-h" style="margin-bottom:18px">What&rsquo;s on</h2>
@@ -778,7 +790,7 @@ body.menu-open .menu-toggle{display:none}
 </section>
 
 <!-- ============ PRIVATE EVENTS ============ -->
-<section class="noir" id="private-events" aria-labelledby="private-h">
+<section class="noir" id="private-events" aria-labelledby="private-h" data-reveal>
   <div class="wrap pad">
     <p class="sec-kicker" aria-hidden="true"><span>05</span><span>Private Dining</span></p>
     <div class="private-grid">
@@ -799,7 +811,7 @@ body.menu-open .menu-toggle{display:none}
 </section>
 
 <!-- ============ RECOGNITION ============ -->
-<section class="noir" id="recognized" aria-labelledby="recognized-h">
+<section class="noir" id="recognized" aria-labelledby="recognized-h" data-reveal>
   <div class="wrap pad">
     <p class="sec-kicker" aria-hidden="true"><span>06</span><span>Recognition</span></p>
     <h2 class="sec-h" id="recognized-h">Recognition</h2>
@@ -827,7 +839,7 @@ body.menu-open .menu-toggle{display:none}
 </section>
 
 <!-- ============ VISIT ============ -->
-<section class="ivory" id="visit" aria-label="Plan your visit">
+<section class="ivory" id="visit" aria-label="Plan your visit" data-reveal>
   <div class="wrap pad visit-pad">
     <p class="sec-kicker" aria-hidden="true"><span>07</span><span>Visit</span></p>
     <div class="visit-cols">
@@ -897,6 +909,23 @@ body.menu-open .menu-toggle{display:none}
   "use strict";
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var mobileMQ = window.matchMedia('(max-width: 1023px)');
+
+  /* Scroll reveals (progressive enhancement: no-JS and reduced-motion stay visible) */
+  (function(){
+    if (reduceMotion || !('IntersectionObserver' in window)) return;
+    var els = document.querySelectorAll('[data-reveal]');
+    els.forEach(function(el){
+      var r = el.getBoundingClientRect();
+      if (r.top < innerHeight && r.bottom > 0) return; /* already in view: leave visible */
+      el.classList.add('reveal');
+    });
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, {threshold:.12});
+    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  })();
 
   /* Header state */
   var head = document.getElementById('site-head');
