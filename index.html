@@ -359,7 +359,7 @@ body.menu-open .menu-toggle{display:none}
 .event-slide-body .when{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);line-height:1.7;font-weight:600;white-space:nowrap}
 .event-slide-body h3{font-family:var(--font-display);font-size:clamp(24px,6vw,40px);font-weight:400;line-height:1.05;text-wrap:balance}
 .event-slide-body p{color:var(--ivory-70);font-size:15px;line-height:1.6;flex:none;max-width:var(--measure)}
-.event-slide-body .btn{align-self:flex-start;margin-top:6px}
+.event-slide-body .textlink{align-self:flex-start;margin-top:6px;color:var(--ivory)}
 /* Trailing spacer is hidden: slides are 100% wide (like the Room
    carousel), so the last slide snaps flush-left with no extra room needed. */
 .events-spacer{display:none}
@@ -554,7 +554,9 @@ body.menu-open .menu-toggle{display:none}
   .taste-slide-body p{flex:none}
   #taste-status{display:none}
   .taste-spacer{display:none}
-  .taste-controls{display:none}
+  /* Desktop: arrows back, as side arrows on the card (mobile stays dots-only). */
+  .taste-controls,.events-controls,.carousel-controls{position:absolute;top:50%;left:16px;right:16px;transform:translateY(-50%);display:flex;justify-content:space-between;z-index:4;pointer-events:none}
+  #taste .taste-controls .car-arrow,#events .events-controls .car-arrow,#room .carousel-controls .car-arrow{display:block;pointer-events:auto;background:rgba(8,6,4,.55);color:var(--ivory);border-color:rgba(245,239,227,.6)}
 
 
   /* Room: heading row + gallery */
@@ -564,7 +566,6 @@ body.menu-open .menu-toggle{display:none}
   .carousel{width:85%;margin-inline:auto}
   .carousel .slide{border-radius:16px;aspect-ratio:16/9;max-height:640px}
   .slide figcaption{padding:0 0 0 40px;max-width:min(52%,560px)}
-  .carousel-controls{display:none}
   #room-status{display:none}
 
   /* What's on: one swipable card at a time, like the Room carousel */
@@ -575,7 +576,6 @@ body.menu-open .menu-toggle{display:none}
   .event-slide-body{padding:0 0 0 40px;max-width:min(52%,560px)}
   .event-slide-body p{flex:none}
   .events-track{gap:0;width:auto;margin-inline:0}
-  .events-controls{display:none}
   #events-status{display:none}
   /* Desktop keeps the left-side gradient too (the bottom-only fade is mobile-only). */
   .taste-slide::before,.event-slide::before,.carousel .slide::before{background:linear-gradient(90deg,rgba(8,6,4,.88) 0%,rgba(8,6,4,.62) 42%,rgba(8,6,4,.22) 68%,rgba(8,6,4,.06) 100%),linear-gradient(to top,rgba(8,6,4,.6) 0%,transparent 40%)}
@@ -1332,7 +1332,7 @@ body.menu-open .menu-toggle{display:none}
       d.innerHTML = desc.innerHTML;
       body.appendChild(d);
       var a = document.createElement('a');
-      a.className = 'btn btn-red btn-sm';
+      a.className = 'textlink';
       a.href = 'https://resy.com/cities/los-angeles-ca/venues/lucia-ca';
       a.textContent = 'Reserve now';
       body.appendChild(a);
