@@ -281,6 +281,7 @@ body.menu-open .menu-toggle{display:none}
 .taste-slide-body{position:absolute;left:0;bottom:64px;max-width:min(85%,520px);padding:0 0 0 24px;display:flex;flex-direction:column;gap:10px;background:none;z-index:2}
 .taste-slide-body h3{font-family:var(--font-display);font-size:clamp(24px,6vw,40px);font-weight:400;line-height:1.05;text-wrap:balance;color:var(--ivory)}
 .taste-slide-body p{color:var(--ivory-70);font-size:15px;line-height:1.6;flex:none;max-width:var(--measure)}
+.taste-slide-body .textlink{align-self:flex-start;margin-top:6px;color:var(--ivory)}
 /* Trailing spacer is hidden: slides are 100% wide (like the Room
    carousel), so the last slide snaps flush-left with no extra room needed. */
 .taste-spacer{display:none}
@@ -603,7 +604,7 @@ body.menu-open .menu-toggle{display:none}
   .visit-actions .visit-gift{margin-left:auto;border-left:0;padding-left:0}
 
   /* Private events: featured card, like the carousels */
-  .private-card{aspect-ratio:16/9;max-height:640px;width:auto;margin-left:0}
+  .private-card{aspect-ratio:auto;height:640px;width:auto;margin-left:0}
   .private-card::before{background:linear-gradient(to right, rgba(8,6,4,.75) 0%, rgba(8,6,4,.45) 32%, rgba(8,6,4,.18) 55%, transparent 72%),linear-gradient(to top, rgba(8,6,4,.92) 0%, rgba(8,6,4,.7) 30%, rgba(8,6,4,.35) 45%, transparent 60%)}
   .private-card-body{padding:0 0 0 40px;max-width:min(52%,560px);bottom:64px}
   .private-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(44px,5vw,80px);align-items:start}
@@ -863,8 +864,8 @@ body.menu-open .menu-toggle{display:none}
     <figure class="private-card">
       <picture><source type="image/avif" srcset="assets/private-event-400.avif 400w, assets/private-event-800.avif 800w, assets/private-event-1200.avif 1200w" sizes="(min-width:1024px) 100vw, 96vw"><img src="assets/private-event.webp" alt="Ms. Lauryn Hill performing with a microphone at LUCIA" loading="lazy" decoding="async" width="1200" height="676"></picture>
       <div class="private-card-body">
-        <p class="private-card-cap"><span class="cap-k">Featured past private event</span>Ms. Lauryn Hill&rsquo;s BET Awards afterparty &mdash; live at LUCIA.</p>
         <h2 class="private-h" id="private-h">Host your night <em>at LUCIA.</em></h2>
+        <p class="private-card-cap"><span class="cap-k">Featured past private event</span>Ms. Lauryn Hill&rsquo;s BET Awards afterparty &mdash; live at LUCIA.</p>
         <!-- Tripleseat inquiry form opens in a modal (see #private-modal) -->
         <button type="button" class="textlink" data-private-modal-open>Plan your private events</button>
       </div>
@@ -1429,6 +1430,11 @@ body.menu-open .menu-toggle{display:none}
       var d = document.createElement('p');
       d.textContent = desc.textContent.trim();
       body.appendChild(d);
+      var a = document.createElement('a');
+      a.className = 'textlink';
+      a.href = 'menus/';
+      a.textContent = 'View full menu';
+      body.appendChild(a);
       slide.appendChild(body);
       if (spacer) track.insertBefore(slide, spacer);
       else track.appendChild(slide);
