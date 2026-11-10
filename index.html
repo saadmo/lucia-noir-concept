@@ -173,7 +173,8 @@ body.menu-open .menu-toggle{display:none}
 .hero{position:relative;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;background:var(--noir-3);min-height:100svh}
 .hero-media{position:absolute;inset:0}
 .hero-media img{width:100%;height:100%;object-fit:cover;object-position:center 32%}
-.hero-scrim{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,16,8,.58) 0%,rgba(26,16,8,0) 16%,rgba(26,16,8,0) 52%,rgba(26,16,8,.42) 70%,rgba(26,16,8,.88) 100%)}
+.hero-scrim{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,16,8,.55) 0%,rgba(26,16,8,0) 14%,rgba(26,16,8,0) 52%,rgba(26,16,8,.60) 62%,rgba(26,16,8,.85) 100%)}
+@media (max-height:700px){.hero-scrim{background:linear-gradient(to bottom,rgba(26,16,8,.55) 0%,rgba(26,16,8,0) 14%,rgba(26,16,8,0) 42%,rgba(26,16,8,.85) 52%,rgba(26,16,8,.90) 100%)}}
 /* One scrim on all viewports — it passes 4.5:1 for the hero text on mobile and desktop */
 .hero-inner{position:relative;z-index:2;text-align:center;padding:72px 20px 48px;width:100%;max-width:1000px}
 .hero .kicker{justify-content:center;color:var(--ivory)}
@@ -183,7 +184,7 @@ body.menu-open .menu-toggle{display:none}
 .hero .kicker::after{flex:none;width:44px}
 .hero h1{font-family:var(--font-display);font-weight:400;font-size:var(--t-hero);line-height:.92;letter-spacing:.08em;padding-left:.08em;color:var(--ivory);text-wrap:balance}
 /* Operational facts sit directly under the hero line — no scrolling to find them */
-.hero-facts{list-style:none;display:flex;flex-direction:column;align-items:center;gap:4px;margin-top:22px;color:var(--ivory);font-size:13px;letter-spacing:.1em;text-transform:uppercase;line-height:1.8}
+.hero-facts{list-style:none;display:flex;flex-direction:column;align-items:center;gap:4px;margin-top:30px;color:var(--ivory);font-size:13px;letter-spacing:.1em;text-transform:uppercase;line-height:1.8}
 .hero-facts{text-shadow:0 1px 10px rgba(0,0,0,.5)}
 .hero-ctas{display:flex;flex-direction:column;gap:12px;margin-top:30px;align-items:stretch}
 .hero-ctas .btn{min-height:58px;width:100%}
@@ -191,7 +192,7 @@ body.menu-open .menu-toggle{display:none}
 .hero-scroll{position:absolute;z-index:2;left:50%;bottom:18px;transform:translateX(-50%);display:grid;justify-items:center;gap:8px;color:var(--ivory-70)}
 .hero-scroll::after{content:"";width:1px;height:28px;background:linear-gradient(var(--gold),transparent)}
 /* No scroll cue below the desktop layout — it overlaps the stacked CTAs */
-@media (max-width:1023px){.hero-scroll{display:none}}
+@media (max-width:1023px){.hero-scroll{display:none}.hero-media img{object-position:18% 32%}}
 
 /* ============ ABOUT ============ */
 .about-title{font-family:var(--font-display);font-weight:300;font-size:var(--t-display);line-height:.95;letter-spacing:-.015em;text-wrap:balance;margin-bottom:26px}
@@ -601,7 +602,7 @@ body.menu-open .menu-toggle{display:none}
 <!-- ============ HERO ============ -->
 <header class="hero" id="top">
   <div class="hero-media">
-    <picture><source type="image/avif" srcset="assets/hero-400.avif 400w, assets/hero-800.avif 800w, assets/hero-1080.avif 1080w" sizes="(max-width:1023px) 300vw, 100vw"><img loading="eager" src="assets/hero.webp" alt="LUCIA dining room with sculptural white arches and red banquettes" fetchpriority="high" decoding="async" width="1080" height="810"></picture>
+    <picture><source type="image/avif" srcset="assets/hero-400.avif 400w, assets/hero-800.avif 800w, assets/hero-1080.avif 1080w" sizes="(max-width:1023px) 300vw, 100vw"><img loading="eager" src="assets/hero.webp" alt="LUCIA dining room with glowing white arches, red banquettes, and set tables" fetchpriority="high" decoding="async" width="1080" height="810"></picture>
   </div>
   <div class="hero-scrim" aria-hidden="true"></div>
   <div class="hero-inner">
@@ -716,11 +717,11 @@ body.menu-open .menu-toggle{display:none}
           <figcaption><span class="n">04</span><span class="t">The table, shared</span></figcaption>
         </figure>
         <figure class="slide">
-          <picture><source type="image/avif" srcset="assets/room-banquette-400.avif 400w, assets/room-banquette-800.avif 800w, assets/room-banquette-1200.avif 1200w" sizes="100vw"><img src="assets/room-banquette.webp" alt="A red curved banquette with two set round tables and black stools, beneath white ribbed arches at LUCIA" loading="lazy" decoding="async" width="1200" height="1800"></picture>
+          <picture><source type="image/avif" srcset="assets/room-banquette-400.avif 400w, assets/room-banquette-800.avif 800w, assets/room-banquette-1200.avif 1200w" sizes="100vw"><img src="assets/room-banquette.webp" alt="Wide view of LUCIA's dining room with glowing white arches and red banquettes around set tables" loading="lazy" decoding="async" width="1200" height="800"></picture>
           <figcaption><span class="n">05</span><span class="t">The banquette</span></figcaption>
         </figure>
         <figure class="slide">
-          <picture><source type="image/avif" srcset="assets/room-bar-400.avif 400w, assets/room-bar-800.avif 800w, assets/room-bar-1200.avif 1200w" sizes="100vw"><img src="assets/room-bar.webp" alt="LUCIA's curved white bar with gold bar stools and backlit bottles beneath sculptural arches" loading="lazy" decoding="async" width="1200" height="1800"></picture>
+          <picture><source type="image/avif" srcset="assets/room-bar-400.avif 400w, assets/room-bar-800.avif 800w, assets/room-bar-1200.avif 1200w" sizes="100vw"><img src="assets/room-bar.webp" alt="LUCIA's bar with sculptural white ceiling forms, backlit bottles, and gold bar stools" loading="lazy" decoding="async" width="1200" height="800"></picture>
           <figcaption><span class="n">06</span><span class="t">The bar</span></figcaption>
         </figure>
       </div>
