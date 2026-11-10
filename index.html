@@ -196,15 +196,15 @@ body.menu-open .menu-toggle{display:none}
 
 /* ============ MOTION (restrained; disabled under reduced-motion) ============ */
 @media (prefers-reduced-motion: no-preference){
-  .hero-media img{animation:hero-drift 20s ease-in-out infinite alternate}
-  @keyframes hero-drift{from{transform:scale(1)}to{transform:scale(1.08)}}
-  .hero-scroll{animation:scroll-pulse 2.4s ease-in-out infinite}
-  @keyframes scroll-pulse{0%,100%{opacity:.7}50%{opacity:1}}
-  .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+  .hero-media img{animation:hero-drift 12s ease-in-out infinite alternate}
+  @keyframes hero-drift{from{transform:scale(1)}to{transform:scale(1.12)}}
+  .hero-scroll{animation:scroll-pulse 1.8s ease-in-out infinite}
+  @keyframes scroll-pulse{0%,100%{opacity:.5}50%{opacity:1}}
+  .reveal{opacity:0;transform:translateY(32px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
   .reveal.in{opacity:1;transform:none}
   .taste-track,.carousel-track,.events-track{scroll-behavior:smooth}
 }
-.btn:active{transform:scale(.97)}
+.btn:active{transform:scale(.95)}
 
 /* ============ ABOUT ============ */
 .about-title{font-family:var(--font-display);font-weight:300;font-size:var(--t-display);line-height:.95;letter-spacing:-.015em;text-wrap:balance;margin-bottom:26px}
