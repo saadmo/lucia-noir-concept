@@ -277,15 +277,15 @@ body.menu-open .menu-toggle{display:none}
 .taste-slide{flex:0 0 100%;scroll-snap-align:start;scroll-snap-stop:always;position:relative;overflow:hidden;display:flex;flex-direction:column;border-radius:16px;border:1px solid rgba(245,239,227,.16);aspect-ratio:4/5}
 .taste-slide picture{position:absolute;inset:0;display:block}
 .taste-slide img{display:block;width:100%;height:100%;object-fit:cover}
-.taste-slide::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(8,6,4,.88) 0%,rgba(8,6,4,.62) 42%,rgba(8,6,4,.22) 68%,rgba(8,6,4,.06) 100%),linear-gradient(to top,rgba(8,6,4,.6) 0%,transparent 40%)}
-.taste-slide-body{position:absolute;left:0;top:50%;transform:translateY(-50%);max-width:min(64%,520px);padding:0 0 0 24px;display:flex;flex-direction:column;gap:10px;background:none;z-index:2}
-.taste-slide-body h3{font-family:var(--font-display);font-size:clamp(26px,7vw,40px);font-weight:400;line-height:1.05;text-wrap:balance;color:var(--ivory)}
+.taste-slide::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(8,6,4,.92) 0%,rgba(8,6,4,.7) 30%,rgba(8,6,4,.35) 45%,transparent 60%)}
+.taste-slide-body{position:absolute;left:0;bottom:64px;max-width:min(85%,520px);padding:0 0 0 24px;display:flex;flex-direction:column;gap:10px;background:none;z-index:2}
+.taste-slide-body h3{font-family:var(--font-display);font-size:clamp(24px,6vw,40px);font-weight:400;line-height:1.05;text-wrap:balance;color:var(--ivory)}
 .taste-slide-body p{color:var(--ivory-70);font-size:15px;line-height:1.6;flex:none;max-width:var(--measure)}
 /* Trailing spacer is hidden: slides are 100% wide (like the Room
    carousel), so the last slide snaps flush-left with no extra room needed. */
 .taste-spacer{display:none}
 /* Dots sit on the card, centred at the bottom; arrows + status hidden (dots-only, like the reference). */
-#taste-dots{position:absolute;left:50%;transform:translateX(-50%);bottom:16px;z-index:3}
+#taste-dots{position:absolute;left:50%;transform:translateX(-50%);bottom:10px;z-index:3}
 .taste-controls{display:none}
 .taste-controls .car-dots button{width:44px;height:44px}
 .taste-controls .car-arrow{display:none}
@@ -306,16 +306,21 @@ body.menu-open .menu-toggle{display:none}
    scrolls sideways. The clip on the carousel wrappers is a safety net:
    nothing inside a carousel may extend the document. The tracks still
    scroll internally (they are their own scroll containers). */
-.carousel-controls{display:flex;justify-content:center;margin-top:14px}
+/* Dots sit on the card, centred at the bottom; arrows + status hidden (dots-only, like Taste/Events). */
+#room-dots{position:absolute;left:50%;transform:translateX(-50%);bottom:10px;z-index:3}
+.carousel-controls{display:none}
 .carousel-controls .car-arrow{display:none}
 #room-status{display:none}
-.carousel-track{display:flex;gap:0;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;border-radius:8px;overscroll-behavior-x:contain}
+.carousel-track{display:flex;gap:0;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
 .carousel-track::-webkit-scrollbar{display:none}
-.carousel .slide{position:relative;overflow:hidden;border-radius:0;margin:0;flex:0 0 100%;scroll-snap-align:start;scroll-snap-stop:always}
-.carousel .slide img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5}
-.slide figcaption{position:absolute;left:0;right:0;bottom:0;display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:48px 18px 20px;background:linear-gradient(transparent,rgba(8,6,4,.9));color:var(--ivory)}
+/* Featured card, same as Taste/Events: photo fills the card, caption at the bottom left, dots centred at the bottom of the card. */
+.carousel .slide{position:relative;overflow:hidden;border-radius:16px;border:1px solid rgba(245,239,227,.16);margin:0;flex:0 0 100%;scroll-snap-align:start;scroll-snap-stop:always;aspect-ratio:4/5}
+.carousel .slide picture{position:absolute;inset:0;display:block}
+.carousel .slide img{width:100%;height:100%;object-fit:cover}
+.carousel .slide::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(8,6,4,.92) 0%,rgba(8,6,4,.7) 30%,rgba(8,6,4,.35) 45%,transparent 60%)}
+.slide figcaption{position:absolute;left:0;bottom:64px;max-width:min(85%,520px);padding:0 0 0 24px;display:flex;flex-direction:column;align-items:flex-start;gap:4px;background:none;color:var(--ivory);z-index:2}
 .slide figcaption .n{font-size:12px;letter-spacing:.14em;color:var(--gold);font-weight:600}
-.slide figcaption .t{font-family:var(--font-display);font-weight:400;font-size:clamp(26px,7vw,40px);line-height:1.05;text-wrap:balance}
+.slide figcaption .t{font-family:var(--font-display);font-weight:400;font-size:clamp(24px,6vw,40px);line-height:1.05;text-wrap:balance}
 .car-arrow{width:52px;height:52px;border:1px solid var(--line-d);border-radius:50%;background:transparent;color:var(--ivory);font-size:18px;cursor:pointer;transition:border-color var(--dur-s)}
 .car-arrow:hover{border-color:var(--gold)}
 .car-arrow:disabled{opacity:.3;cursor:default}
@@ -349,17 +354,17 @@ body.menu-open .menu-toggle{display:none}
 .event-slide{flex:0 0 100%;scroll-snap-align:start;scroll-snap-stop:always;position:relative;overflow:hidden;display:flex;flex-direction:column;border-radius:16px;border:1px solid rgba(245,239,227,.16);aspect-ratio:4/5}
 .event-slide picture{position:absolute;inset:0;display:block}
 .event-slide img{display:block;width:100%;height:100%;object-fit:cover}
-.event-slide::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(8,6,4,.88) 0%,rgba(8,6,4,.62) 42%,rgba(8,6,4,.22) 68%,rgba(8,6,4,.06) 100%),linear-gradient(to top,rgba(8,6,4,.6) 0%,transparent 40%)}
-.event-slide-body{position:absolute;left:0;top:50%;transform:translateY(-50%);max-width:min(64%,520px);padding:0 0 0 24px;display:flex;flex-direction:column;gap:10px;background:none;z-index:2}
-.event-slide-body .when{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);line-height:1.7;font-weight:600}
-.event-slide-body h3{font-family:var(--font-display);font-size:clamp(26px,7vw,40px);font-weight:400;line-height:1.05;text-wrap:balance}
+.event-slide::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(8,6,4,.92) 0%,rgba(8,6,4,.7) 30%,rgba(8,6,4,.35) 45%,transparent 60%)}
+.event-slide-body{position:absolute;left:0;bottom:64px;max-width:min(85%,520px);padding:0 0 0 24px;display:flex;flex-direction:column;gap:10px;background:none;z-index:2}
+.event-slide-body .when{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);line-height:1.7;font-weight:600;white-space:nowrap}
+.event-slide-body h3{font-family:var(--font-display);font-size:clamp(24px,6vw,40px);font-weight:400;line-height:1.05;text-wrap:balance}
 .event-slide-body p{color:var(--ivory-70);font-size:15px;line-height:1.6;flex:none;max-width:var(--measure)}
 .event-slide-body .btn{align-self:flex-start;margin-top:6px}
 /* Trailing spacer is hidden: slides are 100% wide (like the Room
    carousel), so the last slide snaps flush-left with no extra room needed. */
 .events-spacer{display:none}
 /* Dots sit on the card, centred at the bottom; arrows + status hidden (dots-only, like the reference). */
-#events-dots{position:absolute;left:50%;transform:translateX(-50%);bottom:16px;z-index:3}
+#events-dots{position:absolute;left:50%;transform:translateX(-50%);bottom:10px;z-index:3}
 .events-controls{display:none}
 .events-controls .car-dots button{width:44px;height:44px}
 .events-controls .car-arrow{display:none}
@@ -557,11 +562,10 @@ body.menu-open .menu-toggle{display:none}
   .room-title{margin-bottom:0}
   .room-note{margin-bottom:0}
   .carousel{width:85%;margin-inline:auto}
-  .carousel .slide{border-radius:8px}
-  .carousel .slide img{aspect-ratio:16/9;max-height:78vh}
-  .carousel-controls{display:grid;grid-template-columns:52px minmax(0,1fr) 52px;align-items:center;gap:12px}
-  .carousel-controls .car-arrow{display:block}
-  #room-status{display:block}
+  .carousel .slide{border-radius:16px;aspect-ratio:16/9;max-height:640px}
+  .slide figcaption{padding:0 0 0 40px;max-width:min(52%,560px)}
+  .carousel-controls{display:none}
+  #room-status{display:none}
 
   /* What's on: one swipable card at a time, like the Room carousel */
   .events-layout{display:none;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(32px,4vw,56px);align-items:stretch}
@@ -573,6 +577,8 @@ body.menu-open .menu-toggle{display:none}
   .events-track{gap:0;width:auto;margin-inline:0}
   .events-controls{display:none}
   #events-status{display:none}
+  /* Desktop keeps the left-side gradient too (the bottom-only fade is mobile-only). */
+  .taste-slide::before,.event-slide::before,.carousel .slide::before{background:linear-gradient(90deg,rgba(8,6,4,.88) 0%,rgba(8,6,4,.62) 42%,rgba(8,6,4,.22) 68%,rgba(8,6,4,.06) 100%),linear-gradient(to top,rgba(8,6,4,.6) 0%,transparent 40%)}
   .events-figure img{aspect-ratio:auto;height:100%}
   .event-cards{grid-template-columns:1fr;gap:16px}
 
@@ -735,9 +741,9 @@ body.menu-open .menu-toggle{display:none}
           <p class="carousel-status" id="taste-status" aria-live="polite">Dish 1 of 4 &mdash; Trini-Chinese Chicken</p>
         </div>
         <ul class="sig-list" aria-label="Signature dishes">
-          <li><picture><source type="image/avif" srcset="assets/dish-trini-chicken-400.avif 400w, assets/dish-trini-chicken-800.avif 800w, assets/dish-trini-chicken-1200.avif 1200w" sizes="(min-width:1024px) 720px, 100vw"><img src="assets/dish-trini-chicken.webp" alt="Trini-Chinese chicken with a soy-ginger glaze, sesame, and garlic, served at LUCIA" loading="lazy" decoding="async" width="1200" height="900"></picture><span class="dish">Trini-Chinese Chicken</span><p class="desc">Malta, ginger, green seasoning, le courage spice blend.</p></li>
-          <li><picture><source type="image/avif" srcset="assets/dish-fish-roast-400.avif 400w, assets/dish-fish-roast-800.avif 800w, assets/dish-fish-roast-1200.avif 1200w" sizes="(min-width:1024px) 720px, 100vw"><img src="assets/dish-fish-roast.webp" alt="Green fig-leaf fish roast in a red sauce with a bright diced salsa, served at LUCIA" loading="lazy" decoding="async" width="1200" height="1600"></picture><span class="dish">Green Fig-Leaf Fish Roast</span><p class="desc">Naranja agria, bell peppers caldo, lime caviar.</p></li>
-          <li><picture><source type="image/avif" srcset="assets/dish-ropa-fina-400.avif 400w, assets/dish-ropa-fina-800.avif 800w, assets/dish-ropa-fina-1200.avif 1200w" sizes="(min-width:1024px) 720px, 100vw"><img src="assets/dish-ropa-fina.webp" alt="Ropa Fina NY strip, sliced, with sorrel pickled red onions and a creamy mash, served at LUCIA" loading="lazy" decoding="async" width="1200" height="900"></picture><span class="dish">Ropa Fina 12oz NY Strip</span><p class="desc">Reca&iacute;to, sorrel pickled red onions, mojo spices.</p></li>
+          <li><picture><source type="image/avif" srcset="assets/dish-trini-chicken-400.avif 400w, assets/dish-trini-chicken-800.avif 800w, assets/dish-trini-chicken-1200.avif 1200w" sizes="(min-width:1024px) 720px, 100vw"><img src="assets/dish-trini-chicken.webp" alt="Trini-Chinese chicken with a soy-ginger glaze, sesame, and garlic, served at LUCIA" loading="lazy" decoding="async" width="1200" height="900"></picture><span class="dish">Trini-Chinese Chicken</span><p class="desc">Malta, ginger, le courage spice blend.</p></li>
+          <li><picture><source type="image/avif" srcset="assets/dish-fish-roast-400.avif 400w, assets/dish-fish-roast-800.avif 800w, assets/dish-fish-roast-1200.avif 1200w" sizes="(min-width:1024px) 720px, 100vw"><img src="assets/dish-fish-roast.webp" alt="Green fig-leaf fish roast in a red sauce with a bright diced salsa, served at LUCIA" loading="lazy" decoding="async" width="1200" height="1600"></picture><span class="dish">Green Fig-Leaf Fish Roast</span><p class="desc">Naranja agria, bell peppers, lime caviar.</p></li>
+          <li><picture><source type="image/avif" srcset="assets/dish-ropa-fina-400.avif 400w, assets/dish-ropa-fina-800.avif 800w, assets/dish-ropa-fina-1200.avif 1200w" sizes="(min-width:1024px) 720px, 100vw"><img src="assets/dish-ropa-fina.webp" alt="Ropa Fina NY strip, sliced, with sorrel pickled red onions and a creamy mash, served at LUCIA" loading="lazy" decoding="async" width="1200" height="900"></picture><span class="dish">Ropa Fina 12oz NY Strip</span><p class="desc">Reca&iacute;to, pickled onions, mojo spices.</p></li>
           <li><picture><source type="image/avif" srcset="assets/dish-crab-patty-400.avif 400w, assets/dish-crab-patty-800.avif 800w, assets/dish-crab-patty-1200.avif 1200w" sizes="(min-width:1024px) 720px, 100vw"><img src="assets/dish-crab-patty.webp" alt="Golden crab and callaloo patties with a dipping sauce, served at LUCIA" loading="lazy" decoding="async" width="1200" height="900"></picture><span class="dish">Crab &amp; Callaloo Patty</span><p class="desc">Served with green papaya kuchela.</p></li>
         </ul>
         <a class="textlink" href="menus/">See the full menu</a>
@@ -775,9 +781,9 @@ body.menu-open .menu-toggle{display:none}
           <figcaption><span class="n">04</span><span class="t">The bar</span></figcaption>
         </figure>
       </div>
+      <div class="car-dots" id="room-dots" role="group" aria-label="Choose photo"></div>
       <div class="carousel-controls">
         <button class="car-arrow" id="room-prev" type="button" aria-label="Previous photo">&larr;</button>
-        <div class="car-dots" id="room-dots" role="group" aria-label="Choose photo"></div>
         <button class="car-arrow" id="room-next" type="button" aria-label="Next photo">&rarr;</button>
       </div>
       <p class="carousel-status" id="room-status" aria-live="polite">Photo 1 of 4 &mdash; The entrance</p>
@@ -798,14 +804,12 @@ body.menu-open .menu-toggle{display:none}
       </figure>
       <div class="event-cards">
         <article class="event-card">
-          <p class="when">Every Wednesday &middot; 6:30&ndash;10 PM</p>
           <h3>Live at LUCIA</h3>
-          <p>Live R&amp;B with Matthew Grant, sounds by DJ Joe Cooks. Reservations required.</p>
+          <p>Live R&amp;B every Wednesday 8pm to 12am.</p>
         </article>
         <article class="event-card">
-          <p class="when">Every Thursday &middot; 8 PM&ndash;12 AM</p>
           <h3 lang="es">Sobremesa</h3>
-          <p><span lang="es">&ldquo;Sabores y ritmos.&rdquo;</span> Dinner and music with rotating DJs.</p>
+          <p>Dinner and music every Thursday 8pm to 12am.</p>
         </article>
       </div>
     </div>
@@ -1308,10 +1312,9 @@ body.menu-open .menu-toggle{display:none}
     var spacer = track ? track.querySelector('.events-spacer') : null;
     if (!cards.length || !track || !figurePic) return;
     Array.prototype.forEach.call(cards, function(card, i){
-      var when = card.querySelector('.when'),
-          title = card.querySelector('h3'),
+      var title = card.querySelector('h3'),
           desc = card.querySelector('h3 + p');
-      if (!when || !title || !desc) return;
+      if (!title || !desc) return;
       var slide = document.createElement('div');
       slide.className = 'event-slide';
       slide.setAttribute('role', 'group');
@@ -1320,10 +1323,6 @@ body.menu-open .menu-toggle{display:none}
       slide.appendChild(figurePic.cloneNode(true));
       var body = document.createElement('div');
       body.className = 'event-slide-body';
-      var w = document.createElement('p');
-      w.className = 'when';
-      w.innerHTML = when.innerHTML;
-      body.appendChild(w);
       var h = document.createElement('h3');
       h.innerHTML = title.innerHTML;
       var lang = title.getAttribute('lang');
