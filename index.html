@@ -156,6 +156,7 @@ a{color:inherit}
 .mobile-menu .arr{color:var(--ivory-50)}
 .mobile-menu .btn{margin-top:auto;width:100%;min-height:60px;font-size:13px}
 .mobile-menu .btn + .btn{margin-top:12px}
+.mobile-menu .textlink{align-self:center;margin-top:12px}
 body.menu-open{overflow:hidden}
 body.menu-open .site-head{background:transparent;border-bottom-color:transparent;-webkit-backdrop-filter:none;backdrop-filter:none;z-index:1600;pointer-events:none}
 body.menu-open .menu-toggle{display:none}
@@ -191,8 +192,8 @@ body.menu-open .menu-toggle{display:none}
 .hero-ctas .textlink{margin-top:0;align-self:center}
 .hero-scroll{position:absolute;z-index:2;left:50%;bottom:18px;transform:translateX(-50%);display:grid;justify-items:center;gap:8px;color:var(--ivory-70)}
 .hero-scroll::after{content:"";width:1px;height:28px;background:linear-gradient(var(--gold),transparent)}
-/* No scroll cue below the desktop layout — it overlaps the stacked CTAs */
-@media (max-width:1023px){.hero-scroll{display:none}.hero-media img{object-position:18% 32%}}
+/* Mobile: scroll cue sits in flow under View menus */
+@media (max-width:1023px){.hero-scroll{position:static;left:auto;bottom:auto;transform:none;margin-top:28px}.hero-media img{object-position:18% 32%}}
 
 /* ============ ABOUT ============ */
 .about-title{font-family:var(--font-display);font-weight:300;font-size:var(--t-display);line-height:.95;letter-spacing:-.015em;text-wrap:balance;margin-bottom:26px}
@@ -581,7 +582,7 @@ body.menu-open .menu-toggle{display:none}
   <!-- PLACEHOLDER: swap href for LUCIA's official Resy page when confirmed -->
   <a class="btn btn-red" href="https://resy.com/cities/los-angeles-ca/venues/lucia-ca" target="_blank" rel="noopener noreferrer">Reserve a table<span class="sr-only"> (opens in new tab)</span></a>
   <!-- PLACEHOLDER: swap href for LUCIA's official Tripleseat inquiry form when confirmed -->
-  <a class="btn btn-gold" href="https://349351nfairfaxllc.tripleseat.com/party_request/42802" target="_blank" rel="noopener noreferrer">Inquire about private events<span class="sr-only"> (opens in new tab)</span></a>
+  <a class="textlink" href="https://349351nfairfaxllc.tripleseat.com/party_request/42802" target="_blank" rel="noopener noreferrer">Plan a private event<span class="sr-only"> (opens in new tab)</span></a>
 </div>
 
 <noscript>
@@ -594,7 +595,7 @@ body.menu-open .menu-toggle{display:none}
   <a href="#recognized">Recognition</a>
   <a href="careers/">Careers</a>
   <a href="https://resy.com/cities/los-angeles-ca/venues/lucia-ca" target="_blank" rel="noopener noreferrer">Reserve a table</a>
-  <a href="https://349351nfairfaxllc.tripleseat.com/party_request/42802" target="_blank" rel="noopener noreferrer">Inquire about private events</a>
+  <a href="https://349351nfairfaxllc.tripleseat.com/party_request/42802" target="_blank" rel="noopener noreferrer">Plan a private event</a>
 </nav>
 </noscript>
 
@@ -611,8 +612,8 @@ body.menu-open .menu-toggle{display:none}
       <a class="btn btn-red" href="https://resy.com/cities/los-angeles-ca/venues/lucia-ca" target="_blank" rel="noopener noreferrer">Reserve a table<span class="sr-only"> (opens in new tab)</span></a>
       <a class="textlink" href="menus/">View menus</a>
     </div>
+    <p class="hero-scroll label" aria-hidden="true">Scroll</p>
   </div>
-  <p class="hero-scroll label" aria-hidden="true">Scroll</p>
 </header>
 
 <!-- ============ ABOUT ============ -->
