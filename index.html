@@ -251,7 +251,7 @@ body.menu-open .menu-toggle{display:none}
 #taste .sig-list li{border-bottom-color:var(--line-l)}
 #taste .sig-list .desc{color:rgba(13,11,8,.72)}
 #taste .car-arrow{color:var(--noir);border-color:var(--line-l)}
-#taste .car-dots button::before{background:rgba(13,11,8,.25)}
+#taste .car-dots button::before{background:rgba(245,239,227,.5)}
 .sig-list{list-style:none;margin-top:30px;border-top:1px solid var(--line-d)}
 .sig-list li{padding:22px 0;border-bottom:1px solid var(--line-d)}
 .sig-list .dish{font-family:var(--font-display);font-size:clamp(22px,6vw,36px);font-weight:400;line-height:1.15}
@@ -270,21 +270,23 @@ body.menu-open .menu-toggle{display:none}
    from the signature dishes list — the single source of truth. */
 .taste-grid .dish-figure{display:none}
 .taste-grid .sig-list{display:none}
-.taste-carousel{display:block;overflow-x:clip;margin-top:30px;width:96vw;margin-left:calc(50% - 48vw)}
+.taste-carousel{position:relative;display:block;overflow-x:clip;margin-top:30px;width:96vw;margin-left:calc(50% - 48vw)}
 .taste-track{display:flex;gap:0;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
 .taste-track::-webkit-scrollbar{display:none}
-.taste-slide{flex:0 0 100%;scroll-snap-align:start;scroll-snap-stop:always;position:relative;overflow:hidden;display:flex;flex-direction:column}
-.taste-slide picture{display:block}
-.taste-slide img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
-.taste-slide-body{position:absolute;left:0;right:0;bottom:0;display:flex;flex-direction:column;gap:8px;padding:48px 18px 20px;background:linear-gradient(transparent,rgba(8,6,4,.92))}
+/* Featured card: photo fills the card, text overlaid on the left, dots centred at the bottom of the card. */
+.taste-slide{flex:0 0 100%;scroll-snap-align:start;scroll-snap-stop:always;position:relative;overflow:hidden;display:flex;flex-direction:column;border-radius:16px;border:1px solid rgba(245,239,227,.16);aspect-ratio:4/5}
+.taste-slide picture{position:absolute;inset:0;display:block}
+.taste-slide img{display:block;width:100%;height:100%;object-fit:cover}
+.taste-slide::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(8,6,4,.88) 0%,rgba(8,6,4,.62) 42%,rgba(8,6,4,.22) 68%,rgba(8,6,4,.06) 100%),linear-gradient(to top,rgba(8,6,4,.6) 0%,transparent 40%)}
+.taste-slide-body{position:absolute;left:0;top:50%;transform:translateY(-50%);max-width:min(64%,520px);padding:0 0 0 24px;display:flex;flex-direction:column;gap:10px;background:none;z-index:2}
 .taste-slide-body h3{font-family:var(--font-display);font-size:clamp(26px,7vw,40px);font-weight:400;line-height:1.05;text-wrap:balance;color:var(--ivory)}
 .taste-slide-body p{color:var(--ivory-70);font-size:15px;line-height:1.6;flex:none;max-width:var(--measure)}
 /* Trailing spacer is hidden: slides are 100% wide (like the Room
    carousel), so the last slide snaps flush-left with no extra room needed. */
 .taste-spacer{display:none}
-/* VARIANT A — no arrows on mobile: swipe + dots only, same as events.
-   Desktop adds prev/next arrows (see min-width:1024px block). */
-.taste-controls{display:flex;justify-content:center;margin-top:14px}
+/* Dots sit on the card, centred at the bottom; arrows + status hidden (dots-only, like the reference). */
+#taste-dots{position:absolute;left:50%;transform:translateX(-50%);bottom:16px;z-index:3}
+.taste-controls{display:none}
 .taste-controls .car-dots button{width:44px;height:44px}
 .taste-controls .car-arrow{display:none}
 #taste-status{display:none}
@@ -330,7 +332,7 @@ body.menu-open .menu-toggle{display:none}
 #events .events-intro{color:rgba(13,11,8,.72)}
 #events .event-card h3,#events .event-slide h3{color:var(--ivory)}
 #events .car-arrow{color:var(--noir);border-color:var(--line-l)}
-#events .car-dots button::before{background:rgba(13,11,8,.25)}
+#events .car-dots button::before{background:rgba(245,239,227,.5)}
 .events-layout{display:none}
 /* ============ WHAT'S ON — MOBILE CAROUSEL ============
    Mobile shows a swipeable carousel of one combined card per event
@@ -340,21 +342,25 @@ body.menu-open .menu-toggle{display:none}
    The two slides duplicate the desktop cards' content — known
    duplication; the final production build would render both from one
    source of truth. */
-.events-carousel{display:block;overflow-x:clip;width:96vw;margin-left:calc(50% - 48vw)}
+.events-carousel{position:relative;display:block;overflow-x:clip;width:96vw;margin-left:calc(50% - 48vw)}
 .events-track{display:flex;gap:0;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
 .events-track::-webkit-scrollbar{display:none}
-.event-slide{flex:0 0 100%;scroll-snap-align:start;scroll-snap-stop:always;position:relative;overflow:hidden;display:flex;flex-direction:column}
-.event-slide picture{display:block}
-.event-slide img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
-.event-slide-body{position:absolute;left:0;right:0;bottom:0;display:flex;flex-direction:column;gap:8px;padding:48px 18px 20px;background:linear-gradient(transparent,rgba(8,6,4,.92))}
+/* Featured card, same as Taste: photo fills the card, text overlaid on the left, dots centred at the bottom of the card. */
+.event-slide{flex:0 0 100%;scroll-snap-align:start;scroll-snap-stop:always;position:relative;overflow:hidden;display:flex;flex-direction:column;border-radius:16px;border:1px solid rgba(245,239,227,.16);aspect-ratio:4/5}
+.event-slide picture{position:absolute;inset:0;display:block}
+.event-slide img{display:block;width:100%;height:100%;object-fit:cover}
+.event-slide::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(8,6,4,.88) 0%,rgba(8,6,4,.62) 42%,rgba(8,6,4,.22) 68%,rgba(8,6,4,.06) 100%),linear-gradient(to top,rgba(8,6,4,.6) 0%,transparent 40%)}
+.event-slide-body{position:absolute;left:0;top:50%;transform:translateY(-50%);max-width:min(64%,520px);padding:0 0 0 24px;display:flex;flex-direction:column;gap:10px;background:none;z-index:2}
 .event-slide-body .when{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);line-height:1.7;font-weight:600}
 .event-slide-body h3{font-family:var(--font-display);font-size:clamp(26px,7vw,40px);font-weight:400;line-height:1.05;text-wrap:balance}
 .event-slide-body p{color:var(--ivory-70);font-size:15px;line-height:1.6;flex:none;max-width:var(--measure)}
+.event-slide-body .btn{align-self:flex-start;margin-top:6px}
 /* Trailing spacer is hidden: slides are 100% wide (like the Room
    carousel), so the last slide snaps flush-left with no extra room needed. */
 .events-spacer{display:none}
-/* Controls match the Room carousel: prev / dots / next in one row. */
-.events-controls{display:flex;justify-content:center;margin-top:14px}
+/* Dots sit on the card, centred at the bottom; arrows + status hidden (dots-only, like the reference). */
+#events-dots{position:absolute;left:50%;transform:translateX(-50%);bottom:16px;z-index:3}
+.events-controls{display:none}
 .events-controls .car-dots button{width:44px;height:44px}
 .events-controls .car-arrow{display:none}
 #events-status{display:none}
@@ -538,22 +544,19 @@ body.menu-open .menu-toggle{display:none}
   .taste-carousel{display:block}
   .taste-carousel{width:auto;margin-left:0}
   .taste-track{gap:0;width:auto;margin-inline:0}
-  .taste-slide{flex:0 0 100%;flex-direction:row;border:1px solid var(--line-d);border-radius:12px;background:var(--noir-2)}
-  .taste-slide picture{flex:0 0 50%}
-  .taste-slide img{aspect-ratio:16/9}
-  .taste-slide-body{position:static;justify-content:center;padding:24px;gap:12px;background:none}
+  .taste-slide{flex:0 0 100%;border:1px solid rgba(245,239,227,.16);border-radius:16px;aspect-ratio:16/9;max-height:640px}
+  .taste-slide-body{padding:0 0 0 40px;max-width:min(52%,560px)}
   .taste-slide-body p{flex:none}
-  #taste-status{display:block}
+  #taste-status{display:none}
   .taste-spacer{display:none}
-  .taste-controls{display:grid;grid-template-columns:52px minmax(0,1fr) 52px;align-items:center;gap:12px}
-  .taste-controls .car-arrow{display:block}
+  .taste-controls{display:none}
 
 
   /* Room: heading row + gallery */
   .room-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,360px);gap:48px;align-items:end;margin-bottom:clamp(44px,5vw,72px)}
   .room-title{margin-bottom:0}
   .room-note{margin-bottom:0}
-  .carousel{width:auto;margin-left:0}
+  .carousel{width:85%;margin-inline:auto}
   .carousel .slide{border-radius:8px}
   .carousel .slide img{aspect-ratio:16/9;max-height:78vh}
   .carousel-controls{display:grid;grid-template-columns:52px minmax(0,1fr) 52px;align-items:center;gap:12px}
@@ -564,15 +567,12 @@ body.menu-open .menu-toggle{display:none}
   .events-layout{display:none;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(32px,4vw,56px);align-items:stretch}
   .events-carousel{display:block}
   .events-carousel{width:auto;margin-left:0}
-  .event-slide{flex:0 0 100%;flex-direction:row;border:1px solid var(--line-d);border-radius:12px;background:var(--noir-2)}
-  .event-slide picture{flex:0 0 50%}
-  .event-slide img{aspect-ratio:16/9}
-  .event-slide-body{position:static;justify-content:center;padding:24px;gap:12px;background:none}
+  .event-slide{flex:0 0 100%;border:1px solid rgba(245,239,227,.16);border-radius:16px;aspect-ratio:16/9;max-height:640px}
+  .event-slide-body{padding:0 0 0 40px;max-width:min(52%,560px)}
   .event-slide-body p{flex:none}
   .events-track{gap:0;width:auto;margin-inline:0}
-  .events-controls{display:grid;grid-template-columns:52px minmax(0,1fr) 52px;align-items:center;gap:12px}
-  .events-controls .car-arrow{display:block}
-  #events-status{display:block}
+  .events-controls{display:none}
+  #events-status{display:none}
   .events-figure img{aspect-ratio:auto;height:100%}
   .event-cards{grid-template-columns:1fr;gap:16px}
 
@@ -727,9 +727,9 @@ body.menu-open .menu-toggle{display:none}
                  dish figure and list are shown instead. -->
             <div class="taste-spacer" aria-hidden="true"></div>
           </div>
+          <div class="car-dots" id="taste-dots" role="group" aria-label="Choose dish"></div>
           <div class="taste-controls">
             <button class="car-arrow" id="taste-prev" type="button" aria-label="Previous dish">&larr;</button>
-            <div class="car-dots" id="taste-dots" role="group" aria-label="Choose dish"></div>
             <button class="car-arrow" id="taste-next" type="button" aria-label="Next dish">&rarr;</button>
           </div>
           <p class="carousel-status" id="taste-status" aria-live="polite">Dish 1 of 4 &mdash; Trini-Chinese Chicken</p>
@@ -828,9 +828,9 @@ body.menu-open .menu-toggle{display:none}
              desktop cards are shown instead. -->
         <div class="events-spacer" aria-hidden="true"></div>
       </div>
+      <div class="car-dots" id="events-dots" role="group" aria-label="Choose event"></div>
       <div class="events-controls">
         <button class="car-arrow" id="events-prev" type="button" aria-label="Previous event">&larr;</button>
-        <div class="car-dots" id="events-dots" role="group" aria-label="Choose event"></div>
         <button class="car-arrow" id="events-next" type="button" aria-label="Next event">&rarr;</button>
       </div>
       <p class="carousel-status" id="events-status" aria-live="polite">Event 1 of 2 &mdash; Live at LUCIA</p>
@@ -1332,6 +1332,11 @@ body.menu-open .menu-toggle{display:none}
       var d = document.createElement('p');
       d.innerHTML = desc.innerHTML;
       body.appendChild(d);
+      var a = document.createElement('a');
+      a.className = 'btn btn-red btn-sm';
+      a.href = 'https://resy.com/cities/los-angeles-ca/venues/lucia-ca';
+      a.textContent = 'Reserve now';
+      body.appendChild(a);
       slide.appendChild(body);
       if (spacer) track.insertBefore(slide, spacer);
       else track.appendChild(slide);
