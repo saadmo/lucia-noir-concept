@@ -8,11 +8,11 @@
 <link rel="icon" href="../assets/favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" type="image/png" href="../assets/favicon.png">
 <title>Careers — LUCIA</title>
-<meta name="description" content="LUCIA is a modern Afro-Caribbean restaurant on Fairfax Avenue. If you'd like to work with us, apply below.">
+<meta name="description" content="If you'd like to work with us, apply below.">
 <link rel="canonical" href="https://lucia-noir-concept-saadmos-projects.vercel.app/careers/">
 <meta property="og:type" content="restaurant">
 <meta property="og:title" content="Careers — LUCIA">
-<meta property="og:description" content="LUCIA is a modern Afro-Caribbean restaurant on Fairfax Avenue. If you'd like to work with us, apply below.">
+<meta property="og:description" content="If you'd like to work with us, apply below.">
 <meta property="og:url" content="https://lucia-noir-concept-saadmos-projects.vercel.app/careers/">
 <meta property="og:image" content="https://lucia-noir-concept-saadmos-projects.vercel.app/assets/og-image.jpg">
 <meta property="og:image:width" content="1200">
@@ -20,7 +20,7 @@
 <meta property="og:image:type" content="image/jpeg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Careers — LUCIA">
-<meta name="twitter:description" content="LUCIA is a modern Afro-Caribbean restaurant on Fairfax Avenue. If you'd like to work with us, apply below.">
+<meta name="twitter:description" content="If you'd like to work with us, apply below.">
 <meta name="twitter:image" content="https://lucia-noir-concept-saadmos-projects.vercel.app/assets/og-image.jpg">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Restaurant","name":"LUCIA","servesCuisine":"Afro-Caribbean","priceRange":"$$$","url":"https://lucia-noir-concept-saadmos-projects.vercel.app/careers/","telephone":"+1-213-800-0048","address":{"@type":"PostalAddress","streetAddress":"351 N Fairfax Ave","addressLocality":"Los Angeles","addressRegion":"CA","postalCode":"90036","addressCountry":"US"},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"18:00","closes":"24:00"},"acceptsReservations":true,"geo":{"@type":"GeoCoordinates","latitude":34.07766,"longitude":-118.3616},"menu":"https://lucia-noir-concept-saadmos-projects.vercel.app/menus/","hasMenu":"https://lucia-noir-concept-saadmos-projects.vercel.app/menus/","potentialAction":{"@type":"ReserveAction","target":"https://resy.com/cities/los-angeles-ca/venues/lucia-ca"}}
@@ -141,6 +141,12 @@ main .ivory + .ivory{border-top:1px solid var(--line-l)}
 .field input[type="text"],.field input[type="email"],.field input[type="tel"],.field textarea{width:100%;min-width:0;font-family:var(--font-body);font-size:17px;line-height:1.5;color:var(--noir);background:#fff;border:1px solid rgba(13,11,8,.32);border-radius:10px;padding:14px 16px;-webkit-appearance:none;appearance:none}
 .field textarea{min-height:140px;resize:vertical}
 .field input:focus,.field textarea:focus{border-color:var(--bronze);outline:3px solid var(--bronze);outline-offset:2px}
+.field input[type="file"]{width:100%;min-width:0;font-family:var(--font-body);font-size:15px;line-height:1.5;color:var(--noir);background:#fff;border:1px solid rgba(13,11,8,.32);border-radius:10px;padding:14px 16px}
+.field input[type="file"]:focus{border-color:var(--bronze);outline:3px solid var(--bronze);outline-offset:2px}
+.field-hint{font-size:13px;line-height:1.5;color:rgba(13,11,8,.6)}
+.check-row{margin-top:2px}
+.check-row label{display:flex;align-items:flex-start;gap:10px;font-size:15px;line-height:1.6;cursor:pointer}
+.check-row input{width:20px;height:20px;margin-top:2px;accent-color:var(--bronze);flex:none}
 
 /* ============ STICKY MOBILE BAR (Reserve only) ============
    Shown only once the intro has left the viewport (IntersectionObserver),
@@ -294,59 +300,42 @@ main .ivory + .ivory{border-top:1px solid var(--line-l)}
 <header class="noir page-intro" id="top">
   <div class="wrap">
     <h1 class="page-title">Careers</h1>
-    <p class="menu-lede">LUCIA is a modern Afro-Caribbean restaurant on Fairfax Avenue. If you&rsquo;d like to work with us, apply below.</p>
+    <p class="menu-lede">If you&rsquo;d like to work with us, apply below.</p>
   </div>
 </header>
 
-<!-- ============ APPLY ============ -->
+<!-- ============ APPLY / EMAIL UPDATES ============ -->
 <section class="ivory form-sec" id="apply" aria-labelledby="apply-h">
   <div class="wrap pad">
     <h2 id="apply-h">Apply</h2>
-    <p class="form-note">Submitting opens your email app with your application addressed to info@luciala.com. Please attach your r&eacute;sum&eacute; to the email before sending.</p>
-    <form class="form-grid" id="apply-form" action="mailto:info@luciala.com?subject=Job%20Application" method="post" enctype="text/plain">
+    <p class="form-note">Submitting opens your email app with your message addressed to info@luciala.com. If you're applying, please attach your r&eacute;sum&eacute; to the email before sending.</p>
+    <form class="form-grid" id="careers-form" action="mailto:info@luciala.com?subject=Careers%20at%20LUCIA" method="post" enctype="text/plain">
       <div class="field">
-        <label for="apply-name">Name <span class="req">(required)</span></label>
-        <input type="text" id="apply-name" name="name" required autocomplete="name">
+        <label for="careers-name">Name <span class="req">(required)</span></label>
+        <input type="text" id="careers-name" name="name" required autocomplete="name">
       </div>
       <div class="field">
-        <label for="apply-email">Email <span class="req">(required)</span></label>
-        <input type="email" id="apply-email" name="email" required autocomplete="email">
+        <label for="careers-email">Email <span class="req">(required)</span></label>
+        <input type="email" id="careers-email" name="email" required autocomplete="email">
       </div>
       <div class="field">
-        <label for="apply-phone">Phone Number <span class="req">(required)</span></label>
-        <input type="tel" id="apply-phone" name="phone" required autocomplete="tel">
+        <label for="careers-phone">Phone Number <span class="opt">(optional)</span></label>
+        <input type="tel" id="careers-phone" name="phone" autocomplete="tel">
       </div>
       <div class="field">
-        <label for="apply-cover">Cover Letter <span class="opt">(optional)</span></label>
-        <textarea id="apply-cover" name="cover-letter"></textarea>
+        <label for="careers-cover">Cover Letter <span class="opt">(optional)</span></label>
+        <textarea id="careers-cover" name="cover-letter"></textarea>
+      </div>
+      <div class="field">
+        <label for="careers-resume">Résumé <span class="opt">(optional)</span></label>
+        <input type="file" id="careers-resume" name="resume" accept=".pdf,.doc,.docx">
+        <p class="field-hint">PDF or Word document.</p>
+      </div>
+      <div class="check-row">
+        <label><input type="checkbox" name="email-updates" value="yes"> Email me updates about LUCIA</label>
       </div>
       <div>
         <button class="btn btn-red" type="submit">Continue to email</button>
-      </div>
-    </form>
-  </div>
-</section>
-
-<!-- ============ EMAIL UPDATES ============ -->
-<section class="ivory form-sec" id="email-updates" aria-labelledby="signup-h">
-  <div class="wrap pad">
-    <h2 id="signup-h">Email updates</h2>
-    <p class="form-note">Submitting opens your email app with your signup request addressed to info@luciala.com.</p>
-    <form class="form-grid" id="signup-form" action="mailto:info@luciala.com?subject=Email%20List%20Signup" method="post" enctype="text/plain">
-      <div class="field">
-        <label for="signup-first">First Name <span class="req">(required)</span></label>
-        <input type="text" id="signup-first" name="first-name" required autocomplete="given-name">
-      </div>
-      <div class="field">
-        <label for="signup-last">Last Name <span class="req">(required)</span></label>
-        <input type="text" id="signup-last" name="last-name" required autocomplete="family-name">
-      </div>
-      <div class="field">
-        <label for="signup-email">Email <span class="req">(required)</span></label>
-        <input type="email" id="signup-email" name="email" required autocomplete="email">
-      </div>
-      <div>
-        <button class="btn btn-ghost-d" type="submit">Request email updates</button>
       </div>
     </form>
   </div>
