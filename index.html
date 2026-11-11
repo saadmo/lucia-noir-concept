@@ -346,8 +346,8 @@ body.menu-open .menu-toggle{display:none}
 .room-strip-item figcaption{display:flex;align-items:baseline;gap:10px;margin-top:12px}
 .room-strip-item figcaption .n{font-size:12px;font-weight:600;letter-spacing:.14em;color:var(--gold)}
 .room-strip-item figcaption .t{font-family:var(--font-display);font-weight:300;font-size:20px;color:var(--ivory)}
-.room-strip-controls{display:flex;justify-content:flex-end;margin-bottom:16px}
-.room-strip-toggle{background:transparent;border:1px solid rgba(245,239,227,.4);color:var(--ivory);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:10px 18px;border-radius:100px;cursor:pointer}
+.room-strip-controls{display:flex;justify-content:flex-end;margin-top:16px}
+.room-strip-toggle{background:transparent;border:1px solid rgba(245,239,227,.4);color:var(--ivory);width:44px;height:44px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;padding:0}
 .room-strip-toggle:hover{border-color:var(--gold);color:var(--gold)}
 
 /* ============ WHAT'S ON (recurring programming) ============ */
@@ -871,9 +871,6 @@ body.menu-open .menu-toggle{display:none}
       <p class="carousel-status" id="room-status" aria-live="polite">Photo 1 of 4 &mdash; The entrance</p>
     </div>
     <div class="room-strip" id="room-strip">
-      <div class="room-strip-controls">
-        <button class="room-strip-toggle" id="room-strip-toggle" type="button" aria-pressed="false" aria-label="Pause automatic scrolling">Pause</button>
-      </div>
       <div class="room-strip-track" id="room-strip-track" tabindex="0" role="region" aria-label="The room — scrollable photos">
         <figure class="room-strip-item">
           <picture><source type="image/avif" srcset="assets/room-doors-400.avif 400w, assets/room-doors-800.avif 800w, assets/room-doors-1200.avif 1200w" sizes="520px"><img src="assets/room-doors.webp" alt="LUCIA's open wooden entrance door revealing the illuminated curved bar at night" loading="lazy" decoding="async" width="1200" height="900"></picture>
@@ -891,6 +888,9 @@ body.menu-open .menu-toggle{display:none}
           <picture><source type="image/avif" srcset="assets/room-bar-400.avif 400w, assets/room-bar-800.avif 800w, assets/room-bar-1200.avif 1200w" sizes="520px"><img src="assets/room-bar.webp" alt="LUCIA's bar with sculptural white ceiling forms, backlit bottles, and gold bar stools" loading="lazy" decoding="async" width="1200" height="800"></picture>
           <figcaption><span class="n">04</span><span class="t">The bar</span></figcaption>
         </figure>
+      </div>
+      <div class="room-strip-controls">
+        <button class="room-strip-toggle" id="room-strip-toggle" type="button" aria-pressed="false" aria-label="Pause automatic scrolling"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg></button>
       </div>
     </div>
   </div>
@@ -1030,12 +1030,12 @@ body.menu-open .menu-toggle{display:none}
   <h2 id="press-recog-h">In the Press</h2>
   <div class="row">
     <span class="mark yelp">yelp<small>#19 &middot; Best New Restaurants 2026</small></span>
-    <span class="mark latimes">Los Angeles Times<small>101 Best Restaurants in Los Angeles</small></span>
-    <span class="mark robb">Robb Report<small>21 Most Beautiful New Restaurants</small></span>
-    <span class="mark cnt">Cond&eacute; Nast Traveler<small>38 Best Restaurants in Los Angeles</small></span>
-    <span class="mark eater">Eater<small>Opening Coverage</small></span>
     <span class="mark gold">Gold Key<small>Winner &middot; 2025</small></span>
+    <span class="mark robb">Robb Report<small>21 Most Beautiful New Restaurants</small></span>
+    <span class="mark latimes">Los Angeles Times<small>101 Best Restaurants in Los Angeles</small></span>
+    <span class="mark cnt">Cond&eacute; Nast Traveler<small>38 Best Restaurants in Los Angeles</small></span>
     <span class="mark rbda">RBDA<small>Overall Regional Winner &mdash; Americas</small></span>
+    <span class="mark eater">Eater<small>Opening Coverage</small></span>
   </div>
 </section>
 
@@ -1427,11 +1427,12 @@ body.menu-open .menu-toggle{display:none}
     render(0);
   }
 
-  /* Room strip (desktop only): auto-scrolling photo strip that loops.
-     Advances one photo every 5 seconds and loops back to the first photo
-     so it always loops. Pauses on hover, on focus, via the Pause/Play
-     button, and honors prefers-reduced-motion. Mobile keeps the carousel
-     (the strip is hidden below 1024px), so this only runs on desktop. */
+  /* Room strip (desktop only): gradual continuous scroll that drifts left.
+     The photos move steadily to the left (like a slow conveyor) and loop
+     back to the first photo so it always loops. Pauses on hover, on focus,
+     via the Pause/Play button, and honors prefers-reduced-motion. Mobile
+     keeps the carousel (the strip is hidden below 1024px), so this only
+     runs on desktop. */
   (function roomStrip(){
     var strip = document.getElementById('room-strip'),
         track = document.getElementById('room-strip-track'),
@@ -1449,7 +1450,8 @@ body.menu-open .menu-toggle{display:none}
     });
     var all = Array.prototype.slice.call(track.querySelectorAll('.room-strip-item')),
         count = items.length,
-        setW = 0, timer = 0, manualPaused = false, hoverPaused = false, focusPaused = false;
+        setW = 0, manualPaused = false, hoverPaused = false, focusPaused = false, last = null;
+    var SPEED = 45; /* px per second — a slow, gradual drift left */
     function measureSet(){ setW = all[count] ? all[count].offsetLeft : 0; }
     function playing(){ return desktopMQ.matches && !reduceMotion && !manualPaused && !hoverPaused && !focusPaused; }
     function currentIndex(){
@@ -1460,45 +1462,48 @@ body.menu-open .menu-toggle{display:none}
       }
       return n;
     }
-    function tick(){
-      if (!playing()) return;
-      var next = (currentIndex() + 1) % count;
-      var target = all[next].offsetLeft;
-      if (next === 0) target = all[count].offsetLeft; /* wrap via the duplicate */
-      track.scrollTo({left: target, behavior: reduceMotion ? 'auto' : 'smooth'});
+    function frame(ts){
+      if (last === null) last = ts;
+      var dt = (ts - last) / 1000;
+      last = ts;
+      if (playing()){
+        if (!setW) measureSet();
+        track.scrollLeft += SPEED * dt;
+        if (setW && track.scrollLeft >= setW - 1){
+          track.scrollLeft -= setW;
+        }
+      }
+      requestAnimationFrame(frame);
     }
-    function start(){ stop(); if (playing()) timer = setInterval(tick, 5000); }
-    function stop(){ if (timer){ clearInterval(timer); timer = 0; } }
-    function refresh(){ stop(); if (playing()) start(); }
     /* Seamless loop: once the scroll enters the duplicate set, jump back
        one set (identical content, so the jump is invisible). */
     track.addEventListener('scroll', function(){
       if (!setW) measureSet();
       if (setW && track.scrollLeft >= setW - 1){
-        track.scrollTo({left: track.scrollLeft - setW, behavior: 'auto'});
+        track.scrollLeft -= setW;
       }
     }, {passive: true});
+    var ICON_PAUSE = '<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>',
+        ICON_PLAY = '<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>';
     if (toggle){
       toggle.addEventListener('click', function(){
         manualPaused = !manualPaused;
         toggle.setAttribute('aria-pressed', manualPaused ? 'true' : 'false');
-        toggle.textContent = manualPaused ? 'Play' : 'Pause';
+        toggle.innerHTML = manualPaused ? ICON_PLAY : ICON_PAUSE;
         toggle.setAttribute('aria-label', manualPaused ? 'Resume automatic scrolling' : 'Pause automatic scrolling');
-        refresh();
       });
     }
-    strip.addEventListener('mouseenter', function(){ hoverPaused = true; refresh(); });
-    strip.addEventListener('mouseleave', function(){ hoverPaused = false; refresh(); });
-    track.addEventListener('focusin', function(){ focusPaused = true; refresh(); });
-    track.addEventListener('focusout', function(){ focusPaused = false; refresh(); });
+    strip.addEventListener('mouseenter', function(){ hoverPaused = true; });
+    strip.addEventListener('mouseleave', function(){ hoverPaused = false; });
+    track.addEventListener('focusin', function(){ focusPaused = true; });
+    track.addEventListener('focusout', function(){ focusPaused = false; });
     track.addEventListener('keydown', function(e){
-      if (e.key === 'ArrowLeft'){ e.preventDefault(); stop(); var p = currentIndex(); track.scrollTo({left: all[Math.max(0, p - 1)].offsetLeft, behavior: 'smooth'}); start(); }
-      if (e.key === 'ArrowRight'){ e.preventDefault(); stop(); var n = currentIndex(); track.scrollTo({left: all[Math.min(count - 1, n + 1)].offsetLeft, behavior: 'smooth'}); start(); }
+      if (e.key === 'ArrowLeft'){ e.preventDefault(); var p = currentIndex(); track.scrollLeft = all[Math.max(0, p - 1)].offsetLeft; }
+      if (e.key === 'ArrowRight'){ e.preventDefault(); var n = currentIndex(); track.scrollLeft = all[Math.min(count - 1, n + 1)].offsetLeft; }
     });
-    if (desktopMQ.addEventListener) desktopMQ.addEventListener('change', refresh);
-    window.addEventListener('resize', function(){ measureSet(); refresh(); });
+    window.addEventListener('resize', function(){ measureSet(); });
     measureSet();
-    refresh();
+    requestAnimationFrame(frame);
   })();
 
   /* Events carousel (mobile only, Variant A): same pattern as the room
