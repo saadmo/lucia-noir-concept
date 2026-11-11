@@ -236,6 +236,12 @@ body.menu-open .menu-toggle{display:none}
 .about-press picture{flex:none}
 .about-press p{font-size:15px;line-height:1.6;color:var(--ivory-70);max-width:44ch}
 .about-press p strong{color:var(--ivory);font-weight:600}
+/* Mobile About: Yelp block below the paragraph, 28px rhythm under the heading */
+@media (max-width:1023px){
+  .about-grid > div{display:flex;flex-direction:column}
+  .about-press{order:2;margin-bottom:0;margin-top:28px}
+  .about-body{order:1;margin-top:28px}
+}
 
 /* ============ TASTE (editorial food section, noir) ============ */
 .dish-figure{position:relative;overflow:hidden;border-radius:8px;margin:0 0 30px}
