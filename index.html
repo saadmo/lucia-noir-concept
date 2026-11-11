@@ -361,6 +361,7 @@ body.menu-open .menu-toggle{display:none}
 .event-slide-body .when{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);line-height:1.7;font-weight:600;white-space:nowrap}
 .event-slide-body h3{font-family:var(--font-display);font-size:clamp(24px,6vw,40px);font-weight:400;line-height:1.05;text-wrap:balance}
 .event-slide-body p{color:var(--ivory-70);font-size:15px;line-height:1.6;flex:none;max-width:var(--measure)}
+.event-slide-body h3 + p{min-height:48px}
 .event-slide-body .textlink{align-self:flex-start;margin-top:6px;color:var(--ivory)}
 /* Trailing spacer is hidden: slides are 100% wide (like the Room
    carousel), so the last slide snaps flush-left with no extra room needed. */
@@ -580,15 +581,16 @@ body.menu-open .menu-toggle{display:none}
   .slide figcaption{padding:0 0 0 40px;max-width:min(52%,560px)}
   #room-status{display:none}
 
-  /* What's on: one swipable card at a time, like the Room carousel */
+  /* What's on: multi-card strip — three cards per view on desktop */
   .events-layout{display:none;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(32px,4vw,56px);align-items:stretch}
   .events-carousel{display:block}
   .events-carousel{width:auto;margin-left:0}
-  .event-slide{flex:0 0 100%;border:1px solid rgba(245,239,227,.16);border-radius:16px;aspect-ratio:16/9;max-height:640px}
-  .event-slide-body{padding:0 0 0 40px;max-width:min(52%,560px)}
+  .event-slide{flex:0 0 calc((100% - 40px)/3);border:1px solid rgba(245,239,227,.16);border-radius:16px;aspect-ratio:4/5}
+  .event-slide-body{padding:0 0 0 24px;max-width:min(85%,360px);bottom:32px}
   .event-slide-body p{flex:none}
-  .events-track{gap:0;width:auto;margin-inline:0}
+  .events-track{gap:20px;width:auto;margin-inline:0}
   #events-status{display:none}
+  #events-dots{display:none}
   /* Desktop keeps the left-side gradient too (the bottom-only fade is mobile-only). */
   .taste-slide::before,.event-slide::before,.carousel .slide::before{background:linear-gradient(to top,rgba(8,6,4,.96) 0%,rgba(8,6,4,.93) 15%,rgba(8,6,4,.88) 25%,rgba(8,6,4,.6) 31%,transparent 35%)}
   .events-figure img{aspect-ratio:auto;height:100%}
@@ -620,22 +622,6 @@ body.menu-open .menu-toggle{display:none}
   .hero-inner{max-width:1100px}
 }
 
-/* ============ WHAT'S ON — LIST ============ */
-.event-row{display:grid;grid-template-columns:1fr auto;gap:6px 16px;align-items:baseline;padding:20px 0;border-top:1px solid var(--line-l)}
-.event-row:last-of-type{border-bottom:1px solid var(--line-l)}
-.event-day{grid-column:1;grid-row:1;font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--bronze)}
-.event-time{grid-column:2;grid-row:1;font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;white-space:nowrap}
-.event-main{grid-column:1/-1;grid-row:2}
-.event-main h3{font-family:var(--font-display);font-weight:400;font-size:clamp(22px,4vw,30px);line-height:1.1}
-.event-main p{color:rgba(13,11,8,.72);font-size:15px;line-height:1.6;margin-top:6px}
-.events-cta{margin-top:28px}
-.events-cta .textlink{margin-top:0}
-@media (min-width:1024px){
-  .event-row{grid-template-columns:200px 1fr auto;gap:0 28px;padding:24px 0}
-  .event-day{grid-column:1;grid-row:1}
-  .event-main{grid-column:2;grid-row:1}
-  .event-time{grid-column:3;grid-row:1}
-}
 
 /* ============ VISIT HEADING ============ */
 #visit .sec-h{margin-bottom:32px}
@@ -854,20 +840,56 @@ body.menu-open .menu-toggle{display:none}
   <div class="wrap pad">
     <p class="sec-kicker" aria-hidden="true"><span>What&rsquo;s On</span></p>
     <h2 class="sec-h" id="events-h">What&rsquo;s on</h2>
-    <p class="events-intro">Two nights a week, the dining room turns the music up: live R&amp;B on Wednesdays, dinner and rotating DJs on Thursdays.</p>
-    <div class="events-list">
-      <article class="event-row">
-        <p class="event-day">Wednesday</p>
-        <div class="event-main"><h3>Live at LUCIA</h3><p>Live R&amp;B</p></div>
-        <p class="event-time">8 PM&ndash;12 AM</p>
-      </article>
-      <article class="event-row">
-        <p class="event-day">Thursday</p>
-        <div class="event-main"><h3 lang="es">Sobremesa</h3><p>Dinner and music</p></div>
-        <p class="event-time">8 PM&ndash;12 AM</p>
-      </article>
+    <p class="events-intro">Live R&amp;B on Wednesdays. Dinner and rotating DJs on Thursdays.</p>
+    <!-- No booking buttons on event cards — booking lives in the header and sticky bar -->
+    <div class="events-layout">
+      <figure class="events-figure">
+        <picture><source type="image/avif" srcset="assets/events-live-400.avif 400w, assets/events-live-800.avif 800w, assets/events-live-1200.avif 1200w" sizes="(min-width:1024px) 50vw, 100vw"><img src="assets/events-live.webp" alt="A packed, red-lit night in the dining room, guests dancing beneath the glowing arches" loading="lazy" decoding="async" width="1200" height="800"></picture>
+      </figure>
+      <div class="event-cards">
+        <article class="event-card">
+          <h3>Live at LUCIA</h3>
+          <p>Live R&amp;B every Wednesday 8pm to 12am.</p>
+        </article>
+        <article class="event-card">
+          <h3 lang="es">Sobremesa</h3>
+          <p>Dinner and music every Thursday 8pm to 12am.</p>
+        </article>
+        <article class="event-card">
+          <h3>Live at LUCIA</h3>
+          <p>Live R&amp;B every Wednesday 8pm to 12am.</p>
+        </article>
+        <article class="event-card">
+          <h3 lang="es">Sobremesa</h3>
+          <p>Dinner and music every Thursday 8pm to 12am.</p>
+        </article>
+      </div>
     </div>
-    <p class="events-cta"><a class="textlink" href="https://resy.com/cities/los-angeles-ca/venues/lucia-ca" target="_blank" rel="noopener noreferrer">Reserve a table<span class="sr-only"> (opens in new tab)</span></a></p>
+    <!-- ============ WHAT'S ON — MOBILE CAROUSEL ============
+         Shown on mobile only (max-width:1023px); hidden on desktop, where
+         the photo + stacked cards above are used. The slides are built by
+         JavaScript from the desktop event cards above — the single source
+         of truth — so one edit updates both presentations. Without
+         JavaScript the desktop cards are shown on mobile instead (see the
+         <noscript> style in the head).
+         OPEN ITEM: both slides use assets/events-live.webp — the only events
+         photo on record. A distinct Sobremesa photo is needed from the team
+         to make the two cards visually distinct; no other photo was used
+         here, and none was relabelled as Sobremesa. -->
+    <div class="events-carousel" id="events-carousel">
+      <div class="events-track" id="events-track" tabindex="0" role="region" aria-roledescription="carousel" aria-label="What's on">
+        <!-- Slides are built by JavaScript from the desktop event cards
+             above (the single source of truth); they are inserted before
+             the spacer. Without JavaScript this track stays empty and the
+             desktop cards are shown instead. -->
+        <div class="events-spacer" aria-hidden="true"></div>
+      </div>
+      <div class="car-dots" id="events-dots" role="group" aria-label="Choose event"></div>
+      <div class="events-controls">
+        <button class="car-arrow" id="events-prev" type="button" aria-label="Previous event">&larr;</button>
+        <button class="car-arrow" id="events-next" type="button" aria-label="Next event">&rarr;</button>
+      </div>
+      <p class="carousel-status" id="events-status" aria-live="polite">Event 1 of 4 &mdash; Live at LUCIA</p>
   </div>
 </section>
 
@@ -1337,6 +1359,89 @@ body.menu-open .menu-toggle{display:none}
      Only the title, time and description are cloned from the cards; the
      photo is the same shared events image for every slide (the only
      events photo on record). */
+
+  (function buildEventSlides(){
+    var cards = document.querySelectorAll('.event-cards .event-card');
+    var track = document.getElementById('events-track');
+    var figurePic = document.querySelector('.events-figure picture');
+    var spacer = track ? track.querySelector('.events-spacer') : null;
+    if (!cards.length || !track || !figurePic) return;
+    Array.prototype.forEach.call(cards, function(card, i){
+      var title = card.querySelector('h3'),
+          desc = card.querySelector('h3 + p');
+      if (!title || !desc) return;
+      var slide = document.createElement('div');
+      slide.className = 'event-slide';
+      slide.setAttribute('role', 'group');
+      slide.setAttribute('aria-roledescription', 'slide');
+      slide.setAttribute('aria-label', 'Slide ' + (i + 1) + ' of ' + cards.length + ': ' + title.textContent.trim());
+      slide.appendChild(figurePic.cloneNode(true));
+      var body = document.createElement('div');
+      body.className = 'event-slide-body';
+      var h = document.createElement('h3');
+      h.innerHTML = title.innerHTML;
+      var lang = title.getAttribute('lang');
+      if (lang) h.setAttribute('lang', lang);
+      body.appendChild(h);
+      var d = document.createElement('p');
+      d.innerHTML = desc.innerHTML;
+      body.appendChild(d);
+      var a = document.createElement('a');
+      a.className = 'textlink';
+      a.href = 'https://resy.com/cities/los-angeles-ca/venues/lucia-ca';
+      a.textContent = 'Reserve now';
+      body.appendChild(a);
+      slide.appendChild(body);
+      if (spacer) track.insertBefore(slide, spacer);
+      else track.appendChild(slide);
+    });
+  })();
+  var eTrack = document.getElementById('events-track');
+  if (eTrack){
+    var eSlides = Array.prototype.slice.call(eTrack.querySelectorAll('.event-slide')),
+        eDotsWrap = document.getElementById('events-dots'),
+        ePrev = document.getElementById('events-prev'),
+        eNext = document.getElementById('events-next'),
+        eStatus = document.getElementById('events-status'),
+        eIdx = 0, eRaf = 0;
+    var eCaptions = eSlides.map(function(sl){ var h = sl.querySelector('h3'); return h ? h.textContent.trim() : ''; });
+    var eDots = eSlides.map(function(sl, k){
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('aria-label', 'Go to event ' + (k + 1) + ': ' + eCaptions[k]);
+      b.addEventListener('click', function(){ eGo(k); });
+      eDotsWrap.appendChild(b);
+      return b;
+    });
+    function eRender(i){
+      eIdx = Math.max(0, Math.min(eSlides.length - 1, i));
+      eDots.forEach(function(d, k){ d.setAttribute('aria-current', k === eIdx ? 'true' : 'false'); });
+      if (ePrev) ePrev.disabled = eIdx === 0;
+      if (eNext) eNext.disabled = eIdx === eSlides.length - 1;
+      if (eStatus) eStatus.textContent = 'Event ' + (eIdx + 1) + ' of ' + eSlides.length + ' \u2014 ' + eCaptions[eIdx];
+    }
+    function eNearest(){
+      var n = 0, best = Infinity;
+      eSlides.forEach(function(sl, k){ var d = Math.abs(sl.offsetLeft - eTrack.scrollLeft); if (d < best){ best = d; n = k; } });
+      return n;
+    }
+    function eGo(i){
+      eRender(i);
+      eTrack.scrollTo({left: eSlides[eIdx].offsetLeft, behavior: reduceMotion ? 'auto' : 'smooth'});
+    }
+    if (ePrev) ePrev.addEventListener('click', function(){ eGo(eIdx - 1); });
+    if (eNext) eNext.addEventListener('click', function(){ eGo(eIdx + 1); });
+    eTrack.addEventListener('keydown', function(e){
+      if (e.key === 'ArrowLeft'){ e.preventDefault(); eGo(eIdx - 1); }
+      if (e.key === 'ArrowRight'){ e.preventDefault(); eGo(eIdx + 1); }
+    });
+    eTrack.addEventListener('scroll', function(){
+      if (eRaf) return;
+      eRaf = requestAnimationFrame(function(){ eRaf = 0; eRender(eNearest()); });
+    }, {passive:true});
+    window.addEventListener('resize', function(){ eRender(eIdx); eTrack.scrollTo({left: eSlides[eIdx].offsetLeft, behavior: 'auto'}); });
+    eRender(0);
+  }
 
   /* Taste carousel (Variant A on mobile — swipe + dots, no arrows;
      arrows + dots on desktop): same pattern as the events carousel
