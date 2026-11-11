@@ -840,28 +840,32 @@ body.menu-open .menu-toggle{display:none}
   <div class="wrap pad">
     <p class="sec-kicker" aria-hidden="true"><span>What&rsquo;s On</span></p>
     <h2 class="sec-h" id="events-h">What&rsquo;s on</h2>
-    <p class="events-intro">Live R&amp;B on Wednesdays. Dinner and rotating DJs on Thursdays.</p>
+    <p class="events-intro">Live R&amp;B on Wednesdays, DJs Thursday through Sunday.</p>
     <!-- No booking buttons on event cards — booking lives in the header and sticky bar -->
     <div class="events-layout">
       <figure class="events-figure">
         <picture><source type="image/avif" srcset="assets/events-live-400.avif 400w, assets/events-live-800.avif 800w, assets/events-live-1200.avif 1200w" sizes="(min-width:1024px) 50vw, 100vw"><img src="assets/events-live.webp" alt="A packed, red-lit night in the dining room, guests dancing beneath the glowing arches" loading="lazy" decoding="async" width="1200" height="800"></picture>
       </figure>
       <div class="event-cards">
-        <article class="event-card">
+        <article class="event-card" data-photo="matthew-grant">
           <h3>Live at LUCIA</h3>
-          <p>Live R&amp;B every Wednesday 8pm to 12am.</p>
+          <p>Featuring Matthew Grant. Live R&amp;B every Wednesday, 6:30&ndash;10pm.</p>
         </article>
-        <article class="event-card">
+        <article class="event-card" data-photo="sobremesa">
           <h3 lang="es">Sobremesa</h3>
-          <p>Dinner and music every Thursday 8pm to 12am.</p>
+          <p>Sounds by Am&iacute;stad, music by Vag&oacute; + Friends. Thursdays, 8pm&ndash;late.</p>
         </article>
-        <article class="event-card">
-          <h3>Live at LUCIA</h3>
-          <p>Live R&amp;B every Wednesday 8pm to 12am.</p>
+        <article class="event-card" data-photo="dj-decks">
+          <h3>Friday</h3>
+          <p>Sounds by IB Rease.</p>
         </article>
-        <article class="event-card">
-          <h3 lang="es">Sobremesa</h3>
-          <p>Dinner and music every Thursday 8pm to 12am.</p>
+        <article class="event-card" data-photo="dj-crowd">
+          <h3>Saturday</h3>
+          <p>Sounds by Vestia.</p>
+        </article>
+        <article class="event-card" data-photo="wine-toast">
+          <h3>Sunday</h3>
+          <p>Sounds by Pure.</p>
         </article>
       </div>
     </div>
@@ -889,7 +893,7 @@ body.menu-open .menu-toggle{display:none}
         <button class="car-arrow" id="events-prev" type="button" aria-label="Previous event">&larr;</button>
         <button class="car-arrow" id="events-next" type="button" aria-label="Next event">&rarr;</button>
       </div>
-      <p class="carousel-status" id="events-status" aria-live="polite">Event 1 of 4 &mdash; Live at LUCIA</p>
+      <p class="carousel-status" id="events-status" aria-live="polite">Event 1 of 5 &mdash; Live at LUCIA</p>
   </div>
 </section>
 
@@ -1363,19 +1367,41 @@ body.menu-open .menu-toggle{display:none}
   (function buildEventSlides(){
     var cards = document.querySelectorAll('.event-cards .event-card');
     var track = document.getElementById('events-track');
-    var figurePic = document.querySelector('.events-figure picture');
     var spacer = track ? track.querySelector('.events-spacer') : null;
-    if (!cards.length || !track || !figurePic) return;
+    if (!cards.length || !track) return;
+    var PHOTOS = {
+      'matthew-grant': {avif: 'assets/event-matthew-grant-400.avif 400w, assets/event-matthew-grant-700.avif 700w', webp: 'assets/event-matthew-grant.webp', alt: 'Matthew Grant singing at the keyboard under teal light', w: 700, h: 693},
+      'sobremesa': {avif: 'assets/event-sobremesa-400.avif 400w, assets/event-sobremesa-800.avif 800w', webp: 'assets/event-sobremesa.webp', alt: 'A crowd dancing beneath a glowing Sobremesa sign', w: 800, h: 1067},
+      'dj-decks': {avif: 'assets/event-dj-decks-400.avif 400w, assets/event-dj-decks-800.avif 800w', webp: 'assets/event-dj-decks.webp', alt: 'A DJ mixing at the decks in the warm dining room', w: 800, h: 1067},
+      'dj-crowd': {avif: 'assets/event-dj-crowd-400.avif 400w, assets/event-dj-crowd-800.avif 800w', webp: 'assets/event-dj-crowd.webp', alt: 'Guests dancing in the golden dining room as the DJ plays', w: 800, h: 1067},
+      'wine-toast': {avif: 'assets/event-wine-toast-400.avif 400w, assets/event-wine-toast-800.avif 800w', webp: 'assets/event-wine-toast.webp', alt: 'A hand raising a glass of rosé in the red-lit dining room', w: 800, h: 1067},
+      'events-live': {avif: 'assets/events-live-400.avif 400w, assets/events-live-800.avif 800w, assets/events-live-1200.avif 1200w', webp: 'assets/events-live.webp', alt: 'A packed, red-lit night in the dining room, guests dancing beneath the glowing arches', w: 1200, h: 800}
+    };
     Array.prototype.forEach.call(cards, function(card, i){
       var title = card.querySelector('h3'),
           desc = card.querySelector('h3 + p');
       if (!title || !desc) return;
+      var photo = PHOTOS[card.getAttribute('data-photo')] || PHOTOS['events-live'];
       var slide = document.createElement('div');
       slide.className = 'event-slide';
       slide.setAttribute('role', 'group');
       slide.setAttribute('aria-roledescription', 'slide');
       slide.setAttribute('aria-label', 'Slide ' + (i + 1) + ' of ' + cards.length + ': ' + title.textContent.trim());
-      slide.appendChild(figurePic.cloneNode(true));
+      var pic = document.createElement('picture');
+      var src = document.createElement('source');
+      src.setAttribute('type', 'image/avif');
+      src.setAttribute('srcset', photo.avif);
+      src.setAttribute('sizes', '(min-width:1024px) 33vw, 96vw');
+      pic.appendChild(src);
+      var img = document.createElement('img');
+      img.src = photo.webp;
+      img.alt = photo.alt;
+      img.setAttribute('loading', 'lazy');
+      img.setAttribute('decoding', 'async');
+      img.width = photo.w;
+      img.height = photo.h;
+      pic.appendChild(img);
+      slide.appendChild(pic);
       var body = document.createElement('div');
       body.className = 'event-slide-body';
       var h = document.createElement('h3');
