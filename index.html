@@ -334,6 +334,21 @@ body.menu-open .menu-toggle{display:none}
 .car-dots button[aria-current="true"]::before{background:var(--gold)}
 .carousel-status{margin-top:14px;color:var(--ivory-50);font-size:13px}
 
+/* Room strip (desktop only): a sideways-scrolling row of room photos.
+   Hidden on mobile — mobile keeps the carousel. The strip is shown and
+   the carousel hidden inside the min-width:1024px media query. */
+.room-strip{display:none}
+.room-strip-track{display:flex;gap:20px;overflow-x:auto;scrollbar-width:none;overscroll-behavior-x:contain}
+.room-strip-track::-webkit-scrollbar{display:none}
+.room-strip-item{flex:0 0 520px;margin:0}
+.room-strip-item picture{display:block}
+.room-strip-item img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:16px}
+.room-strip-item figcaption{display:flex;align-items:baseline;gap:10px;margin-top:12px}
+.room-strip-item figcaption .n{font-size:12px;font-weight:600;letter-spacing:.14em;color:var(--gold)}
+.room-strip-item figcaption .t{font-family:var(--font-display);font-weight:300;font-size:20px;color:var(--ivory)}
+.room-strip-controls{display:flex;justify-content:flex-end;margin-bottom:16px}
+.room-strip-toggle{background:transparent;border:1px solid rgba(245,239,227,.4);color:var(--ivory);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:10px 18px;border-radius:100px;cursor:pointer}
+.room-strip-toggle:hover{border-color:var(--gold);color:var(--gold)}
 
 /* ============ WHAT'S ON (recurring programming) ============ */
 .events-intro{max-width:var(--measure);color:var(--ivory-70);margin:20px 0 32px}
@@ -584,6 +599,9 @@ body.menu-open .menu-toggle{display:none}
   .room-note{margin-bottom:0}
   .carousel{width:auto;margin-left:0}
   .carousel .slide{border-radius:16px;aspect-ratio:16/9;max-height:640px}
+  /* Room strip replaces the carousel on desktop; mobile keeps the carousel. */
+  #room-carousel{display:none}
+  .room-strip{display:block}
   .slide figcaption{padding:0 0 0 40px;max-width:min(52%,560px)}
   #room-status{display:none}
 
@@ -837,6 +855,29 @@ body.menu-open .menu-toggle{display:none}
         <button class="car-arrow" id="room-next" type="button" aria-label="Next photo">&rarr;</button>
       </div>
       <p class="carousel-status" id="room-status" aria-live="polite">Photo 1 of 4 &mdash; The entrance</p>
+    </div>
+    <div class="room-strip" id="room-strip">
+      <div class="room-strip-controls">
+        <button class="room-strip-toggle" id="room-strip-toggle" type="button" aria-pressed="false" aria-label="Pause automatic scrolling">Pause</button>
+      </div>
+      <div class="room-strip-track" id="room-strip-track" tabindex="0" role="region" aria-label="The room — scrollable photos">
+        <figure class="room-strip-item">
+          <picture><source type="image/avif" srcset="assets/room-doors-400.avif 400w, assets/room-doors-800.avif 800w, assets/room-doors-1200.avif 1200w" sizes="520px"><img src="assets/room-doors.webp" alt="LUCIA's open wooden entrance door revealing the illuminated curved bar at night" loading="lazy" decoding="async" width="1200" height="900"></picture>
+          <figcaption><span class="n">01</span><span class="t">The entrance</span></figcaption>
+        </figure>
+        <figure class="room-strip-item">
+          <picture><source type="image/avif" srcset="assets/room-interior-400.avif 400w, assets/room-interior-800.avif 800w, assets/room-interior-1200.avif 1200w" sizes="520px"><img src="assets/room-interior.webp" alt="LUCIA's dining room with white ribbed arches, red banquettes, and set tables" loading="lazy" decoding="async" width="1200" height="900"></picture>
+          <figcaption><span class="n">02</span><span class="t">The dining room</span></figcaption>
+        </figure>
+        <figure class="room-strip-item">
+          <picture><source type="image/avif" srcset="assets/room-banquette-400.avif 400w, assets/room-banquette-800.avif 800w, assets/room-banquette-1200.avif 1200w" sizes="520px"><img src="assets/room-banquette.webp" alt="Wide view of LUCIA's dining room with glowing white arches and red banquettes around set tables" loading="lazy" decoding="async" width="1200" height="800"></picture>
+          <figcaption><span class="n">03</span><span class="t">The banquette</span></figcaption>
+        </figure>
+        <figure class="room-strip-item">
+          <picture><source type="image/avif" srcset="assets/room-bar-400.avif 400w, assets/room-bar-800.avif 800w, assets/room-bar-1200.avif 1200w" sizes="520px"><img src="assets/room-bar.webp" alt="LUCIA's bar with sculptural white ceiling forms, backlit bottles, and gold bar stools" loading="lazy" decoding="async" width="1200" height="800"></picture>
+          <figcaption><span class="n">04</span><span class="t">The bar</span></figcaption>
+        </figure>
+      </div>
     </div>
   </div>
 </section>
@@ -1359,6 +1400,79 @@ body.menu-open .menu-toggle{display:none}
     render(0);
   }
 
+  /* Room strip (desktop only): auto-scrolling photo strip that loops.
+     Advances one photo every 5 seconds and loops back to the first photo
+     so it always loops. Pauses on hover, on focus, via the Pause/Play
+     button, and honors prefers-reduced-motion. Mobile keeps the carousel
+     (the strip is hidden below 1024px), so this only runs on desktop. */
+  (function roomStrip(){
+    var strip = document.getElementById('room-strip'),
+        track = document.getElementById('room-strip-track'),
+        toggle = document.getElementById('room-strip-toggle');
+    if (!strip || !track) return;
+    var desktopMQ = window.matchMedia('(min-width:1024px)');
+    var items = Array.prototype.slice.call(track.querySelectorAll('.room-strip-item'));
+    if (!items.length) return;
+    /* Duplicate the set so the loop is seamless: when the scroll reaches
+       the duplicate set, jump back to the start (identical content). */
+    items.forEach(function(item){
+      var clone = item.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      track.appendChild(clone);
+    });
+    var all = Array.prototype.slice.call(track.querySelectorAll('.room-strip-item')),
+        count = items.length,
+        setW = 0, timer = 0, manualPaused = false, hoverPaused = false, focusPaused = false;
+    function measureSet(){ setW = all[count] ? all[count].offsetLeft : 0; }
+    function playing(){ return desktopMQ.matches && !reduceMotion && !manualPaused && !hoverPaused && !focusPaused; }
+    function currentIndex(){
+      var pos = setW ? (track.scrollLeft % setW) : track.scrollLeft, n = 0, best = Infinity;
+      for (var k = 0; k < count; k++){
+        var d = Math.abs(all[k].offsetLeft - pos);
+        if (d < best){ best = d; n = k; }
+      }
+      return n;
+    }
+    function tick(){
+      if (!playing()) return;
+      var next = (currentIndex() + 1) % count;
+      var target = all[next].offsetLeft;
+      if (next === 0) target = all[count].offsetLeft; /* wrap via the duplicate */
+      track.scrollTo({left: target, behavior: reduceMotion ? 'auto' : 'smooth'});
+    }
+    function start(){ stop(); if (playing()) timer = setInterval(tick, 5000); }
+    function stop(){ if (timer){ clearInterval(timer); timer = 0; } }
+    function refresh(){ stop(); if (playing()) start(); }
+    /* Seamless loop: once the scroll enters the duplicate set, jump back
+       one set (identical content, so the jump is invisible). */
+    track.addEventListener('scroll', function(){
+      if (!setW) measureSet();
+      if (setW && track.scrollLeft >= setW - 1){
+        track.scrollTo({left: track.scrollLeft - setW, behavior: 'auto'});
+      }
+    }, {passive: true});
+    if (toggle){
+      toggle.addEventListener('click', function(){
+        manualPaused = !manualPaused;
+        toggle.setAttribute('aria-pressed', manualPaused ? 'true' : 'false');
+        toggle.textContent = manualPaused ? 'Play' : 'Pause';
+        toggle.setAttribute('aria-label', manualPaused ? 'Resume automatic scrolling' : 'Pause automatic scrolling');
+        refresh();
+      });
+    }
+    strip.addEventListener('mouseenter', function(){ hoverPaused = true; refresh(); });
+    strip.addEventListener('mouseleave', function(){ hoverPaused = false; refresh(); });
+    track.addEventListener('focusin', function(){ focusPaused = true; refresh(); });
+    track.addEventListener('focusout', function(){ focusPaused = false; refresh(); });
+    track.addEventListener('keydown', function(e){
+      if (e.key === 'ArrowLeft'){ e.preventDefault(); stop(); var p = currentIndex(); track.scrollTo({left: all[Math.max(0, p - 1)].offsetLeft, behavior: 'smooth'}); start(); }
+      if (e.key === 'ArrowRight'){ e.preventDefault(); stop(); var n = currentIndex(); track.scrollTo({left: all[Math.min(count - 1, n + 1)].offsetLeft, behavior: 'smooth'}); start(); }
+    });
+    if (desktopMQ.addEventListener) desktopMQ.addEventListener('change', refresh);
+    window.addEventListener('resize', function(){ measureSet(); refresh(); });
+    measureSet();
+    refresh();
+  })();
 
   /* Events carousel (mobile only, Variant A): same pattern as the room
      carousel — dots + arrow keys + live region; swipe is the track's
