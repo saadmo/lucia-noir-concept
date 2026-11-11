@@ -644,7 +644,9 @@ body.menu-open .menu-toggle{display:none}
 .site-footer{border-top:1px solid var(--line-d);padding:44px 0 52px}
 .site-footer .foot-addr{font-family:var(--font-display);font-weight:400;font-size:22px;line-height:1.35}
 .site-footer .foot-hours{font-size:15px;line-height:1.6;color:var(--ivory-70);margin-top:10px}
-.site-footer .foot-actions{display:grid;grid-template-columns:1fr 1fr;gap:14px 28px;border-top:1px solid var(--line-d);padding-top:24px;margin-top:28px}
+.site-footer .foot-logo{display:block;margin-bottom:28px}
+.site-footer .foot-logo img{display:block;width:120px;height:auto}
+.site-footer .foot-actions{display:grid;grid-template-columns:1fr 1fr;gap:14px 28px}
 .site-footer .foot-actions a{color:var(--ivory);text-underline-offset:3px}
 .site-footer .foot-actions a:last-child{grid-column:1/-1}
 @media (max-width:1023px){
@@ -653,7 +655,9 @@ body.menu-open .menu-toggle{display:none}
 @media (min-width:1024px){
   .site-footer{padding:56px 0 64px}
   .site-footer .foot-addr{font-size:26px}
-  .site-footer .foot-actions{display:flex;flex-direction:row;flex-wrap:wrap;align-items:center;gap:16px 28px;padding-top:28px;margin-top:36px}
+  .site-footer .foot-logo{margin-bottom:36px}
+  .site-footer .foot-logo img{width:156px}
+  .site-footer .foot-actions{display:flex;flex-direction:row;flex-wrap:wrap;align-items:center;gap:16px 28px}
   .site-footer .foot-actions .as{display:none}
   .site-footer .foot-actions a + a{border-left:1px solid var(--line-d);padding-left:28px}
 }
@@ -938,8 +942,7 @@ body.menu-open .menu-toggle{display:none}
 </main>
 <footer class="site-footer noir">
   <div class="wrap">
-    <p class="foot-addr">351 N Fairfax Ave, Los Angeles, CA 90036</p>
-    <p class="foot-hours">Wed&ndash;Sun &middot; 6 PM&ndash;12 AM &middot; 21+ after 8 PM</p>
+    <picture class="foot-logo"><source type="image/avif" srcset="assets/lucia-logo-gold-400.avif 400w, assets/lucia-logo-gold-720.avif 720w" sizes="156px"><img src="assets/lucia-logo-gold.webp" alt="LUCIA" loading="lazy" decoding="async" width="720" height="208"></picture>
     <nav class="foot-actions" aria-label="Contact and information">
       <a href="tel:+12138000048"><span class="al">Call +1 213 800 0048</span><span class="as">Call us</span></a>
       <a href="mailto:info@luciala.com"><span class="al">Email info@luciala.com</span><span class="as">Email us</span></a>
