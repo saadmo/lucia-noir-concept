@@ -651,6 +651,20 @@ body.menu-open .menu-toggle{display:none}
 #visit .sec-h{margin-bottom:32px}
 
 /* ============ PAGE FOOTER ============ */
+/* In the Press — static recognition row, right above the footer (after Visit). */
+.press-recog{padding:88px 20px;text-align:center}
+.press-recog h2{font-family:var(--font-display);font-weight:300;font-size:44px;line-height:1.1;color:var(--ivory)}
+.press-recog .row{display:flex;align-items:center;justify-content:center;gap:clamp(20px,2.6vw,44px);margin-top:56px;flex-wrap:wrap}
+.press-recog .mark{color:var(--ivory);white-space:nowrap;line-height:1}
+.press-recog .mark.yelp{font-family:var(--font-body);font-weight:700;font-size:27px;letter-spacing:-.02em}
+.press-recog .mark.latimes{font-family:var(--font-display);font-weight:600;font-size:25px;letter-spacing:.01em}
+.press-recog .mark.robb{font-family:var(--font-display);font-weight:300;font-size:22px;letter-spacing:.08em;text-transform:uppercase}
+.press-recog .mark.cnt{font-family:var(--font-display);font-weight:300;font-size:22px}
+.press-recog .mark.eater{font-family:var(--font-body);font-weight:700;font-size:23px;letter-spacing:.06em;text-transform:uppercase}
+.press-recog .mark.gold{font-family:var(--font-display);font-weight:300;font-size:20px;text-align:center}
+.press-recog .mark.gold small{display:block;font-family:var(--font-body);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ivory-70);margin-top:6px}
+.press-recog .mark.rbda{font-family:var(--font-body);font-weight:700;font-size:20px;letter-spacing:.04em;text-transform:uppercase}
+@media (max-width:1023px){.press-recog{padding:64px 20px}.press-recog h2{font-size:32px}.press-recog .row{gap:28px 36px;margin-top:40px}.press-recog .mark.yelp{font-size:26px}.press-recog .mark.latimes{font-size:24px}.press-recog .mark.robb{font-size:20px}.press-recog .mark.cnt{font-size:20px}.press-recog .mark.eater{font-size:22px}.press-recog .mark.gold{font-size:19px}.press-recog .mark.rbda{font-size:19px}}
 .site-footer{border-top:1px solid var(--line-d);padding:44px 0 52px}
 .site-footer .foot-addr{font-family:var(--font-display);font-weight:400;font-size:22px;line-height:1.35}
 .site-footer .foot-hours{font-size:15px;line-height:1.6;color:var(--ivory-70);margin-top:10px}
@@ -1009,6 +1023,19 @@ body.menu-open .menu-toggle{display:none}
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="noir press-recog" aria-labelledby="press-recog-h" data-reveal>
+  <h2 id="press-recog-h">In the Press</h2>
+  <div class="row">
+    <span class="mark yelp">yelp</span>
+    <span class="mark latimes">Los Angeles Times</span>
+    <span class="mark robb">Robb Report</span>
+    <span class="mark cnt">Cond&eacute; Nast Traveler</span>
+    <span class="mark eater">Eater</span>
+    <span class="mark gold">Gold Key<small>Winner &middot; 2025</small></span>
+    <span class="mark rbda">RBDA</span>
   </div>
 </section>
 
