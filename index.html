@@ -229,11 +229,13 @@ body.menu-open .menu-toggle{display:none}
 /* ============ ABOUT ============ */
 .about-title{font-family:var(--font-display);font-weight:300;font-size:var(--t-display);line-height:.95;letter-spacing:-.015em;text-wrap:balance;margin-bottom:0}
 .about-lead{font-family:var(--font-display);font-size:clamp(21px,5.6vw,38px);line-height:1.35;font-weight:300;max-width:30ch;text-wrap:balance}
-.about-body{margin-top:20px;max-width:var(--measure);color:var(--ivory-70)}
+.about-body{margin-top:0;max-width:var(--measure);color:var(--ivory-70)}
 .about-body p+p{margin-top:16px}
-.about-press{display:flex;align-items:center;gap:16px;margin-top:36px}
+.about-press{display:flex;align-items:center;gap:16px;margin-top:0;margin-bottom:24px}
 .about-press img{width:64px;height:auto;flex:none}
+.about-press picture{flex:none}
 .about-press p{font-size:15px;line-height:1.6;color:var(--ivory-70);max-width:44ch}
+.about-press p strong{color:var(--ivory);font-weight:600}
 
 /* ============ TASTE (editorial food section, noir) ============ */
 .dish-figure{position:relative;overflow:hidden;border-radius:8px;margin:0 0 30px}
@@ -331,6 +333,7 @@ body.menu-open .menu-toggle{display:none}
 .car-dots button::before{content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:8px;height:8px;border-radius:50%;background:var(--ivory-30)}
 .car-dots button[aria-current="true"]::before{background:var(--gold)}
 .carousel-status{margin-top:14px;color:var(--ivory-50);font-size:13px}
+
 
 /* ============ WHAT'S ON (recurring programming) ============ */
 .events-intro{max-width:var(--measure);color:var(--ivory-70);margin:20px 0 32px}
@@ -553,6 +556,9 @@ body.menu-open .menu-toggle{display:none}
   /* About: editorial two-column */
   .about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(48px,7vw,120px);align-items:start}
   .about-title{margin-bottom:0}
+  .about-press{gap:24px;margin-bottom:32px}
+  .about-press img{width:170px}
+  .about-press p{font-size:17px;line-height:1.55;max-width:36ch}
 
   /* Taste: carousel on desktop too (replaces the editorial figure + list) */
   .taste-grid{display:block}
@@ -737,12 +743,12 @@ body.menu-open .menu-toggle{display:none}
     <div class="about-grid">
       <h2 class="about-title" id="about-h">A taste of LUCIA.</h2>
       <div>
+        <div class="about-press">
+          <picture><source type="image/avif" srcset="assets/yelp-badge-240.avif 240w, assets/yelp-badge-480.avif 480w" sizes="170px"><img src="assets/yelp-badge.webp" alt="Yelp Best New Restaurants 2026 badge" loading="lazy" decoding="async" width="480" height="480"></picture>
+          <p>Yelp named LUCIA <strong>No. 19</strong> on its Best New Restaurants of 2026 list.</p>
+        </div>
         <div class="about-body">
           <p>LUCIA reimagines Afro-Caribbean flavors through contemporary techniques, unexpected pairings and influences beyond the region. On Fairfax Avenue in Los Angeles, the experience brings inventive cooking, expressive cocktails and thoughtful hospitality together in a room that moves from dinner into music and late-night conversation.</p>
-        </div>
-        <div class="about-press">
-          <picture><source type="image/avif" srcset="assets/yelp-badge-240.avif 240w, assets/yelp-badge-480.avif 480w" sizes="64px"><img src="assets/yelp-badge.webp" alt="Yelp Best New Restaurants 2026 badge" loading="lazy" decoding="async" width="480" height="480"></picture>
-          <p>Yelp named LUCIA No. 19 on its Best New Restaurants of 2026 list.</p>
         </div>
       </div>
     </div>
@@ -1352,6 +1358,7 @@ body.menu-open .menu-toggle{display:none}
     window.addEventListener('resize', function(){ render(idx); track.scrollTo({left: slides[idx].offsetLeft, behavior: 'auto'}); });
     render(0);
   }
+
 
   /* Events carousel (mobile only, Variant A): same pattern as the room
      carousel — dots + arrow keys + live region; swipe is the track's
