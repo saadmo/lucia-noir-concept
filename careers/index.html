@@ -76,7 +76,7 @@ a{color:inherit}
 .noir{background:var(--noir);color:var(--ivory)}
 
 /* Buttons: color/border feedback only — no lifts, no shadows. 48px+ targets. */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:16px 30px;border-radius:100px;min-height:52px;min-width:48px;border:1px solid transparent;cursor:pointer;transition:background var(--dur-s),border-color var(--dur-s),color var(--dur-s)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;font-family:var(--font-body);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:16px 30px;border-radius:100px;min-height:52px;min-width:48px;border:1px solid transparent;cursor:pointer;transition:background var(--dur-s),border-color var(--dur-s),color var(--dur-s)}
 .btn-gold{background:var(--gold);color:var(--noir)}
 .btn-gold:hover{background:#D8B96F}
 .btn-red{background:var(--red);color:#fff}
@@ -110,6 +110,7 @@ a{color:inherit}
 .mobile-menu li a{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:1px solid var(--line-d);text-decoration:none;min-height:56px}
 .mobile-menu .name{font-family:var(--font-display);font-size:clamp(24px,7.5vw,36px);font-weight:300;line-height:1.1}
 .mobile-menu .arr{color:var(--ivory-50)}
+.mobile-menu a[aria-current="page"] .name{color:var(--gold)}
 .mobile-menu .btn{margin-top:auto;width:100%;min-height:60px;font-size:13px}
 .mobile-menu .btn + .btn{margin-top:12px}
 .textlink{display:inline-flex;align-items:center;gap:10px;margin-top:30px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px;min-height:44px}
@@ -135,7 +136,7 @@ main .ivory + .ivory{border-top:1px solid var(--line-l)}
 .form-sec h2{font-family:var(--font-display);font-weight:400;font-size:clamp(28px,5vw,44px);line-height:1.1;margin-bottom:16px}
 /* Image placeholder: marks where an approved photo will go */
 .img-ph{margin:0 0 32px}
-.img-ph-box{aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;background:rgba(13,11,8,.05);border:1px dashed rgba(120,95,43,.6);border-radius:16px}
+.img-ph-box{aspect-ratio:16/9;max-width:720px;margin-inline:auto;display:flex;align-items:center;justify-content:center;background:rgba(13,11,8,.05);border:1px dashed rgba(120,95,43,.6);border-radius:16px}
 .img-ph-box span{font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:rgba(13,11,8,.5)}
 .form-note{max-width:var(--measure);font-size:15px;line-height:1.6;color:rgba(13,11,8,.72);margin-bottom:28px}
 .form-note a{color:var(--noir);text-underline-offset:3px}
@@ -151,7 +152,7 @@ main .ivory + .ivory{border-top:1px solid var(--line-l)}
 .field input[type="file"]:focus{border-color:var(--bronze);outline:3px solid var(--bronze);outline-offset:2px}
 .field-hint{font-size:13px;line-height:1.5;color:rgba(13,11,8,.6)}
 .check-row{margin-top:2px}
-.check-row label{display:flex;align-items:flex-start;gap:10px;font-size:15px;line-height:1.6;cursor:pointer}
+.check-row label{display:flex;align-items:flex-start;gap:10px;font-size:15px;line-height:1.6;min-height:44px;padding:10px 0;cursor:pointer}
 .check-row input{width:20px;height:20px;margin-top:2px;accent-color:var(--bronze);flex:none}
 
 /* ============ STICKY MOBILE BAR (Reserve only) ============
@@ -231,7 +232,7 @@ main .ivory + .ivory{border-top:1px solid var(--line-l)}
 .site-footer .foot-addr{font-family:var(--font-display);font-weight:400;font-size:22px;line-height:1.35}
 .site-footer .foot-hours{font-size:15px;line-height:1.6;color:var(--ivory-70);margin-top:10px}
 .site-footer .foot-contact{font-size:15px;line-height:1.6;margin-top:10px}
-.site-footer .foot-contact a{color:var(--ivory);text-underline-offset:3px}
+.site-footer .foot-contact a{display:inline-block;padding:13px 0;color:var(--ivory);text-underline-offset:3px}
 @media (min-width:1024px){
   .site-footer{padding:56px 0 64px}
   .site-footer .foot-addr{font-size:26px}
@@ -262,7 +263,6 @@ main .ivory + .ivory{border-top:1px solid var(--line-l)}
     </div>
   </nav>
   <div class="head-ctas">
-    <!-- PLACEHOLDER: swap href for LUCIA's official Resy page when confirmed -->
     <a class="btn btn-red btn-sm" href="https://resy.com/cities/los-angeles-ca/venues/lucia-ca" target="_blank" rel="noopener noreferrer">Reserve a table<span class="sr-only"> (opens in new tab)</span></a>
   </div>
   <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation menu">
@@ -281,7 +281,6 @@ main .ivory + .ivory{border-top:1px solid var(--line-l)}
     <li><a href="../press/"><span class="name">Press</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
     <li><a href="./" aria-current="page"><span class="name">Careers</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
   </ol>
-  <!-- PLACEHOLDER: swap href for LUCIA's official Resy page when confirmed -->
   <a class="btn btn-red" href="https://resy.com/cities/los-angeles-ca/venues/lucia-ca" target="_blank" rel="noopener noreferrer">Reserve a table<span class="sr-only"> (opens in new tab)</span></a>
   <a class="textlink" href="../#private-events">Plan a private event</a>
 </div>
@@ -364,13 +363,12 @@ main .ivory + .ivory{border-top:1px solid var(--line-l)}
   <div class="wrap">
     <p class="foot-addr">351 N Fairfax Ave, Los Angeles, CA 90036</p>
     <p class="foot-hours">Wed&ndash;Sun &middot; 6 PM&ndash;12 AM &middot; 21+ after 8 PM</p>
-    <p class="foot-contact"><a href="tel:+12138000048">+1 213 800 0048</a> &middot; <a href="mailto:info@luciala.com">info@luciala.com</a></p>
+    <p class="foot-contact"><a href="tel:+12138000048">+1 213 800 0048</a> &middot; <a href="mailto:info@luciala.com">info@luciala.com</a> &middot; <a href="https://www.instagram.com/lucialosangeles/" target="_blank" rel="noopener noreferrer">Instagram<span class="sr-only"> (opens in new tab)</span></a></p>
   </div>
 </footer>
 
 <!-- Persistent mobile conversion bar: Reserve only, shown once the intro leaves the viewport. -->
 <div class="stickybar" id="stickybar" role="region" aria-label="Quick actions" inert>
-  <!-- PLACEHOLDER: swap href for LUCIA's official Resy page when confirmed -->
   <a class="btn btn-red" href="https://resy.com/cities/los-angeles-ca/venues/lucia-ca" target="_blank" rel="noopener noreferrer">Reserve a table<span class="sr-only"> (opens in new tab)</span></a>
 </div>
 
