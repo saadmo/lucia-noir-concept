@@ -122,7 +122,7 @@ p{text-wrap:pretty}
 .ivory .sec-kicker::after{background:rgba(13,11,8,.2)}
 
 /* Buttons: color/border feedback only — no lifts, no shadows. 48px+ targets. */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:16px 30px;border-radius:100px;min-height:52px;min-width:48px;border:1px solid transparent;cursor:pointer;transition:background var(--dur-s),border-color var(--dur-s),color var(--dur-s),transform var(--dur-s)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;font-family:var(--font-body);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:16px 30px;border-radius:100px;min-height:52px;min-width:48px;border:1px solid transparent;cursor:pointer;transition:background var(--dur-s),border-color var(--dur-s),color var(--dur-s),transform var(--dur-s)}
 .btn-gold{background:var(--gold);color:var(--noir)}
 .btn-gold:hover{background:#D8B96F}
 .btn-red{background:var(--red);color:#fff}
@@ -159,6 +159,7 @@ button.textlink{background:transparent;border:0;padding:0;cursor:pointer;color:i
 .mobile-menu li a{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:1px solid var(--line-d);text-decoration:none;min-height:56px}
 .mobile-menu .name{font-family:var(--font-display);font-size:clamp(22px,6.5vw,32px);font-weight:300;line-height:1.1}
 .mobile-menu .arr{color:var(--ivory-50)}
+.mobile-menu a[aria-current="page"] .name{color:var(--gold)}
 .mobile-menu .btn{margin-top:auto;width:100%;min-height:60px;font-size:13px}
 .mobile-menu .btn + .btn{margin-top:12px}
 .mobile-menu .textlink{align-self:center;margin-top:12px}
@@ -429,7 +430,7 @@ body.menu-open .menu-toggle{display:none}
 .visit-toggle{display:flex;justify-content:space-between;align-items:center;gap:16px;width:100%;background:none;border:0;padding:0;margin:0;font:inherit;color:inherit;text-align:left;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .visit-toggle-text{display:block;flex:1;min-width:0}
 .visit-toggle .visit-big{display:block}
-.visit-chev{flex:none;width:11px;height:11px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);transition:transform .25s ease}
+.visit-chev{flex:none;margin-right:3px;width:11px;height:11px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);transition:transform .25s ease}
 .visit-col.open .visit-chev{transform:rotate(225deg)}
 @media (max-width:1023px){
   .visit-col .visit-body{display:none}
@@ -563,6 +564,7 @@ body.menu-open .menu-toggle{display:none}
   .nav-more.open .nav-more-menu{opacity:1;visibility:visible;transform:none;transition:opacity var(--dur-s) var(--ease),transform var(--dur-s) var(--ease),visibility 0s}
   .nav-more-menu a{display:flex;align-items:center;min-height:44px;padding:10px 12px;border-radius:8px;text-decoration:none;font-size:14px;letter-spacing:.02em;text-transform:none;font-weight:500;color:var(--ivory);opacity:.85}
   .nav-more-menu a:hover,.nav-more-menu a:focus-visible{opacity:1;background:rgba(245,239,227,.08)}
+  .nav-more-menu a[aria-current="page"]{opacity:1;background:rgba(245,239,227,.08)}
   .nav-more-menu a::after{display:none}
   .menu-toggle{display:none}
 
@@ -678,7 +680,7 @@ body.menu-open .menu-toggle{display:none}
 .site-footer .foot-logo{display:block;margin-bottom:28px}
 .site-footer .foot-logo img{display:block;width:120px;height:auto}
 .site-footer .foot-actions{display:grid;grid-template-columns:1fr 1fr;gap:14px 28px}
-.site-footer .foot-actions a{color:var(--ivory);text-underline-offset:3px}
+.site-footer .foot-actions a{display:inline-block;padding:8px 0;min-height:44px;color:var(--ivory);text-underline-offset:3px}
 .site-footer .foot-actions a:last-child{grid-column:1/-1}
 @media (max-width:1023px){
   .site-footer .foot-actions .al{display:none}
@@ -718,7 +720,6 @@ body.menu-open .menu-toggle{display:none}
     </div>
   </nav>
   <div class="head-ctas">
-    <!-- PLACEHOLDER: swap href for LUCIA's official Resy page when confirmed -->
     <a class="btn btn-red btn-sm" href="https://resy.com/cities/los-angeles-ca/venues/lucia-ca" target="_blank" rel="noopener noreferrer">Reserve a table<span class="sr-only"> (opens in new tab)</span></a>
   </div>
   <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation menu">
@@ -737,7 +738,6 @@ body.menu-open .menu-toggle{display:none}
     <li><a href="press/"><span class="name">Press</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
     <li><a href="careers/"><span class="name">Careers</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
   </ol>
-  <!-- PLACEHOLDER: swap href for LUCIA's official Resy page when confirmed -->
   <a class="btn btn-red" href="https://resy.com/cities/los-angeles-ca/venues/lucia-ca" target="_blank" rel="noopener noreferrer">Reserve a table<span class="sr-only"> (opens in new tab)</span></a>
   <!-- Tripleseat inquiry form opens in a modal (see #private-modal) -->
   <button type="button" class="textlink" data-private-modal-open>Plan a private event</button>
@@ -767,7 +767,6 @@ body.menu-open .menu-toggle{display:none}
   <div class="hero-scrim" aria-hidden="true"></div>
   <div class="hero-inner">
     <div class="hero-ctas">
-      <!-- PLACEHOLDER: swap href for LUCIA's official Resy page when confirmed -->
       <a class="btn btn-red" href="https://resy.com/cities/los-angeles-ca/venues/lucia-ca" target="_blank" rel="noopener noreferrer">Reserve a table<span class="sr-only"> (opens in new tab)</span></a>
       <a class="textlink" href="menus/">View menus</a>
     </div>
@@ -1053,6 +1052,7 @@ body.menu-open .menu-toggle{display:none}
     <nav class="foot-actions" aria-label="Contact and information">
       <a href="tel:+12138000048"><span class="al">Call +1 213 800 0048</span><span class="as">Call us</span></a>
       <a href="mailto:info@luciala.com"><span class="al">Email info@luciala.com</span><span class="as">Email us</span></a>
+      <a href="https://www.instagram.com/lucialosangeles/" target="_blank" rel="noopener noreferrer">Instagram<span class="sr-only"> (opens in new tab)</span></a>
       <a href="https://order.toasttab.com/egiftcards/lucia-349-north-fairfax-avenue" target="_blank" rel="noopener noreferrer">Gift cards<span class="sr-only"> (opens in new tab)</span></a>
       <a href="info-policies/#accessibility-help">Accessibility help</a>
       <a href="info-policies/">Info &amp; policies</a>
@@ -1064,7 +1064,6 @@ body.menu-open .menu-toggle{display:none}
 
 <!-- Persistent mobile conversion bar: "Reserve a table" (red, primary) only, shown once the hero leaves the viewport. -->
 <div class="stickybar" id="stickybar" role="region" aria-label="Quick actions" inert>
-  <!-- PLACEHOLDER: swap href for LUCIA's official Resy page when confirmed -->
   <a class="btn btn-red" href="https://resy.com/cities/los-angeles-ca/venues/lucia-ca" target="_blank" rel="noopener noreferrer">Reserve a table<span class="sr-only"> (opens in new tab)</span></a>
 </div>
 
@@ -1520,9 +1519,8 @@ body.menu-open .menu-toggle{display:none}
      has no edge buttons; the JS null-guards handle their absence.
      The slides are built here from the desktop event cards — the single
      source of truth — so one edit to a card updates both presentations.
-     Only the title, time and description are cloned from the cards; the
-     photo is the same shared events image for every slide (the only
-     events photo on record). */
+     Only the title, time and description are cloned from the cards;
+     each slide uses its card's own photo from the PHOTOS map below. */
 
   (function buildEventSlides(){
     var cards = document.querySelectorAll('.event-cards .event-card');
@@ -1572,11 +1570,6 @@ body.menu-open .menu-toggle{display:none}
       var d = document.createElement('p');
       d.innerHTML = desc.innerHTML;
       body.appendChild(d);
-      var a = document.createElement('a');
-      a.className = 'textlink';
-      a.href = 'https://resy.com/cities/los-angeles-ca/venues/lucia-ca';
-      a.textContent = 'Reserve now';
-      body.appendChild(a);
       slide.appendChild(body);
       if (spacer) track.insertBefore(slide, spacer);
       else track.appendChild(slide);
