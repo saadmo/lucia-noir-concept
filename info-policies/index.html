@@ -115,6 +115,20 @@ a{color:inherit}
 .mobile-menu .btn + .btn{margin-top:12px}
 .textlink{display:inline-flex;align-items:center;gap:10px;margin-top:30px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px;min-height:44px}
 .mobile-menu .textlink{align-self:center;margin-top:12px}
+.menu-visit{padding:18px 0 16px}
+.menu-visit-label{margin:0 0 12px;font-family:var(--font-body);font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.menu-visit-row{display:flex;align-items:flex-start;gap:12px;padding:12px 0;font-family:var(--font-body);font-size:14px;line-height:1.5;color:var(--ivory);text-decoration:none}
+.menu-visit-row.dim{color:var(--ivory-70)}
+.menu-visit-row svg{flex:none;width:16px;height:16px;margin-top:2px;stroke:var(--gold);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+@media (max-height:860px){
+.mobile-menu{padding:80px 20px 28px}
+.mobile-menu ol{margin-bottom:12px}
+.mobile-menu li a{padding:11px 0;min-height:50px}
+.menu-visit{padding:16px 0 14px}
+.menu-visit-label{margin-bottom:8px}
+.menu-visit-row{font-size:13px;padding:13px 0}
+.menu-visit-row br{display:none}
+}
 body.menu-open{overflow:hidden}
 body.menu-open .site-head{background:transparent;border-bottom-color:transparent;-webkit-backdrop-filter:none;backdrop-filter:none;z-index:1600;pointer-events:none}
 body.menu-open .menu-toggle{display:none}
@@ -297,6 +311,12 @@ body.menu-open .menu-toggle{display:none}
     <li><a href="../press/"><span class="name">Press</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
     <li><a href="../careers/"><span class="name">Careers</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
   </ol>
+  <div class="menu-visit">
+    <p class="menu-visit-label">Visit</p>
+    <a class="menu-visit-row" href="https://www.google.com/maps/search/?api=1&amp;query=351+N+Fairfax+Ave+Los+Angeles+CA+90036" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-5.6-7-11a7 7 0 1 1 14 0c0 5.4-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span>351 N Fairfax Ave <br>Los Angeles, CA 90036</span></a>
+    <p class="menu-visit-row dim"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg><span>21+ after 8 PM</span></p>
+    <a class="menu-visit-row dim" href="../info-policies/#dress-code"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 4 4 7l2 3 2-1v11h8V9l2 1 2-3-4.5-3a3 3 0 0 1-7 0z"/></svg><span>Upscale, elegant attire</span></a>
+  </div>
   <a class="btn btn-red" href="https://resy.com/cities/los-angeles-ca/venues/lucia-ca" target="_blank" rel="noopener noreferrer">Reserve a table<span class="sr-only"> (opens in new tab)</span></a>
   <a class="textlink" href="../#private-events">Plan a private event</a>
 </div>
